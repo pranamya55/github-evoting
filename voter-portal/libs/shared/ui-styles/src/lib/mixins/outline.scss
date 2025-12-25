@@ -1,0 +1,28 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+$outline-width: map.get(app.$border-widths, 2);
+
+@mixin outer() {
+  box-shadow: 0 0 0 $outline-width var(--ev-body-bg);
+  outline: $outline-width solid var(--ev-body-color);
+  outline-offset: $outline-width;
+
+  @media (forced-colors: active) {
+    outline-color: ButtonText;
+  }
+}
+
+@mixin inner() {
+  box-shadow: inset 0 0 0 (2 * $outline-width - app.$border-width) var(--ev-body-bg);
+  outline: $outline-width solid var(--ev-body-color);
+  outline-offset: -1 * $outline-width;
+
+  @media (forced-colors: active) {
+    outline-color: ButtonText;
+    outline-offset: -2 * $outline-width;
+  }
+}

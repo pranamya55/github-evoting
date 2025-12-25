@@ -1,0 +1,60 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+@use "../functions/forced-colors";
+
+.accordion-button {
+  &:not(.collapsed) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    @include outline.inner;
+  }
+
+  @media (forced-colors: active) {
+    --ev-accordion-active-color: Highlight;
+    --ev-accordion-transition: none;
+    --ev-accordion-btn-icon: #{forced-colors.button-text(app.$accordion-button-icon, app.$accordion-icon-color)};
+    --ev-accordion-btn-active-icon: #{forced-colors.highlight(app.$accordion-button-active-icon, app.$accordion-icon-active-color)};
+  }
+
+  &[data-show][data-hide] {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: attr(data-hide);
+      order: 1;
+      margin-left: auto;
+      padding-inline: app.$spacer;
+    }
+
+    &.collapsed::before {
+      content: attr(data-show);
+    }
+
+    &::after {
+      order: 2;
+      margin: 0;
+    }
+
+    > * {
+      display: flex;
+      flex-direction: column;
+      color: app.$body-color;
+    }
+  }
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+lp-root .accordion-button {
+  &.collapsed {
+    background-color: app.$accordion-button-active-bg;
+  }
+}

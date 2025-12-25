@@ -1,0 +1,27 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="section-title">
+	<h3 class="card-title gap-3 h4">
+		<vp-icon class="voting-card-symbol" name="voting-card-star"></vp-icon>
+		<span>{{ 'confirm.main.finalizationcode' | translate }}</span>
+	</h3>
+
+	<button
+			(click)="showFAQ(FAQSection.WhatIsVoteCastReturnCode)"
+			class="btn btn-link btn-faq"
+			id="show-faq-vcrt-link"
+			type="button"
+	>
+		<vp-icon name="question-circle"></vp-icon>
+		<span>{{ 'confirm.main.finalizationcode.help' | translate }}</span>
+	</button>
+</div>
+
+<vp-answer>
+	@if (voteCastReturnCode$ | async; as voteCastReturnCode) {
+		<p class="word-break fs-5 fw-bold m-0" id="vote-cast-return-code">
+			{{ voteCastReturnCode }}
+		</p>
+	}
+</vp-answer>

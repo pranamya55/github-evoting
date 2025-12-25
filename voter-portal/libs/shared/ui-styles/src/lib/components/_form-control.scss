@@ -1,0 +1,38 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+
+.form-control {
+  &-monospace {
+    font-family: app.$font-family-monospace;
+    letter-spacing: map.get(app.$spacers, 2);
+
+    @include app.media-breakpoint-down(md) {
+      letter-spacing: map.get(app.$spacers, 1);
+    }
+  }
+
+  &:focus-visible {
+    @include outline.outer
+  }
+
+  @media (forced-colors: active) {
+    &,
+    &:focus-visible {
+      border-color: ButtonText;
+    }
+
+    &:hover,
+    &:focus:not(:focus-visible) {
+      border-color: Highlight;
+    }
+  }
+}
+
+.was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid {
+  background-position-y: center;
+}

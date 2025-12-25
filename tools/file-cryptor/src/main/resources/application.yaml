@@ -1,0 +1,28 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+
+# The mode of the tool. Default is empty. Must be set, and it can be either `ENCRYPT` or `DECRYPT`
+mode: ""
+
+# The password for the encryption or decryption. Default is empty. Must respect the following policy:
+# - the size of the password is equal to or greater than 24.
+# - the size of the password is equal to or smaller than 64.
+# - the password contains at least one upper case letter.
+# - the password contains at least one lower case letter.
+# - the password contains at least one special character.
+# - the password contains at least one digit.
+# Either the password or the password file path must be set.
+password: ""
+
+# The password file path to read the password from. The contained password must respect the password policy (see above).
+# Default is empty. Either the password or the password file path must be set.
+password-file-path: ""
+
+# The source file path to encrypt or decrypt. Default is empty. Must be set.
+source:
+  file-path: ""
+
+# The target file path to store the encrypted or decrypted file. Default is empty. Must be set.
+target:
+  file-path: ""

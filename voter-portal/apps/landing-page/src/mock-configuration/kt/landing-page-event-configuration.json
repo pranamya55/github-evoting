@@ -1,0 +1,138 @@
+[
+	{
+		"id": "EVENT-1",
+		"phases": [
+			{
+				"phaseLevel": "UPCOMING",
+				"contentElements": [
+					{
+						"sharedReference": {
+							"id": "event-upcoming"
+						}
+					},
+					{
+						"paragraph": {
+							"text": {
+								"DE": "[1] Hinweis: Beim E-Voting erfolgt die Identifikation des Stimmberechtigten u.a. anhand seines Geburtsjahrs. Bei der Teilnahme am Intrusionstest ist das Geburtsjahr 1980 zu verwenden.",
+								"FR": "[1] Remarque: Dans le cas du vote électronique, l’identification de l’électeur se fait notamment sur la base de son année de naissance. Pour participer au test d’intrusion, il convient d’utiliser l’année de naissance 1980.",
+								"IT": "[1] Nota: Nel caso del voto elettronico, l'identificazione dell'elettore avviene tra l'altro in base al suo anno di nascita. Per partecipare al test di intrusione, si deve utilizzare l'anno di nascita 1980.",
+								"RM": "[1] Notas: En il cas dal vot electronic, l'identificaziun da l'electur vegn fatga tranter auter sin basa da l'onn da naschientscha. Per participar al test d'intrusiun, duess ins duvrar l'onn da naschientscha 1980.",
+								"EN": "[1] Note: In e-voting, voters are identified based on their year of birth. The year of birth 1980 must be used for participation in the intrusion test."
+							}
+						}
+					},
+					{
+						"buttonGrid": {
+							"secondary": {
+								"text": {
+									"DE": "Über Abstimmung informieren",
+									"FR": "Über Abstimmung informieren",
+									"IT": "Über Abstimmung informieren",
+									"RM": "Über Abstimmung informieren",
+									"EN": "Learn about the vote"
+								},
+								"link": "",
+								"icon": "box-arrow-up-right"
+							}
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "OPEN",
+				"contentElements": [
+					{
+						"heading": {
+							"level": 4,
+							"text": {
+								"DE": "Urnengang vom **26 November 2025**",
+								"FR": "Urnengang vom **26 November 2025**",
+								"IT": "Urnengang vom **26 November 2025**",
+								"RM": "Urnengang vom **26 November 2025**",
+								"EN": "Urnengang vom **26 November 2025**"
+							}
+						}
+					},
+					{
+						"eventState": {
+							"phaseLevel": "OPEN",
+							"text": {
+								"DE": "**Geöffnet** bis Sonntag 24. August 2025 20:00",
+								"FR": "**Ouvert** jusqu’au dimanche 24 août 2025 à 20h00 [1]",
+								"IT": "**Aperto** fino a domenica 24 agosto 2025, ore 20:00",
+								"RM": "**Apert** fin a dumengia 24 da fanadur 2025, 20:00 uras",
+								"EN": "**Open** until Sunday, 24 August 2025, 8 p.m"
+							}
+						}
+					},
+					{
+						"buttonGrid": {
+							"primary": {
+								"text": {
+									"DE": "Abstimmen",
+									"FR": "Abstimmen",
+									"IT": "Abstimmen",
+									"RM": "Abstimmen",
+									"EN": "Vote"
+								},
+								"link": "",
+								"icon": "arrow-right"
+							},
+							"secondary": {
+								"text": {
+									"DE": "Über Abstimmung informieren",
+									"FR": "Über Abstimmung informieren",
+									"IT": "Über Abstimmung informieren",
+									"RM": "Über Abstimmung informieren",
+									"EN": "Learn about the vote"
+								},
+								"link": "",
+								"icon": "box-arrow-up-right"
+							}
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "EVOTING-CLOSED",
+				"contentElements": [
+					{
+						"heading": {
+							"level": 4,
+							"text": {
+								"DE": "Urnengang vom **26 November 2025**",
+								"FR": "Urnengang vom **26 November 2025**",
+								"IT": "Urnengang vom **26 November 2025**",
+								"RM": "Urnengang vom **26 November 2025**",
+								"EN": "Urnengang vom **26 November 2025**"
+							}
+						}
+					},
+					{
+						"eventState": {
+							"phaseLevel": "EVOTING-CLOSED",
+							"text": {
+								"DE": "**Die elektronische Urne ist geschlossen.**",
+								"FR": "**Le délai pour voter par voie électronique est échu. [1]**",
+								"IT": "**Il termine per votare in forma elettronica è scaduto.**",
+								"RM": "**L’urna electronica è serrada.**",
+								"EN": "**The deadline for voting electronically has expired.**"
+							}
+						}
+					},
+					{
+						"paragraph": {
+							"text": {
+								"DE": "Nächster geplanter Urnengang: 24. November 2026.",
+								"FR": "Prochain scrutin prévu: 24 novembre 2026.",
+								"IT": "Prossima chiamata alle urne prevista: 24 novembre 2026.",
+								"RM": "Proxim scrutini previsa: 24 da november 2026.",
+								"EN": "Next scheduled election: November 24, 2026."
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+]

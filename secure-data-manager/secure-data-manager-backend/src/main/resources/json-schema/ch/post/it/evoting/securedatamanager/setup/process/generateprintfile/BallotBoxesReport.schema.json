@@ -1,0 +1,63 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/securedatamanager/BallotBoxesReport.schema.json",
+	"title": "Ballot Boxes Report",
+	"description": "Regroups the information of all the ballot boxes.",
+	"type": "object",
+	"properties": {
+		"electionEventId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the election event. Corresponds to ee in the specification."
+		},
+		"ballotBoxesInformation": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "https://evoting.ch/securedatamanager/BallotBoxInformation.schema.json",
+				"description": "The list of ballot box information."
+			}
+		},
+		"totalICHTest": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The test ballot boxes' total number of swiss resident voters."
+		},
+		"totalICH": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The non-test ballot boxes' total number of swiss resident voters."
+		},
+		"totalACHTest": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The test ballot boxes' total number of swiss abroad voters."
+		},
+		"totalACH": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The non-test ballot boxes' total number of swiss abroad voters."
+		},
+		"totalForeignerTest": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The test ballot boxes' total number of foreigner voters."
+		},
+		"totalForeigner": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The non-test ballot boxes' total number of foreigner voters."
+		}
+	},
+	"required": [
+		"electionEventId",
+		"ballotBoxesInformation",
+		"totalICHTest",
+		"totalICH",
+		"totalACHTest",
+		"totalACH",
+		"totalForeignerTest",
+		"totalForeigner"
+	],
+	"additionalProperties": false
+}

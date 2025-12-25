@@ -1,0 +1,90 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2022",
+		"module": "esnext",
+		"lib": ["es2020", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"resolveJsonModule": true,
+		"paths": {
+			"@vp/landing-page-data-access": [
+				"libs/landing-page/data-access/src/index.ts"
+			],
+			"@vp/landing-page-ui-components": [
+				"libs/landing-page/ui-components/src/index.ts"
+			],
+			"@vp/landing-page-utils-types": [
+				"libs/landing-page/util-types/src/index.ts"
+			],
+			"@vp/shared-ui-components": ["libs/shared/ui-components/src/index.ts"],
+			"@vp/shared-ui-services": ["libs/shared/ui-services/src/index.ts"],
+			"@vp/shared-util-testing": ["libs/shared/util-testing/src/index.ts"],
+			"@vp/voter-portal-data-access": [
+				"libs/voter-portal/data-access/src/index.ts"
+			],
+			"@vp/voter-portal-feature-faq": [
+				"libs/voter-portal/feature-faq/src/index.ts"
+			],
+			"@vp/voter-portal-step-cast": [
+				"libs/voter-portal/step-cast/src/index.ts"
+			],
+			"@vp/voter-portal-step-choose": [
+				"libs/voter-portal/step-choose/src/index.ts"
+			],
+			"@vp/voter-portal-step-confirm": [
+				"libs/voter-portal/step-confirm/src/index.ts"
+			],
+			"@vp/voter-portal-step-legal-terms": [
+				"libs/voter-portal/step-legal-terms/src/index.ts"
+			],
+			"@vp/voter-portal-step-review": [
+				"libs/voter-portal/step-review/src/index.ts"
+			],
+			"@vp/voter-portal-step-start-voting": [
+				"libs/voter-portal/step-start-voting/src/index.ts"
+			],
+			"@vp/voter-portal-step-verify": [
+				"libs/voter-portal/step-verify/src/index.ts"
+			],
+			"@vp/voter-portal-ui-components": [
+				"libs/voter-portal/ui-components/src/index.ts"
+			],
+			"@vp/voter-portal-ui-confirmation": [
+				"libs/voter-portal/ui-confirmation/src/index.ts"
+			],
+			"@vp/voter-portal-ui-directives": [
+				"libs/voter-portal/ui-directives/src/index.ts"
+			],
+			"@vp/voter-portal-ui-guards": [
+				"libs/voter-portal/ui-guards/src/index.ts"
+			],
+			"@vp/voter-portal-ui-services": [
+				"libs/voter-portal/ui-services/src/index.ts"
+			],
+			"@vp/voter-portal-ui-state": ["libs/voter-portal/ui-state/src/index.ts"],
+			"@vp/voter-portal-util-helpers": [
+				"libs/voter-portal/util-helpers/src/index.ts"
+			],
+			"@vp/voter-portal-util-types": [
+				"libs/voter-portal/util-types/src/index.ts"
+			]
+		}
+	},
+	"exclude": ["node_modules", "tmp"],
+	"angularCompilerOptions": {
+		"extendedDiagnostics": {
+			"checks": {
+				"optionalChainNotNullable": "suppress"
+			}
+		}
+	}
+}

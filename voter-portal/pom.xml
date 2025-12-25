@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ch.post.it.evoting</groupId>
+		<artifactId>evoting-dependencies</artifactId>
+		<version>1.5.2.2</version>
+		<relativePath>../evoting-dependencies/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>voter-portal</artifactId>
+	<packaging>pom</packaging>
+	<name>Voter Portal (Angular frontend)</name>
+
+	<properties>
+		<skipTests>false</skipTests>
+		<sonar.sources>apps/landing-page/src,apps/voter-portal/src,libs</sonar.sources>
+		<sonar.exclusions>**/*.spec.ts,**/test-setup.ts,**/jest.config.js</sonar.exclusions>
+		<sonar.tests>apps/landing-page/src,apps/voter-portal/src,libs</sonar.tests>
+		<sonar.test.inclusions>**/*.spec.ts</sonar.test.inclusions>
+		<voting-client.version>${project.version}</voting-client.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ch.post.it.evoting.evotinglibraries</groupId>
+			<artifactId>e-voting-libraries-ui</artifactId>
+			<version>${e-voting-libraries.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting</groupId>
+			<artifactId>voting-client</artifactId>
+			<version>${voting-client.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>voter-portal-only</id>
+			<properties>
+				<npmBuildArgument>build:voter-portal</npmBuildArgument>
+				<npmTestArgument>test:voter-portal</npmTestArgument>
+			</properties>
+		</profile>
+		<profile>
+			<id>landing-page-only</id>
+			<properties>
+				<npmBuildArgument>build:landing-page</npmBuildArgument>
+				<npmTestArgument>test:landing-page</npmTestArgument>
+			</properties>
+		</profile>
+		<profile>
+			<id>all</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<npmBuildArgument>build</npmBuildArgument>
+				<npmTestArgument>test</npmTestArgument>
+			</properties>
+		</profile>
+		<profile>
+			<id>update-npm-vendors</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>npm ci</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>generate-sources</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>ci</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Npm run install vendor</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>generate-sources</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>run</argument>
+										<argument>install:vendor</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Clean path</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>sed</executable>
+									<arguments>
+										<argument>-i</argument>
+										<argument>/\"resolved\": \"http.*/d</argument>
+										<argument>package-lock.json</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- Skip JaCoCo -->
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- Skip integration tests -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Cleaning directories -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>.angular</directory>
+						</fileset>
+						<fileset>
+							<directory>.nx</directory>
+						</fileset>
+						<fileset>
+							<directory>dist</directory>
+						</fileset>
+						<fileset>
+							<directory>tmp</directory>
+						</fileset>
+						<fileset>
+							<directory>vendor</directory>
+						</fileset>
+						<fileset>
+							<directory>coverage</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<!-- Unzip voting-client -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-e-voting-libraries-ui-kit</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<outputDirectory>${project.basedir}/vendor/e-voting-libraries-ui-kit</outputDirectory>
+							<includeGroupIds>ch.post.it.evoting.evotinglibraries</includeGroupIds>
+							<includeArtifactIds>e-voting-libraries-ui</includeArtifactIds>
+							<excludeTransitive>true</excludeTransitive>
+							<excludeTypes>pom</excludeTypes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-voting-client</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<outputDirectory>${project.basedir}/vendor/voting-client</outputDirectory>
+							<includeGroupIds>ch.post.it.evoting</includeGroupIds>
+							<includeArtifactIds>voting-client</includeArtifactIds>
+							<excludeTransitive>true</excludeTransitive>
+							<excludeTypes>pom</excludeTypes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Run npm commands -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm ci (generate-resources)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<environmentVariables>
+								<CYPRESS_INSTALL_BINARY>0</CYPRESS_INSTALL_BINARY>
+							</environmentVariables>
+							<executable>npm</executable>
+							<arguments>
+								<argument>ci</argument>
+								<argument>--fund=false</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm run compile (compile)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>compile</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>${npmBuildArgument}</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm run test (test)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>test</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>${npmTestArgument}</argument>
+							</arguments>
+							<skip>${skipTests}</skip>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Create zip archive -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>create-zip-archive</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly/package.xml</descriptor>
+							</descriptors>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

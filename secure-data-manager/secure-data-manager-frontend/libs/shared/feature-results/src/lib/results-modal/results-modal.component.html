@@ -1,0 +1,34 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+@if (ballotBoxResults$ | async; as ballotBoxResults) {
+	<div class="modal-header">
+		<h1 class="h4 modal-title">{{ ballotBoxResults.description }}</h1>
+		<button
+				(click)="activeModal.dismiss()"
+				[attr.aria-label]="'common.close' | translate"
+				class="btn-close"
+				type="button"
+		></button>
+	</div>
+	<div class="modal-body">
+		<ev-results [ballotBoxResults]="ballotBoxResults"/>
+	</div>
+} @else {
+	<div class="modal-header">
+		<h1 class="h4 modal-title">{{ 'common.loading' | translate }}</h1>
+		<button
+				(click)="activeModal.dismiss()"
+				[attr.aria-label]="'common.close' | translate"
+				class="btn-close"
+				type="button"
+		></button>
+	</div>
+	<div class="modal-body">
+		<div class="spinner-border spinner-border" aria-hidden="true">
+			<span class="visually-hidden">{{ 'common.loading' | translate }}...</span>
+		</div>
+	</div>
+}
+

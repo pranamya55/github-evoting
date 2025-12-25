@@ -1,0 +1,54 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<div class="row flex-row-reverse">
+	<div class="col" data-test="content">
+		@if (passwords.size < boardMembers.length) {
+			<ng-content></ng-content>
+		} @else {
+			<div class="card mb-3">
+				<div class="card-header">
+					{{ 'passwords.boardMembers.allPasswordsSetTitle' | translate }}
+				</div>
+				<div class="card-body d-flex align-items-center justify-content-start">
+					<i class="bi bi-check-circle text-success fs-1 me-3"></i>
+					<p role="alert">{{ 'passwords.boardMembers.allPasswordsSet' | translate }}</p>
+				</div>
+			</div>
+		}
+
+	</div>
+	<div class="col-3">
+		@if (boardMembers.length !== 0) {
+			<ul [attr.aria-label]="'passwords.boardMembers' | translate"
+				class="list-group gap-1"
+				data-test="boardMembers"
+			>
+				@for (member of boardMembers; track member; let i = $index) {
+					<div
+							aria-live="polite"
+							class="p-2 h-100 d-flex align-items-center rounded border"
+							[class.border-black]="member === activeMember">
+						@if (member === activeMember) {
+							<i class="bi text-primary me-2 bi-circle-fill"></i>
+						}
+						@if (member !== activeMember && !this.passwords.has(member.id)) {
+							<i class="bi text-primary me-2 bi-circle"></i>
+						}
+						@if (member !== activeMember && this.passwords.has(member.id)) {
+							<i class="vi text-primary me-2 bi-check-circle "></i>
+						}
+						<p aria-hidden="true">{{ member.name }}</p>
+					</div>
+				}
+			</ul>
+		}
+
+		<p class="p-2 text-muted">
+      <span aria-hidden="true">
+        {{ 'passwords.boardMembers.password' | translate }} {{ membersWithPassword.length }}/{{ boardMembers.length }}
+      </span>
+		</p>
+	</div>
+</div>

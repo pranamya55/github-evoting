@@ -1,0 +1,138 @@
+{
+	"name": "landing-page",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"prefix": "lp",
+	"sourceRoot": "apps/landing-page/src",
+	"tags": [
+		"scope:landing-page",
+		"type:app"
+	],
+	"targets": {
+		"build": {
+			"executor": "./:browser",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "target/dist/apps/landing-page",
+				"index": "apps/landing-page/src/index.html",
+				"main": "apps/landing-page/src/main.ts",
+				"polyfills": ["zone.js"],
+				"tsConfig": "apps/landing-page/tsconfig.app.json",
+				"inlineStyleLanguage": "scss",
+				"assets": [
+					"apps/landing-page/src/assets",
+					"apps/landing-page/src/environments"
+				],
+				"styles": ["apps/landing-page/src/styles.scss", "libs/shared/ui-styles/src/index.scss"],
+				"scripts": []
+			},
+			"configurations": {
+				"production": {
+					"sourceMap": false,
+					"optimization": {
+						"scripts": true,
+						"styles": {
+							"minify": true,
+							"inlineCritical": false
+						},
+						"fonts": true
+					},
+					"namedChunks": true,
+					"subresourceIntegrity": true,
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "500kb",
+							"maximumError": "1mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "4kb",
+							"maximumError": "8kb"
+						}
+					],
+					"outputHashing": "none"
+				},
+				"development": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true
+				},
+				"development-standalone": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true,
+					"fileReplacements": [
+						{
+							"replace": "./libs/landing-page/data-access/src/lib/tenant-configuration.service.ts",
+							"with": "./libs/landing-page/data-access/src/lib/mock-configuration.service.ts"
+						},
+						{
+							"replace": "./libs/landing-page/data-access/src/lib/environments/environment.ts",
+							"with": "./libs/landing-page/data-access/src/lib/environments/environment.mock.ts"
+						}
+					],
+					"scripts": [],
+					"assets": [
+						"apps/landing-page/src/assets",
+						{
+							"glob": "**/*",
+							"input": "apps/landing-page/src/mock-configuration",
+							"output": "mock-configuration"
+						},
+						{
+							"glob": "environment-mock.json",
+							"input": "libs/landing-page/data-access/src/lib/environments",
+							"output": "/environments"
+						}
+					]
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"serve": {
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+				"production": {
+					"buildTarget": "landing-page:build:production"
+				},
+				"development": {
+					"buildTarget": "landing-page:build:development"
+				},
+				"development-standalone": {
+					"buildTarget": "landing-page:build:development-standalone"
+				}
+			},
+			"defaultConfiguration": "development"
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"buildTarget": "landing-page:build"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint"
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "apps/landing-page/jest.config.ts"
+			}
+		},
+		"serve-static": {
+			"executor": "@nx/web:file-server",
+			"options": {
+				"buildTarget": "landing-page:build",
+				"spa": true
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+.vote,
+.vote ol {
+  @include app.list-unstyled;
+}
+
+.vote {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: map.get(app.$spacers, 2);
+
+  ol,
+  li {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  li {
+    &:not(:has(ol)) {
+      padding-block: map.get(app.$spacers, 3);
+    }
+
+    > strong {
+      justify-self: flex-end;
+    }
+  }
+
+  > li {
+    padding-inline: map.get(app.$spacers, 3);
+
+    &:not(:last-child) {
+      border-bottom: app.$border-width solid app.$border-color;
+    }
+  }
+
+  .form-check-input {
+    border-radius: app.$border-radius-sm;
+
+    &:checked {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+      background-size: 75%;
+
+      @media (forced-colors: active) {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='ButtonText'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+
+        &:hover,
+        &:focus {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='Highlight'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+        }
+      }
+    }
+  }
+}

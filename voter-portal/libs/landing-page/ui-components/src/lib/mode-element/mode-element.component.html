@@ -1,0 +1,13 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if (element) {
+	@for (contentElement of element.contentElements; track $index) {
+		<vp-content-element [contentElement]="contentElement"></vp-content-element>
+	}
+	@if (!element.hideLandingPageContent){
+		<ng-content/>
+	}
+}
+
+

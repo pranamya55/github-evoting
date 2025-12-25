@@ -1,0 +1,30 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<ol class="nav flex-column">
+	@for (group of groupedRoutes | keyvalue; track group; let isLast = $last) {
+		<li class="nav-item">
+			<ol class="nav flex-column gap-1">
+				@for (route of group.value; track route; let i = $index) {
+					<li
+							class="nav-item"
+					>
+						<sdm-stepper-item
+								[activatedRouteSnapshot]="activatedRouteSnapshot"
+								[route]="route"
+								[parent]="group.key"
+						></sdm-stepper-item>
+					</li>
+				}
+			</ol>
+		</li>
+		@if (!isLast) {
+			<li aria-hidden="true" class="nav-item">
+				<div class="nav-link py-0">
+					<hr class="my-1"/>
+				</div>
+			</li>
+		}
+	}
+</ol>

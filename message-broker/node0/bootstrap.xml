@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<broker xmlns="http://activemq.apache.org/schema">
+
+	<security-manager class-name="org.apache.activemq.artemis.spi.core.security.ActiveMQBasicSecurityManager">
+		<property key="bootstrapUserFile" value="artemis-users.properties"/>
+		<property key="bootstrapRoleFile" value="artemis-roles.properties"/>
+	</security-manager>
+
+	<!-- artemis.URI.instance is parsed from artemis.instance by the CLI startup.
+			 This is to avoid situations where you could have spaces or special characters on this URI -->
+	<server configuration="file:/var/lib/artemis-instance/./etc//broker.xml"/>
+
+	<!-- The web server is only bound to localhost by default -->
+	<web path="web" rootRedirectLocation="console">
+		<binding name="artemis" uri="http://0.0.0.0:8161">
+			<app name="console" url="console" war="console.war"/>
+		</binding>
+	</web>
+
+</broker>
+

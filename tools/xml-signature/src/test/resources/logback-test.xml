@@ -1,0 +1,14 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{1}:%line - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT"/>
+	</root>
+</configuration>

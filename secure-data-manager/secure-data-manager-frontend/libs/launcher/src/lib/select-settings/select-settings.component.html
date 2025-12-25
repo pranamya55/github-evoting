@@ -1,0 +1,65 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<sdm-page-title
+		[instructions]="'selectSettings.instruction' | translate"
+		[title]="'selectSettings.title' | translate"
+>
+	@if (settingsList.length > 0) {
+		<div class="alert alert-info page-actions">
+			<i aria-hidden="true" class="bi bi-cursor"></i>
+			<p>
+				{{ 'selectSettings.pageActions.selectInstruction' | translate }}
+			</p>
+			<button (click)="addSettings()" class="btn btn-link" type="button">
+				<i aria-hidden="true" class="bi bi-plus-circle"></i>
+				{{ 'selectSettings.pageActions.add' | translate }}
+			</button>
+			<button (click)="copySettings()" [disabled]="selectedSettings === null" class="btn btn-link" type="button">
+				<i aria-hidden="true" class="bi bi-copy"></i>
+				{{ 'selectSettings.pageActions.copy' | translate }}
+			</button>
+			<button (click)="selectSettings()" [disabled]="selectedSettings === null" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'selectSettings.pageActions.select' | translate }}
+			</button>
+		</div>
+	} @else {
+		<div class="alert alert-info page-actions">
+			<i aria-hidden="true" class="bi bi-cursor"></i>
+			<p>
+				{{ 'selectSettings.pageActions.addSettingsInstruction' | translate }}
+			</p>
+			<button (click)="addSettings()" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-plus-circle"></i>
+				{{ 'selectSettings.pageActions.addSettings' | translate }}
+			</button>
+		</div>
+	}
+</sdm-page-title>
+
+@if (settingsList.length > 0) {
+	<p class="fw-bold fs-6" id="existingSettings">
+		{{ 'selectSettings.existingSettings' | translate }}
+	</p>
+	<ul aria-labelledby="existingConfigs" class="list-unstyled">
+		@for (settings of settingsList; track settings) {
+			<li class="form-check d-flex align-items-center gap-2 my-3" data-test="election">
+				<input [(ngModel)]="selectedSettings"
+					   [value]="settings"
+					   class="form-check-input"
+					   id="settings--{{settings.id}}"
+					   type="radio">
+				<label class="form-check-label fw-light fs-5" [for]="'settings--' + settings.id">
+					{{ settings.electionEventSeed }} [{{ settings.mode }}]
+					@if (settings.electionEventDescription) {
+						<span class="small text-muted">{{ settings.electionEventDescription }}</span>
+					}
+					@if (settings.electionEventId) {
+						<span class="small text-muted"> / {{ settings.electionEventId }}</span>
+					}
+				</label>
+			</li>
+		}
+	</ul>
+}

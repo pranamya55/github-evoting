@@ -1,0 +1,307 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<sdm-page-title
+		[instructions]="'configureVoterPortal.instruction' | translate"
+		[title]="'configureVoterPortal.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent [forceInProgress]="forceInProgress" [forceError]="forceError" [forceWarning]="forceWarning">
+
+		<!--		onReady-->
+		<i onReady aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+
+		<p onReady>
+			{{ 'configureVoterPortal.pageActions.instruction' | translate }}
+		</p>
+
+		<button onReady
+				(click)="fetchConfiguration()"
+				class="btn btn-link float-end"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+			{{ 'configureVoterPortal.pageActions.reload' | translate }}
+		</button>
+
+		<button onReady
+				(click)="uploadVoterPortalConfiguration()"
+				[disabled]="!isUploadEnabled"
+				class="btn btn-primary"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'configureVoterPortal.pageActions.submit' | translate }}
+		</button>
+
+
+		<!--		onProgress-->
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">
+			  {{ 'common.loading' | translate }}
+			</span>
+		</div>
+
+		@if (!forceInProgress){
+			<p onProgress>
+				{{ 'configureVoterPortal.pageActions.inProgress' | translate }}
+			</p>
+		}
+
+		<p onProgress>
+			{{ 'configureVoterPortal.pageActions.SearchConfiguration' | translate }}
+		</p>
+
+
+		<!--		onComplete-->
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+
+		<p aria-live="polite" onComplete>
+			{{ 'configureVoterPortal.pageActions.processCompleted' | translate }}
+		</p>
+
+		<button onComplete
+				(click)="fetchConfiguration()"
+				class="btn btn-link"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+			{{ 'configureVoterPortal.pageActions.reload' | translate }}
+		</button>
+
+		@if (isUploadEnabled){
+			<ng-container [ngTemplateOutlet]="configureAgain" onComplete></ng-container>
+		}
+
+		<sdm-next-button onComplete></sdm-next-button>
+
+
+		<!--		OnWarning-->
+		<i onWarning aria-hidden="true" class="bi-exclamation-triangle-fill text-warning"></i>
+
+		@if (!isAllSynchronized && isAllFounded && this.voterPortalConfigJson) {
+			<p aria-live="polite" onWarning>
+				{{ 'configureVoterPortal.pageActions.warning.NOT_SYNCHRONIZED' | translate }}
+			</p>
+		}
+
+		<button onWarning
+				(click)="fetchConfiguration()"
+				class="btn btn-link"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+			{{ 'configureVoterPortal.pageActions.reload' | translate }}
+		</button>
+
+		<button onWarning
+				(click)="uploadVoterPortalConfiguration()"
+				[hidden]="!isUploadEnabled"
+				class="btn btn-primary"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'configureVoterPortal.pageActions.submit' | translate }}
+		</button>
+
+		<sdm-next-button onWarning hidden="!isAllSynchronized"></sdm-next-button>
+
+
+		<!--		OnError-->
+		<i aria-hidden="true" class="bi bi-x-circle" onError></i>
+
+		@if (!pageActionsComponent.hasErrorFeedback && !configNotFound){
+			<p onError>
+				{{ 'configureVoterPortal.pageActions.error.DEFAULT' | translate }}
+			</p>
+		}
+
+		@if (pageActionsComponent.hasErrorFeedback){
+			<p onError>
+				{{ 'configureVoterPortal.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+			</p>
+		}
+
+		<p aria-live="polite" onError>
+			{{ 'configureVoterPortal.pageActions.warning.NO_CONFIGURATION' | translate }}
+		</p>
+
+		<button onError
+				(click)="uploadVoterPortalConfiguration()"
+				[hidden]="!isUploadEnabled"
+				class="btn btn-primary"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'configureVoterPortal.pageActions.submit' | translate }}
+		</button>
+
+		<button onError
+				(click)="fetchConfiguration()"
+				class="btn btn-link ms-auto"
+				data-test="request"
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+			{{ 'configureVoterPortal.pageActions.reload' | translate }}
+		</button>
+
+		<!--		ALL-->
+		<ng-template #configureAgain>
+			<button
+					(click)="uploadVoterPortalConfiguration()"
+					[hidden]="!isUploadEnabled"
+					class="btn btn-link"
+					data-test="request"
+					type="button"
+			>
+				{{ 'configureVoterPortal.pageActions.submit' | translate }}
+			</button>
+		</ng-template>
+
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+
+</sdm-page-title>
+
+@if (this.voterPortalConfigJson) {
+	@if (workflowStepStatus === WorkflowStatus.Complete){
+		<div class="card mb-2">
+			<div class="card-header">
+				{{ 'upload.voterPortalUrlSection.title' | translate }}
+				</div>
+				<div class="card-body">
+					<p aria-live="polite">
+						<i aria-hidden="true" class="bi bi-check-circle text-success"></i>
+				{{ 'upload.voterPortalUrlSection.ready' | translate }}
+				</p>
+				<div class="input-group mb-3 mt-2">
+					<span class="input-group-text">{{ 'upload.voterPortalUrlSection.url' | translate }}</span>
+					<input aria-describedby="basic-addon2" class="form-control" readonly="readonly" type="text" value="{{ this.voterPortalConfig?.url }}">
+					<button (cbOnSuccess)="setCopied()" [cbContent]="this.voterPortalConfig?.url" class="btn btn-outline-dark" ngxClipboard type="button">
+						<i [ngClass]="!copied ? 'bi-clipboard2' : 'bi-clipboard2-check'" aria-hidden="true" class="bi"></i>
+					{{ 'upload.voterPortalUrlSection.copy' | translate }}
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+}
+
+@if (this.voterPortalConfigJson) {
+	<div class="card mb-5">
+
+		<div class="card-header">
+			<div class="row">
+				<div class="col-9 align-content-center">
+					{{ 'configureVoterPortal.title' | translate }}
+				</div>
+				<div class="col-3">
+				</div>
+			</div>
+		</div>
+		<div class="card-body">
+
+			@if (voterPortalConfig?.state?.config; as config) {
+				<div class="row mb-3">
+					<div class="col-3">{{ 'configureVoterPortal.sourcePath' | translate }}</div>
+					<div class="col-9">{{ voterPortalConfig?.sourcePath }}</div>
+				</div>
+				<hr>
+
+				<div class="row mb-3">
+					<div class="col-3">{{ 'configureVoterPortal.information' | translate }}</div>
+					<div class="col-3">
+						<i [ngClass]="{
+						'bi-exclamation-triangle-fill text-warning' : config === voterPortalConfigStatus.NotSynchronized,
+						'bi-check-circle text-success' : config === voterPortalConfigStatus.Synchronized,
+						'bi-x-circle-fill text-danger' : config === voterPortalConfigStatus.NotFound || ('configureVoterPortal.extendedAuthenticationFactor.unknown' | translate) === extendedAuthenticationFactor || ('configureVoterPortal.extendedAuthenticationFactor.unknown' | translate) === displayWriteInFAQ
+						}"
+						   aria-hidden="true" class="bi"></i>
+						{{ 'configureVoterPortal.state.' + config | translate }}
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-3"></div>
+					<div class="col-3">{{ 'configureVoterPortal.extendedAuthenticationFactor.label' | translate }}</div>
+					<div class="col-6">
+						{{ extendedAuthenticationFactor }}
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-3"></div>
+					<div class="col-3">{{ 'configureVoterPortal.displayWriteInFAQ.label' | translate }}</div>
+					<div class="col-6">
+						{{ displayWriteInFAQ }}
+					</div>
+				</div>
+			}
+
+			@if (voterPortalConfig?.state?.favicon; as favicon) {
+				<hr>
+				<div class="row mb-3">
+					<div class="col-3">{{ 'configureVoterPortal.favicon' | translate }}</div>
+					<div class="col-3">
+						<i [ngClass]="{
+					'bi-exclamation-triangle-fill text-warning' : favicon === voterPortalConfigStatus.NotSynchronized,
+					'bi-check-circle text-success' : favicon === voterPortalConfigStatus.Synchronized,
+					'bi-x-circle-fill text-danger' : favicon === voterPortalConfigStatus.NotFound
+					}"
+						   aria-hidden="true" class="bi"></i>
+						{{ 'configureVoterPortal.state.' + favicon | translate }}
+					</div>
+					<div class="col-6">
+						<img src="data:image/*;base64,{{this.voterPortalConfig?.payload?.favicon}}"
+							 alt="the actual favicon"
+							 style="max-height: 100px; max-width: 100px"
+							 (error)="faviconNotFound = true"
+							 [hidden]="faviconNotFound"/>
+						@if (faviconNotFound){
+							<div class="placeholder">
+								<i class="bi bi-image text-muted" style="font-size: 50px;"></i>
+							</div>
+						}
+					</div>
+				</div>
+			}
+			@if (voterPortalConfig?.state?.logo; as logo) {
+				<div class="row mb-3">
+					<div class="col-3">{{ 'configureVoterPortal.logo' | translate }}</div>
+					<div class="col-3">
+						<i [ngClass]="{
+				'bi-exclamation-triangle-fill text-warning' : logo === voterPortalConfigStatus.NotSynchronized,
+				'bi-check-circle text-success' : logo === voterPortalConfigStatus.Synchronized,
+				'bi-x-circle-fill text-danger' : logo === voterPortalConfigStatus.NotFound
+				}"
+						   aria-hidden="true" class="bi"></i>
+						{{ 'configureVoterPortal.state.' + logo | translate }}
+					</div>
+
+					<div class="col-6">
+						<img src="data:image/*;base64,{{this.voterPortalConfig?.payload?.logo}}"
+							 alt="the actual logo"
+							 style="max-height: 100px; max-width: 100px"
+							 (error)="logoNotFound = true"
+							 [hidden]="logoNotFound"/>
+						@if (logoNotFound){
+							<div class="placeholder">
+								<i class="bi bi-image text-muted" style="font-size: 50px;"></i>
+							</div>
+						}
+					</div>
+				</div>
+			}
+
+		</div>
+
+	</div>
+}

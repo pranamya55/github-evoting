@@ -1,0 +1,33 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+@if (status) {
+	<a
+			[attr.aria-current]="isCurrent ? 'page' : undefined"
+			[class.disabled]="isCurrent || status === WorkflowStatus.Idle"
+			[class.text-body]="isCurrent"
+			[class.text-muted]="!isCurrent"
+			[routerLink]="[parent.path, route.path]"
+			class="nav-link link-primary d-flex align-items-center"
+			data-test="step"
+	>
+		@if (status === WorkflowStatus.InProgress) {
+			<span
+					class="spinner-border spinner-border-sm text-primary me-2"
+					role="status"
+			>
+        <span class="visually-hidden">{{ 'common.loading' | translate }}</span>
+      </span>
+		} @else {
+			<span
+					[ngClass]="indicatorClass"
+					aria-hidden="true"
+					class="bi me-2"
+					data-test="indicator"
+			></span>
+		}
+		<span class="flex-grow-1 flex-shrink-0" data-test="label">{{
+				'stepper.' + route.data?.workflowStep | translate
+			}}</span>
+	</a>
+}

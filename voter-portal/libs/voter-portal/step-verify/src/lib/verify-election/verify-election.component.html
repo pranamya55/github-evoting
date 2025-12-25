@@ -1,0 +1,23 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<vp-accordion-election
+	[electionInformation]="electionInformation"
+	[headingLevel]="4"
+>
+	<ng-template #listTemplate>
+		<vp-answer-list
+			[electionInformationAnswers]="electionInformationAnswers"
+			[electionInformation]="electionInformation"
+		/>
+	</ng-template>
+	<ng-template #candidateTemplate let-emptyPosition="emptyPosition">
+		<vp-answer-candidate
+			[electionInformationAnswers]="electionInformationAnswers"
+			[electionInformation]="electionInformation"
+			[emptyPosition]="emptyPosition"
+			[headingLevel]="6"
+		/>
+	</ng-template>
+</vp-accordion-election>

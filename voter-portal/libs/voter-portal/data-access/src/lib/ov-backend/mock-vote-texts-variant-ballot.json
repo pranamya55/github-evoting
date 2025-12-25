@@ -1,0 +1,165 @@
+[
+	{
+		"voteIdentification": "ch_test",
+		"domainOfInfluence": "doid-ch1-mu",
+		"votePosition": 1,
+		"voteDescription": {
+			"DE": "Beispielabstimmung",
+			"FR": "Votation d'exemple",
+			"IT": "Votazione d'esempio",
+			"RM": "votaziun d'exempel"
+		},
+		"ballots": [
+			{
+				"ballotIdentification": "dd2bd50c-deca-40b0-8451-69e6d0eee612",
+				"ballotPosition": 1,
+				"standardQuestions": [
+					{
+						"questionIdentification": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc",
+						"questionPosition": 1,
+						"questionNumber": "1a",
+						"ballotQuestion": {
+							"question": {
+								"DE": "Wollen Sie den zweiten Vorschlag annehmen?",
+								"FR": "Acceptez-vous la deuxième proposition ?",
+								"IT": "Accettare la seconda proposta ?",
+								"RM": "Acceptar la segunda proposta ?"
+							}
+						},
+						"answers": [
+							{
+								"answerIdentification": "d7a1b387-a90c-31ca-bfc2-ad038a1d9816",
+								"answerPosition": 1,
+								"answerType": "YES",
+								"answerInformation": {
+									"DE": "Ja",
+									"FR": "Oui",
+									"IT": "Si",
+									"RM": "Gea"
+								}
+							},
+							{
+								"answerIdentification": "e9da718b-469e-35d4-8d7d-d6329621e755",
+								"answerPosition": 2,
+								"answerType": "NO",
+								"answerInformation": {
+									"DE": "Nein",
+									"FR": "Non",
+									"IT": "No",
+									"RM": "Na"
+								}
+							},
+							{
+								"answerIdentification": "ecdbcc43-396a-348f-a671-919abfff4e12",
+								"answerPosition": 3,
+								"answerType": "EMPTY",
+								"answerInformation": {
+									"DE": "Leer",
+									"FR": "Blanc",
+									"IT": "Bianco",
+									"RM": "Vid"
+								}
+							}
+						]
+					},
+					{
+						"questionIdentification": "b173aebb-7b2c-476a-97fa-c81d640e498a",
+						"questionPosition": 2,
+						"questionNumber": "1b",
+						"ballotQuestion": {
+							"question": {
+								"DE": "Wollen Sie den **«Gegenvorschlag»** annehmen?",
+								"FR": "Acceptez-vous la **«contre proposition»** ?",
+								"IT": "Accettare la **«contra proposta»** ?",
+								"RM": "Acceptar la **«cuntra proposta»** ?"
+							}
+						},
+						"answers": [
+							{
+								"answerIdentification": "d0f886b7-03a8-3d8a-9e7d-4c9bfa02ddc6",
+								"answerPosition": 1,
+								"answerType": "YES",
+								"answerInformation": {
+									"DE": "Ja",
+									"FR": "Oui",
+									"IT": "Si",
+									"RM": "Gea"
+								}
+							},
+							{
+								"answerIdentification": "562a2034-f9a8-3783-abf5-624ec5ac08be",
+								"answerPosition": 2,
+								"answerType": "NO",
+								"answerInformation": {
+									"DE": "Nein",
+									"FR": "Non",
+									"IT": "No",
+									"RM": "Na"
+								}
+							},
+							{
+								"answerIdentification": "004e5a94-c242-3ba4-837b-131b5698eaa7",
+								"answerPosition": 3,
+								"answerType": "EMPTY",
+								"answerInformation": {
+									"DE": "Leer",
+									"FR": "Blanc",
+									"IT": "Bianco",
+									"RM": "Vid"
+								}
+							}
+						]
+					}
+				],
+				"tieBreakQuestions": [
+					{
+						"questionIdentification": "1129f74b-1e49-4636-9731-84dba618bec6",
+						"questionPosition": 3,
+						"questionNumber": "1c",
+						"ballotQuestion": {
+							"question": {
+								"DE": "Bei *Gleichstand*: Wollen Sie den «**Vorschlag**» oder den **«Gegenvorschlag»** annehmen?",
+								"FR": "En cas d'*égalité* : voulez-vous accepter «**la proposition**» ou la **«contre-proposition»** ?",
+								"IT": "In caso di *parità di voti*: volete accettare la «**proposta**» o la **«controproposta»**?",
+								"RM": "En connex cun l’*egualitad*: vulais Vus acceptar la «**proposta**» u la **«cuntraproposta»**?"
+							}
+						},
+						"answers": [
+							{
+								"answerIdentification": "65113930-4472-3aac-9cfd-162f501c78f5",
+								"answerPosition": 1,
+								"answerInformation": {
+									"DE": "Initiative",
+									"FR": "Initiative",
+									"IT": "Iniziativa",
+									"RM": "Iniziativa"
+								}
+							},
+							{
+								"answerIdentification": "b4277282-00aa-3ccb-bdf2-4703ba2724e4",
+								"answerPosition": 2,
+								"answerInformation": {
+									"DE": "Gegenentwurf",
+									"FR": "Contre-projet",
+									"IT": "Controprogetto",
+									"RM": "Cuntraproposta"
+								}
+							},
+							{
+								"answerIdentification": "e6467637-1921-3c4f-b669-88ba2f73a193",
+								"answerPosition": 3,
+								"hiddenAnswer": true,
+								"answerInformation": {
+									"DE": "Leer",
+									"FR": "Blanc",
+									"IT": "Bianco",
+									"RM": "Vid"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

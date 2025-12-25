@@ -1,0 +1,132 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+@if (mixAndDownloadStatus$ | async; as mixAndDownloadStatus) {
+	<sdm-page-title
+			[instructions]="'mixAndDownload.instruction' | translate"
+			[title]="'mixAndDownload.title' | translate"
+	></sdm-page-title>
+	@if (exportableBallotBoxes.size) {
+		<section class="mb-5">
+			<sdm-page-actions [forceReady]="!!mixableBallotBoxes.size" #pageActionsComponent>
+				<ng-container onReady>
+					<i aria-hidden="true" class="bi bi-info-circle"></i>
+					<p [innerHTML]="'mixAndDownload.exportSection.mixAndDownloadNotComplete' | translate:{count: exportableBallotBoxes.size, total: (mixableBallotBoxes.size + exportableBallotBoxes.size)}">
+					</p>
+					<ng-container [ngTemplateOutlet]="exportPartialTemplate"></ng-container>
+				</ng-container>
+				<ng-container onError>
+					<i aria-hidden="true" class="bi bi-exclamation-circle"></i>
+					@if (pageActionsComponent.hasErrorFeedback) {
+						<p>
+							{{ 'error.' + pageActionsComponent.errorFeedbackCode | translate }}
+						</p>
+					}
+					@if (!pageActionsComponent.hasErrorFeedback) {
+						<p>
+							{{ 'mixAndDownload.exportSection.error' | translate }}
+						</p>
+					}
+					<ng-container [ngTemplateOutlet]="exportPartialTemplate"></ng-container>
+				</ng-container>
+				<ng-template #exportPartialTemplate>
+					<button (click)="exportPartial()"
+							class="btn btn-link"
+							type="button"
+							[disabled]="mixAndDownloadStatus === WorkflowStatus.InProgress">
+						<i aria-hidden="true" class="bi bi-upload"></i>
+						{{ 'mixAndDownload.exportSection.exportTemporary' | translate }}
+					</button>
+				</ng-template>
+				<ng-container onComplete>
+					<i aria-hidden="true" class="bi bi-check-circle"></i>
+					<p id="exportable-ballot-box-list-desc">
+						{{ 'mixAndDownload.exportSection.mixAndDownloadComplete' | translate }}
+					</p>
+					<sdm-next-button></sdm-next-button>
+				</ng-container>
+			</sdm-page-actions>
+			<sdm-ballot-box-list
+					[ballotBoxes]="exportableBallotBoxes"
+					[describedById]="'exportable-ballot-box-list-desc'"
+			></sdm-ballot-box-list>
+		</section>
+	}
+	@if (mixableBallotBoxes.size) {
+		<section>
+			<sdm-page-actions>
+				<ng-container onReady>
+					<i aria-hidden="true" class="bi bi-shuffle"></i>
+					<p id="mixable-ballot-box-list-desc">
+						{{ 'mixAndDownload.uploadedBoxesSection.mixAndDownloadReady' | translate }}
+					</p>
+					<ng-container [ngTemplateOutlet]="mixDownloadButton"></ng-container>
+				</ng-container>
+				<ng-container onError>
+					<i aria-hidden="true" class="bi bi-shuffle"></i>
+					<p id="mixable-ballot-box-list-err">
+						{{ 'mixAndDownload.uploadedBoxesSection.error' | translate }}
+					</p>
+					<ng-container [ngTemplateOutlet]="mixDownloadButton"></ng-container>
+				</ng-container>
+				<ng-container onProgress>
+					<div class="spinner">
+						<span aria-hidden="true" class="spinner-border"></span>
+						<span class="visually-hidden" role="status">{{ 'common.loading' | translate }}</span>
+					</div>
+					<p>{{ 'mixAndDownload.uploadedBoxesSection.mixAndDownloadInProgress' | translate }}</p>
+				</ng-container>
+				<ng-template #mixDownloadButton>
+					<button (click)="openModal(confirmation)" [disabled]="!hasSelection" class="btn btn-primary" type="button">
+						<i aria-hidden="true" class="bi bi-play-circle"></i>
+						{{ 'mixAndDownload.uploadedBoxesSection.mixAndDownload' | translate }}
+					</button>
+				</ng-template>
+			</sdm-page-actions>
+			<sdm-ballot-box-list
+					(ballotBoxesSelected)="selectedBallotBoxes = $event"
+					[ballotBoxes]="mixableBallotBoxes"
+					[describedById]="'mixable-ballot-box-list-desc'"
+					[enableCheckbox]="mixAndDownloadStatus !== WorkflowStatus.InProgress"
+			></sdm-ballot-box-list>
+		</section>
+	}
+}
+
+<ng-template #confirmation let-modal>
+	<div class="modal-header">
+		<h1 class="modal-title h4" id="confirmation-modal-title">
+			{{ 'mixAndDownload.confirmation.title' | translate }}
+		</h1>
+	</div>
+	<div class="modal-body">
+		<p>
+			{{
+				'mixAndDownload.confirmation.body' | translate: {
+					productiveBallotBoxCount: selectedBallotBoxesCount(false),
+					testBallotBoxCount: selectedBallotBoxesCount(true)
+				}
+			}}
+		</p>
+		<ul class="mt-2">
+			@for (bbox of selectedBallotBoxes; track bbox) {
+				<li>
+					{{ bbox.description }}
+				</li>
+			}
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<button
+				(click)="modal.close(false)"
+				class="btn btn-outline-primary"
+				type="button"
+		>
+			{{ 'common.cancel' | translate }}
+		</button>
+		<button (click)="modal.close(true)" class="btn btn-primary" type="button">
+			{{ 'common.confirm' | translate }}
+		</button>
+	</div>
+</ng-template>

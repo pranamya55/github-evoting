@@ -1,0 +1,21 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+					xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+	<id>files</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+			<directory>${project.build.directory}/dist/apps</directory>
+			<outputDirectory>.</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

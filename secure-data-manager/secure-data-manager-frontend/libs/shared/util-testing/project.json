@@ -1,0 +1,54 @@
+{
+	"name": "shared-util-testing",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/shared/util-testing/src",
+	"projectType": "library",
+	"tags": [
+		"scope:shared",
+		"type:util"
+	],
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"options": {
+				"outputPath": "dist/libs/shared/util-testing",
+				"main": "libs/shared/util-testing/src/index.ts",
+				"tsConfig": "libs/shared/util-testing/tsconfig.lib.json",
+				"assets": [
+					"libs/shared/util-testing/*.md"
+				]
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"libs/shared/util-testing/**/*.ts",
+					"libs/shared/util-testing/package.json"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
+			"options": {
+				"jestConfig": "libs/shared/util-testing/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	}
+}

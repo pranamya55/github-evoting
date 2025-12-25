@@ -1,0 +1,33 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use 'sass:map';
+@use '../base';
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: map.get(base.$spacers, 2);
+
+  > .bi:first-of-type {
+    font-size: map.get(base.$font-sizes, 2);
+    margin-inline-end: map.get(base.$spacers, 2);
+  }
+
+  > .spinner {
+    margin-inline-end: map.get(base.$spacers, 2);
+  }
+
+  > .btn:first-of-type,
+  > sdm-next-button:not(.btn ~ sdm-next-button) {
+    margin-inline-start: auto;
+  }
+}
+
+@each $status, $color in (ready: base.$info, in-progress: base.$gray-800, complete: base.$success, error: base.$danger) {
+  .page-actions-#{$status} {
+    background-color: shift-color($color, -90%);
+    color: $color;
+  }
+}

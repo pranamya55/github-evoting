@@ -1,0 +1,12 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<vp-content-element-container>
+	<vp-dynamic-heading [level]="3">
+		<div class="d-flex align-items-center mb-4">
+			<span aria-hidden="true" class="stepper-indicator">{{index}}</span>
+			{{ element.title | translateText }}
+		</div>
+	</vp-dynamic-heading>
+	<ng-content/>
+</vp-content-element-container>

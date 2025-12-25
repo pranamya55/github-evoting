@@ -1,0 +1,121 @@
+{
+	"voteAnswers": [
+		{
+			"voteIdentification": "ch_test",
+			"votePosition": 1,
+			"chosenAnswers": [
+				{
+					"ballotIdentification": "9cbcbd59-94ad-4f48-bc7d-4bc38e5c0c51",
+					"questionIdentification": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2",
+					"answerIdentification": "3aa38c9e-6e93-3159-91e1-c3da90681572"
+				},
+				{
+					"ballotIdentification": "dd2bd50c-deca-40b0-8451-69e6d0eee612",
+					"questionIdentification": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc",
+					"answerIdentification": "e9da718b-469e-35d4-8d7d-d6329621e755"
+				},
+				{
+					"ballotIdentification": "dd2bd50c-deca-40b0-8451-69e6d0eee612",
+					"questionIdentification": "b173aebb-7b2c-476a-97fa-c81d640e498a",
+					"answerIdentification": "562a2034-f9a8-3783-abf5-624ec5ac08be"
+				},
+				{
+					"ballotIdentification": "dd2bd50c-deca-40b0-8451-69e6d0eee612",
+					"questionIdentification": "1129f74b-1e49-4636-9731-84dba618bec6",
+					"answerIdentification": "65113930-4472-3aac-9cfd-162f501c78f5"
+				}
+			]
+		}
+	],
+	"electionAnswers": [
+		{
+			"electionGroupIdentification": "nrw_test",
+			"electionGroupPosition": 2,
+			"electionsInformation": [
+				{
+					"electionIdentification": "nrw_test",
+					"chosenCandidates": [
+						{
+							"candidateIdentification": "6eb5e01e-755a-4794-9781-b76a32e7175c",
+							"candidateListIdentification": "441682e0-08ae-3b7d-bc1b-8f9f7072c6b4"
+						},
+						{
+							"candidateIdentification": "1d48f2f5-08a3-4d1f-be5e-80cfb6ed76e4",
+							"candidateListIdentification": "46e0ba8b-0a5b-3bb0-b439-9e9876c06758"
+						},
+						{
+							"candidateIdentification": null,
+							"candidateListIdentification": null
+						},
+						{
+							"candidateIdentification": null,
+							"candidateListIdentification": null
+						},
+						{
+							"candidateIdentification": "8c12fee2-619f-47e1-82dd-cd4314c95807",
+							"candidateListIdentification": "44c3fd52-4c78-3e2c-8a40-dbcfa2849143"
+						},
+						{
+							"candidateIdentification": "f5074d62-71f3-4a0e-9fb5-82cb03d4751e",
+							"candidateListIdentification": "88e97dea-f138-3521-92a4-6a53c2129725"
+						}
+					],
+					"emptyListIds": {
+						"listIdentification": "99",
+						"emptyPositionIds": [
+							{
+								"emptyPositionIdentification": "4ea3eb45-4872-3418-81d9-1e928937fc1b"
+							},
+							{
+								"emptyPositionIdentification": "d2838d83-b21e-3758-b3db-428094b8c39f"
+							},
+							{
+								"emptyPositionIdentification": "c2275508-2e7e-33e7-8fb8-4aaa48979288"
+							},
+							{
+								"emptyPositionIdentification": "0e08a1c6-62d3-3e54-8642-6792536ba039"
+							},
+							{
+								"emptyPositionIdentification": "899e6604-8374-370d-961c-e1537d2f7d53"
+							},
+							{
+								"emptyPositionIdentification": "1a6ea144-5fe6-376a-a659-aa8d72bb2ad8"
+							}
+						]
+					},
+					"chosenList": {
+						"listIdentification": "50504845-5222-4e70-8d34-f812fce04009"
+					}
+				}
+			]
+		},
+		{
+			"electionGroupIdentification": "majorz_test",
+			"electionGroupPosition": 3,
+			"electionsInformation": [
+				{
+					"electionIdentification": "majorz_test",
+					"chosenCandidates": [
+						{
+							"candidateIdentification": "9bfe1f69-6d35-4966-b281-a5dc39655e3a"
+						}
+					],
+					"emptyListIds": {
+						"listIdentification": "ca127938-5e2f-372f-8a4e-a0cb1da35b3b",
+						"emptyPositionIds": [
+							{
+								"emptyPositionIdentification": "1cde3adc-d3b8-3077-95b4-21ac2958a8fe"
+							}
+						]
+					},
+					"chosenWriteIns": [
+						{
+							"writeInPositionIdentification": "f71ffce9-78c9-3621-895b-aebcc0849ad1",
+							"writeIn": null
+						}
+					]
+				}
+			]
+		}
+	]
+}

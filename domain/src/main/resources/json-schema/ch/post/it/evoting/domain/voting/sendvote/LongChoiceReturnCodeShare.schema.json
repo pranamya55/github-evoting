@@ -1,0 +1,47 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/voting/sendvote/LongChoiceReturnCodeShare.schema.json",
+	"title": "Long Choice Return Code Share",
+	"description": "A long Choice Return Code share.",
+	"type": "object",
+	"properties": {
+		"electionEventId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the election event. Corresponds to ee in the specification. Corresponds to ee in the specification."
+		},
+		"verificationCardSetId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card set. Corresponds to vcs in the specification."
+		},
+		"verificationCardId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card. Corresponds to vc_id in the specification."
+		},
+		"nodeId": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 4,
+			"description": "The node identifying the control component. Corresponds to the CCR's index j in the specification."
+		},
+		"longChoiceReturnCodeShare": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}={2})$"
+			},
+			"minItems": 1,
+			"description": "The long Choice Return Code share, base64 encoded. Corresponds to lCC_j_id in the specification."
+		}
+	},
+	"required": [
+		"electionEventId",
+		"verificationCardSetId",
+		"verificationCardId",
+		"nodeId",
+		"longChoiceReturnCodeShare"
+	],
+	"additionalProperties": false
+}

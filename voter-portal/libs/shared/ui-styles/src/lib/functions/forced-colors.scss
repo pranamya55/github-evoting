@@ -1,0 +1,24 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:string";
+@use "../bootstrap-overrides" as app;
+
+@function button-text($bg-url, $bg-color) {
+  @return _force-color($bg-url, $bg-color, ButtonText);
+}
+
+@function button-face($bg-url, $bg-color) {
+  @return _force-color($bg-url, $bg-color, ButtonFace);
+}
+
+@function highlight($bg-url, $bg-color) {
+  @return _force-color($bg-url, $bg-color, Highlight);
+}
+
+@function _force-color($bg-url, $bg-color, $forced-color) {
+  $bg-color-index: string.index($bg-url, '#{$bg-color}');
+  $forced-color-url-start: string.slice($bg-url, 1, $bg-color-index - 1);
+  $forced-color-url-end: string.slice($bg-url, $bg-color-index + string.length('#{$bg-color}'));
+  @return app.escape-svg($forced-color-url-start + '#{$forced-color}' + $forced-color-url-end);
+}

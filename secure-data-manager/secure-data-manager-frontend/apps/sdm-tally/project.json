@@ -1,0 +1,135 @@
+{
+	"name": "sdm-tally",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"prefix": "sdm",
+	"sourceRoot": "apps/sdm-tally/src",
+	"tags": [
+		"scope:tally",
+		"type:app"
+	],
+	"targets": {
+		"build": {
+			"executor": "./:browser",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"options": {
+				"outputPath": "dist/apps/sdm-tally",
+				"index": "apps/sdm-tally/src/index.html",
+				"main": "apps/sdm-tally/src/main.ts",
+				"polyfills": [
+					"zone.js"
+				],
+				"tsConfig": "apps/sdm-tally/tsconfig.app.json",
+				"assets": [
+					{
+						"glob": "**/*",
+						"input": "libs/shared/ui-assets/src/lib/assets/",
+						"output": "/assets/"
+					},
+					{
+						"glob": "favicon.ico",
+						"input": "libs/shared/ui-assets/src/lib/",
+						"output": "/"
+					}
+				],
+				"styles": [
+					"libs/shared/ui-styles/src/index.scss"
+				],
+				"stylePreprocessorOptions": {
+					"includePaths": [
+						"apps/sdm-tally/src"
+					]
+				},
+				"scripts": []
+			},
+			"configurations": {
+				"production": {
+					"subresourceIntegrity": true,
+					"optimization": true,
+					"namedChunks": true,
+					"fileReplacements": [
+						{
+							"replace": "libs/shared/ui-config/src/lib/environment.ts",
+							"with": "apps/sdm-tally/src/environment.prod.ts"
+						}
+					],
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "1mb",
+							"maximumError": "5mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"outputHashing": "none"
+				},
+				"development": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"serve": {
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+				"production": {
+					"buildTarget": "sdm-tally:build:production"
+				},
+				"development": {
+					"buildTarget": "sdm-tally:build:development"
+				}
+			},
+			"defaultConfiguration": "development",
+			"options": {
+				"port": 4201,
+				"proxyConfig": "apps/sdm-tally/src/proxy.conf.json"
+			},
+			"continuous": true
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"buildTarget": "sdm-tally:build"
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"apps/sdm-tally/**/*.ts",
+					"apps/sdm-tally/**/*.html"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
+			"options": {
+				"jestConfig": "apps/sdm-tally/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	}
+}

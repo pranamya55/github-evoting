@@ -1,0 +1,15 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../bootstrap-overrides" as app;
+
+.alert {
+  vp-icon:first-child {
+    font-size: app.$font-size-lg;
+    max-height: app.$line-height-base * app.$font-size-base;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

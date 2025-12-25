@@ -1,0 +1,82 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<nav class="navbar navbar-expand bg-secondary border-bottom" data-bs-theme="dark">
+	<div class="container-fluid">
+		<span class="navbar-brand fw-light text-uppercase">{{ applicationName }}</span>
+		@if (configurationSummary) {
+			<span class="navbar-text ms-auto fs-5 fw-light">
+        {{ configurationSummary.electionEventSeed }} {{ getTranslatedDescription(configurationSummary) }}
+      </span>
+		}
+		<ul class="navbar-nav ms-auto gap-3" role="menubar">
+			@if (remoteServerAvailable) {
+				<li
+						class="nav-item d-flex align-items-center"
+						[popoverTitle]="'header.votingServerConnection.title' | translate"
+						[ngbPopover]="popoverContent"
+						popoverClass="connection-popover"
+						triggers="mouseenter:mouseleave"
+				>
+					@if (votingServerConnected === null) {
+						<div
+								class="spinner-grow text-light"
+								style="--bs-spinner-width: 1.6rem; --bs-spinner-height: 1.6rem"
+						></div>
+					}
+					@if (votingServerConnected !== null) {
+						<div
+								[class.bg-success]="votingServerConnected"
+								[class.bg-danger]="!votingServerConnected"
+								class="connection-indicator"
+						>
+							<i class="bi bi-wifi"></i>
+						</div>
+					}
+					<ng-template #popoverContent>
+						@if (votingServerConnected === null) {
+							{{ 'header.votingServerConnection.connecting' | translate }}
+						}
+						@if (votingServerConnected !== null) {
+							{{ 'header.votingServerConnection.' + (votingServerConnected ? 'connectedTo' : 'noConnectionTo') | translate }}
+							<span class="text-nowrap">{{ votingServerName }}</span>
+						}
+					</ng-template>
+				</li>
+			}
+			<li class="nav-item" display="dynamic" ngbDropdown role="none">
+				<a aria-haspopup="true" class="nav-link" data-test="currentLanguage" ngbDropdownToggle role="menuItem" tabindex="0">
+					<span aria-hidden="true">{{ currentLocale.id | uppercase }}</span>
+					<span class="visually-hidden">{{ 'header.languageSelector.button' | translate: currentLocale }}</span>
+				</a>
+				<div [attr.aria-label]="'header.languageSelector.menu' | translate"
+					 class="dropdown-menu language-selector"
+					 ngbDropdownMenu
+					 role="menu">
+					@for (locale of appLocales; track locale) {
+						@if (locale.id !== currentLocale.id) {
+							<a
+									(click)="$event.preventDefault(); setLocale(locale)"
+									[lang]="locale.id"
+									[title]="locale.name"
+									class="text-center"
+									data-test="language"
+									href="#"
+									ngbDropdownItem
+									role="menuitem"
+							>
+								<span aria-hidden="true">{{ locale.id | uppercase }}</span>
+								<span class="visually-hidden">{{ locale.name }}</span>
+							</a>
+						}
+					}
+				</div>
+			</li>
+		</ul>
+		<span class="navbar-text text-end ms-3" style="font-size: 0.7em">
+      <span>{{ description }}</span>
+      <br/>
+      <span>V{{ version }}</span>
+    </span>
+	</div>
+</nav>

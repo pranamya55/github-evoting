@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<configuration>
+	<!-- Include default Spring Boot Logback configurations -->
+	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+	<!-- Define the log file location -->
+	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+	<!-- Include default CONSOLE and FILE appenders -->
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+	<include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+
+
+	<appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="CONSOLE"/>
+	</appender>
+
+	<appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="FILE"/>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="ASYNC_CONSOLE"/>
+		<appender-ref ref="ASYNC_FILE"/>
+	</root>
+
+</configuration>

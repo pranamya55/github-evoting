@@ -1,0 +1,27 @@
+Generate direct trust keystore command:
+    java -jar direct-trust-tool-<VERSION>-runnable.jar \
+         -keystore \
+         -valid_from <dd/MM/yyyy> \
+         -valid_until <dd/MM/yyyy> \
+         -certificate_common_name <string> \
+         -certificate_country <string> \
+         -certificate_state <string> \
+         -certificate_organisation <string> \
+         -certificate_locality <string> \
+         -alias <string> \
+         -password_length <int> \
+         -out <path>
+
+Parameters help:
+    - `keystore` select the current command.
+    - All the parameters below are related to the certificate:
+        - `valid_from` date from which the certificate is valid.
+        - `valid_until` date until which the certificate is valid.
+        - `certificate_common_name` the name of the certificate.
+        - `certificate_country` the country of the certificate.
+        - `certificate_state` the state of the certificate.
+        - `certificate_organisation` the organization of the certificate.
+        - `certificate_locality` the locality of the certificate.
+    - `alias` is the alias name of the component we want to generate files for.
+    - `password_length` is the optional length of the generated password. Default length is `20`.
+    - `out` is the optional path where the tool will create the keystore, the password file and the certificate. Default value is `./output/`.

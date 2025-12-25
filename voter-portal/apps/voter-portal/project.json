@@ -1,0 +1,163 @@
+{
+	"name": "voter-portal",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"prefix": "vp",
+	"sourceRoot": "apps/voter-portal/src",
+	"tags": [
+		"scope:voter-portal",
+		"type:app"
+	],
+	"targets": {
+		"build": {
+			"executor": "./:browser",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"options": {
+				"baseHref": "/vote/",
+				"outputPath": "target/dist/apps/voter-portal",
+				"index": "apps/voter-portal/src/index.html",
+				"main": "apps/voter-portal/src/main.ts",
+				"polyfills": [
+					"apps/voter-portal/src/polyfills.ts",
+					"zone.js"
+				],
+				"tsConfig": "apps/voter-portal/tsconfig.app.json",
+				"inlineStyleLanguage": "scss",
+				"assets": [
+					"apps/voter-portal/src/assets"
+				],
+				"styles": [
+					"libs/shared/ui-styles/src/index.scss"
+				],
+				"scripts": [
+					{
+						"input": "vendor/voting-client/dist/ov-api.js",
+						"bundleName": "crypto.ov-api",
+						"inject": true
+					},
+					{
+						"input": "vendor/voting-client/dist/ov-worker.js",
+						"bundleName": "crypto.ov-worker",
+						"inject": true
+					}
+				],
+				"stylePreprocessorOptions": {
+					"includePaths": [
+						"apps/voter-portal/src",
+						"node_modules"
+					]
+				},
+				"allowedCommonJsDependencies": [
+					"lodash"
+				]
+			},
+			"configurations": {
+				"production": {
+					"sourceMap": false,
+					"optimization": {
+						"scripts": true,
+						"styles": {
+							"minify": true,
+							"inlineCritical": false
+						},
+						"fonts": true
+					},
+					"namedChunks": true,
+					"subresourceIntegrity": true,
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "2000kb",
+							"maximumError": "10mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"fileReplacements": [
+						{
+							"replace": "./libs/voter-portal/data-access/src/lib/environments/environment.ts",
+							"with": "./libs/voter-portal/data-access/src/lib/environments/environment.prod.ts"
+						}
+					],
+					"outputHashing": "none"
+				},
+				"development": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true
+				},
+				"development-standalone": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true,
+					"fileReplacements": [
+						{
+							"replace": "./libs/voter-portal/data-access/src/lib/ov-backend/ov-backend.service.ts",
+							"with": "./libs/voter-portal/data-access/src/lib/ov-backend/mock-ov-backend.service.ts"
+						}
+					],
+					"scripts": []
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"serve": {
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"options": {
+				"proxyConfig": "apps/voter-portal/src/proxy.config.json"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "voter-portal:build:production"
+				},
+				"development": {
+					"buildTarget": "voter-portal:build:development"
+				},
+				"development-standalone": {
+					"buildTarget": "voter-portal:build:development-standalone"
+				}
+			},
+			"defaultConfiguration": "development",
+			"continuous": true
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"apps/voter-portal/src/**/*.ts",
+					"apps/voter-portal/src/**/*.html"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectName}"
+			],
+			"options": {
+				"jestConfig": "apps/voter-portal/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	}
+}

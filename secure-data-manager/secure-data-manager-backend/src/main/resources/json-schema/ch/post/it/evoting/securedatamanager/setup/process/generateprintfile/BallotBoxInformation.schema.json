@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/securedatamanager/BallotBoxInformation.schema.json",
+	"title": "Ballot Box Information",
+	"description": "Regroups the information of a ballot box.",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "The name of the ballot box."
+		},
+		"verificationCardSetId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card set. Corresponds to vcs in the specification."
+		},
+		"isTest": {
+			"type": "boolean",
+			"description": "True if the ballot box is used for testing, false otherwise"
+		},
+		"countICH": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The count of swiss resident voters."
+		},
+		"countACH": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The count of swiss abroad voters."
+		},
+		"countForeigner": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "The count of foreigner voters."
+		}
+	},
+	"required": [
+		"name",
+		"verificationCardSetId",
+		"isTest",
+		"countICH",
+		"countACH",
+		"countForeigner"
+	],
+	"additionalProperties": false
+}

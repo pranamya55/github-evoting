@@ -1,0 +1,13 @@
+[
+	{
+		"context": [
+			"/sdm-tally",
+			"/sdm-shared",
+			"/actuator"
+		],
+		"target": "http://localhost:8091/",
+		"secure": false,
+		"logLevel": "debug",
+		"timeout": 600000
+	}
+]

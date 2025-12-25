@@ -1,0 +1,113 @@
+[
+	{
+		"id": "PIT-1",
+		"phases": [
+			{
+				"phaseLevel": "UPCOMING",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "UPCOMING",
+							"text": {
+								"DE": "**Öffnet am:** Montag 28. Juli 2025, 12:00 Uhr, Schweizer Lokalzeit",
+								"FR": "**Ouvre le:** lundi 28 juillet 2025, 12h00, heure locale suisse",
+								"IT": "**Apertura il:** lunedì 28 luglio 2025, 12:00, ora locale della Svizzera",
+								"RM": "**Apertura il:** glindesdi 28 da fanadur 2025, 12:00, uras locala da la Svizra",
+								"EN": "**Opens on:** Monday, July 28 2025, 12:00 noon, Swiss local time"
+							}
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "OPEN",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "OPEN",
+							"text": {
+								"DE": "**Geöffnet** bis Sonntag 24. August 2025 20:00",
+								"FR": "**Ouvert** jusqu’au dimanche 24 août 2025 à 20h00",
+								"IT": "**Aperto** fino a domenica 24 agosto 2025, ore 20:00",
+								"RM": "**Apert** fin a dumengia 24 da fanadur 2025, 20:00 uras",
+								"EN": "**Open** until Sunday, 24 August 2025, 8 p.m"
+							}
+						}
+					},
+					{
+						"alert": {
+							"level": "warning",
+							"contentElements": [
+								{
+									"paragraph": {
+										"text": {
+											"DE": "Beim E-Voting erfolgt die Identifikation des Stimmberechtigtenu.a. anhand seines Geburtsjahrs.",
+											"FR": "Dans le cas du vote électronique, l’identification de l’électeur se fait notamment sur la base de son année de naissance.",
+											"IT": "Nel caso del voto elettronico, l'identificazione dell'elettore avviene tra l'altro in base al suo anno di nascita.",
+											"RM": "En il cas dal vot electronic, l'identificaziun da l'electur vegn fatga tranter auter sin basa da l'onn da naschientscha.",
+											"EN": "In e-voting, voters are identified based on their year of birth."
+										}
+									}
+								},
+								{
+									"paragraph": {
+										"text": {
+											"DE": "**Bei der Teilnahme am Intrusionstest ist das Geburtsjahr 1980 zu verwenden.**",
+											"FR": "**Pour participer au test d’intrusion, il convient d’utiliser l’année de naissance 1980.**",
+											"IT": "**Per partecipare al test di intrusione, si deve utilizzare l'anno di nascita 1980.**",
+											"RM": "**Per participar al test d'intrusiun, duess ins duvrar l'onn da naschientscha 1980.**",
+											"EN": "**The year of birth 1980 must be used for participation in the intrusion test.**"
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"button": {
+							"text": {
+								"DE": "Zur PIT Abstimmung",
+								"FR": "Accès au vote PIT",
+								"IT": "Verso la votazione PIT",
+								"RM": "Vers la votaziun PIT",
+								"EN": "Access to PIT vote"
+							},
+							"link": "http://localhost:4200/vote/#/init/B3083325FB5CC812D7168B0BC0DC9671",
+							"addLanguageParameter": true,
+							"languageParameter": "?lang=",
+							"icon": "arrow-right"
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "EVOTING-CLOSED",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "EVOTING-CLOSED",
+							"text": {
+								"DE": "**Die elektronische Urne ist geschlossen.**",
+								"FR": "**Le délai pour voter par voie électronique est échu.**",
+								"IT": "**Il termine per votare in forma elettronica è scaduto.**",
+								"RM": "**L’urna electronica è serrada.**",
+								"EN": "**The deadline for voting electronically has expired.**"
+							}
+						}
+					},
+					{
+						"paragraph": {
+							"text": {
+								"DE": "Nächster geplanter Urnengang: 24. November 2026.",
+								"FR": "Prochain scrutin prévu: 24 novembre 2026.",
+								"IT": "Prossima chiamata alle urne prevista: 24 novembre 2026.",
+								"RM": "Proxim scrutini previsa: 24 da november 2026.",
+								"EN": "Next scheduled election: November 24, 2026."
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+]

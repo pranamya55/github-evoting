@@ -1,0 +1,19 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@import './lib/base';
+
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/popover';
+
+@import './lib/components';
+@import './lib/utilities';
+@import './lib/styles';
+
+@import 'bootstrap-icons/font/bootstrap-icons';
+

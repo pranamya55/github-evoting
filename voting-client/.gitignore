@@ -1,0 +1,14 @@
+# Generated directories
+node_modules/
+build/
+dist/
+**/target/
+coverage/
+vendor/
+
+# Logs
+*.log
+
+# Intellij
+.idea
+*.iml

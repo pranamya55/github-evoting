@@ -1,0 +1,10 @@
+{
+	"debug": false,
+	"useWindow": true,
+	"properties": [
+		{
+			"key": "logging.level.root",
+			"value": "info"
+		}
+	]
+}

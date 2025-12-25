@@ -1,0 +1,217 @@
+{
+	"languageConfiguration": {
+		"defaultLanguage": "fr",
+		"availableLanguages": ["fr", "de", "it"]
+	},
+	"headerConfiguration": {
+		"logo": {
+			"title": {
+				"DE": "Die Post",
+				"FR": "La Poste",
+				"IT": "La Posta",
+				"RM": "La Posta",
+				"EN": "Swiss Post"
+			},
+			"height": {
+				"desktop": 86,
+				"mobile": 56
+			}
+		}
+	},
+	"contentConfiguration": [
+		{
+			"heading": {
+				"level": 1,
+				"text": {
+					"DE": "Öffentliche Intrusionstest 2025",
+					"FR": "Test d’intrusion public 2025",
+					"IT": "Test di intrusione pubblico 2025",
+					"RM": "Test d'intrusiun publica 2025",
+					"EN": "Public intrusion test 2025"
+				}
+			}
+		},
+		{
+			"heading": {
+				"level": 2,
+				"text": {
+					"DE": "Der öffentlicher Intrusionstest 2025 findet vom 28. Juli bis zum 24. August statt.",
+					"FR": "Le test d’intrusion public 2025 aura lieu du 28 juillet au 24 août.",
+					"IT": "Il test di intrusione pubblico 2025 si svolgerà dal 28 luglio al 24 agosto.",
+					"RM": "Il test d'intrusiun publica 2025 ha lieu dal 28 da fanadur fin a la fin da fanadur.",
+					"EN": "The 2025 public intrusion test will take place from 28 July to 24 August."
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Ethische Hackerinnen und Hacker aus der ganzen Welt können im Rahmen des öffentlichen Intrusionstests versuchen, in die E-Voting-Infrastruktur der Post einzudringen. Der Test dient dazu, Schwachstellen zu finden und die Sicherheit des Systems kontinuierlich zu verbessern.",
+					"FR": "Dans le cadre du test d’intrusion public, des hackeuses et des hackers éthiques du monde entier peuvent tenter de pénétrer dans l’infrastructure de vote électronique de la Poste. Ce test sert à déceler des failles et poursuivre l’amélioration de la sécurité du système.",
+					"IT": "Nel contesto del test di intrusione pubblico, hacker etici di tutto il mondo possono tentare di accedere all'infrastruttura di voto elettronico della Posta. Il test serve a individuare le vulnerabilità e a migliorare continuamente la sicurezza del sistema.",
+					"RM": "En il context dal test d'intrusiun publica, hackeras e hackers etics da tut il mund pon empruvar d'infiltrar l'infrastructura da votaziun electronic da la Posta. Il test serva per chattar las vulnerabilitads e per meglierar cuntinuadamain la segirezza dal sistem.",
+					"EN": "Ethical hackers from around the world can try to access Swiss Post’s e-voting infrastructure as part of the public intrusion test. The purpose of the test is to find vulnerabilities and continually improve the system’s security."
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Die Post stellt vereinfachte Musterstimmrechtsausweise zur Verfügung, die Interessierte nutzen können, um den Prozess der Stimmabgabe durchzuspielen.",
+					"FR": "La Poste met à disposition des modèles de carte de vote simplifiés que les personnes intéressées peuvent utiliser pour simuler le processus de vote.",
+					"IT": "La Posta mette a disposizione dei modelli semplificati di documento d'identità elettorale che gli interessati possono utilizzare per simulare il processo di voto.",
+					"RM": "La Posta metta a disposiziun models simplificads da legitimaziun da dretg da votar che las persunas interessadas pon duvrar per tesitar il process da votaziun.",
+					"EN": "Swiss Post provides simplified sample voting cards that interested parties can use to simulate the vote casting process."
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Das Portal, das die Stimmberechtigten zur Stimmabgabe nutzen (VoterPortal), ist in den Schweizer Landessprachen deutsch, französisch, italienisch und rätoromanisch verfügbar.",
+					"FR": "Le portail que les électeurs utilisent pour voter (VoterPortal) est disponible dans les langues nationales suisses, à savoir l’allemand, le français, l’italien et le romanche.",
+					"IT": "Il portale che gli elettori utilizzano per votare (VoterPortal) è disponibile nelle lingue nazionali svizzere, vale a dire tedesco, francese, italiano e romancio.",
+					"RM": "Il portal che las votantas e votants dovran per votar (VoterPortal) è disponibel en las linguas naziunals svizras, valeu a dir tudestg, franzos, talian e rumantsch.",
+					"EN": "The portal voters use to cast their votes (VoterPortal) is available in the Swiss national languages, namely German, French, Italian and Romansh."
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Bitte folgen Sie den unten aufgelisteten Schritten, um testweise die Stimme elektronisch abzugeben.",
+					"FR": "Veuillez suivre les étapes énumérées ci-dessous pour voter électroniquement à titre d'essai.",
+					"IT": "Si prega di seguire i passaggi elencati di seguito per votare elettronicamente a titolo di prova.",
+					"RM": "Per plaschair suandai ils pass che vegnan elencads sut per votar electronicamain a moda da prova.",
+					"EN": "Please follow the steps listed below to cast your vote electronically for the test."
+				}
+			}
+		},
+		{
+			"steps": [
+				{
+					"title": {
+						"DE": "Stimmrechtsausweis (Muster) herunterladen",
+						"FR": "Télécharger la carte de vote (modèle)",
+						"IT": "Scaricare il documento d'identità elettorale (modello)",
+						"RM": "Scaricar la legitimaziun da dretg da votar (model)",
+						"EN": "Download the voting card (sample)"
+					},
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Um E-Voting durchzuspielen, brauchen Sie einen Stimmrechtsausweis (Muster). Dieser enthählt Codes, die Sie für die elektronische Stimmabgabe benötigen.",
+									"FR": "Pour tester le vote électronique, vous avez besoin d’une carte de légitimation (modèle). Celui-ci contient les codes dont vous avez besoin pour le vote électronique.",
+									"IT": "Per provare il voto elettronico, è necessario un documento d'identità elettorale (modello). Questo contiene i codici necessari per la votazione elettronica.",
+									"RM": "Per tesitar il vot electronic, avete basegn d'ina legitimaziun da dretg da votar (model). Questa cuntegn ils codes che vos basegnan per la votaziun electronica.",
+									"EN": "To run through e-voting, you need a voting card (sample). This contains codes that you need for electronic voting."
+								}
+							}
+						},
+						{
+							"captcha": {
+								"url": "/download",
+								"captchaResponseParameterName": "captcha-response",
+								"instructions": {
+									"DE": "Captcha lösen, um die Stimmrechtsausweis (Muster) herunterzuladen",
+									"FR": "Valider le captcha pour télécharger la carte de vote (modèle)",
+									"IT": "Risolvi il captcha per scaricare il documento d'identità elettorale (modello)",
+									"RM": "Valida il captcha per scaricar la legitimaziun da dretg da votar (model)",
+									"EN": "Solve the captcha to download the voting card (sample)"
+								},
+								"button": {
+									"text": {
+										"DE": "Stimmrechtsausweis (Muster)",
+										"FR": "Carte de vote (modèle)",
+										"IT": "Documento d'identità elettorale (modello)",
+										"RM": "Legitimaziun da dretg da votar (model)",
+										"EN": "Voting card (sample)"
+									},
+									"url": "",
+									"icon": "box-arrow-up-right"
+								}
+							}
+						}
+					]
+				},
+				{
+					"title": {
+						"DE": "Ihre Stimme abgeben",
+						"FR": "Soumettre son vote",
+						"IT": "Inviare il proprio voto",
+						"RM": "Invitar il vot",
+						"EN": "Cast your vote"
+					},
+					"contentElements": [
+						{
+							"eventReference": {
+								"id": "PIT-1"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"sharedReference": {
+				"id": "security-advices"
+			}
+		}
+	],
+	"footerConfiguration": {
+		"footerLinks": [
+			{
+				"main": true,
+				"text": {
+					"DE": "CH Digital Services AG",
+					"FR": "CH Digital Services SA",
+					"IT": "CH Digital Services SA",
+					"RM": "CH Digital Services SA",
+					"EN": "CH Digital Services AG"
+				},
+				"url": "#"
+			},
+			{
+				"text": {
+					"DE": "Kontakt",
+					"FR": "Contact",
+					"IT": "Contatto",
+					"RM": "Contact",
+					"EN": "Contact"
+				},
+				"url": "#"
+			},
+			{
+				"text": {
+					"DE": "Impressum",
+					"FR": "Mentions légales",
+					"IT": "Note legali",
+					"RM": "Impressum",
+					"EN": "Legal Notice"
+				},
+				"url": "#"
+			},
+			{
+				"text": {
+					"DE": "Datenschutzerklärung",
+					"FR": "Déclaration de confidentialité",
+					"IT": "Informativa sulla privacy",
+					"RM": "Decleraziun da protecziun da datas",
+					"EN": "Privacy Policy"
+				},
+				"url": "#"
+			},
+			{
+				"text": {
+					"DE": "Rechtliches",
+					"FR": "Informations juridiques",
+					"IT": "Informazioni legali",
+					"RM": "Infurmaziuns giuridicas",
+					"EN": "Legal Information"
+				},
+				"url": "#"
+			}
+		]
+	}
+}

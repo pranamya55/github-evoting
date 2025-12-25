@@ -1,0 +1,41 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<div class="modal-header p-0 overflow-hidden">
+	<div
+			class="alert page-actions rounded-0 m-0 w-100"
+			[class.alert-primary]="exportStatus === WorkflowStatus.InProgress"
+			[class.alert-success]="exportStatus === WorkflowStatus.Complete"
+			[class.alert-danger]="exportStatus === WorkflowStatus.Error"
+	>
+		@if (exportStatus !== WorkflowStatus.Complete) {
+			<div class="spinner">
+				<span aria-hidden="true" class="spinner-border"></span>
+				<span class="visually-hidden" role="status">{{ 'common.loading' | translate }}</span>
+			</div>
+			<p>{{ 'dataExchange.export.pageActions.inProgress' | translate }}</p>
+		}
+
+		@if (exportStatus === WorkflowStatus.Complete) {
+			<i class="bi bi-check-circle" aria-hidden="true"></i>
+			{{ 'dataExchange.export.pageActions.complete' | translate }}
+		}
+
+		@if (exportStatus === WorkflowStatus.Error) {
+			<i class="bi bi-check-circle" aria-hidden="true"></i>
+			{{ 'dataExchange.export.pageActions.error.' + errorFeedbackCode | translate }}
+		}
+	</div>
+</div>
+
+<div class="modal-body">
+	<sdm-export-information [exchangeIndex]="exchangeIndex"></sdm-export-information>
+</div>
+@if (exportStatus !== WorkflowStatus.InProgress) {
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-primary" (click)="activeModal.close('Close click')">
+			{{ 'common.close' | translate }}
+		</button>
+	</div>
+}

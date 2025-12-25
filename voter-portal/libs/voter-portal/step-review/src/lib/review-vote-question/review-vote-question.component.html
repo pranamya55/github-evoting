@@ -1,0 +1,25 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h4
+	[innerHTML]="
+		question.ballotQuestion.question
+			| translateText
+			| markdown: { allowLinks: false, allowBlock: false }
+	"
+	class="d-inline fs-inherit"
+>
+	This content will be replaced.
+</h4>
+
+@if (chosenAnswer) {
+	<vp-answer class="my-2" [isActive]="!isEmptyAnswer">
+		{{ chosenAnswer.answerInformation | translateText }}
+
+		@if (isEmptyAnswer) {
+			<span class="visually-hidden">
+				{{ 'common.screenreader.nooptionselected' | translate }}
+			</span>
+		}
+	</vp-answer>
+}

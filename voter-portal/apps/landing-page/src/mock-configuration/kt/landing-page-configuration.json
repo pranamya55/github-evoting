@@ -1,0 +1,225 @@
+{
+	"languageConfiguration": {
+		"defaultLanguage": "fr",
+		"availableLanguages": ["fr", "de", "it"]
+	},
+	"headerConfiguration": {
+		"logo": {
+			"title": {
+				"DE": "Die Post",
+				"FR": "La Poste",
+				"IT": "La Posta",
+				"RM": "La Posta",
+				"EN": "Swiss Post"
+			},
+			"height": {
+				"desktop": 84,
+				"mobile": 64
+			}
+		},
+		"reverse": true,
+		"bars": [
+			{
+				"height": {
+					"desktop": 7,
+					"mobile": 4
+				},
+				"color": "#ffec00"
+			},
+			{
+				"height": {
+					"desktop": 12,
+					"mobile": 5
+				},
+				"color": "#adc427"
+			},
+			{
+				"height": {
+					"desktop": 7,
+					"mobile": 3
+				},
+				"color": "#72a536"
+			},
+			{
+				"height": {
+					"desktop": 7,
+					"mobile": 3
+				},
+				"color": "#00a4e8"
+			},
+			{
+				"height": {
+					"desktop": 30,
+					"mobile": 12
+				},
+				"color": "#4ab1eb"
+			}
+		]
+	},
+	"contentConfiguration": [
+		{
+			"heading": {
+				"level": 1,
+				"text": {
+					"DE": "E-Voting Kanton Post",
+					"FR": "E-Voting Poste Canton",
+					"IT": "E-Voting Posta Cantone",
+					"RM": "E-Voting Posta Chantun",
+					"EN": "E-Voting Swiss Post Canton"
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Die Erläuterungen des Bundesrates zu den eidgenössischen Abstimmungsvorlagen sowie die Erläuterungen zu den kantonalen, regionalen und kommunalen Vorlagen werden elektronisch bereitgestellt.",
+					"FR": "Les explications du Conseil fédéral sur les objets soumis au vote fédéral ainsi que les explications sur les objets cantonaux, régionaux et communaux sont mises à disposition par voie électronique.",
+					"IT": "Le spiegazioni del Consiglio federale sui temi sottoposti a votazione federale, nonché le spiegazioni sui temi cantonali, regionali e comunali sono messe a disposizione in forma elettronica.",
+					"RM": "Las explicaziuns dal Cussegl federal davart las propostas da votaziun federala sco er las explicaziuns davart las propostas chantunalas, regiunalas e communalas vegnan messas a disposiziun electronicamain.",
+					"EN": "The Federal Council's explanations on the federal voting proposals, as well as the explanations on the cantonal, regional and municipal proposals, are provided electronically."
+				}
+			}
+		},
+		{
+			"container": {
+				"contentElements": [
+					{
+						"eventReference": {
+							"id": "EVENT-1"
+						}
+					}
+				]
+			}
+		},
+		{
+			"sharedReference": {
+				"id": "security-advices"
+			}
+		}
+	],
+	"footerConfiguration": {
+		"footerContents": [
+			[
+				{
+					"heading": {
+						"level": 2,
+						"text": {
+							"DE": "Kontakt",
+							"FR": "Contact",
+							"IT": "Contatto",
+							"RM": "Contact",
+							"EN": "Contact"
+						}
+					}
+				},
+				{
+					"paragraph": {
+						"text": {
+							"DE": "@ 2025 Post CH Kommunikation AG",
+							"FR": "@ 2025 Poste CH Communication SA",
+							"IT": "@ 2025 Posta CH Comunicazione SA",
+							"RM": "@ 2025 Posta CH Comunicazione SA",
+							"EN": "@ 2025 Post CH Communication Ltd"
+						}
+					}
+				}
+			],
+			[
+				{
+					"alert": {
+						"level": "info",
+						"contentElements": [
+							{
+								"paragraph": {
+									"text": {
+										"DE": "Bei einer realen Wahl oder Abstimmung erhalten die Stimmberechtigten den Stimmrechtsausweis für E-Voting mit den übrigen Stimmrechtsunterlagen per Post. Die Stimmrechtsausweise sehen in jedem Kanton unterschiedlich aus. Auch können sich die Stimmberechtigten je nach Kanton mit ihrem Geburtsdatum oder Geburtsjahr und dem Initialisierungscode anmelden.",
+										"FR": "Lors d’une élection ou d’une votation réelle, les électeurs reçoivent la carte de vote pour le vote électronique avec les autres documents électoraux par courrier. Les cartes de vote diffèrent selon les cantons. Selon le canton, les électeurs peuvent se connecter avec leur date ou année de naissance et le code d’initialisation.",
+										"IT": "In caso di elezione o votazione reale, gli aventi diritto di voto ricevono il certificato elettorale per l’e-voting insieme agli altri documenti per la votazione per posta. I certificati elettorali di voto variano da cantone a cantone. A seconda del cantone, gli elettori possono accedere con la loro data o anno di nascita e il codice di inizializzazione. ",
+										"RM": "Tar ina elecziun u votaziun reala, survegnan ils votants l’attestat da votar per e-voting cun ils ulteriurs documents da votaziun tras posta. Ils attestats da votar èn differents en mintga chantun. Tenor chantun pon ils votants s’annunziar cun lur data u onn da naschientscha ed il code d’inizialisaziun.",
+										"EN": "In a real election or vote, eligible voters receive the voting cards for e-voting along with the other voting documents by mail. The design of the voting card differs from canton to canton. Depending on the canton, voters can log in using their date or year of birth and the initialization code.<br><br>The portal used for casting votes, as well as the voting cards, are available in Switzerland’s national languages: German, French, Italian, and Romansh."
+									}
+								}
+							}
+						]
+					}
+				},
+				{
+					"heading": {
+						"level": 2,
+						"text": {
+							"DE": "Öffnungszeiten",
+							"FR": "Heures d'ouverture",
+							"IT": "Orari di apertura",
+							"RM": "Uras d’avertura",
+							"EN": "Opening hours"
+						}
+					}
+				},
+				{
+					"paragraph": {
+						"text": {
+							"DE": "Montag bis Freitag<br>07.30 – 18.00 Uhr",
+							"FR": "Lundi à vendredi<br>07h30 – 18h00",
+							"IT": "Lunedì a venerdì<br>07.30 – 18.00",
+							"RM": "Glindesdi fin venderdi<br>07.30 – 18.00",
+							"EN": "Monday to Friday<br>07:30 – 18:00"
+						}
+
+					}
+				}
+			],
+			[
+				{
+					"heading": {
+						"level": 2,
+						"text": {
+							"DE": "Telefon",
+							"FR": "Téléphone",
+							"IT": "Telefono",
+							"RM": "Telefon",
+							"EN": "Telephone"
+						}
+					}
+				},
+				{
+					"paragraph": {
+						"text": {
+							"DE": "+41 848 888 888",
+							"FR": "+41 848 888 888",
+							"IT": "+41 848 888 888",
+							"RM": "+41 848 888 888",
+							"EN": "+41 848 888 888"
+						}
+
+					}
+				}
+			],
+			[
+				{
+					"heading": {
+						"level": 2,
+						"text": {
+							"DE": "Mail",
+							"FR": "Courriel",
+							"IT": "Email",
+							"RM": "E-mail",
+							"EN": "Email"
+						}
+					}
+				},
+				{
+					"link": {
+						"text": {
+							"DE": "Kontakt",
+							"FR": "Contact",
+							"IT": "Contatto",
+							"RM": "Contact",
+							"EN": "Contact"
+						},
+						"url": "mailto:evoting@post.ch"
+					}
+				}
+			]
+		]
+	}
+}

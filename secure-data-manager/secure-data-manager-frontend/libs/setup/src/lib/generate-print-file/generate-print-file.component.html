@@ -1,0 +1,76 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<sdm-page-title
+		[instructions]="'generatePrintFile.instruction' | translate"
+		[title]="'generatePrintFile.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		<p onError>
+			{{ 'generatePrintFile.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+		</p>
+		<p onReady>
+			{{ 'generatePrintFile.pageActions.instruction' | translate }}
+		</p>
+		<ng-container [ngTemplateOutlet]="generatePrintFileButton" onReady></ng-container>
+		<ng-container [ngTemplateOutlet]="generatePrintFileButton" onError></ng-container>
+		<ng-template #generatePrintFileButton>
+			<button
+					(click)="generatePrintFile()"
+					class="btn btn-primary"
+					type="button"
+			>
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'generatePrintFile.pageActions.generate' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">{{
+					'common.loading' | translate
+				}}</span>
+		</div>
+		<p onProgress>
+			{{ 'generatePrintFile.pageActions.inProgress' | translate }}
+		</p>
+
+
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p onComplete>
+			{{ 'generatePrintFile.pageActions.complete' | translate }}
+		</p>
+		<button
+				(click)="generatePrintFile()"
+				class="btn btn-link"
+				onComplete
+				type="button"
+		>
+			{{ 'generatePrintFile.pageActions.generate' | translate }}
+		</button>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress/>
+</sdm-page-title>
+
+<div class="card">
+	<div class="card-header">
+		{{ 'generatePrintFile.printInfo.title' | translate }}
+	</div>
+	<div class="card-body">
+		@if (printInfo) {
+			<dl class="row mb-0">
+				<dt class="col-sm-4">
+					{{ 'generatePrintFile.printInfo.targetFolder' | translate }}
+				</dt>
+				<dd class="col-sm-8">{{ printInfo.outputFolder }}</dd>
+				<dt class="col-sm-4">
+					{{ 'generatePrintFile.printInfo.filename' | translate }}
+				</dt>
+				<dd class="col-sm-8">{{ printInfo.filename }}</dd>
+			</dl>
+		}
+	</div>
+</div>

@@ -1,0 +1,42 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+$day-view-height: 2.5rem;
+
+ngb-datepicker {
+  .ngb-dp-day,
+  .ngb-dp-weekday,
+  .ngb-dp-week-number {
+    width: $day-view-height;
+  }
+
+  .ngb-dp-day {
+    height: $day-view-height;
+  }
+
+  .ngb-dp-weekday {
+    color: var(--ev-primary);
+  }
+
+  [ngbDatepickerDayView] {
+    width: $day-view-height;
+    height: $day-view-height;
+    padding: map.get(app.$spacers, 1);
+  }
+
+  .ngb-dp-navigation-select {
+    flex-basis: 12rem;
+    gap: map.get(app.$spacers, 1);
+
+    > .form-select:first-child {
+      flex-basis: 150%;
+    }
+  }
+
+  ngb-datepicker-navigation {
+    padding: map.get(app.$spacers, 1) 0;
+  }
+}

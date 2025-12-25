@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ch.post.it.evoting</groupId>
+		<artifactId>evoting-dependencies</artifactId>
+		<version>1.5.2.2</version>
+		<relativePath>../evoting-dependencies/pom.xml</relativePath>
+	</parent>
+
+	<groupId>ch.post.it.evoting.securedatamanager</groupId>
+	<artifactId>secure-data-manager</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Secure Data Manager</name>
+
+	<modules>
+		<module>secure-data-manager-backend</module>
+		<module>secure-data-manager-frontend</module>
+		<module>secure-data-manager-packaging</module>
+	</modules>
+
+</project>

@@ -1,0 +1,12 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+spring:
+  main:
+    web-application-type: none
+logging:
+  level:
+    root: INFO
+app:
+  directory:
+    output: workspace

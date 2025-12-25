@@ -1,0 +1,55 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<sdm-page-title
+		[instructions]="'dataExchange.import.instruction' | translate"
+		[title]="'dataExchange.import.title.' + exchangeIndex | translate"
+>
+	<sdm-page-actions #pageActionsComponent [forceInProgress]="forceProgress">
+		<i aria-hidden="true" class="bi bi-upload" onReady></i>
+		<p onError>
+			{{ 'dataExchange.import.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+		</p>
+		<p onReady>
+			{{ 'dataExchange.import.pageActions.instruction' | translate }} {{ 'dataExchange.import.pageActions.importNumber.' + exchangeIndex | translate }}
+		</p>
+
+		<ng-container [ngTemplateOutlet]="fileSelector" onReady></ng-container>
+		<ng-container [ngTemplateOutlet]="fileSelector" onError></ng-container>
+		<ng-template #fileSelector>
+			<input (change)="onFileSelected($event)" id="selectedFile" style="display: none;" type="file"/>
+		</ng-template>
+
+		<ng-container [ngTemplateOutlet]="importButton" onReady></ng-container>
+		<ng-container [ngTemplateOutlet]="importButton" onError></ng-container>
+		<ng-template #importButton>
+			<button class="btn btn-primary" onclick="document.getElementById('selectedFile').click();" type="button">
+				<i class="bi bi-arrow-right-circle"></i>
+				{{ 'dataExchange.import.pageActions.import' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">{{ 'common.loading' | translate }}</span>
+		</div>
+		<p onProgress>
+			{{ 'dataExchange.import.pageActions.inProgress' | translate }}
+		</p>
+
+		<i aria-hidden="true" class="bi bi-check-circle text-success" onComplete></i>
+		<p onComplete>
+			{{ 'dataExchange.import.pageActions.complete' | translate }}
+		</p>
+
+		<label class="btn btn-link ms-auto" for="importFile" onComplete>
+			{{ 'dataExchange.import.pageActions.import' | translate }}
+		</label>
+		<input (change)="onFileSelected($event)" accept=".sdm" class="visually-hidden" id="importFile" onComplete type="file"/>
+
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+</sdm-page-title>

@@ -1,0 +1,24 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<b>Download the keystore for the components</b>
+<div id="fingerprints-table">
+  <table class="mt-1">
+    <tr>
+      <th>Component</th>
+      <th>Certificate fingerprint (SHA-256)</th>
+    </tr>
+    @for (e of this.getFingerprints(); track $index) {
+      <tr>
+        <td>{{ e[0] }}</td>
+        <td style="font-family: monospace;">{{ e[1] }}</td>
+      </tr>
+    }
+  </table>
+</div>
+
+@if (hasComponents) {
+  <button (click)="downloadKeystores()" class="btn btn-dark  mt-2" type="submit">Download keystore</button>
+} @else {
+  <button (click)="print()" class="btn btn-dark  mt-2" type="submit">Print</button>
+}

@@ -1,0 +1,156 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="modal-header">
+	<h1 class="h4 modal-title">{{ 'candidateselection.title' | translate }}</h1>
+	<button
+		(click)="activeModal.dismiss()"
+		[attr.aria-label]="'common.close' | translate"
+		class="btn-close"
+		type="button"
+	></button>
+</div>
+
+<div class="modal-body">
+	<form
+		(submit)="displayCandidateLine1.setValue(searchInput.value)"
+		aria-controls="resultCount"
+		spellcheck="false"
+	>
+		<h2 class="no-styling">
+			<label class="form-label" for="candidate-search--term">
+				{{ 'candidateselection.namefilter.label' | translate }}
+			</label>
+		</h2>
+
+		<div class="input-group mb-3">
+			<vp-clearable-input buttonLabel="candidateselection.namefilter.clear">
+				<input
+					#searchInput="ngModel"
+					[ngModelOptions]="{ standalone: true }"
+					class="form-control"
+					id="candidate-search--term"
+					ngModel
+					type="text"
+				/>
+			</vp-clearable-input>
+			<button
+				class="btn btn-outline-dark"
+				id="candidate-search--submit"
+				type="submit"
+			>
+				<vp-icon name="search"></vp-icon>
+				<span class="d-none d-sm-inline">{{
+					'candidateselection.namefilter.search' | translate
+				}}</span>
+				<span class="d-sm-none visually-hidden">{{
+					'candidateselection.namefilter.search' | translate
+				}}</span>
+			</button>
+		</div>
+
+		<ng-container [formGroup]="filters">
+			@if (electionInformation.lists.length > 0) {
+				<div class="mb-3">
+					<h2 class="no-styling">
+						<label class="form-label" for="candidate-filter--list">
+							{{ 'candidateselection.listfilter.label' | translate }}
+						</label>
+					</h2>
+					<select
+						class="form-select"
+						formControlName="listIdentification"
+						id="candidate-filter--list"
+					>
+						<option [ngValue]="null">
+							{{ 'candidateselection.listfilter.alllists' | translate }}
+						</option>
+						@for (list of electionInformation.lists; track list) {
+							<option [ngValue]="list.listIdentification">
+								{{ list.displayListLine1 | translateText }}
+							</option>
+						}
+					</select>
+				</div>
+			}
+
+			@if (electionInformation.election.candidateAccumulation > 1) {
+				<div class="form-check form-switch mb-3">
+					<input
+						class="form-check-input"
+						formControlName="onlyCandidatesChosenInCurrentElection"
+						id="candidate-filter--selected"
+						role="switch"
+						type="checkbox"
+					/>
+					<h2 class="no-styling">
+						<label class="form-check-label" for="candidate-filter--selected">{{
+							'candidateselection.selectedonlyfilter' | translate
+						}}</label>
+					</h2>
+				</div>
+			}
+		</ng-container>
+	</form>
+
+	<p
+		[class.visually-hidden]="electionInformation.election.writeInsAllowed"
+		aria-live="polite"
+		class="small fst-italic mb-0"
+		id="resultCount"
+	>
+		@if (!displayCandidateLine1.value) {
+			{{
+				'candidateselection.searchresults.nosearch'
+					| translate: searchResultsProperties
+			}}
+		} @else if (displayCandidateLine1.value && !filteredCandidates.length) {
+			{{ 'candidateselection.searchresults.noresults' | translate }}
+		} @else {
+			{{
+				'candidateselection.searchresults.numberofresults'
+					| translate: searchResultsProperties
+			}}
+		}
+	</p>
+
+	<h2 class="visually-hidden">
+		@if (displayCandidateLine1.value) {
+			{{ 'candidateselection.searchresults.title' | translate }}
+		} @else {
+			{{ 'candidateselection.searchresults.title.nosearch' | translate }}
+		}
+	</h2>
+
+	<ul class="list-group list-group-flush mt-3">
+		@for (
+			candidate of filteredCandidates;
+			track candidate.candidateIdentification
+		) {
+			<li class="list-group-item">
+				<vp-modal-candidate-selector
+					[electionInformation]="electionInformation"
+					[candidate]="candidate"
+					[isSelectedOnCurrentPosition]="
+						candidate.candidateIdentification ===
+						chosenCandidate?.candidateIdentification
+					"
+					[candidatesChosenInCurrentElection]="
+						candidatesChosenInCurrentElection
+					"
+					[candidatesChosenInPrimaryElection]="
+						candidatesChosenInPrimaryElection
+					"
+				/>
+			</li>
+		}
+	</ul>
+
+	@if (electionInformation.election.writeInsAllowed) {
+		<div class="list-group list-group-flush border-top border-2 mt-3 pt-3">
+			<div class="list-group-item">
+				<vp-modal-candidate-write-in-selector />
+			</div>
+		</div>
+	}
+</div>

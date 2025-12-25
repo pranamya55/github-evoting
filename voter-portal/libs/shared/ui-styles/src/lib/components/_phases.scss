@@ -1,0 +1,22 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+lp-root {
+  .phase-UPCOMING {
+    background-color: #F0ED99;
+  }
+  .phase-OPEN {
+    background-color: #BBDFA7;
+  }
+  .phase-EVOTING-CLOSED {
+    background-color: #DFA7A7;
+  }
+  .phase-CLOSED {
+    background-color: #DFA7A7;
+  }
+
+  samp {
+    font-size: 0.8rem;
+  }
+}

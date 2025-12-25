@@ -1,0 +1,22 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<div class="vh-100 d-flex flex-column overflow-hidden">
+	<sdm-header></sdm-header>
+
+	<div class="flex-fill overflow-hidden d-flex">
+		@if (workflowEnabled) {
+			<aside class="flex-shrink-0 min-vw-15 py-3 bg-light">
+				<sdm-stepper [activatedRouteSnapshot]="activatedRouteSnapshot"></sdm-stepper>
+			</aside>
+		}
+		<main class="flex-fill overflow-x-hidden overflow-y-auto">
+			<div class="row justify-content-center">
+				<div class="col-12 col-xl-10 col-xxl-10 pb-5">
+					<router-outlet #routerOutlet (activate)="registerRoute()" id="main-router-outlet"></router-outlet>
+				</div>
+			</div>
+		</main>
+	</div>
+</div>

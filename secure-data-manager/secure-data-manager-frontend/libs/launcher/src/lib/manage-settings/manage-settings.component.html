@@ -1,0 +1,281 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<sdm-page-title [instructions]="'manageSettings.instruction' | translate" [title]="'manageSettings.title' | translate">
+	@if (startingSDM) {
+		<div class="alert alert-primary page-actions">
+			<div class="spinner">
+				<span aria-hidden="true" class="spinner-border"></span>
+				<span class="visually-hidden" role="status">{{ 'common.loading' | translate }}</span>
+			</div>
+			<p>
+				{{ 'manageSettings.pageActions.starting' | translate }} [{{ settingsForm.value.electionEventSeed }}]
+			</p>
+		</div>
+	} @else {
+		<div class="alert alert-info page-actions">
+			<i aria-hidden="true" class="bi bi-pen"></i>
+			<p>
+				{{ 'manageSettings.pageActions.instruction' | translate }}
+			</p>
+			<button (click)="previous()" class="btn btn-link" type="button">
+				<i aria-hidden="true" class="bi bi-arrow-left-circle"></i>
+				{{ 'common.previous' | translate }}
+			</button>
+			<button (click)="save()" [disabled]="!settingsForm.valid" class="btn btn-link" type="button">
+				<i aria-hidden="true" class="bi bi-floppy"></i>
+				{{ 'manageSettings.pageActions.save' | translate }}
+			</button>
+			<button (click)="delete()" [disabled]="settings?.id === -1" class="btn btn-link link-danger" type="button">
+				<i aria-hidden="true" class="bi bi-trash"></i>
+				{{ 'manageSettings.pageActions.delete' | translate }}
+			</button>
+			<button (click)="startSDM()" [disabled]="!settingsForm.valid" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-play-circle"></i>
+				{{ 'manageSettings.pageActions.start' | translate }}
+			</button>
+		</div>
+	}
+</sdm-page-title>
+
+@if (!startingSDM) {
+	<form [formGroup]="settingsForm">
+		<div class="card mb-3">
+			<div class="card-header">
+				{{ 'manageSettings.properties.overallSection.title' | translate }}
+			</div>
+			<div class="card-body">
+				<div class="mb-3">
+					@if (settings?.mode) {
+						<label class="form-label" for="modeInput">{{ 'manageSettings.properties.overallSection.mode' | translate }}</label>
+						<p class="fs-5 mt-2 ms-3">{{ mode.value }}</p>
+						<input type="hidden" formControlName="mode" id="modeInput"/>
+					} @else {
+						<label class="form-label" for="modeSelect">{{ 'manageSettings.properties.overallSection.mode' | translate }}</label>
+						<select id="modeSelect" class="form-select" formControlName="mode">
+							@for (sdmMode of sdmModes; track sdmMode) {
+								<option [ngValue]="sdmMode">{{ sdmMode }}</option>
+							}
+						</select>
+					}
+
+
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="electionEventSeedInput">
+						{{ 'manageSettings.properties.overallSection.electionEventSeed.label' | translate }}
+					</label>
+					<input [dropSpecialCharacters]="false"
+						   [inputTransformFn]="inputTransformFn"
+						   [outputTransformFn]="outputTransformFn"
+						   [specialCharacters]="['_']"
+						   class="form-control form-control-lg"
+						   formControlName="electionEventSeed"
+						   id="electionEventSeedInput"
+						   mask="UU_00000000_UU00"
+						   type="text"/>
+					<p class="mb-3 mt-3" id="electionEventSeedInstruction">
+						{{ 'manageSettings.properties.overallSection.electionEventSeed.policy.instruction' | translate }}
+					</p>
+					<ul aria-labelledby="electionEventSeedInstruction" class="list-unstyled ms-3 d-flex flex-column gap-2 mb-4">
+						@for (policy of electionEventSeedPolicies; track policy) {
+							<li>
+								<sdm-policy
+										[isMet]="!electionEventSeedHasError(policy)"
+										[label]="'manageSettings.properties.overallSection.electionEventSeed.policy.' + policy | translate">
+								</sdm-policy>
+							</li>
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		@if (mode.value === 'ONLINE') {
+			<div class="card mb-3">
+				<div class="card-header">
+					{{ 'manageSettings.properties.connectionConfigSection.title' | translate }}
+				</div>
+				<div class="card-body">
+					<div class="mb-3">
+						<label class="form-label"
+							   for="voterPortalHostInput">{{ 'manageSettings.properties.connectionConfigSection.voterPortalHost' | translate }}</label>
+						<input class="form-control form-control" formControlName="voterPortalHost" id="voterPortalHostInput" type="text"/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label"
+							   for="votingServerHostInput">{{ 'manageSettings.properties.connectionConfigSection.votingServerHost' | translate }}</label>
+						<input class="form-control form-control" formControlName="votingServerHost" id="votingServerHostInput" type="text"/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label"
+							   for="twoWaySSLLocationInput">{{ 'manageSettings.properties.connectionConfigSection.twoWaySSLLocation' | translate }}</label>
+						<input class="form-control form-control" formControlName="twoWaySSLLocation" id="twoWaySSLLocationInput" type="text"/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label"
+							   for="twoWaySSLPwdLocationInput">{{ 'manageSettings.properties.connectionConfigSection.twoWaySSLPwdLocation' | translate }}</label>
+						<input class="form-control form-control" formControlName="twoWaySSLPwdLocation" id="twoWaySSLPwdLocationInput" type="text"/>
+					</div>
+
+					<div class="mb-1">
+						<label class="form-label"
+							   for="useProxyInput">
+							<input type="checkbox" id="useProxyInput" (change)="useProxy = !useProxy" [checked]="useProxy"/>
+							{{ 'manageSettings.properties.connectionConfigSection.useProxy' | translate }}
+						</label>
+					</div>
+					<div class="mb-3" [hidden]="!useProxy">
+						<label class="form-label"
+							   for="proxyConfigInput">{{ 'manageSettings.properties.connectionConfigSection.proxyConfig' | translate }}</label>
+						<textarea class="form-control form-control" formControlName="proxyConfig" id="proxyConfigInput" rows="5"
+								  placeholder="{{ 'manageSettings.properties.connectionConfigSection.proxyConfigPlaceholder' | translate }}">
+                {{ this.settingsForm.controls['proxyConfig'].value }}
+              </textarea>
+					</div>
+				</div>
+			</div>
+		}
+
+		<div class="card mb-3">
+			<div class="card-header">
+				{{ 'manageSettings.properties.dataSection.title' | translate }}
+			</div>
+			<div class="card-body">
+				<div class="mb-3">
+					<label class="form-label"
+						   for="workspaceInput">{{ 'manageSettings.properties.dataSection.workspaceFolder' | translate }}</label>
+					<input class="form-control form-control" formControlName="workspaceFolder" id="workspaceInput" type="text"/>
+					@if (!workspaceValid) {
+						<span class="ps-3 pb-4">
+                <i aria-hidden="true" class="ms-3 mb-4 bi me-2 text-danger bi-x-circle">
+                  {{ 'manageSettings.properties.dataSection.workspaceFolderError' | translate }}
+                </i>
+              </span>
+					}
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" for="passwordInput"
+						   id="passwordInstruction">{{ 'manageSettings.properties.dataSection.password' | translate }}</label>
+					<div class="input-group">
+						<input [type]="hidePassword ? 'password' : 'text'" class="form-control form-control" formControlName="password"
+							   id="passwordInput"/>
+						<button (click)="hidePassword = !hidePassword"
+								class="btn btn-with-border password-button align-items-center d-flex"
+								type="button">
+							<i [ngClass]="{'bi bi-eye-slash': !hidePassword, 'bi bi-eye-fill': hidePassword}"
+							   class="fa"></i>
+						</button>
+					</div>
+					<ul aria-labelledby="passwordInstruction" class="list-unstyled ms-3 d-flex flex-column gap-2 mt-3 mb-4" id="passwordPolicies">
+						@for (policy of passwordPolicies; track policy) {
+							<li>
+								<sdm-policy [attr.data-test]="'policy-' + policy"
+											[isMet]="!!password.value && !passwordHasError(policy)"
+											[label]="'passwords.creation.passwordPolicy.' + policy | translate"></sdm-policy>
+							</li>
+						}
+					</ul>
+				</div>
+
+				@if (mode.value !== 'TALLY') {
+					<div class="mb-3">
+						<label class="form-label"
+							   for="outputFolderInput">{{ 'manageSettings.properties.dataSection.outputFolder' | translate }}</label>
+						<input class="form-control form-control" formControlName="outputFolder" id="outputFolderInput" type="text"/>
+					</div>
+				}
+
+				@if (mode.value === 'SETUP') {
+					<div class="mb-3">
+						<label class="form-label"
+							   for="externalConfigurationFolderInput">{{ 'manageSettings.properties.dataSection.externalConfigurationFolder' | translate }}</label>
+						<input class="form-control form-control"
+							   formControlName="externalConfigurationFolder"
+							   id="externalConfigurationFolderInput"
+							   type="text"/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label"
+							   for="printFolderInput">{{ 'manageSettings.properties.dataSection.printFolder' | translate }}</label>
+						<input class="form-control form-control" formControlName="printFolder" id="printFolderInput" type="text"/>
+					</div>
+				}
+
+				@if (mode.value !== 'ONLINE') {
+					<div class="mb-3">
+						<label class="form-label"
+							   for="verifierFolderInput">{{ 'manageSettings.properties.dataSection.verifierFolder' | translate }}</label>
+						<input class="form-control form-control" formControlName="verifierFolder" id="verifierFolderInput" type="text"/>
+					</div>
+				}
+
+				@if (mode.value === 'TALLY') {
+					<div class="mb-3">
+						<label class="form-label"
+							   for="tallyFolderInput">{{ 'manageSettings.properties.dataSection.tallyFolder' | translate }}</label>
+						<input class="form-control form-control" formControlName="tallyFolder" id="tallyFolderInput" type="text"/>
+					</div>
+				}
+
+				@if (mode.value === 'ONLINE') {
+					<div class="mb-3">
+						<label class="form-label"
+							   for="voterPortalConfigurationFolderInput">{{ 'manageSettings.properties.dataSection.voterPortalConfigurationFolder' | translate }}</label>
+						<input class="form-control form-control"
+							   formControlName="voterPortalConfigurationFolder"
+							   id="voterPortalConfigurationFolderInput"
+							   type="text"/>
+					</div>
+				}
+
+			</div>
+		</div>
+
+		@if (mode.value !== 'ONLINE') {
+			<div class="card mb-3">
+				<div class="card-header">
+					{{ 'manageSettings.properties.directTrustSection.title' | translate }}
+				</div>
+				<div class="card-body">
+					<div class="mb-3">
+						<label class="form-label"
+							   for="directTrustLocationInput">{{ 'manageSettings.properties.directTrustSection.directTrustLocation' | translate }}</label>
+						<input class="form-control form-control" formControlName="directTrustLocation" id="directTrustLocationInput" type="text"/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label"
+							   for="directTrustPwdLocationInput">{{ 'manageSettings.properties.directTrustSection.directTrustPwdLocation' | translate }}</label>
+						<input class="form-control form-control"
+							   formControlName="directTrustPwdLocation"
+							   id="directTrustPwdLocationInput"
+							   type="text"/>
+					</div>
+				</div>
+			</div>
+		}
+
+		@if (mode.value === 'SETUP') {
+			<div class="card mb-3">
+				<div class="card-header">
+					{{ 'manageSettings.properties.chunksSection.title' | translate }}
+				</div>
+				<div class="card-body">
+					<div class="mb-3">
+						<label class="form-label"
+							   for="choiceCodeGenerationChunkSizeInput">{{ 'manageSettings.properties.chunksSection.choiceCodeGenerationChunkSize' | translate }}</label>
+						<select class="form-select" formControlName="choiceCodeGenerationChunkSize" id="choiceCodeGenerationChunkSizeInput">
+							@for (chunkSize of chunkSizes; track chunkSize) {
+								<option [ngValue]="chunkSize.value">{{ 'manageSettings.properties.chunksSection.' + chunkSize.label | translate }}
+								</option>
+							}
+						</select>
+					</div>
+				</div>
+			</div>
+		}
+
+	</form>
+}

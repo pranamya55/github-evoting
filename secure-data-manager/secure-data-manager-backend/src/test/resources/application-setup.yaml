@@ -1,0 +1,37 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+sdm:
+  path:
+    workspace: ${sdm.base.path}/_EE_${sdm.election-event-seed}/SDM-workspace
+    external-configuration: ${sdm.base.path}/_EE_${sdm.election-event-seed}/DIS-output
+    export: ${dc.sticks.base.path}/_EE_${sdm.election-event-seed}/SDM-Output
+    print: ${dc.sticks.base.path}/_EE_${sdm.election-event-seed}/Print-Output
+    verifier: ${dc.sticks.base.path}/_EE_${sdm.election-event-seed}/VERIFIER-Output
+  process:
+    data-exchange:
+      zip-password: ${sdm.password}
+    collect-data-verifier:
+      zip-password: ${sdm.password}
+    precompute:
+      genVerDat-chunk-size: 3
+
+database:
+  password: ${sdm.password}
+
+server:
+  port: 8090
+
+role:
+  isSetup: true
+  isTally: false
+
+direct-trust:
+  keystore:
+    location: ${sdm.base.path}/direct-trust-setup/local_direct_trust_keystore_sdm_config.p12
+  password:
+    location: ${sdm.base.path}/direct-trust-setup/local_direct_trust_pw_sdm_config.txt
+
+logging:
+  level:
+    root: info

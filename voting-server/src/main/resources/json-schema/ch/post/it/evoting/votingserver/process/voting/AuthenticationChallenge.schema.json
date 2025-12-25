@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/votingserver/AuthenticateChallenge.schema.json",
+	"title": "Authentication Challenge",
+	"description": "Regroups the data of the authentication challenge.",
+	"type": "object",
+	"properties": {
+		"derivedVoterIdentifier": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the voter. Corresponds to credentialID_id in the specification."
+		},
+		"derivedAuthenticationChallenge": {
+			"type": "string",
+			"pattern": "^(?:[A-Za-z0-9+/]{4}){10}(?:[A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}={2})$",
+			"description": "A base64 string of size 44 representing the derived authentication challenge. Corresponds to hhAuth_id in the specification."
+		},
+		"authenticationNonce": {
+			"type": "string",
+			"pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}={2})$",
+			"description": "The authentication nonce, base64 encoded. Corresponds to nonce in the specification."
+		}
+	},
+	"required": [
+		"derivedVoterIdentifier",
+		"derivedAuthenticationChallenge",
+		"authenticationNonce"
+	],
+	"additionalProperties": false
+}

@@ -1,0 +1,7 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<p
+		[innerHTML]="element.text | translateText | markdown: { allowLinks: true, allowBlock: true }"
+		class="text-break"
+></p>

@@ -1,0 +1,20 @@
+{
+	"result": [
+		{
+			"id": "A070F8C0DBFD4155AEEEAA3F039F2C7D",
+			"electionEvent": {
+				"id": "BC80C09DC13642A294754387F601A325"
+			},
+			"electoralAuthorityId": "C3392A654D974D36AE505FD668891935",
+			"defaultTitle": "Default Ballot Box Title",
+			"defaultDescription": "Default Ballot Box Description",
+			"alias": "Default Ballot Box Alias",
+			"dateFrom": "2015-01-01T01:01:00Z",
+			"dateTo": "2015-02-01T01:01:00Z",
+			"status": "COUNTED",
+			"details": "Synchronized",
+			"synchronized": "false",
+			"ballotAlias": "Default Ballot Alias"
+		}
+	]
+}

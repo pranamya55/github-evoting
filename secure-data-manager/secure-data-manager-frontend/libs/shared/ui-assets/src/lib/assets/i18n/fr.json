@@ -1,0 +1,635 @@
+{
+	"common": {
+		"yes": "Oui",
+		"no": "Non",
+		"outOf": "{{count}} sur {{total}}",
+		"loading": "Chargement",
+		"previous": "Précédent",
+		"next": "Suivant",
+		"finish": "Terminer",
+		"cancel": "Annuler",
+		"confirm": "Confirmer",
+		"save": "Enregistrer",
+		"delete": "Supprimer",
+		"close": "Fermer",
+		"hide": "Masquer",
+		"show": "Afficher"
+	},
+	"error": {
+		"generic": "Quelque chose s'est mal passé. Contactez le support.",
+		"TIME_OUT": "La demande a expiré. Veuillez réessayer s'il vous plaît.",
+		"CONNECTION_ERROR": "Une erreur de connexion s'est produite. Veuillez vérifier votre connexion et réessayer."
+	},
+	"header": {
+		"votingServerConnection": {
+			"title": "Connexion au voting server",
+			"connecting": "Connexion en cours...",
+			"connectedTo": "Connecté à :",
+			"noConnectionTo": "Pas de connexion à :"
+		},
+		"languageSelector": {
+			"button": "Sélection de la langue. La langue actuelle est {{name}}.",
+			"menu": "Changer de langue"
+		}
+	},
+	"stepper": {
+		"UPLOAD_PRE_CONFIGURATION": "Transférer",
+		"PRE_CONFIGURE": "Préconfigurer",
+		"PRE_COMPUTE": "Précalcul",
+		"EXPORT_TO_ONLINE_1": "Exporter [1]",
+		"IMPORT_FROM_SETUP_1": "Importer [1]",
+		"REQUEST_CC_KEYS": "Demander des clés CC",
+		"COMPUTE": "Calculer",
+		"DOWNLOAD": "Télécharger",
+		"EXPORT_TO_SETUP_2": "Exporter [2]",
+		"IMPORT_FROM_ONLINE_2": "Importer [2]",
+		"GENERATE": "Générer",
+		"GENERATE_PRINT_FILE": "Fichier d'impression",
+		"EXPORT_TO_ONLINE_3": "Exporter [3]",
+		"IMPORT_FROM_SETUP_3": "Importer [3]",
+		"UPLOAD_CONFIGURATION_1": "Transférer la configuration 1",
+		"CONSTITUTE_ELECTORAL_BOARD": "Constituer une commission électorale",
+		"COLLECT_DATA_VERIFIER_SETUP": "Verifier (Setup)",
+		"EXPORT_TO_ONLINE_4": "Exporter [4]",
+		"IMPORT_FROM_SETUP_4": "Importer [4]",
+		"CONFIGURE_VOTER_PORTAL": "Configurer le portail de vote",
+		"UPLOAD_CONFIGURATION_2": "Transférer la configuration 2",
+		"MIX_DOWNLOAD": "Mélanger et télécharger",
+		"EXPORT_TO_TALLY_5": "Exporter [5]",
+		"IMPORT_FROM_ONLINE_5": "Importer [5]",
+		"DECRYPT": "Déchiffrer",
+		"COLLECT_DATA_VERIFIER_TALLY": "Verifier et fichier de dépouillement"
+	},
+	"passwords": {
+		"boardMembers": {
+			"password": "Mot de passe défini:",
+			"activeMember": "Le membre actuel du conseil est :",
+			"membersWithoutPassword": "Membres suivants du conseil",
+			"membersWithPassword": "Anciens membres du conseil",
+			"allPasswordsSet": "Tous les mots de passe sont définis, veuillez continuer.",
+			"allPasswordsSetTitle": "Mot de passe"
+		},
+		"creation": {
+			"choosePassword": "Choisissez un mot de passe",
+			"confirmPassword": "Confirmez le mot de passe",
+			"setPassword": "Définir le mot de passe",
+			"passwordPolicy": {
+				"instruction": "Le mot de passe doit au moins satisfaire à cette politique :",
+				"length": "Une longueur entre 24 et 64 caractères.",
+				"digit": "Il doit contenir au moins 1 chiffre.",
+				"specialChar": "Il doit contenir au moins 1 caractère spécial.",
+				"lowerCaseChar": "Il doit contenir au moins 1 caractère minuscule.",
+				"uppercaseChar": "Il doit contenir au moins 1 caractère majuscule.",
+				"confirmed": "Il doit correspondre à la saisie du mot de passe \"Confirmer\"."
+			}
+		},
+		"validation": {
+			"password": "Entrez le mot de passe",
+			"validate": "Valider",
+			"error": {
+				"required": "Veuillez entrer un mot de passe.",
+				"invalid": "Le mot de passe que vous avez saisi est invalide."
+			}
+		}
+	},
+	"components": {
+		"policy": {
+			"met": "Atteint :"
+		}
+	},
+	"preConfigure": {
+		"title": "Préconfiguration du scrutin",
+		"instruction": "Veuillez valider le scrutin et démarrer la préconfiguration.",
+		"encryptionGroupSeed": "Graine du paramètre de chiffrement",
+		"eventSummary": {
+			"electionEvent": {
+				"title": "Scrutin",
+				"alias": "Alias",
+				"name": "Nom",
+				"seed": "Valeur du seed",
+				"contestDate": "Date du scrutin",
+				"electionDate": "Période du scrutin",
+				"gracePeriod": "Période de grâce",
+				"totalVoters": "Nombre total d'électeurs",
+				"extendedFactor": {
+					"title": "Caractéristique d'authentification étendue",
+					"birthDate": "Date de naissance",
+					"birthYear": "Année de naissance"
+				}
+			},
+			"electoralBoard": {
+				"title": "Commission électorale",
+				"id": "Identifiant",
+				"name": "Nom",
+				"description": "Description",
+				"boardMembers": "Membres de la commission"
+			},
+			"authorizations": {
+				"emptyRegular": "Aucune urne régulière n'a été configurée.",
+				"emptyTest": "Aucune urne de test n'a été configurée.",
+				"titleRegular": "Urnes régulières",
+				"titleTest": "Urnes de Test",
+				"name": "Nom",
+				"type": "Type",
+				"date": "Date",
+				"numberOfVoters": "Nombre d'électeurs"
+			},
+			"elections": {
+				"empty": "Aucune élection n'a été configurée.",
+				"title": "Élection",
+				"id": "Identifiant",
+				"position": "Position",
+				"description": "Description",
+				"type": {
+					"title": "Type",
+					"1": "Élection proportionnelle",
+					"2": "Élection majoritaire"
+				},
+				"primarySecondary": {
+					"title": "Élection primaire/secondaire",
+					"0": "Non",
+					"1": "Élection primaire",
+					"2": "Élection secondaire"
+				},
+				"numberOfMandates": "Nombre de mandats",
+				"candidateAccumulation": "Cumul des candidats",
+				"writeInsAllowed": "Write-ins autorisés",
+				"testAuthorizations": "Urnes de test",
+				"regularAuthorizations": "Urnes régulières",
+				"emptyTestAuthorizations": "Aucune urne de test",
+				"emptyRegularAuthorizations": "Aucune urne régulière"
+			},
+			"votes": {
+				"empty": "Aucune votation n'a été configurée.",
+				"title": "Votation",
+				"id": "Identifiant",
+				"position": "Position",
+				"testAuthorizations": "Urnes de test",
+				"regularAuthorizations": "Urnes régulières",
+				"emptyTestAuthorizations": "Aucune urne de test",
+				"emptyRegularAuthorizations": "Aucune urne régulière",
+				"questions": "Questions"
+			},
+			"dateFrom": "De",
+			"dateTo": "à"
+		},
+		"confirmation": "Je confirme que toutes les informations sont correctes.",
+		"pageActions": {
+			"instruction": "Veuillez valider le scrutin et démarrer la préconfiguration.",
+			"loadingSummary": "Chargement des informations du scrutin...",
+			"preConfigure": "Préconfigurer",
+			"reload": "Recharger",
+			"inProgress": "Préconfiguration en cours...",
+			"complete": "La préconfiguration a été traitée avec succès !",
+			"error": {
+				"DEFAULT": "La préconfiguration a échoué. Veuillez réessayer s'il vous plaît.",
+				"LOADING_SUMMARY_ERROR": "Le chargement des informations du scrutin a échoué. Veuillez réessayer s'il vous plaît.",
+				"IO_EXCEPTION": "La lecture du fichier a échoué. Veuillez vérifier le fichier et réessayer.",
+				"UNCHECKED_IO_EXCEPTION": "Le téléversement a échoué. Veuillez vérifier que le dossier input existe et réessayer."
+			}
+		}
+	},
+	"preCompute": {
+		"title": "Précalcul des cartes de vote",
+		"instruction": "Veuillez démarrer le précalcul des cartes de vote.",
+		"pageActions": {
+			"preCompute": "Précalcul",
+			"instruction": "Veuillez démarrer le précalcul.",
+			"inProgress": "Précalcul en cours...",
+			"processCompleted": "Le précalcul a été traité avec succès !",
+			"error": {
+				"DEFAULT": "Le précalcul a échoué. Veuillez réessayer s'il vous plaît.",
+				"NEGATIVE_CHUNK_SIZE": "Le précalcul n'a pas pu être démarré. Veuillez vérifier la taille du chunk et réessayer."
+			}
+		}
+	},
+	"dataExchange": {
+		"exportInfo": {
+			"title": "Informations d'exportation",
+			"targetFolder": "Dossier cible",
+			"filename": "Nom du fichier exporté"
+		},
+		"export": {
+			"title": {
+				"1": "Exporter Scrutin [1]",
+				"2": "Exporter Scrutin [2]",
+				"3": "Exporter Scrutin [3]",
+				"4": "Exporter Scrutin [4]",
+				"5": "Exporter Scrutin [5]"
+			},
+			"instruction": "Veuillez vérifier le dossier d'exportation.",
+			"pageActions": {
+				"export": "Exporter",
+				"complete": "L'exportation a été créée avec succès.",
+				"goTo": {
+					"1": "Aller à Online-PC",
+					"2": "Aller à Setup-PC",
+					"3": "Aller à Online-PC",
+					"4": "Aller à Online-PC",
+					"5": "Aller à Tally-PC"
+				},
+				"instruction": "Veuillez vérifier le dossier d'exportation.",
+				"inProgress": "Exportation en cours...",
+				"error": {
+					"DEFAULT": "L'exportation a échoué. Veuillez réessayer s'il vous plaît.",
+					"BAD_SDM_OUTPUT_FOLDER_PATH": "L'écriture du fichier a échoué. Veuillez vérifier le dossier de sortie et réessayer.",
+					"OUTPUT_FOLDER_MISSING": "L'exportation a échoué. Veuillez vérifier que le dossier output existe et réessayer."
+				}
+			}
+		},
+		"import": {
+			"title": {
+				"1": "Importer scrutin [1]",
+				"2": "Importer scrutin [2]",
+				"3": "Importer scrutin [3]",
+				"4": "Importer scrutin [4]",
+				"5": "Importer scrutin[5]"
+			},
+			"instruction": "Veuillez sélectionner le fichier d'importation correspondant pour continuer le processus.",
+			"from": {
+				"1": "depuis la configuration.",
+				"2": "depuis en ligne.",
+				"3": "depuis la configuration.",
+				"4": "depuis la configuration.",
+				"5": "depuis en ligne."
+			},
+			"pageActions": {
+				"import": "Importer",
+				"complete": "L'importation a été traitée avec succès !",
+				"instruction": "Veuillez sélectionner le fichier d'importation requis.",
+				"importNumber": {
+					"1": "[1]",
+					"2": "[2]",
+					"3": "[3]",
+					"4": "[4]",
+					"5": "[5]"
+				},
+				"inProgress": "Importation en cours...",
+				"error": {
+					"DEFAULT": "L'import a échoué. Veuillez réessayer s'il vous plaît.",
+					"CHECK_ZIP_PASSWORD": "L'import a échoué. Veuillez vérifier le mot de passe du fichier zip et réessayer.",
+					"USB_DIRECTORY_NOT_EXIST": "L'import a échoué. Veuillez vérifier que le dossier USB existe et réessayer.",
+					"IMPORT_STEP_NOT_EXIST": "Le contenu de l'importation ne correspond pas à une importation valide. Veuillez vérifier le contenu et réessayer.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_IMPORT_STEP": "Le contenu de l'importation ne correspond pas à l'étape d'importation actuelle. Veuillez vérifier le contenu et réessayer.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT": "Le contenu de l'importation ne correspond pas à l'événement de scrutin actuel. Veuillez vérifier le contenu et réessayer.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT_SEED": "Le contenu de l'importation ne correspond pas à la graine de l'événement de scrutin actuel. Veuillez vérifier le contenu et réessayer."
+				}
+			}
+		}
+	},
+	"generate": {
+		"title": "Génération de cartes de vote",
+		"instruction": "Veuillez patienter pendant que la génération se termine.",
+		"description": "Veuillez patienter jusqu'à ce que la génération soit terminée.",
+		"pageActions": {
+			"generate": "Générer",
+			"instruction": "Veuillez démarrer la génération.",
+			"inProgress": "Génération en cours...",
+			"processCompleted": "Toutes les cartes de vote ont été générées.",
+			"error": "La génération a échoué. Veuillez réessayer s'il vous plaît."
+		}
+	},
+	"requestCcKeys": {
+		"title": "Demander des clés de chiffrement des composants de contrôle",
+		"instruction": "Veuillez patienter pendant que la demande de clés CC se termine.",
+		"pageActions": {
+			"request": "Demande",
+			"instruction": "Veuillez démarrer la demande de clés CC.",
+			"inProgress": "Demande de clés CC en cours...",
+			"processCompleted": "La demande de clés CC est terminée.",
+			"error": "La demande de clés CC a échoué. Veuillez réessayer s'il vous plaît."
+		}
+	},
+	"upload": {
+		"title": {
+			"1": "Transférer la configuration 1",
+			"2": "Transférer la configuration 2"
+		},
+		"instruction": "Veuillez patienter pendant que la configuration est téléversée.",
+		"pageActions": {
+			"upload": "Transférer",
+			"instruction": "Veuillez démarrer le téléversement.",
+			"inProgress": {
+				"1": "Transfert de la configuration 1 en cours...",
+				"2": "Transfert de la configuration 2 en cours..."
+			},
+			"processCompleted": "La configuration a été téléversée.",
+			"error": "Le transfert a échoué. Veuillez réessayer s'il vous plaît."
+		},
+		"voterPortalUrlSection": {
+			"title": "URL du Portail de vote",
+			"ready": "Le portail de vote est prêt, veuillez copier l'URL.",
+			"url": "URL",
+			"copy": "Copier l'URL"
+		}
+	},
+	"constituteElectoralBoard": {
+		"title": "Constitution de la commission électorale",
+		"instruction": "Veuillez définir votre mot de passe de la commission électorale.",
+		"pageActions": {
+			"setAllPasswords": "Veuillez définir tous les mots de passe.",
+			"allPasswordsSet": "Vous pouvez constituer la commission électorale.",
+			"constitute": "Constituer",
+			"instruction": "Veuillez commencer la constitution du bureau électoral.",
+			"inProgress": "Constitution en cours...",
+			"complete": "La commission électorale a été constituée avec succès.",
+			"error": "La constitution a échoué. Veuillez réessayer s'il vous plaît."
+		}
+	},
+	"compute": {
+		"title": "Calcul des cartes de vote",
+		"instruction": "Veuillez démarrer le calcul des cartes de vote.",
+		"pageActions": {
+			"compute": "Calculer",
+			"instruction": "Veuillez démarrer le calcul.",
+			"inProgress": "Calcul en cours...",
+			"processCompleted": "Le calcul a été traité avec succès !",
+			"error": "Le calcul a échoué. Veuillez réessayer s'il vous plaît."
+		}
+	},
+	"dataCollection": {
+		"title": {
+			"setup": "Collecte de données pour le Verifier (Setup)",
+			"tally": "Génération du fichier de dépouillement et collecte de données pour le Verifier (Tally)"
+		},
+		"instruction": {
+			"setup": "Veuillez commencer la collecte de données pour le Verifier.",
+			"tally": "Veuillez commencer la génération du fichier de dépouillement et la collecte de données pour le Verifier."
+		},
+		"pageActions": {
+			"collect": "Collecter",
+			"complete": {
+				"setup": "Le jeu de données a été créé avec succès.",
+				"tally": "Le jeu de données et le fichier de dépouillement ont été créés avec succès."
+			},
+			"instruction": {
+				"setup": "Veuillez commencer la collecte de données pour le Verifier.",
+				"tally": "Veuillez commencer la génération du fichier de dépouillement et la collecte de données pour le Verifier."
+			},
+			"inProgress": "Collecte de données en cours...",
+			"error": {
+				"DEFAULT": "La collecte de données a échoué.",
+				"BAD_SDM_OUTPUT_FOLDER_PATH": "L'écriture du fichier a échoué. Veuillez vérifier le dossier de sortie et réessayer.",
+				"OUTPUT_FOLDER_MISSING": "La collecte de données a échoué. Veuillez vérifier que le dossier verifier-output existe et réessayer."
+			}
+		},
+		"datasetInfo": {
+			"title": "Informations sur le jeu de données",
+			"targetFolder": "Dossier cible",
+			"filename": "Nom de fichier"
+		},
+		"tallyFileInfo": {
+			"title": "Informations sur le fichier de dépouillement",
+			"targetFolder": "Dossier cible",
+			"filename": "Nom du fichier"
+		}
+	},
+	"download": {
+		"title": "Télécharger les cartes de vote",
+		"instruction": "Veuillez commencer le téléchargement des cartes de vote.",
+		"pageActions": {
+			"download": "Télécharger",
+			"instruction": "Veuillez commencer le téléchargement.",
+			"inProgress": "Téléchargement en cours...",
+			"complete": "Les cartes de vote ont été téléchargées avec succès.",
+			"error": "Le téléchargement a échoué. Veuillez réessayer s'il vous plaît."
+		}
+	},
+	"generatePrintFile": {
+		"title": "Génération du fichier d'impression",
+		"instruction": "Veuillez commencer la génération du fichier d'impression.",
+		"pageActions": {
+			"generate": "Générer",
+			"instruction": "Veuillez commencer la génération du fichier d'impression.",
+			"inProgress": "Génération en cours...",
+			"complete": "Le fichier d'impression a été généré avec succès.",
+			"error": {
+				"DEFAULT": "La génération a échoué.",
+				"OUTPUT_FOLDER_MISSING": "La génération a échoué. Veuillez vérifier que le dossier print-output existe et réessayer.",
+				"CONFIGURATION_ANONYMIZED_MISSING": "La génération a échoué. Veuillez vérifier que le fichier configuration-anonymized.xml existe et réessayer."
+			}
+		},
+		"printInfo": {
+			"title": "Informations sur le fichier d’impression",
+			"targetFolder": "Dossier cible",
+			"filename": "Nom de fichier"
+		}
+	},
+	"configureVoterPortal": {
+		"title": "Configurer le portail de vote",
+		"instruction": "Veuillez configurer le portail de vote en fournissant les fichiers de configuration, favicon et logo.",
+		"pageActions": {
+			"instruction": "Veuillez configurer le portail de vote.",
+			"inProgress": "Transfert de la configuration en cours...",
+			"processCompleted": "La configuration a été transféré avec succès.",
+			"warning": {
+				"NOT_SYNCHRONIZED": "La configuration locale n'est pas synchronisée avec celle du serveur.",
+				"NO_CONFIGURATION": "Le fichier de configuration et/ou les images du portail de vote sont absents ou corrompus."
+			},
+			"submit": "Transférer",
+			"reload": "Rafraîchir",
+			"SearchConfiguration": "Recherche de la configuration en cours...",
+			"error": {
+				"DEFAULT": "Le transfert de la configuration du portail de vote a échoué.",
+				"CONFIGURE_VOTER_PORTAL_INVALID": "Les fichiers fournis ne sont pas au bon format."
+			}
+		},
+		"reload": "Recharger",
+		"sourcePath": "Dossier source",
+		"config": "Configuration",
+		"favicon": "Favicon",
+		"logo": "Logo",
+		"state": {
+			"INVALID": "Invalide",
+			"NOT_FOUND": "Non trouvé",
+			"NOT_SYNCHRONIZED": "Non synchronisé",
+			"SYNCHRONIZED": "Synchronisé"
+		},
+		"information" : "Fichier de configuration",
+		"displayWriteInFAQ": {
+			"label": "FAQ sur les votes écrits",
+			"show": "Affichée",
+			"showNot": "Pas affichée",
+			"unknown": "Inconnu"
+		},
+		"extendedAuthenticationFactor": {
+			"label": "Caractéristique d'authentification étendue",
+			"yob": "Année de naissance",
+			"dob": "Date de naissance",
+			"unknown": "Inconnu"
+		}
+	},
+	"mixAndDownload": {
+		"title": "Mélange et téléchargement des urnes",
+		"instruction": "Vous pouvez mélanger et télécharger des urnes de test et régulières, exporter des urnes de test.",
+		"uploadedBoxesSection": {
+			"mixAndDownloadReady": "Veuillez sélectionner les urnes à mélanger et à télécharger",
+			"mixAndDownload": "Mélanger et télécharger les urnes",
+			"mixAndDownloadInProgress": "Mélange et téléchargement des urnes en cours...",
+			"error": "Le mélange et le téléchargement ont échoué."
+		},
+		"exportSection": {
+			"mixAndDownloadNotComplete": "<strong>{{count}}</strong> sur <strong>{{total}}</strong> urnes mélangées et téléchargées.",
+			"mixAndDownloadComplete": "Toutes les urnes sont mélangées et téléchargées.",
+			"exportTemporary": "Exportation partielle",
+			"error": "L'exportation a échoué."
+		},
+		"confirmation": {
+			"title": "Confirmation du mélange et du téléchargement des urnes",
+			"body": "Veuillez s'il vous plaît confirmer le mélange et le téléchargement de(s) {{productiveBallotBoxCount}} urne(s) productive(s) et de(s) {{testBallotBoxCount}} urne(s) de test:"
+		}
+	},
+	"authoriseDecrypt": {
+		"title": "Autoriser le déchiffrement de la commission électorale",
+		"instruction": "Veuillez entrer votre mot de passe de la commission électorale.",
+		"pageActions": {
+			"setAllPasswords": "Veuillez entrer tous les mots de passe.",
+			"allPasswordsSet": "Vous pouvez maintenant déchiffrer.",
+			"decrypt": "Déchiffrer",
+			"back": "Retour"
+		},
+		"error": {
+			"INVALID_SIGNATURE": "Impossible de valider la signature du hachage du mot de passe."
+		}
+	},
+	"decrypt": {
+		"title": "Déchiffrement des urnes",
+		"instruction": "Vous pouvez déchiffrer des urnes de test et régulières.",
+		"mixedAndDownloadedBoxesSection": {
+			"decryptionReady": "Veuillez sélectionner les urnes à déchiffrer",
+			"decryption": "Déchiffrer les urnes",
+			"decryptionInProgress": "Déchiffrement en cours...",
+			"error": {
+				"DEFAULT": "La déchiffrement a échoué.",
+				"INVALID_SIGNATURE": "Impossible de valider la signature du hachage du mot de passe."
+			}
+		},
+		"tallySection": {
+			"fullTallyNotReady": "<strong>{{count}}</strong> sur <strong>{{total}}</strong> urnes déchiffrées. Pour dépouiller le scrutin, veuillez déchiffrer les urnes restantes.",
+			"fullTallyReady": "Toutes les urnes sont déchiffrées, veuillez collecter le dataset de dépouillement du Verifier."
+		}
+	},
+	"semanticInformation": {
+		"emptyCandidatePosition": "Position de candidat vide",
+		"writeInPosition": "Vote manuscrit"
+	},
+	"ballotBoxList": {
+		"category": "Catégorie",
+		"name": "Urne",
+		"from": "De",
+		"to": "À",
+		"grace": "Période de grâce",
+		"id": "Identifiant de l'urne",
+		"status": "Statut",
+		"selectAll": "Sélectionner toutes les urnes disponibles.",
+		"results": "Résultats"
+	},
+	"ballotBoxListItem": {
+		"select": "Sélectionnez les urnes : {{name}}.",
+		"category": {
+			"TEST": "Test",
+			"REGULAR": "Régulier"
+		},
+		"gracePeriod": "{{gracePeriod}} s",
+		"status": {
+			"uploaded": "Transférée",
+			"mixing": "Mélange...",
+			"downloading": "Téléchargement...",
+			"mixedAndDownloaded": "Mélangée et téléchargée",
+			"decrypting": "Déchiffrer...",
+			"decrypted": "Déchiffrée",
+			"error": {
+				"DEFAULT": "Erreur",
+				"TIME_OUT": "Temps écoulé",
+				"CONNECTION_ERROR": "Erreur de connexion"
+			}
+		},
+		"results": "Résultats"
+	},
+	"selectSettings": {
+		"title": "Sélectionner un scrutin",
+		"instruction": "Veuillez sélectionner vos paramètres ci-dessous.",
+		"existingSettings": "Scrutins existants:",
+		"pageActions": {
+			"selectInstruction": "Veuillez sélectionner un scrutin.",
+			"add": "Ajouter nouveau",
+			"copy": "Copier",
+			"select": "Sélectionner",
+			"addSettingsInstruction": "Aucune configuration existante, veuillez en ajouter une nouvelle.",
+			"addSettings": "Ajouter une configuration"
+		}
+	},
+	"manageSettings": {
+		"title": "Gérer les propriétés du scrutin",
+		"instruction": "Vérifiez la configuration SDM pour le scrutin ci-dessous.",
+		"pageActions": {
+			"instruction": "Veuillez vérifier la configuration.",
+			"delete": "Supprimer",
+			"save": "Enregistrer",
+			"start": "Démarrer SDM",
+			"starting": "SDM démarre avec votre configuration."
+		},
+		"properties": {
+			"overallSection": {
+				"title": "Général",
+				"electionEventSeed": {
+					"label": "Graine du scrutin",
+					"policy": {
+						"instruction": "La valeur de la graine doit correspondre au format suivant : CT_YYYYMMDD_XY01.",
+						"prefix": "CT : abréviation cantonale, par exemple SG, TG...",
+						"date": "Date du scrutin au format 'YYYYMMDD'.",
+						"suffix": "XY01 : Test à Test (TT) / Test à Prod (TP) / Prod à Prod (PP), suivi du numéro de séquence croissant.",
+						"delimiter": "Un délimiteur de tiret bas \"_\" entre chaque partie.",
+						"ruleMet": "Atteint :",
+						"ruleUnmet": "Non atteint :"
+					}
+				},
+				"mode": "Mode du Secure Data Manager"
+			},
+			"connectionConfigSection": {
+				"title": "Configuration de la connexion",
+				"voterPortalHost": "URL du portail de vote",
+				"votingServerHost": "URL du voting server",
+				"twoWaySSLLocation": "Emplacement du keystore TLS bidirectionnel (.p12)",
+				"twoWaySSLPwdLocation": "Emplacement du mot de passe TLS bidirectionnel (.txt)",
+				"useProxy": "Utiliser un proxy",
+				"proxyConfig": "Configuration du proxy",
+				"proxyConfigPlaceholder": "http.proxyHost=proxy.example.com"
+			},
+			"dataSection": {
+				"title": "Espace de travail & Échange de données",
+				"workspaceFolder": "Dossier de l'espace de travail",
+				"workspaceFolderError": "Le dossier de l'espace de travail n'existe pas.",
+				"outputFolder": "Dossier d'exportation",
+				"externalConfigurationFolder": "Emplacement du fichier de configuration externe (configuration-anonymized.xml).",
+				"printFolder": "Dossier du fichier d'impression",
+				"verifierFolder": "Dossier des données du Verifier",
+				"tallyFolder": "Dossier du fichier du dépouillement",
+				"voterPortalConfigurationFolder": "Dossier de configuration du portail de vote",
+				"disFolder": "Dossier des données du DIS",
+				"password": "Mot de passe de chiffrement pour l'import/export SDM et les datasets du Verifier"
+			},
+			"directTrustSection": {
+				"title": "Direct Trust",
+				"directTrustLocation": "Emplacement du keystore de direct trust (.p12)",
+				"directTrustPwdLocation": "Emplacement du mot de passe du keystore de direct trust (.txt)"
+			},
+			"chunksSection": {
+				"title": "Chunks",
+				"choiceCodeGenerationChunkSize": "Nombre maximal de cartes de vote à calculer pour chaque chunk",
+				"normalElectionEvent": "100 (Scrutin normal)",
+				"bigElectionEvent": "20 (Scrutin important)"
+			},
+			"proxy": {
+				"title": "Proxy",
+				"config": "Configuration du proxy selon les paramètres Spring habituels. Un paramètre par ligne. Exemple : http.proxyHost=proxy.example.com"
+			}
+		}
+	},
+	"goodbye": {
+		"completed": "Terminé",
+		"title": "{{appName}}-PC terminé",
+		"instruction": "Les opérations sur le {{appName}}-PC sont terminées.",
+		"message": "Les étapes sur le {{appName}}-PC sont terminées et le {{appName}}-SDM peut maintenant être fermé."
+	}
+}

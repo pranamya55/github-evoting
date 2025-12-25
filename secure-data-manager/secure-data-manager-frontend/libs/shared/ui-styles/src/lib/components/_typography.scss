@@ -1,0 +1,19 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../base";
+
+ol,
+ul,
+dl,
+dd:last-child {
+  margin-block: 0;
+}
+
+dt {
+  font-weight: normal;
+}
+
+dd {
+  color: base.$gray-600;
+}

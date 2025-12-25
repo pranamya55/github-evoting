@@ -1,0 +1,630 @@
+{
+	"common": {
+		"yes": "Yes",
+		"no": "No",
+		"outOf": "{{count}} out of {{total}}",
+		"loading": "Loading",
+		"previous": "Previous",
+		"next": "Next",
+		"finish": "Finish",
+		"cancel": "Cancel",
+		"confirm": "Confirm",
+		"save": "Save",
+		"delete": "Delete",
+		"close": "Close",
+		"hide": "Hide",
+		"show": "Show"
+	},
+	"error": {
+		"generic": "Something went wrong. Please contact support.",
+		"TIME_OUT": "The operation has timed out. Please try again.",
+		"CONNECTION_ERROR": "The connection to the server has failed. Please check the connection and try again."
+	},
+	"header": {
+		"votingServerConnection": {
+			"title": "Voting Server Connection",
+			"connecting": "Connecting...",
+			"connectedTo": "Connected to:",
+			"noConnectionTo": "No connection to:"
+		},
+		"languageSelector": {
+			"button": "Language selection. Current language is {{name}}.",
+			"menu": "Change language"
+		}
+	},
+	"stepper": {
+		"UPLOAD_PRE_CONFIGURATION": "Upload",
+		"PRE_CONFIGURE": "Preconfigure",
+		"PRE_COMPUTE": "Precompute",
+		"EXPORT_TO_ONLINE_1": "Export [1]",
+		"IMPORT_FROM_SETUP_1": "Import [1]",
+		"REQUEST_CC_KEYS": "Request CC Keys",
+		"COMPUTE": "Compute",
+		"DOWNLOAD": "Download",
+		"EXPORT_TO_SETUP_2": "Export [2]",
+		"IMPORT_FROM_ONLINE_2": "Import [2]",
+		"GENERATE": "Generate",
+		"GENERATE_PRINT_FILE": "Print File",
+		"EXPORT_TO_ONLINE_3": "Export [3]",
+		"IMPORT_FROM_SETUP_3": "Import [3]",
+		"UPLOAD_CONFIGURATION_1": "Upload Configuration 1",
+		"CONSTITUTE_ELECTORAL_BOARD": "Electoral Board",
+		"COLLECT_DATA_VERIFIER_SETUP": "Verifier (Setup)",
+		"EXPORT_TO_ONLINE_4": "Export [4]",
+		"IMPORT_FROM_SETUP_4": "Import [4]",
+		"CONFIGURE_VOTER_PORTAL": "Configure voter portal",
+		"UPLOAD_CONFIGURATION_2": "Upload Configuration 2",
+		"MIX_DOWNLOAD": "Mix & Download",
+		"EXPORT_TO_TALLY_5": "Export [5]",
+		"IMPORT_FROM_ONLINE_5": "Import [5]",
+		"DECRYPT": "Decrypt",
+		"COLLECT_DATA_VERIFIER_TALLY": "Verifier and Tally File"
+	},
+	"passwords": {
+		"boardMembers": {
+			"password": "Password set:",
+			"activeMember": "Current board member is:",
+			"membersWithoutPassword": "Next board members",
+			"membersWithPassword": "Previous board members",
+			"allPasswordsSet": "All passwords are set, please continue.",
+			"allPasswordsSetTitle": "Password"
+		},
+		"creation": {
+			"choosePassword": "Choose password",
+			"confirmPassword": "Confirm password",
+			"setPassword": "Set Password",
+			"passwordPolicy": {
+				"instruction": "The password must at least satisfy this policy:",
+				"length": "A length between 24 and 64 characters.",
+				"digit": "It must contain at least 1 digit.",
+				"specialChar": "It must contain at least 1 special character.",
+				"lowerCaseChar": "It must contain at least 1 lowercase character.",
+				"uppercaseChar": "It must contain at least 1 uppercase character.",
+				"confirmed": "It must match the \"Confirm\" password input."
+			}
+		},
+		"validation": {
+			"password": "Enter password",
+			"validate": "Validate",
+			"error": {
+				"required": "Please enter a password.",
+				"invalid": "The password you entered is invalid."
+			}
+		}
+	},
+	"components": {
+		"policy": {
+			"met": "Met:"
+		}
+	},
+	"preConfigure": {
+		"title": "Preconfiguration of Election Event",
+		"instruction": "Please validate the election event configuration and start the preconfiguration.",
+		"encryptionGroupSeed": "Encryption parameter seed",
+		"eventSummary": {
+			"electionEvent": {
+				"title": "Election Event",
+				"alias": "Alias",
+				"name": "Name",
+				"seed": "Seed Value",
+				"contestDate": "Contest Date",
+				"electionDate": "Contest period",
+				"gracePeriod": "Grace Period",
+				"totalVoters": "Total Number of Voters",
+				"extendedFactor": {
+					"title": "Extended Authentication Factor",
+					"birthDate": "Date of Birth",
+					"birthYear": "Year of Birth"
+				}
+			},
+			"electoralBoard": {
+				"title": "Electoral Board",
+				"id": "Id",
+				"name": "Name",
+				"description": "Description",
+				"boardMembers": "Board Members"
+			},
+			"authorizations": {
+				"emptyRegular": "There are no regular ballot boxes configured.",
+				"emptyTest": "There are no test ballot boxes configured.",
+				"titleRegular": "Regular Ballot Boxes",
+				"titleTest": "Test Ballot Boxes",
+				"name": "Name",
+				"type": "Type",
+				"date": "Date",
+				"numberOfVoters": "Number of Voters"
+			},
+			"elections": {
+				"empty": "There are no elections configured.",
+				"title": "Election",
+				"id": "Id",
+				"position": "Position",
+				"description": "Description",
+				"type": {
+					"title": "Type",
+					"1": "Proportional election",
+					"2": "Majority election"
+				},
+				"primarySecondary": {
+					"title": "Primary/Secondary election",
+					"0": "No",
+					"1": "Primary election",
+					"2": "Secondary election"
+				},
+				"numberOfMandates": "Number of Mandates",
+				"candidateAccumulation": "Candidate Accumulation",
+				"writeInsAllowed": "Write-ins Allowed",
+				"testAuthorizations": "Test Ballot Boxes",
+				"regularAuthorizations": "Regular Ballot Boxes",
+				"emptyTestAuthorizations": "No test ballot boxes",
+				"emptyRegularAuthorizations": "No regular ballot boxes"
+			},
+			"votes": {
+				"empty": "There are no votes configured.",
+				"title": "Vote",
+				"id": "Id",
+				"position": "Position",
+				"testAuthorizations": "Test Ballot Boxes",
+				"regularAuthorizations": "Regular Ballot Boxes",
+				"emptyTestAuthorizations": "No test ballot boxes",
+				"emptyRegularAuthorizations": "No regular ballot boxes",
+				"questions": "Questions"
+			},
+			"dateFrom": "From",
+			"dateTo": "to"
+		},
+		"confirmation": "I confirm that all the information is correct.",
+		"pageActions": {
+			"instruction": "Please validate the Election event and start the preconfiguration.",
+			"loadingSummary": "Loading election event summary...",
+			"preConfigure": "Preconfigure",
+			"reload": "Reload",
+			"inProgress": "Preconfiguration in progress...",
+			"complete": "Preconfiguration has been processed successfully!",
+			"error": {
+				"DEFAULT": "The preconfiguration of the election event has failed. Please try again.",
+				"LOADING_SUMMARY_ERROR": "The loading of the election event summary has failed. Please try again.",
+				"IO_EXCEPTION": "The file could not be read. Please check the file and try again.",
+				"UNCHECKED_IO_EXCEPTION": "The file upload has failed. Please check that the input folder exists and try again."
+			}
+		}
+	},
+	"preCompute": {
+		"title": "Precomputation of Verification Card Sets",
+		"instruction": "Please start the precomputation of the verification card sets.",
+		"pageActions": {
+			"preCompute": "Precompute",
+			"instruction": "Please start precompute.",
+			"inProgress": "Precomputation in progress...",
+			"processCompleted": "Precomputation has been processed successfully!",
+			"error": {
+				"DEFAULT": "The pre-computation of the verification card sets has failed. Please try again.",
+				"NEGATIVE_CHUNK_SIZE": "The pre-computation could not be started. Please check the chunk size and try again."
+			}
+		}
+	},
+	"dataExchange": {
+		"exportInfo": {
+			"title": "Export Information",
+			"targetFolder": "Target folder",
+			"filename": "Export filename"
+		},
+		"export": {
+			"title": {
+				"1": "Export Election Event [1]",
+				"2": "Export Election Event [2]",
+				"3": "Export Election Event [3]",
+				"4": "Export Election Event [4]",
+				"5": "Export Election Event [5]"
+			},
+			"instruction": "Please verify the export folder.",
+			"pageActions": {
+				"export": "Export",
+				"complete": "Export has been successfully created.",
+				"goTo": {
+					"1": "Go to Online-PC",
+					"2": "Go to Setup-PC",
+					"3": "Go to Online-PC",
+					"4": "Go to Online-PC",
+					"5": "Go to Tally-PC"
+				},
+				"instruction": "Please verify the export folder.",
+				"inProgress": "Export in progress...",
+				"error": {
+					"DEFAULT": "The export of the election event has failed. Please try again.",
+					"BAD_SDM_OUTPUT_FOLDER_PATH": "The file could not be written. Please check the output folder path and try again.",
+					"OUTPUT_FOLDER_MISSING": "The export has failed. Please check that the output folder exists and try again."
+				}
+			}
+		},
+		"import": {
+			"title": {
+				"1": "Import Election Event [1]",
+				"2": "Import Election Event [2]",
+				"3": "Import Election Event [3]",
+				"4": "Import Election Event [4]",
+				"5": "Import Election Event [5]"
+			},
+			"instruction": "Please select the corresponding import file to continue the process.",
+			"from": {
+				"1": "from Setup.",
+				"2": "from Online.",
+				"3": "from Setup.",
+				"4": "from Setup.",
+				"5": "from Online."
+			},
+			"pageActions": {
+				"import": "Import",
+				"complete": "Import has been successfully processed!",
+				"instruction": "Please select to requested import file",
+				"importNumber": {
+					"1": "[1]",
+					"2": "[2]",
+					"3": "[3]",
+					"4": "[4]",
+					"5": "[5]"
+				},
+				"inProgress": "Import in progress...",
+				"error": {
+					"DEFAULT": "The import of the election event has failed. Please try again.",
+					"CHECK_ZIP_PASSWORD": "The import of the election event has failed. Please check the zip password and try again.",
+					"USB_DIRECTORY_NOT_EXIST": "The import of the election event has failed. Please check that the USB directory exists and try again.",
+					"IMPORT_STEP_NOT_EXIST": "The import content does not correspond to a valid import. Please check the import content and try again.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_IMPORT_STEP": "The import content does not match the current import step. Please check the import content and try again.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT": "The import content does not match the current election event. Please check the import content and try again.",
+					"IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT_SEED": "The import content does not match the current election event seed. Please check the import content and try again."
+				}
+			}
+		}
+	},
+	"generate": {
+		"title": "Generation of Verification Card Sets",
+		"instruction": "Please wait for the generation to complete.",
+		"description": "Please wait until the generation is finished.",
+		"pageActions": {
+			"generate": "Generate",
+			"instruction": "Please start the generation.",
+			"inProgress": "Generation in progress...",
+			"processCompleted": "All the verification card sets have been generated.",
+			"error": "The generation of the verification card sets has failed. Please try again."
+		}
+	},
+	"requestCcKeys": {
+		"title": "Request Encryption Keys of the Control Components",
+		"instruction": "Please wait for the request CC keys to complete.",
+		"pageActions": {
+			"request": "Request",
+			"instruction": "Please start the request for control component encryption keys.",
+			"inProgress": "Request CC keys in progress...",
+			"processCompleted": "The request for control component encryption keys has been completed.",
+			"error": "The request of the encryption keys of the control components has failed. Please try again."
+		}
+	},
+	"upload": {
+		"title": {
+			"1": "Upload Configuration 1",
+			"2": "Upload Configuration 2"
+		},
+		"instruction": "Please wait for the upload configuration to complete.",
+		"pageActions": {
+			"upload": "Upload",
+			"instruction": "Please start the upload.",
+			"inProgress": {
+				"1": "Upload configuration 1 in progress...",
+				"2": "Upload configuration 2 in progress..."
+			},
+			"processCompleted": "The configuration has been uploaded.",
+			"error": "The upload of the configuration has failed. Please try again."
+		},
+		"voterPortalUrlSection": {
+			"title": "Voter Portal URL",
+			"ready": "The Voter Portal is ready, please copy the URL.",
+			"url": "URL",
+			"copy": "Copy URL"
+		}
+	},
+	"constituteElectoralBoard": {
+		"title": "Constitution of the Electoral Board",
+		"instruction": "Please set your electoral board password.",
+		"pageActions": {
+			"setAllPasswords": "Please set all passwords.",
+			"allPasswordsSet": "You are able to constitute the electoral board.",
+			"constitute": "Constitute",
+			"instruction": "Please start the constitution of the electoral board.",
+			"inProgress": "Constitution in progress...",
+			"complete": "The Electoral Board has been successfully constituted.",
+			"error": "The constitution of the electoral board has failed. Please try again."
+		}
+	},
+	"compute": {
+		"title": "Computation of Verification Card Sets",
+		"instruction": "Please start the computation of the verification card sets.",
+		"pageActions": {
+			"compute": "Compute",
+			"instruction": "Please start the computation.",
+			"inProgress": "Computation in progress...",
+			"processCompleted": "Computation has been processed successfully!",
+			"error": "The computation of the verification card sets has failed. Please try again."
+		}
+	},
+	"dataCollection": {
+		"title": {
+			"setup": "Collecting Data for the Verifier (Setup)",
+			"tally": "Generating Tally File and Collecting Data for the Verifier (Tally)"
+		},
+		"instruction": {
+			"setup": "Please start the collection of the Verifier dataset.",
+			"tally": "Please start the generation of the tally file and the collection of the Verifier dataset."
+		},
+		"pageActions": {
+			"collect": "Collect",
+			"complete": {
+				"setup": "Dataset has been successfully created.",
+				"tally": "Dataset and tally file have been successfully created."
+			},
+			"instruction": {
+				"setup": "Please start the collection of the Verifier dataset.",
+				"tally": "Please start the generation of the tally file and the collection of the Verifier dataset."
+			},
+			"inProgress": "Data collection in progress...",
+			"error": {
+				"DEFAULT": "The data collection has failed.",
+				"BAD_SDM_OUTPUT_FOLDER_PATH": "The file could not be written. Please check the output folder path and try again.",
+				"OUTPUT_FOLDER_MISSING": "The data collection has failed. Please check that the verifier-output folder exists and try again."
+			}
+		},
+		"datasetInfo": {
+			"title": "Dataset Information",
+			"targetFolder": "Target folder",
+			"filename": "Filename"
+		},
+		"tallyFileInfo": {
+			"title": "Tally File Information",
+			"targetFolder": "Target Folder",
+			"filename": "Filename"
+		}
+	},
+	"download": {
+		"title": "Download of Verification Card Sets",
+		"instruction": "Please start the download of the verification card sets.",
+		"pageActions": {
+			"download": "Download",
+			"instruction": "Please start download.",
+			"inProgress": "Download in progress...",
+			"complete": "Verification card sets have been successfully downloaded.",
+			"error": "The download of the verification card sets has failed. Please try again."
+		}
+	},
+	"generatePrintFile": {
+		"title": "Generation of the Print File",
+		"instruction": "Please start the generation of the print file.",
+		"pageActions": {
+			"generate": "Generate",
+			"instruction": "Please start generate print file.",
+			"inProgress": "Generation in progress...",
+			"complete": "Print file has been successfully generated.",
+			"error": {
+				"DEFAULT": "The generation of the print file has failed.",
+				"OUTPUT_FOLDER_MISSING": "The generation of the print file has failed. Please check that the print output folder exists and try again.",
+				"CONFIGURATION_ANONYMIZED_MISSING": "The generation of the print file has failed. Please check that the configuration-anonymized.xml exists and try again."
+			}
+		},
+		"printInfo": {
+			"title": "Print File Information",
+			"targetFolder": "Target folder",
+			"filename": "Filename"
+		}
+	},
+	"configureVoterPortal": {
+		"title": "Configure Voter Portal",
+		"instruction": "Please provide the voter portal configuration, favicon and logo files.",
+		"pageActions": {
+			"instruction": "Please configure the voter portal.",
+			"inProgress": "Configuration upload in progress...",
+			"processCompleted": "Configuration has been successfully uploaded.",
+			"warning": {
+				"NOT_SYNCHRONIZED": "The local configuration is not synchronized with the server configuration.",
+				"NO_CONFIGURATION": "The configuration file and/or the voting portal images are missing or corrupted."
+			},
+			"submit": "Upload",
+			"reload": "Reload",
+			"SearchConfiguration": "Searching for configuration...",
+			"error": {
+				"DEFAULT": "The upload of the voter portal configuration failed.",
+				"CONFIGURE_VOTER_PORTAL_INVALID": "The files you provided are not in the right format."
+			}
+		},
+		"reload": "Reload",
+		"sourcePath": "Source folder",
+		"config": "Config",
+		"favicon": "Favicon",
+		"logo": "Logo",
+		"state": {
+			"INVALID": "Invalid",
+			"NOT_FOUND": "Not found",
+			"NOT_SYNCHRONIZED": "Not synchronized",
+			"SYNCHRONIZED": "Synchronized"
+		},
+		"information" : "Configuration file",
+		"displayWriteInFAQ": {
+			"label": "Write-in FAQ",
+			"show": "Displayed",
+			"showNot": "Not displayed",
+			"unknown": "Unknown"
+		},
+		"extendedAuthenticationFactor": {
+			"label": "Extended Authentication Factor",
+			"yob": "Year of Birth",
+			"dob": "Date of Birth",
+			"unknown": "Unknown"
+		}
+	},
+	"mixAndDownload": {
+		"title": "Mixing and Downloading Ballot Box(es)",
+		"instruction": "You are able to mix and download test and regular ballot boxes, export test ballot boxes.",
+		"uploadedBoxesSection": {
+			"mixAndDownloadReady": "Please select ballot boxes to mix and download",
+			"mixAndDownload": "Mix and Download Ballot Boxes",
+			"mixAndDownloadInProgress": "Mix and Download Ballot Boxes in progress...",
+			"error": "Mixing and downloading has failed."
+		},
+		"exportSection": {
+			"mixAndDownloadNotComplete": "<strong>{{count}}</strong> out of <strong>{{total}}</strong> ballot boxes mixed and downloaded.",
+			"mixAndDownloadComplete": "All ballot boxes are mixed and downloaded.",
+			"exportTemporary": "Partial Export",
+			"error": "Export has failed."
+		},
+		"confirmation": {
+			"title": "Confirm mixing and downloading Ballot Boxes",
+			"body": "Please confirm mixing and downloading of {{productiveBallotBoxCount}} productive Ballot Box(es) and {{testBallotBoxCount}} test Ballot Box(es):"
+		}
+	},
+	"authoriseDecrypt": {
+		"title": "Authorize Decrypt of the Electoral Board",
+		"instruction": "Please enter your electoral board password.",
+		"pageActions": {
+			"setAllPasswords": "Please enter all passwords.",
+			"allPasswordsSet": "You are now able to decrypt.",
+			"decrypt": "Decrypt",
+			"back": "Back"
+		},
+		"error": {
+			"INVALID_SIGNATURE": "Could not validate the signature of the password hash."
+		}
+	},
+	"decrypt": {
+		"title": "Decryption Ballot Boxes",
+		"instruction": "You are able to decrypt test and regular ballot boxes.",
+		"mixedAndDownloadedBoxesSection": {
+			"decryptionReady": "Please select ballot boxes to decrypt",
+			"decryption": "Decrypt Ballot Boxes",
+			"decryptionInProgress": "Decryption in progress...",
+			"error": {
+				"DEFAULT": "Decryption has failed.",
+				"INVALID_SIGNATURE": "Could not validate the signature of the password hash."
+			}
+		},
+		"tallySection": {
+			"fullTallyNotReady": "<strong>{{count}}</strong> out of <strong>{{total}}</strong> ballot boxes decrypted. To tally the election event please decrypt remaining ballot boxes.",
+			"fullTallyReady": "All ballot boxes are decrypted, please collect the Verifier tally dataset."
+		}
+	},
+	"semanticInformation": {
+		"emptyCandidatePosition": "Empty candidate position",
+		"writeInPosition": "Write-in candidate"
+	},
+	"ballotBoxList": {
+		"category": "Category",
+		"name": "Ballot Box",
+		"from": "From",
+		"to": "To",
+		"grace": "Grace period",
+		"id": "Ballot Box ID",
+		"status": "Status",
+		"selectAll": "Select all available ballot boxes."
+	},
+	"ballotBoxListItem": {
+		"select": "Select ballot boxes: {{name}}.",
+		"category": {
+			"TEST": "Test",
+			"REGULAR": "Regular"
+		},
+		"gracePeriod": "{{gracePeriod}} s",
+		"status": {
+			"uploaded": "Uploaded",
+			"mixing": "Mixing...",
+			"downloading": "Downloading...",
+			"mixedAndDownloaded": "Mixed and Downloaded",
+			"decrypting": "Decrypting...",
+			"decrypted": "Decrypted",
+			"error": {
+				"DEFAULT": "Error",
+				"TIME_OUT": "Timed out",
+				"CONNECTION_ERROR": "Connection error"
+			}
+		},
+		"results": "Results"
+	},
+	"selectSettings": {
+		"title": "Select election event",
+		"instruction": "Please select your settings below.",
+		"existingSettings": "Existing election event:",
+		"pageActions": {
+			"selectInstruction": "Please select election event.",
+			"add": "Add new",
+			"copy": "Copy",
+			"select": "Select",
+			"addSettingsInstruction": "No existing configuration, please add a new one.",
+			"addSettings": "Add configuration"
+		}
+	},
+	"manageSettings": {
+		"title": "Manage election event properties",
+		"instruction": "Verify the SDM configuration for the election event below.",
+		"pageActions": {
+			"instruction": "Please check the configuration.",
+			"delete": "Delete",
+			"save": "Save",
+			"start": "Start SDM",
+			"starting": "SDM is starting with your configuration."
+		},
+		"properties": {
+			"overallSection": {
+				"title": "Overall",
+				"electionEventSeed": {
+					"label": "Election event seed",
+					"policy": {
+						"instruction": "The seed value should match the following format: CT_YYYYMMDD_XY01.",
+						"prefix": "CT: cantonal abbreviation, for example SG, TG...",
+						"date": "Election event date in 'YYYYMMDD' format.",
+						"suffix": "XY01: Test to Test (TT) / Test to Prod (TP) / Prod to Prod (PP), followed by ascending sequence number.",
+						"delimiter": "An underscore \"_\" delimiter between each part.",
+						"ruleMet": "Met:",
+						"ruleUnmet": "Unmet:"
+					}
+				},
+				"mode": "Mode of the Secure Data Manager"
+			},
+			"connectionConfigSection": {
+				"title": "Connection configuration",
+				"voterPortalHost": "Voter Portal URL",
+				"votingServerHost": "Voting Server URL",
+				"twoWaySSLLocation": "Two way TLS keystore location (.p12 file)",
+				"twoWaySSLPwdLocation": "Two way TLS password location (.txt file)",
+				"useProxy": "Use a proxy",
+				"proxyConfig": "Proxy configuration.",
+				"proxyConfigPlaceholder": "http.proxyHost=proxy.example.com"
+			},
+			"dataSection": {
+				"title": "Workspace & Data Exchange",
+				"workspaceFolder": "Workspace folder",
+				"workspaceFolderError": "The workspace folder does not exist.",
+				"outputFolder": "Export folder",
+				"externalConfigurationFolder": "External configuration location (configuration-anonymized.xml).",
+				"printFolder": "Print data folder",
+				"verifierFolder": "Verifier data folder",
+				"tallyFolder": "Tally data folder",
+				"voterPortalConfigurationFolder": "Voter Portal configuration folder",
+				"disFolder": "DIS data folder",
+				"password": "Encryption password for SDM import/export and verifier dataset"
+			},
+			"directTrustSection": {
+				"title": "Direct Trust",
+				"directTrustLocation": "Direct Trust keystore location (.p12 file)",
+				"directTrustPwdLocation": "Direct Trust password location (.txt file)"
+			},
+			"chunksSection": {
+				"title": "Chunks",
+				"choiceCodeGenerationChunkSize": "Maximum number of voting cards for each chunk to be computed",
+				"normalElectionEvent": "100 (Normal election event size)",
+				"bigElectionEvent": "20 (Big election event size)"
+			}
+		}
+	},
+	"goodbye": {
+		"completed": "Completed",
+		"title": "{{appName}}-PC Completed",
+		"instruction": "The operations on the {{appName}}-PC are completed.",
+		"message": "The steps in the {{appName}}-PC are completed and the {{appName}}-SDM can now be closed."
+	}
+}

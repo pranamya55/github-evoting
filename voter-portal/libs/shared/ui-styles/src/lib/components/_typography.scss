@@ -1,0 +1,49 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h6,
+.h6 {
+  font-weight: 700;
+}
+
+h2,
+.h2 {
+  margin-block: map-get(app.$spacers, 5);
+
+  &:has(+ p) {
+    margin-bottom: map-get(app.$spacers, 1);
+  }
+
+  + p {
+    margin-bottom: map-get(app.$spacers, 5);
+  }
+
+  @include app.media-breakpoint-down(sm) {
+    margin-block: map-get(app.$spacers, 4);
+
+    + p {
+      margin-bottom: map-get(app.$spacers, 4);
+    }
+  }
+}
+
+@each $headingLevel in (h1, h2, h3, h4, h5, h6) {
+  #{$headingLevel},
+  .#{$headingLevel} {
+    &.no-styling {
+      font-size: app.$font-size-base;
+      font-weight: app.$font-weight-base;
+      margin: 0;
+    }
+  }
+}

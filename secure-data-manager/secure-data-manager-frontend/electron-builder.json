@@ -1,0 +1,47 @@
+{
+	"asar": false,
+	"buildVersion": "1",
+	"copyright": "(c) Copyright 2025 Swiss Post Ltd.",
+	"directories": {
+		"output": "target/electron"
+	},
+	"files": [
+		"electron/main.js",
+		"!node_modules",
+		"!**/*.ts",
+		"!**/package.json",
+		"!package-lock.json"
+	],
+	"extraResources": [
+		{
+			"from": "dist",
+			"to": "app",
+			"filter": [
+				"**/*"
+			]
+		},
+		{
+			"from": "electron",
+			"to": "app/electron",
+			"filter": [
+				"**/*"
+			]
+		}
+	],
+	"productName": "SecureDataManager",
+	"win": {
+		"icon": "electron/assets/secure-data-manager-logo.ico",
+		"target": [
+			{
+				"target": "dir",
+				"arch": [
+					"x64"
+				]
+			}
+		]
+	},
+	"mac": {
+		"icon": "electron/assets/secure-data-manager-logo.png",
+		"target": "dmg"
+	}
+}

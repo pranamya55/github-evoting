@@ -1,0 +1,73 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<sdm-page-title
+		[instructions]="'constituteElectoralBoard.instruction' | translate"
+		[title]="'constituteElectoralBoard.title' | translate"
+>
+	<sdm-page-actions>
+		@if (!areAllPasswordsSet) {
+			<i aria-hidden="true" class="bi bi-pen" onReady></i>
+		}
+		@if (!areAllPasswordsSet) {
+			<p onReady>
+				{{ 'constituteElectoralBoard.pageActions.setAllPasswords' | translate }}
+			</p>
+		}
+
+		@if (areAllPasswordsSet) {
+			<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		}
+		@if (areAllPasswordsSet) {
+			<p onReady>
+				{{ 'constituteElectoralBoard.pageActions.allPasswordsSet' | translate }}
+			</p>
+		}
+
+		<button
+				(click)="constitute()"
+				[disabled]="!areAllPasswordsSet"
+				class="btn btn-primary"
+				onReady
+				type="button"
+		>
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'constituteElectoralBoard.pageActions.constitute' | translate }}
+		</button>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">{{
+					'common.loading' | translate
+				}}</span>
+		</div>
+		<p onProgress>
+			{{ 'constituteElectoralBoard.pageActions.inProgress' | translate }}
+		</p>
+
+		<p onError>
+			{{ 'constituteElectoralBoard.pageActions.error' | translate }}
+		</p>
+
+		<i class="bi bi-check-circle" onCompletearia-hidden="true"></i>
+		<p onComplete>
+			{{ 'constituteElectoralBoard.pageActions.complete' | translate }}
+		</p>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	@if (constituteStatus$ | async; as constituteStatus) {
+		@if (constituteStatus !== WorkflowStatus.Ready) {
+			<sdm-progress/>
+		}
+	}
+</sdm-page-title>
+
+@if (constituteStatus$ | async; as constituteStatus) {
+	@if (constituteStatus === WorkflowStatus.Ready) {
+		<sdm-password-creation
+				(allPasswordsSet)="passwords = $event"
+				[boardMembers]="boardMembers"
+		></sdm-password-creation>
+	}
+}

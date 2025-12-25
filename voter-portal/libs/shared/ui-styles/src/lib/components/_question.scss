@@ -1,0 +1,26 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+.question {
+
+  vp-question-title,
+  .question--title {
+    display: contents;
+  }
+
+  .question--number {
+    grid-area: number;
+  }
+
+  .question--label {
+    grid-area: label;
+  }
+
+  :not(.question--number, .question--label) {
+    grid-area: content;
+  }
+}

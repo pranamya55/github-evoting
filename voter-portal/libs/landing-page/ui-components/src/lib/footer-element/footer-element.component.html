@@ -1,0 +1,34 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<div class="border-top">
+	<div class="container-lg my-5 footer">
+		@if (isFooterLinkFooterElements(footerElement) && footerElement; as footerLinkFooterElement) {
+			<ul class="list-unstyled d-flex flex-column flex-md-row column-gap-3 row-gap-2 mb-0">
+				@for (footerLink of footerLinkFooterElement.footerLinks; track footerLink) {
+					<li>
+						<vp-content-element-link [element]="footerLink"/>
+					</li>
+				}
+			</ul>
+		}
+		@if (isFooterContentFooterElements(footerElement) && footerElement; as footerContentFooterElement) {
+			@for (contentElements of footerContentFooterElement.footerContents; track $index) {
+				<div class="flex-fill d-flex flex-column align-items-start">
+					@for (contentElement of contentElements; track $index) {
+						@if (isHeadingFooterElement(contentElement) && contentElement; as headingContentElement) {
+							<vp-content-element-heading [element]="headingContentElement.heading"/>
+						}
+						@if (isParagraphFooterElement(contentElement) && contentElement; as paragraphContentElement) {
+							<vp-content-element-paragraph [element]="paragraphContentElement.paragraph"/>
+						}
+						@if (isLinkFooterElement(contentElement) && contentElement; as linkContentElement) {
+							<vp-content-element-link [element]="linkContentElement.link"/>
+						}
+					}
+				</div>
+			}
+		}
+	</div>
+</div>

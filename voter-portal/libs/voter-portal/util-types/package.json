@@ -1,0 +1,11 @@
+{
+	"name": "@vp/voter-portal-util-types",
+	"version": "0.0.1",
+	"dependencies": {
+		"@ng-bootstrap/ng-bootstrap": "19.0.1",
+		"tslib": "2.8.1"
+	},
+	"type": "commonjs",
+	"main": "./src/index.js",
+	"typings": "./src/index.d.ts"
+}

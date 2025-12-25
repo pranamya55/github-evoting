@@ -1,0 +1,17 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<a [ngClass]="{
+		   'link-body-emphasis link-underline-opacity-0 link-underline-opacity-75-hover': !primary && !secondary,
+		   'btn': primary || secondary,
+		   'btn-dark': primary,
+		   'btn-outline-dark': secondary,
+		   'w-100': block,
+		   'fw-bold': element.main,
+		   }"
+   [href]="element.url + ( element.addLanguageParameter ? ('?lang=' + currentLanguage) : '')">
+	{{ element.text | translateText }}
+	@if (element.icon; as icon) {
+		<vp-icon [name]="icon"/>
+	}
+</a>

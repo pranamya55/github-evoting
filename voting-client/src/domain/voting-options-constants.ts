@@ -1,0 +1,19 @@
+/*
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+"use strict";
+
+export const MAXIMUM_SUPPORTED_NUMBER_OF_VOTING_OPTIONS: number = 5000;
+export const MAXIMUM_SUPPORTED_NUMBER_OF_SELECTIONS: number = 150;
+export const MAXIMUM_SUPPORTED_NUMBER_OF_WRITE_INS: number = 30;
+export const MAXIMUM_ACTUAL_VOTING_OPTION_LENGTH: number = 50;
+export const CHARACTER_LENGTH_OF_START_VOTING_KEY: number = 24;
+export const CHARACTER_LENGTH_OF_UNIQUE_IDENTIFIER: number = 32;
+export const CHARACTER_LENGTH_OF_BALLOT_CASTING_KEY: number = 9;
+export const CHARACTER_LENGTH_SHORT_CHOICE_RETURN_CODE: number = 4;
+export const CHARACTER_LENGTH_SHORT_VOTE_CAST_RETURN_CODE: number = 8;
+export const MAXIMUM_WRITE_IN_OPTION_LENGTH: number = 400;
+export const ACTUAL_VOTING_OPTION_DELIMITER: string = "|";
+export const CORRECTNESS_INFORMATION_DELIMITER: string = "|";
+export const CORRECTNESS_INFORMATION_LIST_PREFIX: string = "L";
+export const CORRECTNESS_INFORMATION_CANDIDATE_PREFIX: string = "C";

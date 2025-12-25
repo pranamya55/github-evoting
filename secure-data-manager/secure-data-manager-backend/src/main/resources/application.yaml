@@ -1,0 +1,205 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+
+build:
+  version: @project.version@
+
+# Spring configuration
+spring:
+  # Multipart properties
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+
+  # Logging properties
+  main:
+    banner-mode: LOG
+
+  # Spring WebFlux retry
+  webflux:
+    retry:
+      backoff:
+        # Defines the maximum number of retry attempts to allow for the backoff. Default is 5.
+        max-attempts: 5
+        # Defines the minimum Duration in milliseconds for the first backoff. Default is 10000.
+        min-backoff: 10000
+
+  # Database
+  datasource:
+    url: jdbc:sqlite:${sdm.path.workspace}/sqlite.db
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 1  # SQLite allows only 1 write at a time.
+      minimum-idle: 0
+      idle-timeout: 60000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+# Enables exposing metrics of the Actuator.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,health
+
+mvcTaskExecutor:
+  # Thread pool size to handle the async requests. Default is 10
+  poolSize: 10
+  # Thread timeout in milliseconds. Set to 90min : 1000 * 60 * 90 = 5400000
+  timeout: 5400000
+
+# Defines the usage rate of the available processors for the fixed thread pool. Default is 0.8. Must be set and in range (0.0, 1.0].
+fixed-thread-pool:
+  available-processors-usage-rate: 0.8
+
+# Spring web server port
+server:
+  port: 8090
+
+# Logging
+logging:
+  file:
+    name: ${sdm.path.workspace}/logs/secure-data-manager.log
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      max-history: 0
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.log
+
+# Defines the URL of the voter-portal.
+voter-portal:
+  host: http://localhost:7000
+  url: ${voter-portal.host}/vote/#/init/
+
+# Voting Server properties
+voting-server:
+  # Defines the URL of the voting-server.
+  host: http://localhost:8016
+  url: ${voting-server.host}/vs-ws-rest/
+  rsocket:
+    path: rsocket
+    # Defines the maximum transmission unit for RSocket fragments in bytes. Default is 10485760 (10MB).
+    mtu: 10485760
+    # Defines how long to block for the response of an RSocket service method with a synchronous (blocking) method signature in milliseconds. Default is 5000.
+    block-timeout: 5000
+  connection:
+    # Defines the timeout in milliseconds for outgoing connections to the voting-server. Default is 10000.
+    timeout: 10000
+    # Defines the max size for an outgoing message to the voting-server in MB. Default is 10240.
+    max-message-size: 10240
+    # Defines if the connection to the voting-server must keep alive. Default is true.
+    keep-alive: true
+    # Defines the location of the client keystore for 2 way SSL connection. Default is empty and must be set.
+    client-keystore-location:
+    # Defines the location of the client keystore password file for 2 way SSL connection. Default is empty and must be set.
+    client-keystore-password-location:
+  response:
+    # Defines the timeout in seconds for getting response from outgoing connections to the voting-server. Default is 600.
+    timeout: 600
+  health-check:
+    # Defines the fixed rate in milliseconds for the health check of the voting-server. Must be greater than the voting-server.health-check.read-timeout. Default is 10000.
+    fixed-rate: 10000
+    # Defines the timeout in milliseconds for the health check of the voting-server. Must be positive and smaller than the voting-server.health-check.fixed-rate. Default is 5000.
+    read-timeout: 5000
+
+# Server mode
+role:
+  # Indicate if the SDM should enable config feature. Default is false.
+  isSetup: false
+  # Indicate if the SDM should enable tally feature. Default is false.
+  isTally: false
+
+# Direct trust properties
+direct-trust:
+  keystore:
+    # Defines the location of the direct-trust keystore. Default is empty and must be set.
+    location:
+    # Defines the patterns for the keystore file for the direct trust keystore.
+    filename-pattern: direct_trust_keystore_sdm_
+    # Defines the location of the direct-trust keystore password file. Default is empty and must be set.
+  password:
+    location:
+    # Defines the patterns for the password file for the direct trust keystore.
+    filename-pattern: direct_trust_pw_sdm_
+
+
+sdm:
+  # Defines the election event seed used in the preconfigure step. Default is empty. Must be set and respect the following format: CT_YYYYMMDD_XY01.
+  # - CT: cantonal abbreviation, for example SG, TG...
+  # - Polling date in 'YYYYMMDD' format.
+  # - XY01: Test to Test (TT) / Test to Prod (TP) / Prod to Prod (PP), followed by ascending sequence number.
+  # - An underscore "_" delimiter between each part.
+  election-event-seed:
+
+  # Defines the suffix of the voting card id. Default is A13ECA37FA. Must be non-null and non-blank.
+  voting-card-id-suffix: A13ECA37FA
+
+  path:
+    # Path resolver workspace. Default is empty and must be set.
+    workspace:
+    # Defines where sdm export files will be saved to. Default is empty and must be set.
+    export:
+    # Defines where sdm print files will be saved to. Default is empty and must be set.
+    print:
+    # Defines where sdm verifier files will be saved to. Default is empty and must be set.
+    verifier:
+    # Defines where the external evoting-config file is located. Default is empty and must be set.
+    external-configuration:
+    # Defines where the voter-portal config files are located. Default is empty and must be set.
+    voter-portal-configuration:
+
+  process:
+    precompute:
+      fixed-based-optimisation:
+        # Maximum number of elements to save in the GMP cache before GenVerDat algorithm. Default is 200.
+        max-cache-size: 200
+      # Maximum number voting cards for each chunk to be computed. Default is 100.
+      genVerDat-chunk-size: 100
+
+    generate:
+      # Maximum number of CMTable entries in each SetupComponentCMTablePayload chunk. Default is 20000.
+      CMTable-chunk-size: 20000
+
+    data-exchange:
+      # Defines the password for the import/export decryption/encryption functionality. Default is empty. Must be set and respect the following:
+      # - the size of the password is equal to or greater than 24.
+      # - the size of the password is equal to or smaller than 64.
+      # - the password contains at least one upper case letter.
+      # - the password contains at least one lower case letter.
+      # - the password contains at least one special character.
+      # - the password contains at least one digit.
+      zip-password:
+      # Defines if the export should include all files (or just the relevant ones). Default is false (means export only the relevant ones).
+      forceFull: false
+
+    collect-data-verifier:
+      # Defines the password used for the encryption of the verifiable dataset. Default is empty. Must be set and respect the following:
+      # - the size of the password is equal to or greater than 24.
+      # - the size of the password is equal to or smaller than 64.
+      # - the password contains at least one upper case letter.
+      # - the password contains at least one lower case letter.
+      # - the password contains at least one special character.
+      # - the password contains at least one digit.
+      zip-password:
+
+    compute:
+      # Defines the maximum number of bytes that a request can contain when asking the voting server to compute. Default is 25MiB.
+      max-request-size: 26214400
+
+    download:
+      # Defines if the GenEncLongCodeShares are downloaded sequentially or in parallel. Default is true which downloads sequentially.
+      sequential: true
+      # Defines if the GenEncLongCodeShares are deleted before (re)starting the download. Default is false which does not delete the shares.
+      delete: false
+      # Defines if the download use RSocket or not. Default is true which uses RSocket.
+      rsocket: true
+      split:
+        # Defines the maximum number of bytes that a request can contain when asking the voting server to download. Default is 25MiB.
+        max-request-size: 26214400
+        # Defines the split concurrency applied to the flux when downloading. Default is 3.
+        split-concurrency: 3

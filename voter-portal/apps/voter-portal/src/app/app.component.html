@@ -1,0 +1,41 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if (!noHeader) {
+	<vp-header class="position-fixed top-0 w-100"/>
+	<div aria-hidden="true" class="d-md-none" [style]="{height: configuration.headerHeight.mobile + 'px'}"></div>
+	<div aria-hidden="true" class="d-none d-md-block" [style]="{height: configuration.headerHeight.desktop + 'px'}"></div>
+}
+
+@if (showHeaderOnly || noHeader) {
+	<vp-compatibility-check/>
+}
+
+<div class="container-md container-size grid">
+	<!-- Mobile Stepper -->
+	<aside
+			[attr.aria-label]="'stepper.votingprogress' | translate"
+			[class.d-none]="showHeaderOnly || noHeader"
+			class="d-block d-lg-none g-col-5 pt-3 px-sm-4 px-3"
+	>
+		<ng-container [ngTemplateOutlet]="stepper"/>
+	</aside>
+
+	<!-- Desktop Stepper -->
+	<aside
+			[attr.aria-label]="'stepper.votingprogress' | translate"
+			[class.invisible]="showHeaderOnly || noHeader"
+			[style]="{height: 'calc(100vh - ' + configuration.headerHeight.desktop + 'px)', top: configuration.headerHeight.desktop + 'px'}"
+			class="d-none d-lg-block position-sticky g-col-1 pt-4"
+	>
+		<ng-container [ngTemplateOutlet]="stepper"/>
+	</aside>
+
+	<ng-template #stepper>
+		<vp-stepper [childRouteSnapshot]="childRouteSnapshot"/>
+	</ng-template>
+
+	<main class="g-col-5 g-col-lg-4 g-col-xl-3 bg-white rounded shadow mb-5 mt-lg-5 p-3 p-sm-4 h-content" id="main" tabindex="-1">
+		<router-outlet/>
+	</main>
+</div>

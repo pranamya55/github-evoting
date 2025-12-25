@@ -1,0 +1,403 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="modal-header">
+	<h1 class="h4 modal-title">{{ 'common.help' | translate }}</h1>
+	<button
+		(click)="activeModal.dismiss()"
+		[attr.aria-label]="'common.close' | translate"
+		class="btn-close"
+		type="button"
+	></button>
+</div>
+
+<div class="modal-body">
+	<div [closeOthers]="true" ngbAccordion>
+		@for (
+			additionalFAQ of configuration.additionalFAQs || [];
+			track additionalFAQ
+		) {
+			<div ngbAccordionItem>
+				<h2 ngbAccordionHeader>
+					<button ngbAccordionButton>
+						{{ additionalFAQ.faqTitle | translateText }}
+					</button>
+				</h2>
+				<div ngbAccordionCollapse>
+					<div class="faq-content" ngbAccordionBody>
+						<ng-template>
+							@for (content of additionalFAQ.content; track content) {
+								<p
+									[innerHTML]="
+										content
+											| translateText
+											| markdown: { allowLinks: true, allowBlock: true }
+									"
+								></p>
+							}
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		}
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.HowToStart"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.HowToStart }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.howtostart.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.HowToStart }}-content"
+					ngbAccordionBody
+				>
+					<p>
+						{{ 'faq.howtostart.content.' + configuration.identification | translate }}
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIsVotingCard"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.WhatIsVotingCard }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.whatisvotingcard.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIsVotingCard }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.whatisvotingcard'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+						<ul>
+							<ng-container
+								*vpTranslationList="
+									'faq.whatisvotingcard.listitem';
+									key as listItem
+								"
+							>
+								<li [innerHTML]="listItem | translate | markdown"></li>
+							</ng-container>
+						</ul>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIsStartVotingKey"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.WhatIsStartVotingKey }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.whatisstartvotingkey.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIsStartVotingKey }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<p
+							[innerHTML]="'faq.whatisstartvotingkey' | translate | markdown"
+						></p>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.HowToMakeAChoice"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.HowToMakeAChoice }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.howtomakeachoice.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.HowToMakeAChoice }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.howtomakeachoice'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.CanIChangeSelection"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.CanIChangeSelection }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.canichangeselection.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.CanIChangeSelection }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.canichangeselection'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatAreChoiceReturnCodes"
+			ngbAccordionItem
+		>
+			<h2
+				id="{{ FAQSection.WhatAreChoiceReturnCodes }}-header"
+				ngbAccordionHeader
+			>
+				<button ngbAccordionButton>
+					{{ 'faq.whatarechoicecodes.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatAreChoiceReturnCodes }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.whatarechoicecodes'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIsConfirmationKey"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.WhatIsConfirmationKey }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.whatisconfirmationkey.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIsConfirmationKey }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.whatisconfirmationkey'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIsVoteCastReturnCode"
+			ngbAccordionItem
+		>
+			<h2
+				id="{{ FAQSection.WhatIsVoteCastReturnCode }}-header"
+				ngbAccordionHeader
+			>
+				<button ngbAccordionButton>
+					{{ 'faq.whatisvotecastreturncode.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIsVoteCastReturnCode }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<p [innerHTML]="'faq.whatisvotecastreturncode' | translate"></p>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIfCodesDoNotMatch"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.WhatIfCodesDoNotMatch }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.whatifcodesdonotmatch.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIfCodesDoNotMatch }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.whatifcodesdonotmatch'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.WhatIsDifferenceSealAndCast"
+			ngbAccordionItem
+		>
+			<h2
+				id="{{ FAQSection.WhatIsDifferenceSealAndCast }}-header"
+				ngbAccordionHeader
+			>
+				<button ngbAccordionButton>
+					{{ 'faq.whatisdifferencesealandcast.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.WhatIsDifferenceSealAndCast }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="
+								'faq.whatisdifferencesealandcast';
+								key as paragraph
+							"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		<div
+			[collapsed]="activeFAQSection !== FAQSection.CanILeaveAnytime"
+			ngbAccordionItem
+		>
+			<h2 id="{{ FAQSection.CanILeaveAnytime }}-header" ngbAccordionHeader>
+				<button ngbAccordionButton>
+					{{ 'faq.canileaveanytime.title' | translate }}
+				</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div
+					class="faq-content"
+					id="{{ FAQSection.CanILeaveAnytime }}-content"
+					ngbAccordionBody
+				>
+					<ng-template>
+						<ng-container
+							*vpTranslationList="'faq.canileaveanytime'; key as paragraph"
+						>
+							<p [innerHTML]="paragraph | translate | markdown"></p>
+						</ng-container>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+
+		@if (configuration.contestsCapabilities.writeIns) {
+			<div
+				[collapsed]="activeFAQSection !== FAQSection.HowToUseWriteIns"
+				ngbAccordionItem
+			>
+				<h2 id="{{ FAQSection.HowToUseWriteIns }}-header" ngbAccordionHeader>
+					<button ngbAccordionButton>
+						{{ 'faq.howtousewritins.title' | translate }}
+					</button>
+				</h2>
+				<div ngbAccordionCollapse>
+					<div
+						class="faq-content"
+						id="{{ FAQSection.HowToUseWriteIns }}-content"
+						ngbAccordionBody
+					>
+						<ng-template>
+							<ng-container
+								*vpTranslationList="'faq.howtousewritins'; key as paragraph"
+							>
+								<p [innerHTML]="paragraph | translate | markdown"></p>
+							</ng-container>
+							<ul>
+								<ng-container
+									*vpTranslationList="
+										'faq.howtousewritins.listitem';
+										key as listItem
+									"
+								>
+									<li [innerHTML]="listItem | translate | markdown"></li>
+								</ng-container>
+								<li>
+									<span>{{
+										'faq.howtousewritins.listitem.specialchar' | translate
+									}}</span>
+									<ul
+										class="list-unstyled row mx-0 mt-2 border-start border-top"
+									>
+										@for (
+											charSet of allowedCharacters.split(' ');
+											track charSet
+										) {
+											<li
+												class="col-12 col-sm-4 col-md-2 px-0 py-3 border-end border-bottom d-flex flex-wrap"
+											>
+												@for (char of charSet.split(''); track char) {
+													<span class="flex-fill px-2 fs-6 text-center">{{
+														char
+													}}</span>
+												}
+											</li>
+										}
+									</ul>
+								</li>
+							</ul>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

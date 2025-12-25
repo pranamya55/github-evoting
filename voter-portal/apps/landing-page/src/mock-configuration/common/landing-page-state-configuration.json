@@ -1,0 +1,30 @@
+[
+	{
+		"tenant": "kt",
+		"activeMode": "slow-network",
+		"events": [
+			{
+				"id": "EVENT-1",
+				"activePhase": "UPCOMING"
+			}
+		]
+	},
+	{
+		"tenant": "demo",
+		"events": [
+			{
+				"id": "DEMO-1",
+				"activePhase": "OPEN"
+			}
+		]
+	},
+	{
+		"tenant": "pit",
+		"events": [
+			{
+				"id": "PIT-1",
+				"activePhase": "EVOTING-CLOSED"
+			}
+		]
+	}
+]

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/voting/sendvote/ControlComponentlCCSharePayload.schema.json",
+	"title": "Control Component LCC Share Payload",
+	"description": "A control component's long Choice Return Code share.",
+	"type": "object",
+	"properties": {
+		"encryptionGroup": {
+			"$ref": "https://evoting.ch/evotinglibraries/mixnet/GqGroup.schema.json",
+			"description": "The encryption group of the election event."
+		},
+		"longChoiceReturnCodeShare": {
+			"$ref": "https://evoting.ch/domain/voting/sendvote/LongChoiceReturnCodeShare.schema.json",
+			"description": "The long Choice Return Code share."
+		},
+		"signature": {
+			"$ref": "https://evoting.ch/evotinglibraries/signature/CryptoPrimitivesSignature.schema.json",
+			"description": "The signature of the payload."
+		}
+	},
+	"required": [
+		"encryptionGroup",
+		"longChoiceReturnCodeShare",
+		"signature"
+	],
+	"additionalProperties": false
+}

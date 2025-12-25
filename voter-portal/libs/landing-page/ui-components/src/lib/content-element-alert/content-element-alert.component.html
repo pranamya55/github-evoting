@@ -1,0 +1,42 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+@switch (level) {
+	@case ("info") {
+		<div class="alert alert-primary gap-3 mt-3 d-flex align-items-start">
+			<vp-icon name="info-circle-fill"></vp-icon>
+			<div>
+				<ng-container [ngTemplateOutlet]="alert" />
+			</div>
+		</div>
+	}
+	@case ("warning") {
+		<div class="alert alert-warning gap-3 mt-3 d-flex align-items-start">
+			<vp-icon name="exclamation-triangle-fill"></vp-icon>
+			<div>
+				<ng-container [ngTemplateOutlet]="alert" />
+			</div>
+		</div>
+	}
+	@case ("error") {
+		<div class="alert alert-danger gap-3 mt-3 d-flex align-items-start">
+			<vp-icon name="exclamation-circle-fill"></vp-icon>
+			<div>
+				<ng-container [ngTemplateOutlet]="alert" />
+			</div>
+		</div>
+	}
+	@case ("success") {
+		<div class="alert alert-success gap-3 mt-3 d-flex align-items-start">
+			<vp-icon name="check-circle-fill"></vp-icon>
+			<div>
+				<ng-container [ngTemplateOutlet]="alert" />
+			</div>
+		</div>
+	}
+}
+
+<ng-template #alert>
+	<ng-content/>
+</ng-template>

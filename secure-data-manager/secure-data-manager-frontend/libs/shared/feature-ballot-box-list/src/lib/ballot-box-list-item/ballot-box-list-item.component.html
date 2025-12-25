@@ -1,0 +1,150 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<ng-container *ngIf="globalStatus">
+	<td
+			[ngClass]="indicatorClass"
+			[ngSwitch]="globalStatus"
+	>
+
+		<!-- Global status is IDLE -->
+		<i *ngSwitchDefault class="bi bi-clock-history" aria-hidden="true"></i>
+
+		<!-- Global status is READY -->
+		<ng-container *ngSwitchCase="WorkflowStatus.Ready" [ngTemplateOutlet]="checkBox"></ng-container>
+
+		<!-- Global status is IN_PROGRESS -->
+		<span
+				*ngSwitchCase="WorkflowStatus.InProgress"
+				class="spinner-border spinner-border-sm"
+				aria-hidden="true"
+		></span>
+
+		<!-- Global status is COMPLETE -->
+		<i *ngSwitchCase="WorkflowStatus.Complete" class="bi bi-check-circle"></i>
+
+		<!-- Global status is ERROR -->
+		<div *ngSwitchCase="WorkflowStatus.Error">
+			<ng-container *ngIf="exceptionCode !== WorkflowExceptionCode.Default" [ngTemplateOutlet]="checkBox"></ng-container>
+			<i *ngIf="exceptionCode === WorkflowExceptionCode.Default" class="bi bi-x-circle"></i>
+		</div>
+
+		<ng-template #checkBox>
+			<input
+					[ngModel]="isSelected"
+					(ngModelChange)="selectedChange.emit($event)"
+					class="form-check-input"
+					type="checkbox"
+					[disabled]="!isCheckboxEnabled"
+					[attr.aria-label]="'ballotBoxListItem.select' | translate: ballotBox"
+			/>
+		</ng-template>
+	</td>
+
+	<td class="ps-3">
+		{{ 'ballotBoxListItem.category.' + ballotBoxCategory() | translate }}
+	</td>
+	<td class="fw-bold">{{ ballotBox.description }}</td>
+	<td>
+		{{ ballotBox.startTime | date }}<br/>
+		{{ ballotBox.startTime | date: 'mediumTime' }}
+	</td>
+	<td>
+		{{ ballotBox.finishTime | date }}<br/>
+		{{ ballotBox.finishTime | date: 'mediumTime' }}
+	</td>
+	<td>
+		{{ 'ballotBoxListItem.gracePeriod' | translate: ballotBox }}
+	</td>
+	<td class="text-break">{{ ballotBox.id }}</td>
+
+	<td class="fw-bold" [ngSwitch]="globalStatus">
+
+		<!-- Global status is IDLE or READY -->
+		<ng-container *ngSwitchDefault>
+			<ng-container
+					*ngIf="
+          mixingStatus === WorkflowStatus.Idle ||
+            mixingStatus === WorkflowStatus.Ready;
+          then uploaded;
+          else mixedAndDownloaded
+        "
+			/>
+		</ng-container>
+
+		<!-- Global status is IN_PROGRESS -->
+		<ng-container *ngSwitchCase="WorkflowStatus.InProgress">
+			<ng-container
+					*ngIf="
+          decryptionStatus === WorkflowStatus.InProgress;
+          then decrypting;
+          else mixingOrDownloading
+        "
+			></ng-container>
+		</ng-container>
+
+		<!-- Global status is COMPLETE -->
+		<ng-container *ngSwitchCase="WorkflowStatus.Complete">
+			<ng-container
+					*ngIf="
+          decryptionStatus === WorkflowStatus.Complete;
+          then decrypted;
+          else mixedAndDownloaded
+        "
+			/>
+		</ng-container>
+
+		<!-- Global status is ERROR -->
+		<ng-container *ngSwitchCase="WorkflowStatus.Error">
+			{{ 'ballotBoxListItem.status.error.' + exceptionCode | translate }}
+		</ng-container>
+
+		<!-- All possible statuses -->
+		<ng-template #uploaded>
+			{{ 'ballotBoxListItem.status.uploaded' | translate }}
+		</ng-template>
+
+		<ng-template #mixingOrDownloading>
+			<ng-container
+					*ngIf="
+          mixingStatus === WorkflowStatus.InProgress;
+          then mixing;
+          else downloading
+        "
+			></ng-container>
+
+			<ng-template #mixing>
+				{{ 'ballotBoxListItem.status.mixing' | translate }}
+			</ng-template>
+
+			<ng-template #downloading>
+				{{ 'ballotBoxListItem.status.downloading' | translate }}
+			</ng-template>
+		</ng-template>
+
+		<ng-template #mixedAndDownloaded>
+			{{
+				'ballotBoxListItem.status.mixedAndDownloaded' | translate
+			}}
+		</ng-template>
+
+		<ng-template #decrypting>
+			{{ 'ballotBoxListItem.status.decrypting' | translate }}
+		</ng-template>
+
+		<ng-template #decrypted>
+			{{ 'ballotBoxListItem.status.decrypted' | translate }}
+		</ng-template>
+	</td>
+	<td>
+		@if (decryptionStatus === WorkflowStatus.Complete) {
+			<button
+					(click)="showResults()"
+					class="btn btn-link"
+					type="button"
+			>
+				{{ 'ballotBoxListItem.results' | translate }}
+			</button>
+		}
+	</td>
+</ng-container>

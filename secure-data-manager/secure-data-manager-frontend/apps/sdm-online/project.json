@@ -1,0 +1,141 @@
+{
+	"name": "sdm-online",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"prefix": "sdm",
+	"sourceRoot": "apps/sdm-online/src",
+	"tags": [
+		"scope:online",
+		"type:app"
+	],
+	"targets": {
+		"build": {
+			"executor": "./:browser",
+			"outputs": [
+				"{options.outputPath}"
+			],
+			"options": {
+				"outputPath": "dist/apps/sdm-online",
+				"index": "apps/sdm-online/src/index.html",
+				"main": "apps/sdm-online/src/main.ts",
+				"polyfills": [
+					"zone.js"
+				],
+				"tsConfig": "apps/sdm-online/tsconfig.app.json",
+				"assets": [
+					{
+						"glob": "**/*",
+						"input": "libs/shared/ui-assets/src/lib/assets/",
+						"output": "/assets/"
+					},
+					{
+						"glob": "favicon.ico",
+						"input": "libs/shared/ui-assets/src/lib/",
+						"output": "/"
+					}
+				],
+				"styles": [
+					"libs/shared/ui-styles/src/index.scss"
+				],
+				"stylePreprocessorOptions": {
+					"includePaths": [
+						"apps/sdm-online/src"
+					]
+				},
+				"scripts": []
+			},
+			"configurations": {
+				"production": {
+					"subresourceIntegrity": true,
+					"optimization": true,
+					"namedChunks": true,
+					"fileReplacements": [
+						{
+							"replace": "libs/shared/ui-config/src/lib/environment.ts",
+							"with": "apps/sdm-online/src/environment.prod.ts"
+						}
+					],
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "1mb",
+							"maximumError": "5mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"outputHashing": "none"
+				},
+				"development": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true,
+					"fileReplacements": [
+						{
+							"replace": "libs/shared/ui-config/src/lib/environment.ts",
+							"with": "apps/sdm-online/src/environment.ts"
+						}
+					]
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"serve": {
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+				"production": {
+					"buildTarget": "sdm-online:build:production"
+				},
+				"development": {
+					"buildTarget": "sdm-online:build:development"
+				}
+			},
+			"defaultConfiguration": "development",
+			"options": {
+				"port": 4202,
+				"proxyConfig": "apps/sdm-online/src/proxy.conf.json"
+			},
+			"continuous": true
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"buildTarget": "sdm-online:build"
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": [
+				"{options.outputFile}"
+			],
+			"options": {
+				"lintFilePatterns": [
+					"apps/sdm-online/**/*.ts",
+					"apps/sdm-online/**/*.html"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/{projectRoot}"
+			],
+			"options": {
+				"jestConfig": "apps/sdm-online/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	}
+}

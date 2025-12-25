@@ -1,0 +1,81 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+@if (isAccordionContentElement(contentElement) && contentElement; as accordionContentElement) {
+	<vp-content-element-accordion [element]="accordionContentElement.accordion">
+		@for (contentElement of accordionContentElement.accordion.contentElements; track $index) {
+			<vp-content-element [contentElement]="contentElement" ></vp-content-element>
+		}
+	</vp-content-element-accordion>
+}
+
+@if (isAlertContentElement(contentElement) && contentElement; as alertContentElement) {
+	<vp-content-element-alert [level]="alertContentElement.alert.level">
+		@for (contentElement of alertContentElement.alert.contentElements; track $index) {
+			<vp-content-element [contentElement]="contentElement" ></vp-content-element>
+		}
+	</vp-content-element-alert>
+}
+
+@if (isButtonContentElement(contentElement) && contentElement; as buttonContentElement) {
+	<vp-content-element-button [element]="buttonContentElement.button"/>
+}
+
+@if (isButtonGridContentElement(contentElement) && contentElement; as buttonContentElement) {
+	<vp-content-element-button-grid [element]="buttonContentElement.buttonGrid"/>
+}
+
+@if (isCaptchaContentElement(contentElement) && contentElement; as captchaContentElement) {
+	<vp-content-element-captcha [element]="captchaContentElement.captcha"></vp-content-element-captcha>
+}
+
+@if (isContainerContentElement(contentElement) && contentElement; as containerContentElement) {
+	<vp-content-element-container [element]="containerContentElement.container">
+		@for (contentElement of containerContentElement.container.contentElements; track $index) {
+			<vp-content-element [contentElement]="contentElement" ></vp-content-element>
+		}
+	</vp-content-element-container>
+}
+
+@if (isEventReferenceContentElement(contentElement) && contentElement; as eventContentElement) {
+	<vp-content-element-event-reference [element]="eventContentElement.eventReference">
+		@for (contentElement of eventContentElement.eventReference.contentElements; track $index) {
+			<vp-content-element [contentElement]="contentElement"></vp-content-element>
+		}
+	</vp-content-element-event-reference>
+}
+
+@if (isEventStateContentElement(contentElement) && contentElement; as eventStateContentElement) {
+	<vp-content-element-event-state [element]="eventStateContentElement.eventState" />
+}
+
+@if (isHashesContentElement(contentElement) && contentElement; as hashesContentElement) {
+	<vp-content-element-hashes [element]="hashesContentElement.hashes"/>
+}
+
+@if (isHeadingContentElement(contentElement) && contentElement; as headingContentElement) {
+	<vp-content-element-heading [element]="headingContentElement.heading"/>
+}
+
+@if (isParagraphContentElement(contentElement) && contentElement; as paragraphContentElement) {
+	<vp-content-element-paragraph [element]="paragraphContentElement.paragraph"/>
+}
+
+@if (isSharedReferenceContentElement(contentElement) && contentElement; as eventContentElement) {
+	<vp-content-element-shared-reference [element]="eventContentElement.sharedReference">
+		@for (contentElement of eventContentElement.sharedReference.contentElements; track $index) {
+			<vp-content-element [contentElement]="contentElement" ></vp-content-element>
+		}
+	</vp-content-element-shared-reference>
+}
+
+@if (isStepsContentElement(contentElement) && contentElement; as stepsContentElement) {
+	@for (step of stepsContentElement.steps; track $index) {
+		<vp-content-element-step [index]="$index+1" [element]="step">
+			@for (contentElement of step.contentElements; track $index) {
+				<vp-content-element [contentElement]="contentElement"/>
+			}
+		</vp-content-element-step>
+	}
+}

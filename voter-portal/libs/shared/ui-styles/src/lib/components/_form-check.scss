@@ -1,0 +1,76 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+@use "../functions/forced-colors";
+
+.form-check,
+.form-check-input,
+.form-check-label {
+  cursor: pointer;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: map.get(app.$spacers, 2);
+  padding: 0;
+
+  .form-check-label {
+    hyphens: auto;
+
+    @media (forced-colors: active) {
+      color: ButtonText;
+
+      &:hover,
+      .form-check-input:hover ~ &,
+      .form-check-input:focus ~ & {
+        color: Highlight;
+      }
+    }
+  }
+
+  .form-check-input {
+    flex: 0 0 auto;
+    margin: 0;
+
+    &:focus-visible {
+      @include outline.outer;
+    }
+
+    @media (forced-colors: active) {
+      &,
+      &:checked {
+        border-color: ButtonText;
+      }
+
+      &:hover,
+      &:focus,
+      &:checked:focus {
+        border-color: Highlight;
+      }
+
+      .form-switch & {
+        background-color: ButtonFace;
+        background-image: forced-colors.button-text(app.$form-switch-bg-image, app.$form-switch-color);
+
+        &:focus,
+        &:hover {
+          background-image: forced-colors.highlight(app.$form-switch-bg-image, app.$form-switch-color);
+        }
+      }
+
+      .form-switch &:checked {
+        background-color: ButtonText;
+        background-image: forced-colors.button-face(app.$form-switch-bg-image, app.$form-switch-color);
+
+        &:focus,
+        &:hover {
+          background-color: Highlight;
+        }
+      }
+    }
+  }
+}

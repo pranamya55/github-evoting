@@ -1,0 +1,37 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="container-fluid align-items-stretch gap-3 col-lg-8">
+  <h1 class="display-4 fw-bold pt-4 pb-4">Direct Trust Tool</h1>
+  <div class="container-fluid ">
+    <div class="row gx-5">
+      <div class="col-md-auto">
+        <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+          <a class="nav-link {{keystoreGenerationState}}" id="keystore-generation" role="tab">1. Keystore generation</a>
+          <a class="nav-link {{publicKeySharingState}}" id="public-type-sharing" role="tab">2. Public keys sharing</a>
+          <button (click)="resetData()" [disabled]="resetDataDisable" class="btn btn-outline-dark  mt-2">Reset data</button>
+        </div>
+      </div>
+
+      <div class="col">
+        @switch (session.currentPhase) {
+          @case (null) {
+            <div class="pt-4">
+              <p>Backend is starting, please wait...</p>
+              <output class="spinner-border"></output>
+            </div>
+          }
+          @case (Phase.KEYSTORES_GENERATION) {
+            <app-keystores-generation></app-keystores-generation>
+          }
+          @case (Phase.PUBLIC_KEYS_SHARING) {
+            <app-public-keys-sharing></app-public-keys-sharing>
+          }
+          @case (Phase.KEYSTORES_DOWNLOAD) {
+            <app-public-keys-hashes></app-public-keys-hashes>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>

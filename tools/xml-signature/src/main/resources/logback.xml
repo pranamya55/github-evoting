@@ -1,0 +1,26 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<configuration>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${logging.file.name:-./xml-signature.log}</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{1}:%line - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="FILE"/>
+	</root>
+
+	<logger name="console">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+</configuration>

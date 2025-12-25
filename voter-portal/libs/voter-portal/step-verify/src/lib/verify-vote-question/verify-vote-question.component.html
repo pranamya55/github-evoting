@@ -1,0 +1,40 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<h5
+	[innerHTML]="
+		question.ballotQuestion.question
+			| translateText
+			| markdown: { allowLinks: false, allowBlock: false }
+	"
+	class="d-inline fs-inherit"
+>
+	This content will be replaced.
+</h5>
+
+@if (shortChoiceReturnCode) {
+	<vp-answer class="gap-2 my-2" [isActive]="!chosenAnswer || !isEmptyAnswer">
+		@if (chosenAnswer) {
+			<p data-test="answer-text" class="word-break w-100 mb-0">
+				{{ chosenAnswer.answerInformation | translateText }}
+
+				@if (isEmptyAnswer) {
+					<span class="visually-hidden">
+						{{ 'common.screenreader.nooptionselected' | translate }}
+					</span>
+				}
+			</p>
+		}
+
+		<p
+			class="word-break w-100 mb-0 fw-bold d-flex align-items-center gap-2 mt-2"
+		>
+			<vp-icon name="voting-card-diamond" />
+			<span class="visually-hidden">
+				{{ 'verify.main.yourchoicecode' | translate }}
+			</span>
+			{{ shortChoiceReturnCode }}
+		</p>
+	</vp-answer>
+}

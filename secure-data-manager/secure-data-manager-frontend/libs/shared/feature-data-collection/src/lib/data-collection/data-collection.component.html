@@ -1,0 +1,99 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<sdm-page-title
+		[instructions]="'dataCollection.instruction.' + mode | translate"
+		[title]="'dataCollection.title.' + mode | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-file-earmark-zip" onReady></i>
+		<p onError>
+			{{ 'dataCollection.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+		</p>
+		<p onReady>
+			{{ 'dataCollection.pageActions.instruction.' + mode | translate }}
+		</p>
+		<ng-container [ngTemplateOutlet]="collectButton" onReady></ng-container>
+		@if (pageActionsComponent.hasErrorFeedback) {
+			<ng-container [ngTemplateOutlet]="collectButton" onError></ng-container>
+		}
+		<ng-template #collectButton>
+			<button (click)="collect()" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'dataCollection.pageActions.collect' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">{{
+					'common.loading' | translate
+				}}</span>
+		</div>
+		<p onProgress>
+			{{ 'dataCollection.pageActions.inProgress' | translate }}
+		</p>
+
+		<i aria-hidden="true" class="bi bi-check-circle text-success" onComplete></i>
+		<p onComplete>
+			{{ 'dataCollection.pageActions.complete.' + mode | translate }}
+		</p>
+		<button (click)="collect()" class="btn btn-link" onComplete type="button">
+			{{ 'dataCollection.pageActions.collect' | translate }}
+		</button>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+</sdm-page-title>
+
+<div class="card mb-5">
+	<div class="card-header">
+		{{ 'dataCollection.datasetInfo.title' | translate }}
+	</div>
+	<div class="card-body">
+		<dl class="row mb-0">
+			<dt class="col-2">
+				{{ 'dataCollection.datasetInfo.targetFolder' | translate }}
+			</dt>
+			<dd class="col-10">{{ datasetInfo?.outputFolder }}</dd>
+			<dt class="col-2">
+				{{ 'dataCollection.datasetInfo.filename' | translate }}
+			</dt>
+			<dd class="col-10">
+				<ul class="row">
+					@for (filename of datasetFilenameList; track filename) {
+						<li>{{ filename }}</li>
+					}
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+@if (mode === 'tally') {
+	<div class="card mb-5">
+		<div class="card-header">
+			{{ 'dataCollection.tallyFileInfo.title' | translate }}
+		</div>
+		<div class="card-body">
+			<dl class="row mb-0">
+				<dt class="col-2">
+					{{ 'dataCollection.tallyFileInfo.targetFolder' | translate }}
+				</dt>
+				<dd class="col-10">{{ tallyFileInfo?.outputFolder }}</dd>
+				<dt class="col-2">
+					{{ 'dataCollection.tallyFileInfo.filename' | translate }}
+				</dt>
+				<dd class="col-10">
+					<ul class="row">
+						@for (filename of tallyFilenameList; track filename) {
+							<li>{{ filename }}</li>
+						}
+					</ul>
+				</dd>
+			</dl>
+		</div>
+	</div>
+}

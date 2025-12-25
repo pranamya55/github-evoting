@@ -1,0 +1,38 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<vp-answer [isActive]="isAnswerUnknown || !!list">
+	<p class="list--name mb-0">
+		<span class="visually-hidden">{{
+			'listandcandidates.selectedlist' | translate
+		}}</span>
+
+		@if (!isAnswerUnknown) {
+			<span data-test="list-title">
+				{{
+					(list
+						? list.displayListLine1
+						: electionInformation.emptyList.listDescription
+					) | translateText
+				}}
+			</span>
+		}
+	</p>
+
+	@if (
+		listShortChoiceReturnCode &&
+			listShortChoiceReturnCode()?.shortChoiceReturnCode;
+		as shortChoiceReturnCode
+	) {
+		<p
+			class="shortChoiceReturnCode word-break mb-0 fw-bold d-flex align-items-center gap-2 mt-2"
+		>
+			<vp-icon name="voting-card-diamond" />
+			<span class="visually-hidden">{{
+				'verify.main.yourchoicecode' | translate
+			}}</span>
+			{{ shortChoiceReturnCode }}
+		</p>
+	}
+</vp-answer>

@@ -1,0 +1,8 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="d-flex rounded-1 py-2 px-3 mb-4" [ngClass]="'phase-' + element?.phaseLevel">
+		<span [innerHTML]="element.text
+	| translateText
+	| markdown: { allowLinks: true, allowBlock: false }"></span>
+</div>

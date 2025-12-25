@@ -1,0 +1,32 @@
+{
+	"result": [
+		{
+			"step": "IMPORT_FROM_ONLINE_5",
+			"startDate": "2024-02-14T08:29:36.1507795",
+			"endDate": "2024-02-14T08:29:50.9128344",
+			"status": "COMPLETE",
+			"contextId": ""
+		},
+		{
+			"step": "DECRYPT",
+			"startDate": null,
+			"endDate": null,
+			"status": "READY",
+			"contextId": ""
+		},
+		{
+			"step": "GENERATE_TALLY_FILES",
+			"startDate": null,
+			"endDate": null,
+			"status": "IDLE",
+			"contextId": ""
+		},
+		{
+			"step": "COLLECT_DATA_VERIFIER_TALLY",
+			"startDate": null,
+			"endDate": null,
+			"status": "IDLE",
+			"contextId": ""
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "shared-util-types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/util-types/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/util-types",
+        "main": "libs/shared/util-types/src/index.ts",
+        "tsConfig": "libs/shared/util-types/tsconfig.lib.json",
+        "assets": ["libs/shared/util-types/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["scope:shared", "type:util"]
+}

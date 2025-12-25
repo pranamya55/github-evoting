@@ -1,0 +1,61 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+
+.nav-link {
+  text-decoration: none;
+
+  &.active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.nav-item {
+  &:hover {
+    z-index: 1;
+  }
+}
+
+.header-bar {
+  margin-top: -1px;
+  position: relative;
+}
+
+.navbar-toggler {
+  --ev-navbar-toggler-focus-width: 0;
+
+  > vp-icon {
+    transition: transform 0.2s ease-in-out;
+
+    &.collapsed {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .navbar {
+    border: app.$border-width solid ButtonText;
+  }
+
+  .nav-link {
+    &.active {
+      color: Highlight !important;
+    }
+  }
+}
+
+@include app.media-breakpoint-down(sm) {
+  .navbar .container {
+    padding: 0;
+  }
+}

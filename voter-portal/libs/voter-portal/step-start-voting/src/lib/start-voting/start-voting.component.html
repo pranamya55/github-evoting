@@ -1,0 +1,145 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h1 class="mb-4 fs-inherit d-flex align-items-center">
+	<span aria-hidden="true" class="stepper-indicator">2</span>
+	{{ 'startvoting.title' | translate }}
+</h1>
+
+<vp-backenderror
+	[exclude]="[
+		ErrorMessage.StartVotingKeyInvalid,
+		ErrorMessage.ExtendedFactorInvalid,
+	]"
+	class="sticky-top pt-1"
+></vp-backenderror>
+
+@if (cancelProcessService.cancelState === CancelState.CANCEL_VOTE) {
+	<p
+		class="alert alert-success d-flex align-items-start gap-3"
+		id="cancelMessage"
+		role="alert"
+	>
+		<vp-icon name="check-lg"></vp-icon>
+		<span [innerHTML]="'startvoting.cancel' | translate"></span>
+	</p>
+}
+
+@if (cancelProcessService.cancelState === CancelState.LEAVE_PROCESS) {
+	<p
+		class="alert alert-success d-flex align-items-start gap-3"
+		id="leaveMessage"
+		role="alert"
+	>
+		<vp-icon name="check-lg"></vp-icon>
+		<span
+			[innerHTML]="
+				'startvoting.leave.' + configuration.identification | translate
+			"
+		></span>
+	</p>
+}
+
+<form
+	(ngSubmit)="start()"
+	[formGroup]="voterForm"
+	autocomplete="off"
+	class="mt-5"
+	novalidate
+	spellcheck="false"
+>
+	<!-- start voting key -->
+	<h2>{{ 'startvoting.enterstartvotingkey' | translate }}</h2>
+	<p>{{ 'startvoting.explanation' | translate }}</p>
+	<div class="section-title">
+		<h3 class="m-0">
+			<label class="d-flex align-items-center gap-3" for="startVotingKey">
+				<vp-icon
+					class="voting-card-symbol"
+					name="voting-card-triangle"
+				></vp-icon>
+				<span>{{ 'startvoting.key.label' | translate }}</span>
+			</label>
+		</h3>
+		<button
+			(click)="showFAQ()"
+			class="btn btn-link btn-faq"
+			id="show-faq-link"
+			type="button"
+		>
+			<vp-icon name="question-circle"></vp-icon>
+			<span>{{ 'startvoting.key.help' | translate }}</span>
+		</button>
+	</div>
+
+	<vp-clearable-input buttonLabel="startvoting.key.clear">
+		<textarea
+			#startVotingInput
+			(keydown.enter)="submitFormOnEnter()"
+			[class.is-invalid]="
+				(formSubmitted && startVotingKey.invalid) ||
+				startVotingKeyBackendError.error
+			"
+			[formControl]="startVotingKey"
+			aria-describedby="startVotingKey-charcaseinfo startVotingKey-required startVotingKey-invalid"
+			class="form-control form-control-monospace"
+			id="startVotingKey"
+			mask="AAAA AAAA AAAA AAAA AAAA AAAA"
+			[showMaskTyped]="true"
+			[specialCharacters]="[' ']"
+			required
+			vpMultilineInput
+		></textarea>
+	</vp-clearable-input>
+
+	<p class="mt-3 mb-0 small" id="startVotingKey-charcaseinfo">
+		{{ 'startvoting.key.charcaseinfo' | translate }}
+	</p>
+
+	@if (
+		startVotingKey?.invalid &&
+		formSubmitted &&
+		!startVotingKeyBackendError.error
+	) {
+		<p class="alert alert-warning mt-3" id="startVotingKey-required">
+			{{ 'startvoting.key.required' | translate }}
+		</p>
+	}
+
+	<vp-backenderror
+		#startVotingKeyBackendError
+		[includeOnly]="ErrorMessage.StartVotingKeyInvalid"
+		alertId="startVotingKey-invalid"
+		class="mt-3"
+	></vp-backenderror>
+
+	<vp-extended-factor
+		[formSubmitted]="formSubmitted"
+		[voterForm]="voterForm"
+	></vp-extended-factor>
+
+	<vp-footer>
+		<section aria-live="polite" class="visually-hidden">
+			@if (isLoading$ | async) {
+				<p>{{ 'common.loadingnextpage' | translate }}</p>
+			}
+		</section>
+
+		<button
+			[disabled]="isLoading$ | async"
+			class="btn btn-dark"
+			id="btn_start_voting"
+			type="submit"
+		>
+			@if (isLoading$ | async) {
+				<span
+					aria-hidden="true"
+					class="spinner-border spinner-border-sm"
+					role="status"
+				></span>
+			}
+			{{ 'startvoting.start' | translate }}
+			<vp-icon name="arrow-right" />
+		</button>
+	</vp-footer>
+</form>

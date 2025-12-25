@@ -1,0 +1,24 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="table-responsive">
+	<table class="table table-borderless table-striped align-middle">
+		<thead>
+			<tr>
+				<th scope="col" class="text-primary">{{ 'hashTable.file' | translate }}</th>
+				<th scope="col" class="text-primary">{{ 'hashTable.hashValue' | translate }}</th>
+			</tr>
+		<tbody>
+			@for (hash of element; track $index) {
+				<tr>
+					<td class="text-nowrap">
+						<code class="text-primary">{{ hash.file }}</code>
+					</td>
+					<td class="text-break">
+						<code class="text-primary">{{ hash.hash }}</code>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

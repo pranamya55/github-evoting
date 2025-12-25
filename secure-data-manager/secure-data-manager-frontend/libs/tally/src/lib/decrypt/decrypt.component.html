@@ -1,0 +1,62 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+@if (decryptStatus$ | async; as decryptStatus) {
+	<sdm-page-title
+			[instructions]="'decrypt.instruction' | translate"
+			[title]="'decrypt.title' | translate"
+	></sdm-page-title>
+	@if (exportableBallotBoxes.size) {
+		<section class="mb-5">
+			<sdm-page-actions [forceReady]="decryptStatus !== WorkflowStatus.Complete">
+				<i aria-hidden="true" class="bi bi-info-circle" onReady></i>
+				<p [innerHTML]="'decrypt.tallySection.fullTallyNotReady' | translate:{count: exportableBallotBoxes.size, total: (ballotBoxById.size)}"
+				   onReady>
+				</p>
+				<sdm-next-button onReady [disabled]="true"></sdm-next-button>
+				<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+				<p onComplete>
+					{{ 'decrypt.tallySection.fullTallyReady' | translate }}
+				</p>
+				<sdm-next-button onComplete [disabled]="decryptStatus !== WorkflowStatus.Complete"></sdm-next-button>
+			</sdm-page-actions>
+			<sdm-ballot-box-list
+					[ballotBoxes]="exportableBallotBoxes"
+					[describedById]="'exportable-ballot-box-list-desc'"
+					[showIdle]="false"
+			></sdm-ballot-box-list>
+		</section>
+	}
+	@if (decryptableBallotBoxes.size) {
+		<section>
+			<sdm-page-actions #pageActionsComponent>
+				<ng-container onReady>
+					<i aria-hidden="true" class="bi bi-unlock"></i>
+					<p id="decryptable-ballot-box-list-desc">{{ 'decrypt.mixedAndDownloadedBoxesSection.decryptionReady' | translate }}</p>
+					<button (click)="decrypt()" [disabled]="!hasSelection" class="btn btn-primary" type="button">
+						<i aria-hidden="true" class="bi bi-unlock"></i>
+						{{ 'decrypt.mixedAndDownloadedBoxesSection.decryption' | translate }}
+					</button>
+				</ng-container>
+				<ng-container onProgress>
+					<div class="spinner">
+						<span aria-hidden="true" class="spinner-border"></span>
+						<span class="visually-hidden" role="status">{{ 'common.loading' | translate }}</span>
+					</div>
+					<p>{{ 'decrypt.mixedAndDownloadedBoxesSection.decryptionInProgress' | translate }}</p>
+				</ng-container>
+				<ng-container onError>
+					<i aria-hidden="true" class="bi bi-x-circle fs-2"></i>
+					<p>{{ 'decrypt.mixedAndDownloadedBoxesSection.error.' + pageActionsComponent.errorFeedbackCode  | translate }}</p>
+				</ng-container>
+			</sdm-page-actions>
+			<sdm-ballot-box-list
+					(ballotBoxesSelected)="selectedBallotBoxes = $event"
+					[ballotBoxes]="decryptableBallotBoxes"
+					[describedById]="'decryptable-ballot-box-list-desc'"
+					[enableCheckbox]="decryptStatus !== WorkflowStatus.InProgress && decryptStatus !== WorkflowStatus.Error "
+					[showIdle]="false"
+			></sdm-ballot-box-list>
+		</section>
+	}
+}

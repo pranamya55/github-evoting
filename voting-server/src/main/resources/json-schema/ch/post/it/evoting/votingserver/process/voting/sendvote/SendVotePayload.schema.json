@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/votingserver/sendvote/SendVotePayload.schema.json",
+	"title": "Send Vote Payload",
+	"description": "Send vote request payload sent by the voting-client.",
+	"type": "object",
+	"properties": {
+		"contextIds": {
+			"$ref": "https://evoting.ch/evotinglibraries/common/ContextIds.schema.json",
+			"description": "The identifiers of the verification card's election event context."
+		},
+		"encryptionGroup": {
+			"$ref": "https://evoting.ch/evotinglibraries/mixnet/GqGroup.schema.json",
+			"description": "The encryption group of the election event."
+		},
+		"encryptedVerifiableVote": {
+			"$ref": "https://evoting.ch/evotinglibraries/common/EncryptedVerifiableVote.schema.json",
+			"description": "The encrypted verifiable vote containing the encrypted vote, the encrypted partial Choice Return Codes, and zero-knowledge proofs demonstrating the equivalence between them. The encrypted verifiable vote corresponds to the output of the CreateVote algorithm executed by the voting client."
+		},
+		"authenticationChallenge": {
+			"$ref": "https://evoting.ch/votingserver/AuthenticationChallenge.schema.json",
+			"description": "The authentication challenge."
+		}
+	},
+	"required": [
+		"contextIds",
+		"encryptionGroup",
+		"encryptedVerifiableVote",
+		"authenticationChallenge"
+	],
+	"additionalProperties": false
+}

@@ -1,0 +1,18 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../base";
+
+.toast-top-right {
+  top: base.$spacer;
+  right: base.$spacer;
+}
+
+@each $color in ('success', 'danger', 'warning', 'light') {
+  .toast-#{$color} {
+    --bs-toast-color: var(--bs-#{$color}-text-emphasis);
+    --bs-toast-bg: var(--bs-#{$color}-bg-subtle);
+    --bs-toast-border-color: var(--bs-#{$color}-border-subtle);
+    --bs-toast-link-color: var(--bs-#{$color}-text-emphasis);
+  }
+}

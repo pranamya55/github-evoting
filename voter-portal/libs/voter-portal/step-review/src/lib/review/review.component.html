@@ -1,0 +1,85 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h1 class="mb-4 fs-inherit d-flex align-items-center">
+	<span aria-hidden="true" class="stepper-indicator">4</span>
+	{{ 'review.main.reviewandseal' | translate }}
+</h1>
+
+<vp-backenderror class="sticky-top pt-1"></vp-backenderror>
+
+<h2>
+	{{ 'review.main.review' | translate }}
+</h2>
+
+@for (
+	texts of votesTexts()
+		| concat: electionsTexts()
+		| sortBy: 'votePosition/electionGroupPosition';
+	track $index
+) {
+	<div class="ballot-group my-4 my-sm-5">
+		@if (isVoteTexts(texts) && texts; as voteTexts) {
+			<vp-accordion-vote [voteTexts]="voteTexts">
+				<ng-template
+					let-ballotIdentification="ballotIdentification"
+					let-question="question"
+				>
+					<vp-review-vote-question
+						[voteIdentification]="voteTexts.voteIdentification"
+						[ballotIdentification]="ballotIdentification"
+						[question]="question"
+					/>
+				</ng-template>
+			</vp-accordion-vote>
+		}
+
+		@if (isElectionTexts(texts) && texts; as electionTexts) {
+			<vp-review-election-group
+				[electionTexts]="electionTexts"
+				class="d-flex flex-column gap-5"
+			/>
+		}
+	</div>
+}
+
+<div
+	class="alert alert-primary d-flex align-items-start gap-3"
+	id="review-main-warning-aftersealingnochange"
+>
+	<vp-icon name="info-circle-fill"></vp-icon>
+	<div>
+		<ng-container
+			*vpTranslationList="
+				'review.main.warning.aftersealingnochange';
+				key as warningParagraph
+			"
+		>
+			<p [innerHTML]="warningParagraph | translate | markdown"></p>
+		</ng-container>
+	</div>
+</div>
+
+<vp-footer [cancelMode]="CancelMode.CancelVote">
+	<button
+		(click)="confirmSeal()"
+		[disabled]="isLoading()"
+		aria-describedby="review-main-warning-aftersealingnochange"
+		class="btn btn-dark"
+		id="btn_seal_vote"
+		type="button"
+	>
+		<vp-icon name="lock"></vp-icon>
+		{{ 'review.main.sealballot' | translate }}
+	</button>
+
+	<button
+		class="btn btn-link"
+		id="btn_back_to_choose"
+		routerLink="/choose"
+		type="button"
+	>
+		<vp-icon name="pencil-fill"></vp-icon>
+		<span>{{ 'review.main.changechoices' | translate }}</span>
+	</button>
+</vp-footer>

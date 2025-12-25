@@ -1,0 +1,1449 @@
+{
+	"verificationCardState": "INITIAL",
+	"voterMaterial": {
+		"votesTexts": [
+			{
+				"voteIdentification": "ch_test",
+				"domainOfInfluence": "doid-ch1-mu",
+				"votePosition": 1,
+				"voteDescription": {
+					"DE": "Beispielabstimmung",
+					"FR": "Votation d'exemple",
+					"IT": "Votazione d'esempio",
+					"RM": "votaziun d'exempel"
+				},
+				"ballots": [
+					{
+						"ballotIdentification": "9cbcbd59-94ad-4f48-bc7d-4bc38e5c0c51",
+						"ballotPosition": 1,
+						"questionIdentification": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2",
+						"questionNumber": "1",
+						"ballotQuestion": {
+							"question": {
+								"DE": "Wollen Sie den ersten «**Vorschlag**» annehmen?",
+								"FR": "Acceptez-vous la première «**proposition**» ?",
+								"IT": "accettate la prima «**proposta**» ?",
+								"RM": "acceptar l’emprima «**proposta**» ?"
+							}
+						},
+						"answers": [
+							{
+								"answerIdentification": "3aa38c9e-6e93-3159-91e1-c3da90681572",
+								"answerPosition": 1,
+								"answerType": "YES",
+								"answerInformation": {
+									"DE": "Ja",
+									"FR": "Oui",
+									"IT": "Si",
+									"RM": "Gea"
+								}
+							},
+							{
+								"answerIdentification": "16ac94e3-0c72-3570-9df9-050ebb18a9cc",
+								"answerPosition": 2,
+								"answerType": "NO",
+								"answerInformation": {
+									"DE": "Nein",
+									"FR": "Non",
+									"IT": "No",
+									"RM": "Na"
+								}
+							},
+							{
+								"answerIdentification": "fbed7bf6-a7ed-3812-bb0c-22e449aa4f96",
+								"answerPosition": 3,
+								"answerType": "EMPTY",
+								"answerInformation": {
+									"DE": "Leer",
+									"FR": "Blanc",
+									"IT": "Bianco",
+									"RM": "Vid"
+								}
+							}
+						]
+					},
+					{
+						"ballotIdentification": "dd2bd50c-deca-40b0-8451-69e6d0eee612",
+						"ballotPosition": 2,
+						"standardQuestions": [
+							{
+								"questionIdentification": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc",
+								"questionPosition": 2,
+								"questionNumber": "2a",
+								"ballotQuestion": {
+									"question": {
+										"DE": "Wollen Sie den zweiten Vorschlag annehmen?",
+										"FR": "Acceptez-vous la deuxième proposition ?",
+										"IT": "Accettare la seconda proposta ?",
+										"RM": "Acceptar la segunda proposta ?"
+									}
+								},
+								"answers": [
+									{
+										"answerIdentification": "d7a1b387-a90c-31ca-bfc2-ad038a1d9816",
+										"answerPosition": 1,
+										"answerType": "YES",
+										"answerInformation": {
+											"DE": "Ja",
+											"FR": "Oui",
+											"IT": "Si",
+											"RM": "Gea"
+										}
+									},
+									{
+										"answerIdentification": "e9da718b-469e-35d4-8d7d-d6329621e755",
+										"answerPosition": 2,
+										"answerType": "NO",
+										"answerInformation": {
+											"DE": "Nein",
+											"FR": "Non",
+											"IT": "No",
+											"RM": "Na"
+										}
+									},
+									{
+										"answerIdentification": "ecdbcc43-396a-348f-a671-919abfff4e12",
+										"answerPosition": 3,
+										"answerType": "EMPTY",
+										"answerInformation": {
+											"DE": "Leer",
+											"FR": "Blanc",
+											"IT": "Bianco",
+											"RM": "Vid"
+										}
+									}
+								]
+							},
+							{
+								"questionIdentification": "b173aebb-7b2c-476a-97fa-c81d640e498a",
+								"questionPosition": 3,
+								"questionNumber": "2b",
+								"ballotQuestion": {
+									"question": {
+										"DE": "Wollen Sie den **«Gegenvorschlag»** annehmen?",
+										"FR": "Acceptez-vous la **«contre proposition»** ?",
+										"IT": "Accettare la **«contra proposta»** ?",
+										"RM": "Acceptar la **«cuntra proposta»** ?"
+									}
+								},
+								"answers": [
+									{
+										"answerIdentification": "d0f886b7-03a8-3d8a-9e7d-4c9bfa02ddc6",
+										"answerPosition": 1,
+										"answerType": "YES",
+										"answerInformation": {
+											"DE": "Ja",
+											"FR": "Oui",
+											"IT": "Si",
+											"RM": "Gea"
+										}
+									},
+									{
+										"answerIdentification": "562a2034-f9a8-3783-abf5-624ec5ac08be",
+										"answerPosition": 2,
+										"answerType": "NO",
+										"answerInformation": {
+											"DE": "Nein",
+											"FR": "Non",
+											"IT": "No",
+											"RM": "Na"
+										}
+									},
+									{
+										"answerIdentification": "004e5a94-c242-3ba4-837b-131b5698eaa7",
+										"answerPosition": 3,
+										"answerType": "EMPTY",
+										"answerInformation": {
+											"DE": "Leer",
+											"FR": "Blanc",
+											"IT": "Bianco",
+											"RM": "Vid"
+										}
+									}
+								]
+							}
+						],
+						"tieBreakQuestions": [
+							{
+								"questionIdentification": "1129f74b-1e49-4636-9731-84dba618bec6",
+								"questionPosition": 4,
+								"questionNumber": "2c",
+								"ballotQuestion": {
+									"question": {
+										"DE": "Bei *Gleichstand*: Wollen Sie den «**Vorschlag**» oder den **«Gegenvorschlag»** annehmen?",
+										"FR": "En cas d'*égalité* : voulez-vous accepter «**la proposition**» ou la **«contre-proposition»** ?",
+										"IT": "In caso di *parità di voti*: volete accettare la «**proposta**» o la **«controproposta»**?",
+										"RM": "En connex cun l’*egualitad*: vulais Vus acceptar la «**proposta**» u la **«cuntraproposta»**?"
+									}
+								},
+								"answers": [
+									{
+										"answerIdentification": "65113930-4472-3aac-9cfd-162f501c78f5",
+										"answerPosition": 1,
+										"answerInformation": {
+											"DE": "Initiative",
+											"FR": "Initiative",
+											"IT": "Iniziativa",
+											"RM": "Iniziativa"
+										}
+									},
+									{
+										"answerIdentification": "b4277282-00aa-3ccb-bdf2-4703ba2724e4",
+										"answerPosition": 2,
+										"answerInformation": {
+											"DE": "Gegenentwurf",
+											"FR": "Contre-projet",
+											"IT": "Controprogetto",
+											"RM": "Cuntraproposta"
+										}
+									},
+									{
+										"answerIdentification": "e6467637-1921-3c4f-b669-88ba2f73a193",
+										"answerPosition": 3,
+										"hiddenAnswer": true,
+										"answerInformation": {
+											"DE": "Leer",
+											"FR": "Blanc",
+											"IT": "Bianco",
+											"RM": "Vid"
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		"electionsTexts": [
+			{
+				"electionGroupIdentification": "nrw_test",
+				"domainOfInfluence": "doid-ch1-mu",
+				"electionGroupPosition": 2,
+				"electionsInformation": [
+					{
+						"election": {
+							"electionIdentification": "nrw_test",
+							"electionDescription": {
+								"DE": "Beispielwahl mit Listen",
+								"FR": "Election d'exemple avec listes",
+								"IT": "Elezioni d'esempio con lista",
+								"RM": "Elecziuns d'exempel cun glistas"
+							},
+							"electionPosition": 1,
+							"numberOfMandates": 6,
+							"writeInsAllowed": false,
+							"candidateAccumulation": 2,
+							"minimalCandidateSelectionInList": 1
+						},
+						"candidates": [
+							{
+								"candidateIdentification": "8cc68a36-df81-4381-aaff-83544ffe6e6c",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.01 Eins Anton",
+									"FR": "01a.01 Eins Anton",
+									"IT": "01a.01 Eins Anton",
+									"RM": "01a.01 Eins Anton"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1982, St.Gallen",
+									"FR": "01.01.1982, St.Gallen",
+									"IT": "01.01.1982, St.Gallen",
+									"RM": "01.01.1982, St.Gallen"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "d396ab8f-3c5f-4a88-81bc-494dba014287",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.02 Zwei Beat",
+									"FR": "01a.02 Zwei Beat",
+									"IT": "01a.02 Zwei Beat",
+									"RM": "01a.02 Zwei Beat"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1952, St.Gallen",
+									"FR": "01.01.1952, St.Gallen",
+									"IT": "01.01.1952, St.Gallen",
+									"RM": "01.01.1952, St.Gallen"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "d113bd2d-10aa-4519-89e9-ad7b49eafa76",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.03 Drei Christine",
+									"FR": "01a.03 Drei Christine",
+									"IT": "01a.03 Drei Christine",
+									"RM": "01a.03 Drei Christine"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1965, St.Gallen",
+									"FR": "01.01.1965, St.Gallen",
+									"IT": "01.01.1965, St.Gallen",
+									"RM": "01.01.1965, St.Gallen"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "1da9fbd3-07a5-4d9e-b3c1-2342a07684f2",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.04 Vier Dagmar",
+									"FR": "01a.04 Vier Dagmar",
+									"IT": "01a.04 Vier Dagmar",
+									"RM": "01a.04 Vier Dagmar"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1968, St.Gallen",
+									"FR": "01.01.1968, St.Gallen",
+									"IT": "01.01.1968, St.Gallen",
+									"RM": "01.01.1968, St.Gallen"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "f74aacda-e4f1-493e-95b8-0984f0f18d89",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.05 Fünf Eberhard",
+									"FR": "01a.05 Fünf Eberhard",
+									"IT": "01a.05 Fünf Eberhard",
+									"RM": "01a.05 Fünf Eberhard"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1992, St.Gallen",
+									"FR": "01.01.1992, St.Gallen",
+									"IT": "01.01.1992, St.Gallen",
+									"RM": "01.01.1992, St.Gallen"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "ed9f8446-fb14-4927-b5ec-b4db51cb77b1",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "01a.06 Sechs Franziska",
+									"FR": "01a.06 Sechs Franziska",
+									"IT": "01a.06 Sechs Franziska",
+									"RM": "01a.06 Sechs Franziska"
+								},
+								"displayCandidateLine2": {
+									"DE": "29.01.1970, St.Gallen",
+									"FR": "29.01.1970, St.Gallen",
+									"IT": "29.01.1970, St.Gallen",
+									"RM": "29.01.1970, St.Gallen"
+								}
+							},
+							{
+								"candidateIdentification": "6eb5e01e-755a-4794-9781-b76a32e7175c",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.01 Dreizehn Maximilian",
+									"FR": "02a.01 Dreizehn Maximilian",
+									"IT": "02a.01 Dreizehn Maximilian",
+									"RM": "02a.01 Dreizehn Maximilian"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1964, ?",
+									"FR": "01.01.1964, ?",
+									"IT": "01.01.1964, ?",
+									"RM": "01.01.1964, ?"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "1d48f2f5-08a3-4d1f-be5e-80cfb6ed76e4",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.02 Vierzehn Nina",
+									"FR": "02a.02 Vierzehn Nina",
+									"IT": "02a.02 Vierzehn Nina",
+									"RM": "02a.02 Vierzehn Nina"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1967, ?",
+									"FR": "01.01.1967, ?",
+									"IT": "01.01.1967, ?",
+									"RM": "01.01.1967, ?"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "93d09b22-5b53-46cd-97c3-ae9cb122eab0",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.03 Fünfzehn Orhan",
+									"FR": "02a.03 Fünfzehn Orhan",
+									"IT": "02a.03 Fünfzehn Orhan",
+									"RM": "02a.03 Fünfzehn Orhan"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1963, ?",
+									"FR": "01.01.1963, ?",
+									"IT": "01.01.1963, ?",
+									"RM": "01.01.1963, ?"
+								}
+							},
+							{
+								"candidateIdentification": "8ed07d87-b81d-4dc8-aaeb-0d5d29a1c2dd",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.04 Sechszehn Patrick",
+									"FR": "02a.04 Sechszehn Patrick",
+									"IT": "02a.04 Sechszehn Patrick",
+									"RM": "02a.04 Sechszehn Patrick"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1977, ?",
+									"FR": "01.01.1977, ?",
+									"IT": "01.01.1977, ?",
+									"RM": "01.01.1977, ?"
+								}
+							},
+							{
+								"candidateIdentification": "8c12fee2-619f-47e1-82dd-cd4314c95807",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.05 Siebzehn Qadira",
+									"FR": "02a.05 Siebzehn Qadira",
+									"IT": "02a.05 Siebzehn Qadira",
+									"RM": "02a.05 Siebzehn Qadira"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1970, ?",
+									"FR": "01.01.1970, ?",
+									"IT": "01.01.1970, ?",
+									"RM": "01.01.1970, ?"
+								}
+							},
+							{
+								"candidateIdentification": "f5074d62-71f3-4a0e-9fb5-82cb03d4751e",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "02a.06 Achtzehn Rolf",
+									"FR": "02a.06 Achtzehn Rolf",
+									"IT": "02a.06 Achtzehn Rolf",
+									"RM": "02a.06 Achtzehn Rolf"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1968, ?",
+									"FR": "01.01.1968, ?",
+									"IT": "01.01.1968, ?",
+									"RM": "01.01.1968, ?"
+								}
+							},
+							{
+								"candidateIdentification": "e5b16bd6-815b-4e02-8e9e-04064a19b6d0",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "10.01 Neunzehn Elena",
+									"FR": "10.01 Neunzehn Elena",
+									"IT": "10.01 Neunzehn Elena",
+									"RM": "10.01 Neunzehn Elena"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1975, ?",
+									"FR": "01.01.1975, ?",
+									"IT": "01.01.1975, ?",
+									"RM": "01.01.1975, ?"
+								}
+							},
+							{
+								"candidateIdentification": "3a89019a-87ba-45b6-ac92-501ace75d05f",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.01 Zwanzig Friedrich",
+									"FR": "03a.01 Zwanzig Friedrich",
+									"IT": "03a.01 Zwanzig Friedrich",
+									"RM": "03a.01 Zwanzig Friedrich"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1964, ?",
+									"FR": "01.01.1964, ?",
+									"IT": "01.01.1964, ?",
+									"RM": "01.01.1964, ?"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "cdd0f070-a3a2-4a89-b525-fa19825d1305",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.02 Einundzwanzig Gerda",
+									"FR": "03a.02 Einundzwanzig Gerda",
+									"IT": "03a.02 Einundzwanzig Gerda",
+									"RM": "03a.02 Einundzwanzig Gerda"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1960, ?",
+									"FR": "01.01.1960, ?",
+									"IT": "01.01.1960, ?",
+									"RM": "01.01.1960, ?"
+								},
+								"displayCandidateLine3": {
+									"DE": "bisher",
+									"FR": "sortant/e",
+									"IT": "uscente",
+									"RM": "uscant"
+								}
+							},
+							{
+								"candidateIdentification": "1eb4e5e4-d2fc-4cdf-bbc4-2f84439b9870",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.03 Zweiundzwanzig Horst",
+									"FR": "03a.03 Zweiundzwanzig Horst",
+									"IT": "03a.03 Zweiundzwanzig Horst",
+									"RM": "03a.03 Zweiundzwanzig Horst"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1986, ?",
+									"FR": "01.01.1986, ?",
+									"IT": "01.01.1986, ?",
+									"RM": "01.01.1986, ?"
+								}
+							},
+							{
+								"candidateIdentification": "9b175406-327d-42a2-9979-fcefb95e7620",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.04 Dreiundzwanzig Ines",
+									"FR": "03a.04 Dreiundzwanzig Ines",
+									"IT": "03a.04 Dreiundzwanzig Ines",
+									"RM": "03a.04 Dreiundzwanzig Ines"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1957, ?",
+									"FR": "01.01.1957, ?",
+									"IT": "01.01.1957, ?",
+									"RM": "01.01.1957, ?"
+								}
+							},
+							{
+								"candidateIdentification": "04998ee9-33ce-4aae-beec-5fa4159e1ec0",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.05 Vierundzwanzig Jack",
+									"FR": "03a.05 Vierundzwanzig Jack",
+									"IT": "03a.05 Vierundzwanzig Jack",
+									"RM": "03a.05 Vierundzwanzig Jack"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1984, ?",
+									"FR": "01.01.1984, ?",
+									"IT": "01.01.1984, ?",
+									"RM": "01.01.1984, ?"
+								}
+							},
+							{
+								"candidateIdentification": "25d225ee-2a75-49ac-b8f5-18a1be37f574",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "03a.06 Fünfundzwanzig Klara",
+									"FR": "03a.06 Fünfundzwanzig Klara",
+									"IT": "03a.06 Fünfundzwanzig Klara",
+									"RM": "03a.06 Fünfundzwanzig Klara"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1981, ?",
+									"FR": "01.01.1981, ?",
+									"IT": "01.01.1981, ?",
+									"RM": "01.01.1981, ?"
+								}
+							},
+							{
+								"candidateIdentification": "ff671047-7e0f-4198-974f-0041a55f1c70",
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "10.02 Acht Hilde",
+									"FR": "10.02 Acht Hilde",
+									"IT": "10.02 Acht Hilde",
+									"RM": "10.02 Acht Hilde"
+								},
+								"displayCandidateLine2": {
+									"DE": "01.01.1984, ?",
+									"FR": "01.01.1984, ?",
+									"IT": "01.01.1984, ?",
+									"RM": "01.01.1984, ?"
+								}
+							}
+						],
+						"lists": [
+							{
+								"listIdentification": "244ab111-a5d4-4090-bed3-79f850a27fa1",
+								"listDescription": {
+									"DE": "Partei 01",
+									"FR": "Partei 01",
+									"IT": "Partei 01",
+									"RM": "Partei 01"
+								},
+								"listOrderOfPrecedence": 1,
+								"candidatePositions": [
+									{
+										"candidateListIdentification": "a5eb2a7a-c5eb-31bd-8ed4-56870fc09f9e",
+										"positionOnList": 1,
+										"candidateIdentification": "8cc68a36-df81-4381-aaff-83544ffe6e6c"
+									},
+									{
+										"candidateListIdentification": "b70e7acc-d866-307b-ab29-840bee593607",
+										"positionOnList": 2,
+										"candidateIdentification": "d396ab8f-3c5f-4a88-81bc-494dba014287"
+									},
+									{
+										"candidateListIdentification": "8a7290dd-4dbb-321c-8676-9684df16f3b3",
+										"positionOnList": 3,
+										"candidateIdentification": "d113bd2d-10aa-4519-89e9-ad7b49eafa76"
+									},
+									{
+										"candidateListIdentification": "a90c9dbb-b562-38e9-9d55-bf94d1bec858",
+										"positionOnList": 4,
+										"candidateIdentification": "1da9fbd3-07a5-4d9e-b3c1-2342a07684f2"
+									},
+									{
+										"candidateListIdentification": "5e7e8b1f-f12f-353e-84e2-846c4485aa98",
+										"positionOnList": 5,
+										"candidateIdentification": "f74aacda-e4f1-493e-95b8-0984f0f18d89"
+									},
+									{
+										"candidateListIdentification": "71caa0ed-5f12-3dd5-b657-569e64df5eb6",
+										"positionOnList": 6,
+										"candidateIdentification": "ed9f8446-fb14-4927-b5ec-b4db51cb77b1"
+									}
+								],
+								"displayListLine1": {
+									"DE": "01a Partei 01",
+									"FR": "01a Partei 01",
+									"IT": "01a Partei 01",
+									"RM": "01a Partei 01"
+								},
+								"displayListLine2": {
+									"DE": "Vereinigte Liste 1: Partei 01 - Partei 02 - Partei 03",
+									"FR": "Apparentement 1 : Partei 01 - Partei 02 - Partei 03",
+									"IT": "Lista unita 1: Partei 01 - Partei 02 - Partei 03",
+									"RM": "Glista unida 1: Partei 01 - Partei 02 - Partei 03"
+								}
+							},
+							{
+								"listIdentification": "50504845-5222-4e70-8d34-f812fce04009",
+								"listDescription": {
+									"DE": "Partei 02",
+									"FR": "Partei 02",
+									"IT": "Partei 02",
+									"RM": "Partei 02"
+								},
+								"listOrderOfPrecedence": 5,
+								"candidatePositions": [
+									{
+										"candidateListIdentification": "441682e0-08ae-3b7d-bc1b-8f9f7072c6b4",
+										"positionOnList": 1,
+										"candidateIdentification": "6eb5e01e-755a-4794-9781-b76a32e7175c"
+									},
+									{
+										"candidateListIdentification": "46e0ba8b-0a5b-3bb0-b439-9e9876c06758",
+										"positionOnList": 2,
+										"candidateIdentification": "1d48f2f5-08a3-4d1f-be5e-80cfb6ed76e4"
+									},
+									{
+										"candidateListIdentification": "5845c543-aaa6-3b2c-8b54-0c67d0cbca1e",
+										"positionOnList": 3,
+										"candidateIdentification": "93d09b22-5b53-46cd-97c3-ae9cb122eab0"
+									},
+									{
+										"candidateListIdentification": "4fe371e8-3fde-385f-ad7c-42473e8047ec",
+										"positionOnList": 4,
+										"candidateIdentification": "8ed07d87-b81d-4dc8-aaeb-0d5d29a1c2dd"
+									},
+									{
+										"candidateListIdentification": "44c3fd52-4c78-3e2c-8a40-dbcfa2849143",
+										"positionOnList": 5,
+										"candidateIdentification": "8c12fee2-619f-47e1-82dd-cd4314c95807"
+									},
+									{
+										"candidateListIdentification": "88e97dea-f138-3521-92a4-6a53c2129725",
+										"positionOnList": 6,
+										"candidateIdentification": "f5074d62-71f3-4a0e-9fb5-82cb03d4751e"
+									}
+								],
+								"displayListLine1": {
+									"DE": "02a Partei 02",
+									"FR": "02a Partei 02",
+									"IT": "02a Partei 02",
+									"RM": "02a Partei 02"
+								},
+								"displayListLine2": {
+									"DE": "Vereinigte Liste 1: Partei 01 - Partei 02 - Partei 03",
+									"FR": "Apparentement 1 : Partei 01 - Partei 02 - Partei 03",
+									"IT": "Lista unita 1: Partei 01 - Partei 02 - Partei 03",
+									"RM": "Glista unida 1: Partei 01 - Partei 02 - Partei 03"
+								},
+								"displayListLine3": {
+									"DE": "Vereinigte Subliste 1a: Partei 02 - Partei 03",
+									"FR": "Sous-apparentement 1a : Partei 02 - Partei 03",
+									"IT": "Sublistino unito 1a: Partei 02 - Partei 03",
+									"RM": "Sutglista unida 1a: Partei 02 - Partei 03"
+								}
+							},
+							{
+								"listIdentification": "9ef97382-006e-4e3d-b079-1b7e53da339b",
+								"listDescription": {
+									"DE": "Partei 03",
+									"FR": "Partei 03",
+									"IT": "Partei 03",
+									"RM": "Partei 03"
+								},
+								"listOrderOfPrecedence": 9,
+								"candidatePositions": [
+									{
+										"candidateListIdentification": "140cd0e8-0db1-3d9f-a86f-bf3538072350",
+										"positionOnList": 1,
+										"candidateIdentification": "3a89019a-87ba-45b6-ac92-501ace75d05f"
+									},
+									{
+										"candidateListIdentification": "b9882bfa-4a72-33e3-a08f-60381f1f1260",
+										"positionOnList": 2,
+										"candidateIdentification": "cdd0f070-a3a2-4a89-b525-fa19825d1305"
+									},
+									{
+										"candidateListIdentification": "8b74f36e-64af-3938-b4f2-5eda9c8957f6",
+										"positionOnList": 3,
+										"candidateIdentification": "1eb4e5e4-d2fc-4cdf-bbc4-2f84439b9870"
+									},
+									{
+										"candidateListIdentification": "027ddb48-a0dc-34f1-86b2-17ab67dd82eb",
+										"positionOnList": 4,
+										"candidateIdentification": "9b175406-327d-42a2-9979-fcefb95e7620"
+									},
+									{
+										"candidateListIdentification": "6897f800-d8b6-3886-af36-ca89c92b23bd",
+										"positionOnList": 5,
+										"candidateIdentification": "04998ee9-33ce-4aae-beec-5fa4159e1ec0"
+									},
+									{
+										"candidateListIdentification": "fc47c0f3-31fe-384d-87a8-4f35d84e4d82",
+										"positionOnList": 6,
+										"candidateIdentification": "25d225ee-2a75-49ac-b8f5-18a1be37f574"
+									}
+								],
+								"displayListLine1": {
+									"DE": "03a Partei 03",
+									"FR": "03a Partei 03",
+									"IT": "03a Partei 03",
+									"RM": "03a Partei 03"
+								},
+								"displayListLine2": {
+									"DE": "Vereinigte Liste 1: Partei 01 - Partei 02 - Partei 03",
+									"FR": "Apparentement 1 : Partei 01 - Partei 02 - Partei 03",
+									"IT": "Lista unita 1: Partei 01 - Partei 02 - Partei 03",
+									"RM": "Glista unida 1: Partei 01 - Partei 02 - Partei 03"
+								},
+								"displayListLine3": {
+									"DE": "Vereinigte Subliste 1a: Partei 02 - Partei 03",
+									"FR": "Sous-apparentement 1a : Partei 02 - Partei 03",
+									"IT": "Sublistino unito 1a: Partei 02 - Partei 03",
+									"RM": "Sutglista unida 1a: Partei 02 - Partei 03"
+								}
+							},
+							{
+								"listIdentification": "97e7687a-9ce7-4724-91bb-17396344b50c",
+								"listDescription": {
+									"DE": "Partei 10",
+									"FR": "Partei 10",
+									"IT": "Partei 10",
+									"RM": "Partei 10"
+								},
+								"listOrderOfPrecedence": 22,
+								"candidatePositions": [
+									{
+										"candidateListIdentification": "8f1a8aa8-a7fb-349e-aadc-a326e95765b9",
+										"positionOnList": 1,
+										"candidateIdentification": "e5b16bd6-815b-4e02-8e9e-04064a19b6d0"
+									},
+									{
+										"candidateListIdentification": "45364b88-caa2-375d-9d28-90ece22d18a9",
+										"positionOnList": 2,
+										"candidateIdentification": "ff671047-7e0f-4198-974f-0041a55f1c70"
+									},
+									{
+										"candidateListIdentification": "45364b88-caa2-375d-9d28-90ece22d18a9",
+										"positionOnList": 3,
+										"candidateIdentification": "ff671047-7e0f-4198-974f-0041a55f1c70"
+									},
+									{
+										"candidateListIdentification": "8f1a8aa8-a7fb-349e-aadc-a326e95765b9",
+										"positionOnList": 4,
+										"candidateIdentification": "e5b16bd6-815b-4e02-8e9e-04064a19b6d0"
+									}
+								],
+								"displayListLine1": {
+									"DE": "10 Partei 10",
+									"FR": "10 Partei 10",
+									"IT": "10 Partei 10",
+									"RM": "10 Partei 10"
+								}
+							}
+						],
+						"emptyList": {
+							"listIdentification": "99",
+							"listDescription": {
+								"DE": "Wahlzettel ohne Parteibezeichnung",
+								"FR": "Wahlzettel ohne Parteibezeichnung",
+								"IT": "Wahlzettel ohne Parteibezeichnung",
+								"RM": "Wahlzettel ohne Parteibezeichnung"
+							},
+							"emptyPositions": [
+								{
+									"emptyPositionIdentification": "4ea3eb45-4872-3418-81d9-1e928937fc1b",
+									"positionOnList": 1,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								},
+								{
+									"emptyPositionIdentification": "d2838d83-b21e-3758-b3db-428094b8c39f",
+									"positionOnList": 2,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								},
+								{
+									"emptyPositionIdentification": "c2275508-2e7e-33e7-8fb8-4aaa48979288",
+									"positionOnList": 3,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								},
+								{
+									"emptyPositionIdentification": "0e08a1c6-62d3-3e54-8642-6792536ba039",
+									"positionOnList": 4,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								},
+								{
+									"emptyPositionIdentification": "899e6604-8374-370d-961c-e1537d2f7d53",
+									"positionOnList": 5,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								},
+								{
+									"emptyPositionIdentification": "1a6ea144-5fe6-376a-a659-aa8d72bb2ad8",
+									"positionOnList": 6,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								}
+							]
+						},
+						"writeInPositions": [],
+						"implicitWriteInCandidates": []
+					}
+				]
+			},
+			{
+				"electionGroupIdentification": "majorz_test",
+				"domainOfInfluence": "doid-ct1-mu",
+				"electionGroupPosition": 3,
+				"electionsInformation": [
+					{
+						"election": {
+							"electionIdentification": "majorz_test",
+							"electionDescription": {
+								"DE": "Beispielwahl mit Write-Ins",
+								"FR": "Election d'exemple avec Write-Ins",
+								"IT": "Elezioni d'esempio con Write-Ins",
+								"RM": "Elecziuns d'exempel cun Write-Ins"
+							},
+							"electionPosition": 1,
+							"numberOfMandates": 1,
+							"writeInsAllowed": true,
+							"candidateAccumulation": 1,
+							"minimalCandidateSelectionInList": 1
+						},
+						"candidates": [
+							{
+								"candidateIdentification": "9bfe1f69-6d35-4966-b281-a5dc39655e3a",
+								"position": 1,
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "1 Rot Doris Rote Partei",
+									"FR": "1 Rot Doris Rote Partei",
+									"IT": "1 Rot Doris Rote Partei",
+									"RM": "1 Rot Doris Rote Partei"
+								},
+								"displayCandidateLine2": {
+									"DE": "29.11.1961, Wil",
+									"FR": "29.11.1961, Wil",
+									"IT": "29.11.1961, Wil",
+									"RM": "29.11.1961, Wil"
+								}
+							},
+							{
+								"candidateIdentification": "b5c605ec-9398-41d9-b934-006c548381c3",
+								"position": 2,
+								"eligibility": "EXPLICIT",
+								"displayCandidateLine1": {
+									"DE": "2 Gelb Henry Gelbe Partei",
+									"FR": "2 Gelb Henry Gelbe Partei",
+									"IT": "2 Gelb Henry Gelbe Partei",
+									"RM": "2 Gelb Henry Gelbe Partei"
+								},
+								"displayCandidateLine2": {
+									"DE": "29.11.1954, Wil",
+									"FR": "29.11.1954, Wil",
+									"IT": "29.11.1954, Wil",
+									"RM": "29.11.1954, Wil"
+								}
+							}
+						],
+						"lists": [],
+						"emptyList": {
+							"listIdentification": "ca127938-5e2f-372f-8a4e-a0cb1da35b3b",
+							"listDescription": {
+								"DE": "Leere Liste",
+								"FR": "Leere Liste",
+								"IT": "Leere Liste",
+								"RM": "Leere Liste"
+							},
+							"emptyPositions": [
+								{
+									"emptyPositionIdentification": "1cde3adc-d3b8-3077-95b4-21ac2958a8fe",
+									"positionOnList": 1,
+									"emptyPositionText": {
+										"DE": "Kein Name ausgewählt",
+										"FR": "Aucun nom sélectionné",
+										"IT": "Nessun nominativo selezionato",
+										"RM": "Nagin num selecziunà"
+									}
+								}
+							]
+						},
+						"writeInPositions": [
+							{
+								"writeInPositionIdentification": "f71ffce9-78c9-3621-895b-aebcc0849ad1",
+								"position": 1,
+								"returnCodeWriteInDescription": {
+									"DE": "Return Code Write-In description",
+									"FR": "Return Code Write-In description",
+									"IT": "Return Code Write-In description",
+									"RM": "Return Code Write-In description"
+								}
+							}
+						],
+						"implicitWriteInCandidates": []
+					}
+				]
+			}
+		]
+	},
+	"voterAuthenticationData": {
+		"electionEventId": "544D86068F202C0D09965B75B93FDD9F",
+		"verificationCardSetId": "89994CE5044CDE8C5C4046111E359024",
+		"ballotBoxId": "605E8C36197A2EC9F7BFBE258DB719AB",
+		"verificationCardId": "7317207FFE4353359395FA53BBA201D8",
+		"votingCardId": "7317207FFE4353359395FAA13ECA37FA",
+		"credentialId": "1168C65904BF8552D52E798455B400F5"
+	},
+	"verificationCardKeystore": {
+		"verificationCardId": "7317207FFE4353359395FA53BBA201D8",
+		"verificationCardKeystore": "OfRXFm3wN2tAsA/KI3OWnPPXvemd1/lhbkJaVQ6W+Jps7sH7mfiVnrKTzOluKaBArY0jSPnLhXeSUCqZCUuzYj+JZL7O+SR6vfYQHnL72O3pKGicW3tHjx8wOmUKQ6PuYi2ATewfpugY5cArWbi+fFhTS3SUGSZmR1E+dTOo4HaZXJMPuqQyc9+KOzpLLy0flVE4iEe4VkTzobgR+d2D1nTdFiHxKaot0G/D1X6QkILLAXIfxiIqdn4v527oH683sbthelsoOvFUQqcrnVeIChTqpas1J+qDCYEkUuJfvGQoOoGswxSo37OWzKfSwuTKyUlHiVI20db5CSsn/nnZEOhQSTzhFsIi8CwYxk0j7tP5kauO5T/mukvT4QHmDbdRj5caPUUG0cqV7xbW2DehdCgLteHQLGxImtC7FA61IudV/7O1mTmS8ke2/DGKnhzQNDGpfKzk+fhz22ABBm5roWAQRj06ELJ68poMqaWmcWxY84mD5S02HdwyOgg68hkgcX3HGj2InId7wkZYi3Hr0AjZdlmpb29wmZo10MIvwEwNHgMIacfhhsbSTs8="
+	},
+	"votingClientPublicKeys": {
+		"encryptionParameters": {
+			"p": "jA4DatkpgfS1r6X1Q5iYA0sS2KakO3pabCF5uww/NyUxmZLOWP1E70Wq1jYs7FMgqAXPvfWn2cCdVGrU5ZcoHWim7FjtyhZPFw15XXewjoOsBUDoqf1Pg5mNakQpQAVEhqMRQ4s5FY1nCB5FvsAUnd8gCONEyIo75r6nj0BmZSoKYCGICT0nBnD0tpW3DwLInQZc5L+x1j39j+CGQI9wCk4+FhAyrK4nNMSsHv3vRUuxdsJber7KZ8d0eqRcyuRZdTbbBDmwz0GlxEmSrP4KRt6gohGN25y7myXQkza1alJpsNOGmBR7GSipM6/gagxRroVzAHBCVNp20g9d7UUZ32DA11pbBrjvEIWMNtZBKGr5Px4d+BJPljxBsbANBqu3d4gfrc5j0Me03yRbPwWq39r5sNFFrIMURmqaOa9l6kVkBBvgDiBt1ult+X787mO6orBoyLXMMCU8qy3zIdzCi5Kfq4Wn8i1C5af7SowhOfV33XNoRnMfPp3CSZaWi1wv",
+			"q": "RgcBtWyUwPpa19L6ocxMAaWJbFNSHb0tNhC83YYfm5KYzMlnLH6id6LVaxsWdimQVALn3vrT7OBOqjVqcsuUDrRTdix25Qsni4a8rrvYR0HWAqB0VP6nwczGtSIUoAKiQ1GIocWcisazhA8i32AKTu+QBHGiZEUd819Tx6AzMpUFMBDEBJ6Tgzh6W0rbh4FkToMucl/Y6x7+x/BDIEe4BScfCwgZVlcTmmJWD373oqXYu2EtvV9lM+O6PVIuZXIsupttghzYZ6DS4iTJVn8FI29QUQjG7c5dzZLoSZtatSk02GnDTAo9jJRUmdfwNQYo10K5gDghKm07aQeu9qKM77Bga60tg1x3iELGG2sglDV8n48O/Aknyx4g2NgGg1Xbu8QP1ucx6GPab5Itn4LVb+182Gii1kGKIzVNHNey9SKyAg3wBxA263S2/L9+dzHdUVg0ZFrmGBKeVZb5kO5hRclP1cLT+RahctP9pUYQnPq77rm0IzmPn07hJMtLRa4X",
+			"g": "Ag=="
+		},
+		"electionPublicKey": [
+			"HIu9wOEbi6c3+sPpa98YtVLZYFBn4p3h5OGc2BtG/pNWa+UE6P+nAANWk9w3DZxo6GOc5RG+/VmEUcWOoid+v7UHmJ/HmgJKW1lTTsgCbuKktbjm5euPjlYvL5URUVuRVqLtvw46VGUdDNDQ8J7vSjEYBFo5OptjnMhv8NAQdTPcEBC4Sc04m0YH3EfC//N6qPlJTJpR7moMywkJL9zZm4LsF5Pl6fh7N24KV5Fc4XhIBmJXhi4BFCR/hdreeRMrMCD9fVPJ+TH7fxPPAVso8TlQ0QI+2lD+JSp/JV2H9pPTg2jH0FMT99Ya55ap81dpkDYH8Th24blCIMo+hXBF9g66TDHUhQnDDJ3gmzDXOcbpN7QBbLlAnYOuB06Q/22rA7Tly9ZJ7AwBFTggrErXKrapnRncesrtg1v41VU0CE+6lZJzlDvgK/GtWmnAR4EfsUw6N7Sow4x/c/Yg8o2uN2RtGJfiASrjx8vfRXeA3VLagLfoX1jMshnLQEsvgSqu",
+			"BVUFEHYcFDyvUgrh8mT3pkWUEBDtOwNA2GXTtJ96Av+gVQShEiESPsmjEDZhOG9/CHq2hIuUhjuyDVbLXzlMxt3Z/1PUdtnJmfBWxk+eLc5VEwHUCue1gEJQDxjsk9JAzJiCpGCst712sfJO9sqSNUYcSZ20iqmoXY1jkOy7VdEzpB65yplqNTqdsEHxEeNamQUZeCwEc+ZQsXqjQnaQsDwNQMkH+zBZXRzeLf3kqL0SOm5T1YMXYCd51Gg53ikVYtVA2JzDGQJdYFyEqykHlXl0AS7x1U3X7UUZeJjEZGRi1M83cjZ88QnaNzNdJmtgw3gWwE/smN38Um6QRSWSuQTdbtt6WJz1DJUjrkz3seJuazfdg9UlS9f0mPINGxeEaa5Xorv02QzLq3tfhW0/46LCLRKBemEiSkx4cS/Gtt5fl/sSSFd7eBT6yB1o3tgdNxRNDVEMuc2rIQgsQL8oOKZsQIQVQijBYwcn3x0UuB1puAxrAdheyvcghC1RoH/1"
+		],
+		"choiceReturnCodesEncryptionPublicKey": [
+			"ET3F9gyXgz4ULu8ZsP3G3Y8UqsHD/J6kI0y7bx9SE3WtT2SKuLPteOMKJKQDNHIzNhMGdtmXZx8grgjftpg0pTWVMfYJLOBbSjvjPu2qSLZY07jjrq/lzNuk1Kxrg+At5pL8iHk+n80I2ANmxZAyMTUkF8e9w9zbdhWtLzauZcFDOgZcBcKeym/CxaD1W2SxKbGh4WHWwRpwOniiQBUDBfqF+rf799xycFOzo0/lCxFjjE8XBbhXEpfDsKCMORU0ZJ0WbnVJbkK1PpqUyY6i4tOmvTlvif2vsFXJ33io9YgBHGsF5o0mbCBjAB0MbDWIm2k2mxOtCkaFqTXYfEf3KPzD0wuOAQeyo67k2IFWrkbX20zCDRO3f2P9PtxetAe7qQxKCAsP90U8ytWEtcMELB/8/+uDVFkO0b97dr2aLvWv35lXko03TFxA3h8V61Mj76tVUfOtauVts4Fr7HMKHUMGJqKyOFSDMMy7QLSDsrAtGJ0hib7bkjP5axSJsDNw",
+			"ESE/llch8DC9Doupo1v8BUuAVbU2Coc1Ybai2tuT+3mVvGm+L5v3gK+tG/+KVW/aBnclzPcLH1O97oYjC7HB5SFpgx7hubqJz89gtJG8Bu+rAV+dN3oCKV+gmEwAdbrGynny1S8Z6kCXptfTytZLhGXm5kvhJ/mAQqaakUynWqW6S00fiEsKqNEcp2mqboVzCdegNsei/t6YbSiyfM37AbC/gT3RkqfvX6LI8LmTVoj/w4TQnLmxpiizT37ra/e4WzzXE6cibrTJnm1bRHKaWgcXm7aF5RlEdX7Tz0d3rS/F4WS6qpyytRsoM5y+O26EkUDU9CFfBbZXbinyh/+Tdo1uJ+2q35FKQHxCzpjX5KXraa3Vjki+H3Jf/RVXvjH3NTBfKV3fl6K5IBazII0G8yGKU7h5dh08i/aKdVAZ0sXU20rmIix8j7N/ol3m7D4vPZlCXAqpIYu6aiziDWTIsUubTjKgEZtFd5UDCzRRwEWrCQ556auKcgEGsV4saz+A",
+			"Esnz/WxTiK448bPF0F2x78fnBI6qkBWindCW5xr7IaxgXgWqDqSvsuDAqfuwO6kadaAZIQo61J+aCkur9gZr08KsxJ8CcJuXtOqci+W2Wnd6TlVoYvR2JqbEa38RS3EhdcVNHAvXGd6Ra+pehU4KVzEYVFfGnw9CQrenuoXKMBJVCgYDviIUkReZ+nxMqnLpPVh+Nhmp6nIfh1v7vP0R1LqCxsEK6a6M1kAeiT0PMeqQ3aYAM2FaWvlb4+s4JPar4AeSpxBnXKcKQfEWCcBLFsyjKbLChV53ix/DSEkZ02jBCK+iGuwgwvWmPBUVCaW9mRyhG0z0PGUuYjGHma5ihJXsuzKJiZW4MU4kLcBufdipXP34+rEO7iIzAKu+glywGE9nF8OfQSEtXIN8BbfGq7mFnrvvGNXqRGjF9Ig38VKOJi2cMXJ/LA+CtE86VbAsGb/+y8+ZoBNcGUSxZQCqcCVKZ51VwDYTbHFUPnuW4rYrHCXx3ezLXTE6wDFPIOrY",
+			"UlPNmvlaOYIs6AJHdN9G5oKp0+s/gqDdVWu4ncv2ieFV6VeMLzbig2NdrURRKphcuNOJsMoSNBTcIs5arZRzLP9riLsfHM2gfFa5UZJ2qMUh3aT82bbHgTQQ6FqkQLRQ8V1u7kBEfxLaszJuD61rjJ/t5v9PjjCVxpG3dsJ9Dz2nLbjdgdla4AHzgEUgSSiq6fJgalJ5gs9NjvNQ2xdYdhrkpWWJOYPHhLec7RAaogQW7yaWh5fXkeQujJB26X7as6A0AiiEL5YqDCzV+HDQrAeLpbJh1DkgIX5j4L8DrgE8IEaazMiyadpumXfgXS7wOXMWclAOilkiILw3b8+AcdQmtcY9nJObHOS2qZA9FW1pi/gFIFgEFLm3W8EsDPvszdxqPmXG3v1W2zaE1Ey6ffYZbAXJu4ZcJ4E5acSbrb2D2uT8UT0h6eM/P5LQVQlDyy8LXtPlP/+1BU5AZz9Ra2a4XD0zV6RZyqeDhmxownjnPZBS/Hh/abLtEMAL1eDq",
+			"WaBWBEmCU9QHScwl1el4EFTDf0ZaTOi/4I5oqAgqxYF4Twm81CcSN30+McT4lx1OrQRwr7NZb4Bmy54T3n4VqXYun5Xhu1TDFyugiYL6HnYXRBUg27XDFVMG6i96AWCxgQpT5QI7NUgNPxKOx0bfxFi7Sg7zFFZCBF1lYuCQ5l0TBFLQXKmtVIdY5UPx4abDI5CS++4QiAhe93DizBtmxCdxNn50pviUc2Jnm77942JV3IDF1ZxzLG0ILEhTmuaddKSv/BB8IbS+AUfvaV77ZvEyPMR6NYN/NrPK+4PMBvt9uSey02JwY7bMmxjkRneOUAmdtI1ozxzL5kEzQqrgvfxCviPAoBJUbt99IdxFMHLwroKRdBDzTAF1nyeWojEsCGHZUxGmsoqfHkNDA3GRqRKJ3mf8Fs8pKQzC0bWrBQf60smuvLbC4VHEuz9cmJIVFuV+k926575qqdvEfshrNbOIHIAG8PfCC+R52dwjg7Oeu2g2+mSseSpVasKtDp2Z",
+			"Cicrg9/9QNwEDbS2AuEj8OJIBNO9idt82DXV3JJP61Pec0Ep217PZjBbybUvY4GtDDdzPTkewHTT+tpgJUB+Mi/cOHNW3KS+ENrmfD+Pwxe2krro0WM4/sAHaHl38bh7zbvUjtPS0KFgb6NV2VBEkgDDvrgAcPs/4FoMpcxcjACv8lbch1p8N8HVahnaEpClG/EFwm8yVFS2Uu/0Tqpa9wiKvJkA05Y6lOcBDp6dVy3QShtGgHD12pCGGer7buZc0NBj/7sbD4gcs/aHw93giBWQnAM8t9zqXBlQI22JuHjfdqsja4fqxJoCbM8HWbqy8hxoKkndrmxV8QsWDSj1FaCvcKyVv8egePGrvWMHlmKQt535MJsiURx0UvNgLKewB6cQQKBNAzpJ2SsA/YKiiTnXNaR1qGNuWWJWFYizEgKD6yDG1zYtZKrVbHm4FnlULHHxnDzmHqnL4yOI55laUZFuqQMixubcrHtz+68kySmDuWCguEVDwmSN/BHH6TM1",
+			"GmYxdydUeMMSdiwj/AzeMkO8fxVic5h9iyzYzvRuXJO4yOHY64QHxccRDWSYkYepvrRkdZl8/dR6Lz424swrPsRWWQJ7wMV5urcsb64KQyj1xqJhqMk6na377EnRtNRbKlBVkyD9KaHd5Yso24Mrl1rlCns7zCQKBMKVJURkP2KavgIWyLQB1nLznWcQVEGWD4yILvDp/V8y8fMYwDNL4ZwRI1t/j7mnU4aDZA1dumSH07l5SlgqvrwVB0ZCaA6Ak1prZ+XhmlqfUQwLXbkzsXpQTRrO0mkvMQ2Tvyg2O+mPgROIWqsRNwb+BiiMpUk2c5Va83jnnFKpVqYakfDUoZCscTvUU3JAY1vsfSolTowxAjzWEH/bKFO+uPU97SSeIlkuSVhaq7+gc2pS+dAL48X2pG/Anr7UD8ZdqKkGozm9IPHmJi0SzsRuJ8+mCA1pXBLj4jbMKCxycLBpfmRTDxj5szlgJCWP7VzjbmAVHqfEE11pIx1mft31iBaQNA6g",
+			"TEdHgAFSEOS4gzHu7apSGw8w6/08OqWr04UZ61nzPwLgLomUhd2bh7rYwUDCbd8TJxTnp8OONwmNPvoPmQF8NDDqmJ1srKLHUR2SfO0vEBU7zWtDXFYdcLNiIz0M7iZ7jc+Au9UCrC9QX66EfOz65LTngwpIyl5mAK5zKL5Zk6SQwpUIsN+px8UlyESnwEKNZ+dTNKXhf9dD3aNRNeBMiSrAjuc/npDkaOw5YV3eaJz35hKJEpoBv7hIBcoMsLZ9LdPUCeCAjn0rGj8GfwPsCUd5fHTjt+VR0qyrNbuZehE14jVm3mY9kXtZORHcXlJiC8HyeoCzm3EZmP82XIJHyEUha5kxbi0U1J1kt1PaOj32CSDVLf60wfgUEHvd1PygyCj7Xx7bK/u7kaBB3sa+rAAkRpUwiN99WegkDsHyMdBf6MVmTD+AvRlHQ9m6Fr2LMjL69YNub6oIZcx/yTkMwcOWJyJ8mHrZmXeC2UhWp7J9M3ay9oYnKoprfXELwzln",
+			"Fep19dTkrPDHCmdkLX/0xXEuC2tBbzGwqY5dPL0XTmLpAi4pqMD2QWSHU1r99TbIt+qGiv2w8pX9VBErlCxO/fQha79vThUgWBMagrOfqmgc5zQlsF8/aXW3N6cOAJddoSTjCNFh6CbM7l7w4cVUnRSSENcC4tcABphFb6GBZ51OscuTFTj9PdaeOpuTD2r1N7/KTVm0pNy3X7fKJB20P3CP0AuGIUirApMLEu9G8+3GUM0R2bS/UlwTLCVxYtg5khsfOvx7KSKfazc4e8CR2ajyd8SpkvR/wnM5NqxNCaqmifVDWC6KP6tq30WLwGC2H4aIrIgjlvelztIFXvBbiqY9m9V1pOg7t1Cqxf05fqaVKkWFWDwjwS99MMxy5qfqAsLzJ6JrH93qGSM9gBOpYsQTJmiVx75+Oe9oZSag3Z/7QjnBgN/Oy9yBlEV+qCmQV+YwkqaZaFZTGSJkfU/RwwTGk1E3OSlrQ10zZFbIhyme83bG4ImG6Xjb7/CuHE1M",
+			"fihX+YetzusEMHmKwZT7vIu8gLNa9+3jxwKUNbHFSZSSqsA3c5+42CAhTdxednkmmbOg2UBRjx0bZfZxDCesF0gbLzkFqbez4L9kShF5oHkaAEsM5PVnPtkKy/1FJZrkn3MIWQO2wnaCZ53hdODEZVMFVy4YaCB1p6YPVw4UaMjq/zWb8qqBSEFE7qOGcTus/zp8skAp4Da4aHbkdbktRigCi5HAFhCAOpq5ekzKc41Sc2cJCGAt1IormUmAED6wI5KR4/j1fwDftBzMybTOUS2GTGj+iZBzUyexlvGUt9bIdJFQB1mpMJu+WWRSoSOElghBmPiJ6yX9Y76O/TkiE0G6FwbtsxWt2TGvbxdY+ROnIe/rKejhHEb6dO7u0eeRNETUyxWLaqq6UP7hSskaah8R/6sAWyhR+MHtX7zNn9/7itFqhFPvknD8F6I8m+LVnGfgNWVFZidm6jUaHFWdDLlEqusmXoe8ms2dgmB810YtFkao0YPxNOOyfU/5VxDy",
+			"LM13pIg6YPiOjDQkhGWi1pB8mnrIaPpQ5C75Yk4Nr1Yf0LXJfYkIxJObW/yS6lgdTEXVVL5oUv7o0M1NkyxxcfVdfnrVtG8VuQDEASwmsw7KJizU16uezNuY+tyECCKFS5Ml/CsH3lylR/GgVxMZqzkeF29D42heqNqecyv5XIpdEqEESgbPYmCJvHOiFqSMOdaZ//RCvAHedTREUuT1bAPndBN/f7unbiC14n9mqvia+fP6+FGkwPOC7hDq4Of+rk17HCuhC0xQl5gH+kKLzO++r+ePlLC5UW083TCx09ODLSRwunRYba+TyBXL0veCxaZJYZW0VJEBP8gFhSH3CnpBpD8DITdD+Gm9PW48v8tXPHIhTXmqSetUjTUqycEt/1Zsm92FQdXpnT98OghuR6r6EyXLBdwy1zFv22Qjf7Vd8vgY2jB0aEC3p5nC/ZZDKaM0f0MkjGeLvR4+Isy7JyPYOEHwjgcSrnvAZWRS4busg3lp5jwRr9tt0kk4iE8X",
+			"AorPsV31RJJqEponrW3rM0q4qGwN3dLbkYSP5WPWVAQ7Lcrqso6wNRvtFxpNkpmMF+v+JGVfRqNNIUa7z6Twk/t++OEm+uzwRnFiP43S+fo4VBJrZ3QtOcG3+LeoozLsePaUYOi1qed3OcSD9ueGOXxPGAjtR28L7IyVd86HPoF0XnP2iK0oA0oc1XeeRiAtQ0m5WLCtKMlohWuiQY4zxSwIDMXSymOeNI9J0/vXevCh73bn2mdRJ3m5OFvANedeJR/8tUs05fosJxzmddpsKofUrtMhBVtzg6e5WPTX06Lr/mlKR+wE181odwet42YRIlU3UE5ZJDr81+tLraWksi+BldTPnUM+6sexIG0Gz9PuZ9F4UkUMEWsiiVls+OMPcdrOLH6XPMMX5PG5SL50ndt5TldWNqUjCDqkqqpBtaAxYtK/B0egmV9lUn221WrFJ/iIJm4BmFkuWJghDulMxgbWtjqDRjUz/ZiYkV0E/2PP8B0rfsXJ2IExEfDBFSxQ"
+		]
+	},
+	"primesMappingTable": {
+		"encryptionGroup": {
+			"p": "jA4DatkpgfS1r6X1Q5iYA0sS2KakO3pabCF5uww/NyUxmZLOWP1E70Wq1jYs7FMgqAXPvfWn2cCdVGrU5ZcoHWim7FjtyhZPFw15XXewjoOsBUDoqf1Pg5mNakQpQAVEhqMRQ4s5FY1nCB5FvsAUnd8gCONEyIo75r6nj0BmZSoKYCGICT0nBnD0tpW3DwLInQZc5L+x1j39j+CGQI9wCk4+FhAyrK4nNMSsHv3vRUuxdsJber7KZ8d0eqRcyuRZdTbbBDmwz0GlxEmSrP4KRt6gohGN25y7myXQkza1alJpsNOGmBR7GSipM6/gagxRroVzAHBCVNp20g9d7UUZ32DA11pbBrjvEIWMNtZBKGr5Px4d+BJPljxBsbANBqu3d4gfrc5j0Me03yRbPwWq39r5sNFFrIMURmqaOa9l6kVkBBvgDiBt1ult+X787mO6orBoyLXMMCU8qy3zIdzCi5Kfq4Wn8i1C5af7SowhOfV33XNoRnMfPp3CSZaWi1wv",
+			"q": "RgcBtWyUwPpa19L6ocxMAaWJbFNSHb0tNhC83YYfm5KYzMlnLH6id6LVaxsWdimQVALn3vrT7OBOqjVqcsuUDrRTdix25Qsni4a8rrvYR0HWAqB0VP6nwczGtSIUoAKiQ1GIocWcisazhA8i32AKTu+QBHGiZEUd819Tx6AzMpUFMBDEBJ6Tgzh6W0rbh4FkToMucl/Y6x7+x/BDIEe4BScfCwgZVlcTmmJWD373oqXYu2EtvV9lM+O6PVIuZXIsupttghzYZ6DS4iTJVn8FI29QUQjG7c5dzZLoSZtatSk02GnDTAo9jJRUmdfwNQYo10K5gDghKm07aQeu9qKM77Bga60tg1x3iELGG2sglDV8n48O/Aknyx4g2NgGg1Xbu8QP1ucx6GPab5Itn4LVb+182Gii1kGKIzVNHNey9SKyAg3wBxA263S2/L9+dzHdUVg0ZFrmGBKeVZb5kO5hRclP1cLT+RahctP9pUYQnPq77rm0IzmPn07hJMtLRa4X",
+			"g": "Ag=="
+		},
+		"pTable": [
+			{
+				"actualVotingOption": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2|3aa38c9e-6e93-3159-91e1-c3da90681572",
+				"encodedVotingOption": 61,
+				"semanticInformation": "NON_BLANK|Wollen Sie den ersten «**Vorschlag**» annehmen?|Acceptez-vous la première «**proposition**» ?|accettate la prima «**proposta**» ?|acceptar l’emprima «**proposta**» ?|Ja|Oui|Si|Gea",
+				"correctnessInformation": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2"
+			},
+			{
+				"actualVotingOption": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2|16ac94e3-0c72-3570-9df9-050ebb18a9cc",
+				"encodedVotingOption": 67,
+				"semanticInformation": "NON_BLANK|Wollen Sie den ersten «**Vorschlag**» annehmen?|Acceptez-vous la première «**proposition**» ?|accettate la prima «**proposta**» ?|acceptar l’emprima «**proposta**» ?|Nein|Non|No|Na",
+				"correctnessInformation": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2"
+			},
+			{
+				"actualVotingOption": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2|fbed7bf6-a7ed-3812-bb0c-22e449aa4f96",
+				"encodedVotingOption": 71,
+				"semanticInformation": "BLANK|Wollen Sie den ersten «**Vorschlag**» annehmen?|Acceptez-vous la première «**proposition**» ?|accettate la prima «**proposta**» ?|acceptar l’emprima «**proposta**» ?|Leer|Blanc|Bianco|Vid",
+				"correctnessInformation": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2"
+			},
+			{
+				"actualVotingOption": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc|d7a1b387-a90c-31ca-bfc2-ad038a1d9816",
+				"encodedVotingOption": 73,
+				"semanticInformation": "NON_BLANK|Wollen Sie den zweiten Vorschlag annehmen?|Acceptez-vous la deuxième proposition ?|Accettare la seconda proposta ?|Acceptar la segunda proposta ?|Ja|Oui|Si|Gea",
+				"correctnessInformation": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc"
+			},
+			{
+				"actualVotingOption": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc|e9da718b-469e-35d4-8d7d-d6329621e755",
+				"encodedVotingOption": 79,
+				"semanticInformation": "NON_BLANK|Wollen Sie den zweiten Vorschlag annehmen?|Acceptez-vous la deuxième proposition ?|Accettare la seconda proposta ?|Acceptar la segunda proposta ?|Nein|Non|No|Na",
+				"correctnessInformation": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc"
+			},
+			{
+				"actualVotingOption": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc|ecdbcc43-396a-348f-a671-919abfff4e12",
+				"encodedVotingOption": 83,
+				"semanticInformation": "BLANK|Wollen Sie den zweiten Vorschlag annehmen?|Acceptez-vous la deuxième proposition ?|Accettare la seconda proposta ?|Acceptar la segunda proposta ?|Leer|Blanc|Bianco|Vid",
+				"correctnessInformation": "16f99be5-0ce6-4a81-ae8b-1817ceecaebc"
+			},
+			{
+				"actualVotingOption": "b173aebb-7b2c-476a-97fa-c81d640e498a|d0f886b7-03a8-3d8a-9e7d-4c9bfa02ddc6",
+				"encodedVotingOption": 89,
+				"semanticInformation": "NON_BLANK|Wollen Sie den **«Gegenvorschlag»** annehmen?|Acceptez-vous la **«contre proposition»** ?|Accettare la **«contra proposta»** ?|Acceptar la **«cuntra proposta»** ?|Ja|Oui|Si|Gea",
+				"correctnessInformation": "b173aebb-7b2c-476a-97fa-c81d640e498a"
+			},
+			{
+				"actualVotingOption": "b173aebb-7b2c-476a-97fa-c81d640e498a|562a2034-f9a8-3783-abf5-624ec5ac08be",
+				"encodedVotingOption": 101,
+				"semanticInformation": "NON_BLANK|Wollen Sie den **«Gegenvorschlag»** annehmen?|Acceptez-vous la **«contre proposition»** ?|Accettare la **«contra proposta»** ?|Acceptar la **«cuntra proposta»** ?|Nein|Non|No|Na",
+				"correctnessInformation": "b173aebb-7b2c-476a-97fa-c81d640e498a"
+			},
+			{
+				"actualVotingOption": "b173aebb-7b2c-476a-97fa-c81d640e498a|004e5a94-c242-3ba4-837b-131b5698eaa7",
+				"encodedVotingOption": 107,
+				"semanticInformation": "BLANK|Wollen Sie den **«Gegenvorschlag»** annehmen?|Acceptez-vous la **«contre proposition»** ?|Accettare la **«contra proposta»** ?|Acceptar la **«cuntra proposta»** ?|Leer|Blanc|Bianco|Vid",
+				"correctnessInformation": "b173aebb-7b2c-476a-97fa-c81d640e498a"
+			},
+			{
+				"actualVotingOption": "1129f74b-1e49-4636-9731-84dba618bec6|65113930-4472-3aac-9cfd-162f501c78f5",
+				"encodedVotingOption": 109,
+				"semanticInformation": "NON_BLANK|Bei *Gleichstand*: Wollen Sie den «**Vorschlag**» oder den **«Gegenvorschlag»** annehmen?|En cas d'*égalité* : voulez-vous accepter «**la proposition**» ou la **«contre-proposition»** ?|In caso di *parità di voti*: volete accettare la «**proposta**» o la **«controproposta»**?|En connex cun l’*egualitad*: vulais Vus acceptar la «**proposta**» u la **«cuntraproposta»**?|Initiative|Initiative|Iniziativa|Iniziativa",
+				"correctnessInformation": "1129f74b-1e49-4636-9731-84dba618bec6"
+			},
+			{
+				"actualVotingOption": "1129f74b-1e49-4636-9731-84dba618bec6|b4277282-00aa-3ccb-bdf2-4703ba2724e4",
+				"encodedVotingOption": 149,
+				"semanticInformation": "NON_BLANK|Bei *Gleichstand*: Wollen Sie den «**Vorschlag**» oder den **«Gegenvorschlag»** annehmen?|En cas d'*égalité* : voulez-vous accepter «**la proposition**» ou la **«contre-proposition»** ?|In caso di *parità di voti*: volete accettare la «**proposta**» o la **«controproposta»**?|En connex cun l’*egualitad*: vulais Vus acceptar la «**proposta**» u la **«cuntraproposta»**?|Gegenentwurf|Contre-projet|Controprogetto|Cuntraproposta",
+				"correctnessInformation": "1129f74b-1e49-4636-9731-84dba618bec6"
+			},
+			{
+				"actualVotingOption": "1129f74b-1e49-4636-9731-84dba618bec6|e6467637-1921-3c4f-b669-88ba2f73a193",
+				"encodedVotingOption": 163,
+				"semanticInformation": "BLANK|Bei *Gleichstand*: Wollen Sie den «**Vorschlag**» oder den **«Gegenvorschlag»** annehmen?|En cas d'*égalité* : voulez-vous accepter «**la proposition**» ou la **«contre-proposition»** ?|In caso di *parità di voti*: volete accettare la «**proposta**» o la **«controproposta»**?|En connex cun l’*egualitad*: vulais Vus acceptar la «**proposta**» u la **«cuntraproposta»**?|Leer|Blanc|Bianco|Vid",
+				"correctnessInformation": "1129f74b-1e49-4636-9731-84dba618bec6"
+			},
+			{
+				"actualVotingOption": "nrw_test|244ab111-a5d4-4090-bed3-79f850a27fa1",
+				"encodedVotingOption": 173,
+				"semanticInformation": "NON_BLANK|Partei 01|Partei 01|Partei 01|Partei 01",
+				"correctnessInformation": "L|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|50504845-5222-4e70-8d34-f812fce04009",
+				"encodedVotingOption": 181,
+				"semanticInformation": "NON_BLANK|Partei 02|Partei 02|Partei 02|Partei 02",
+				"correctnessInformation": "L|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|9ef97382-006e-4e3d-b079-1b7e53da339b",
+				"encodedVotingOption": 191,
+				"semanticInformation": "NON_BLANK|Partei 03|Partei 03|Partei 03|Partei 03",
+				"correctnessInformation": "L|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|97e7687a-9ce7-4724-91bb-17396344b50c",
+				"encodedVotingOption": 197,
+				"semanticInformation": "NON_BLANK|Partei 10|Partei 10|Partei 10|Partei 10",
+				"correctnessInformation": "L|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|99",
+				"encodedVotingOption": 211,
+				"semanticInformation": "BLANK|Wahlzettel ohne Parteibezeichnung|Wahlzettel ohne Parteibezeichnung|Wahlzettel ohne Parteibezeichnung|Wahlzettel ohne Parteibezeichnung",
+				"correctnessInformation": "L|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8cc68a36-df81-4381-aaff-83544ffe6e6c|0",
+				"encodedVotingOption": 227,
+				"semanticInformation": "NON_BLANK|Eins|Kandidat|Anton|1982-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8cc68a36-df81-4381-aaff-83544ffe6e6c|1",
+				"encodedVotingOption": 233,
+				"semanticInformation": "NON_BLANK|Eins|Kandidat|Anton|1982-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|d396ab8f-3c5f-4a88-81bc-494dba014287|0",
+				"encodedVotingOption": 251,
+				"semanticInformation": "NON_BLANK|Zwei|Kandidat|Beat|1952-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|d396ab8f-3c5f-4a88-81bc-494dba014287|1",
+				"encodedVotingOption": 263,
+				"semanticInformation": "NON_BLANK|Zwei|Kandidat|Beat|1952-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|d113bd2d-10aa-4519-89e9-ad7b49eafa76|0",
+				"encodedVotingOption": 269,
+				"semanticInformation": "NON_BLANK|Drei|Kandidat|Christine|1965-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|d113bd2d-10aa-4519-89e9-ad7b49eafa76|1",
+				"encodedVotingOption": 277,
+				"semanticInformation": "NON_BLANK|Drei|Kandidat|Christine|1965-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1da9fbd3-07a5-4d9e-b3c1-2342a07684f2|0",
+				"encodedVotingOption": 307,
+				"semanticInformation": "NON_BLANK|Vier|Kandidat|Dagmar|1968-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1da9fbd3-07a5-4d9e-b3c1-2342a07684f2|1",
+				"encodedVotingOption": 311,
+				"semanticInformation": "NON_BLANK|Vier|Kandidat|Dagmar|1968-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|f74aacda-e4f1-493e-95b8-0984f0f18d89|0",
+				"encodedVotingOption": 313,
+				"semanticInformation": "NON_BLANK|Fünf|Kandidat|Eberhard|1992-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|f74aacda-e4f1-493e-95b8-0984f0f18d89|1",
+				"encodedVotingOption": 317,
+				"semanticInformation": "NON_BLANK|Fünf|Kandidat|Eberhard|1992-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|ed9f8446-fb14-4927-b5ec-b4db51cb77b1|0",
+				"encodedVotingOption": 331,
+				"semanticInformation": "NON_BLANK|Sechs|Kandidat|Franziska|1970-01-29",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|ed9f8446-fb14-4927-b5ec-b4db51cb77b1|1",
+				"encodedVotingOption": 337,
+				"semanticInformation": "NON_BLANK|Sechs|Kandidat|Franziska|1970-01-29",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|6eb5e01e-755a-4794-9781-b76a32e7175c|0",
+				"encodedVotingOption": 347,
+				"semanticInformation": "NON_BLANK|Dreizehn|Kandidat|Maximilian|1964-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|6eb5e01e-755a-4794-9781-b76a32e7175c|1",
+				"encodedVotingOption": 367,
+				"semanticInformation": "NON_BLANK|Dreizehn|Kandidat|Maximilian|1964-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1d48f2f5-08a3-4d1f-be5e-80cfb6ed76e4|0",
+				"encodedVotingOption": 389,
+				"semanticInformation": "NON_BLANK|Vierzehn|Kandidat|Nina|1967-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1d48f2f5-08a3-4d1f-be5e-80cfb6ed76e4|1",
+				"encodedVotingOption": 409,
+				"semanticInformation": "NON_BLANK|Vierzehn|Kandidat|Nina|1967-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|93d09b22-5b53-46cd-97c3-ae9cb122eab0|0",
+				"encodedVotingOption": 419,
+				"semanticInformation": "NON_BLANK|Fünfzehn|Kandidat|Orhan|1963-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|93d09b22-5b53-46cd-97c3-ae9cb122eab0|1",
+				"encodedVotingOption": 421,
+				"semanticInformation": "NON_BLANK|Fünfzehn|Kandidat|Orhan|1963-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8ed07d87-b81d-4dc8-aaeb-0d5d29a1c2dd|0",
+				"encodedVotingOption": 439,
+				"semanticInformation": "NON_BLANK|Sechszehn|Kandidat|Patrick|1977-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8ed07d87-b81d-4dc8-aaeb-0d5d29a1c2dd|1",
+				"encodedVotingOption": 449,
+				"semanticInformation": "NON_BLANK|Sechszehn|Kandidat|Patrick|1977-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8c12fee2-619f-47e1-82dd-cd4314c95807|0",
+				"encodedVotingOption": 461,
+				"semanticInformation": "NON_BLANK|Siebzehn|Kandidat|Qadira|1970-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|8c12fee2-619f-47e1-82dd-cd4314c95807|1",
+				"encodedVotingOption": 467,
+				"semanticInformation": "NON_BLANK|Siebzehn|Kandidat|Qadira|1970-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|f5074d62-71f3-4a0e-9fb5-82cb03d4751e|0",
+				"encodedVotingOption": 487,
+				"semanticInformation": "NON_BLANK|Achtzehn|Kandidat|Rolf|1968-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|f5074d62-71f3-4a0e-9fb5-82cb03d4751e|1",
+				"encodedVotingOption": 491,
+				"semanticInformation": "NON_BLANK|Achtzehn|Kandidat|Rolf|1968-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|e5b16bd6-815b-4e02-8e9e-04064a19b6d0|0",
+				"encodedVotingOption": 499,
+				"semanticInformation": "NON_BLANK|Neunzehn|Kandidat|Elena|1975-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|e5b16bd6-815b-4e02-8e9e-04064a19b6d0|1",
+				"encodedVotingOption": 509,
+				"semanticInformation": "NON_BLANK|Neunzehn|Kandidat|Elena|1975-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|3a89019a-87ba-45b6-ac92-501ace75d05f|0",
+				"encodedVotingOption": 523,
+				"semanticInformation": "NON_BLANK|Zwanzig|Kandidat|Friedrich|1964-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|3a89019a-87ba-45b6-ac92-501ace75d05f|1",
+				"encodedVotingOption": 547,
+				"semanticInformation": "NON_BLANK|Zwanzig|Kandidat|Friedrich|1964-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|cdd0f070-a3a2-4a89-b525-fa19825d1305|0",
+				"encodedVotingOption": 557,
+				"semanticInformation": "NON_BLANK|Einundzwanzig|Kandidat|Gerda|1960-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|cdd0f070-a3a2-4a89-b525-fa19825d1305|1",
+				"encodedVotingOption": 569,
+				"semanticInformation": "NON_BLANK|Einundzwanzig|Kandidat|Gerda|1960-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1eb4e5e4-d2fc-4cdf-bbc4-2f84439b9870|0",
+				"encodedVotingOption": 571,
+				"semanticInformation": "NON_BLANK|Zweiundzwanzig|Kandidat|Horst|1986-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1eb4e5e4-d2fc-4cdf-bbc4-2f84439b9870|1",
+				"encodedVotingOption": 587,
+				"semanticInformation": "NON_BLANK|Zweiundzwanzig|Kandidat|Horst|1986-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|9b175406-327d-42a2-9979-fcefb95e7620|0",
+				"encodedVotingOption": 599,
+				"semanticInformation": "NON_BLANK|Dreiundzwanzig|Kandidat|Ines|1957-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|9b175406-327d-42a2-9979-fcefb95e7620|1",
+				"encodedVotingOption": 619,
+				"semanticInformation": "NON_BLANK|Dreiundzwanzig|Kandidat|Ines|1957-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|04998ee9-33ce-4aae-beec-5fa4159e1ec0|0",
+				"encodedVotingOption": 631,
+				"semanticInformation": "NON_BLANK|Vierundzwanzig|Kandidat|Jack|1984-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|04998ee9-33ce-4aae-beec-5fa4159e1ec0|1",
+				"encodedVotingOption": 641,
+				"semanticInformation": "NON_BLANK|Vierundzwanzig|Kandidat|Jack|1984-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|25d225ee-2a75-49ac-b8f5-18a1be37f574|0",
+				"encodedVotingOption": 701,
+				"semanticInformation": "NON_BLANK|Fünfundzwanzig|Kandidat|Klara|1981-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|25d225ee-2a75-49ac-b8f5-18a1be37f574|1",
+				"encodedVotingOption": 727,
+				"semanticInformation": "NON_BLANK|Fünfundzwanzig|Kandidat|Klara|1981-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|ff671047-7e0f-4198-974f-0041a55f1c70|0",
+				"encodedVotingOption": 739,
+				"semanticInformation": "NON_BLANK|Acht|Kandidat|Hilde|1984-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|ff671047-7e0f-4198-974f-0041a55f1c70|1",
+				"encodedVotingOption": 743,
+				"semanticInformation": "NON_BLANK|Acht|Kandidat|Hilde|1984-01-01",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|4ea3eb45-4872-3418-81d9-1e928937fc1b",
+				"encodedVotingOption": 757,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-1",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|d2838d83-b21e-3758-b3db-428094b8c39f",
+				"encodedVotingOption": 761,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-2",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|c2275508-2e7e-33e7-8fb8-4aaa48979288",
+				"encodedVotingOption": 769,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-3",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|0e08a1c6-62d3-3e54-8642-6792536ba039",
+				"encodedVotingOption": 811,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-4",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|899e6604-8374-370d-961c-e1537d2f7d53",
+				"encodedVotingOption": 823,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-5",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "nrw_test|1a6ea144-5fe6-376a-a659-aa8d72bb2ad8",
+				"encodedVotingOption": 839,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-6",
+				"correctnessInformation": "C|nrw_test"
+			},
+			{
+				"actualVotingOption": "majorz_test|9bfe1f69-6d35-4966-b281-a5dc39655e3a|0",
+				"encodedVotingOption": 11,
+				"semanticInformation": "NON_BLANK|Rot|Doris|Doris|1961-11-29",
+				"correctnessInformation": "C|majorz_test"
+			},
+			{
+				"actualVotingOption": "majorz_test|b5c605ec-9398-41d9-b934-006c548381c3|0",
+				"encodedVotingOption": 13,
+				"semanticInformation": "NON_BLANK|Gelb|Henry|Henry|1954-11-29",
+				"correctnessInformation": "C|majorz_test"
+			},
+			{
+				"actualVotingOption": "majorz_test|1cde3adc-d3b8-3077-95b4-21ac2958a8fe",
+				"encodedVotingOption": 37,
+				"semanticInformation": "BLANK|EMPTY_CANDIDATE_POSITION-1",
+				"correctnessInformation": "C|majorz_test"
+			},
+			{
+				"actualVotingOption": "majorz_test|f71ffce9-78c9-3621-895b-aebcc0849ad1",
+				"encodedVotingOption": 43,
+				"semanticInformation": "WRITE_IN|WRITE_IN_POSITION-1",
+				"correctnessInformation": "C|majorz_test"
+			}
+		]
+	}
+}

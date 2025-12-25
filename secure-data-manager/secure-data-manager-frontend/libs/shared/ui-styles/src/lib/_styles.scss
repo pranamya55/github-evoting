@@ -1,0 +1,31 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+#main-router-outlet + * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bi {
+  line-height: 1;
+}
+
+.lead {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: normal;
+   max-height: 4rem;
+   height: 4rem;
+   margin-block-end: 0.5rem;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2; // Limite le texte à 2 lignes
+}
+
+.password-button {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+}

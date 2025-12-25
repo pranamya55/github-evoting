@@ -1,0 +1,64 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/voting/confirmvote/ControlComponentlVCCSharePayload.schema.json",
+	"title": "Control Component lVCC Share Payload",
+	"description": "A control component's long Vote Cast Return Code share.",
+	"type": "object",
+	"properties": {
+		"electionEventId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the election event. Corresponds to ee in the specification. Corresponds to ee in the specification."
+		},
+		"verificationCardSetId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card set. Corresponds to vcs in the specification."
+		},
+		"verificationCardId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card. Corresponds to vc_id in the specification."
+		},
+		"nodeId": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 4,
+			"description": "The node identifying the control component. Corresponds to the CCR's index j in the specification."
+		},
+		"encryptionGroup": {
+			"$ref": "https://evoting.ch/evotinglibraries/mixnet/GqGroup.schema.json",
+			"description": "The encryption group of the election event."
+		},
+		"longVoteCastReturnCodeShare": {
+			"$ref": "https://evoting.ch/domain/voting/confirmvote/LongVoteCastReturnCodeShare.schema.json",
+			"description": "The long Vote Cast Return Code share."
+		},
+		"confirmationKey": {
+			"$ref": "https://evoting.ch/domain/voting/confirmvote/ConfirmationKey.schema.json",
+			"description": "The confirmation key and context ids."
+		},
+		"isVerified": {
+			"type": "boolean",
+			"description": "Indicates whether the long Vote Cast Return Code share has been verified."
+		},
+		"signature": {
+			"$ref": "https://evoting.ch/evotinglibraries/signature/CryptoPrimitivesSignature.schema.json",
+			"description": "The signature of the payload."
+		}
+	},
+	"required": [
+		"electionEventId",
+		"verificationCardSetId",
+		"verificationCardId",
+		"nodeId",
+		"encryptionGroup",
+		"confirmationKey",
+		"isVerified",
+		"signature"
+	],
+	"optional": [
+		"longVoteCastReturnCodeShare"
+	],
+	"additionalProperties": false
+}

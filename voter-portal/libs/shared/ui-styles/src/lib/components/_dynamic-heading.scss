@@ -1,0 +1,19 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+vp-root vp-dynamic-heading {
+  display: inline-block;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline;
+  }
+}
+
+lp-root .elevated-container vp-dynamic-heading {
+  h1, h2, h3, h4, h5, h6 {
+    margin-block-start: 0;
+  }
+}

@@ -1,0 +1,49 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+spring:
+  flyway:
+    enabled: true
+
+  # HikariCP
+  datasource:
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 20
+      idle-timeout: 60000
+  output:
+    ansi:
+      enabled: always
+  main:
+    allow-bean-definition-overriding: true
+
+  # ActiveMQ Artemis
+  artemis:
+    user: artemis
+    password: artemis
+    mode: native
+  jms:
+    template:
+      receive-timeout: 10000
+
+# App settings
+application:
+  bootstrap:
+    enabled: false
+nodeID: 1
+direct-trust:
+  keystore:
+    location: NA
+  password:
+    location: NA
+
+multitenancy:
+  tenants:
+    test:
+      datasource:
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${SPRING_DATASOURCE_USERNAME}
+        password: ${SPRING_DATASOURCE_PASSWORD}
+      direct-trust:
+        keystore-location: ${DIRECT_TRUST_KEYSTORE_LOCATION}
+        password-location: ${DIRECT_TRUST_KEYSTORE_PASSWORD_LOCATION}

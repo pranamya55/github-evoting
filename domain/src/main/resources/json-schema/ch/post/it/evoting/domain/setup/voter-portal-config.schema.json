@@ -1,0 +1,279 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/voting/sendvote/voter-portal-config.schema.json",
+	"title": "Voter Portal Configuration",
+	"description": "The configuration of the Voter Portal.",
+	"type": "object",
+	"properties": {
+		"identification": {
+			"type": "string",
+			"enum": [
+				"dob",
+				"yob"
+			],
+			"description": "The type of the extended authentication. Can be 'dob' (Date Of Birth) or yob (Year Of Birth)."
+		},
+		"contestsCapabilities": {
+			"type": "object",
+			"properties": {
+				"writeIns": {
+					"type": "boolean",
+					"description": "Whether the voter portal supports write-ins."
+				}
+			},
+			"required": [
+				"writeIns"
+			],
+			"description": "Capabilities specific to the contests."
+		},
+		"requestTimeout": {
+			"type": "object",
+			"properties": {
+				"authenticateVoter": {
+					"type": "number",
+					"minimum": 0,
+					"description": "The timeout duration of the authentication request in milliseconds."
+				},
+				"sendVote": {
+					"type": "number",
+					"minimum": 0,
+					"description": "The timeout duration of the send vote request in milliseconds."
+				},
+				"confirmVote": {
+					"type": "number",
+					"minimum": 0,
+					"description": "The timeout duration of the confirm vote request in milliseconds."
+				}
+			},
+			"required": [
+				"authenticateVoter",
+				"sendVote",
+				"confirmVote"
+			],
+			"description": "The timeout durations of the different requests sent by the voter portal. Each duration should be equal to or smaller than the 'responseCompletion.defaultTimeout' value defined in the Voting Server."
+		},
+		"header": {
+			"type": "object",
+			"properties": {
+				"logoHeight": {
+					"$ref": "#/$defs/height",
+					"description": "The height of the logo in pixels."
+				},
+				"reversed": {
+					"type": "boolean",
+					"description": "If true the header is reversed, the logo appears on the right. Default is false. "
+				},
+				"background": {
+					"type": "string",
+					"description": "CSS background definition. Default is 'none'."
+				},
+				"bars": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"height": {
+								"$ref": "#/$defs/height",
+								"description": "The height of the bar in pixels."
+							},
+							"color": {
+								"type": "string",
+								"pattern": "^#[0-9a-f]{6}$",
+								"description": "The hexadecimal value of the color of the bar."
+							}
+						},
+						"required": [
+							"height",
+							"color"
+						],
+						"description": "A line displayed below the navigation bar."
+					}
+				}
+			},
+			"required": [
+				"logoHeight"
+			],
+			"description": "Header related settings."
+		},
+		"translatePlaceholders": {
+			"type": "object",
+			"properties": {
+				"logo_title": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_1": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_2": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_3": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_4": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_5": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_6": {
+					"$ref": "#/$defs/text"
+				},
+				"support": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_remark_1": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_remark_2": {
+					"$ref": "#/$defs/text"
+				},
+				"voting_card_remark_3": {
+					"$ref": "#/$defs/text"
+				}
+			},
+			"required": [
+				"logo_title",
+				"voting_card_1",
+				"voting_card_2",
+				"voting_card_3",
+				"voting_card_4",
+				"voting_card_5",
+				"voting_card_6",
+				"support",
+				"voting_card_remark_1",
+				"voting_card_remark_2",
+				"voting_card_remark_3"
+			],
+			"description": "The translations of the placeholders in the voter portal."
+		},
+		"additionalLegalTerms": {
+			"type": "object",
+			"properties": {
+				"mainTitle": {
+					"$ref": "#/$defs/text"
+				},
+				"sections": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"sectionTitle": {
+								"$ref": "#/$defs/text"
+							},
+							"terms": {
+								"type": "array",
+								"items": {
+									"$ref": "#/$defs/text"
+								},
+								"minItems": 1,
+								"description": "Array of legal terms for the section. Each term is displayed on a new line and can optionally be supplemented with the help of Markdown."
+							},
+							"confirm": {
+								"$ref": "#/$defs/text"
+							}
+						},
+						"required": [
+							"sectionTitle",
+							"terms",
+							"confirm"
+						],
+						"description": "A section of the legal terms containing a title, the terms and a confirm text"
+					},
+					"minItems": 1,
+					"description": "The sections of the legal terms."
+				}
+			},
+			"required": [
+				"mainTitle",
+				"sections"
+			],
+			"description": "The legal terms of the landing page."
+		},
+		"additionalFAQs": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"faqTitle": {
+						"$ref": "#/$defs/text"
+					},
+					"content": {
+						"type": "array",
+						"items": {
+							"$ref": "#/$defs/text"
+						},
+						"minItems": 1,
+						"description": "Array of additional FAQ section content. Each content is displayed on a new line and can optionally be supplemented with the help of Markdown"
+					}
+				},
+				"required": [
+					"faqTitle",
+					"content"
+				]
+			},
+			"description": "Additional FAQ sections to add to the Help page. These additional FAQ sections are added at the top of the FAQ sections list in the order defined in this configuration."
+		}
+	},
+	"required": [
+		"identification",
+		"contestsCapabilities",
+		"requestTimeout",
+		"translatePlaceholders"
+	],
+	"additionalProperties": false,
+	"$defs": {
+		"text": {
+			"type": "object",
+			"properties": {
+				"DE": {
+					"type": "string",
+					"description": "The text in German."
+				},
+				"FR": {
+					"type": "string",
+					"description": "The text in French."
+				},
+				"IT": {
+					"type": "string",
+					"description": "The text in Italian."
+				},
+				"RM": {
+					"type": "string",
+					"description": "The text in Rumantsch."
+				},
+				"EN": {
+					"type": "string",
+					"description": "The text in English."
+				}
+			},
+			"required": [
+				"DE",
+				"FR",
+				"IT",
+				"RM"
+			],
+			"description": "The text in all official languages."
+		},
+		"height": {
+			"type": "object",
+			"properties": {
+				"desktop": {
+					"type": "number",
+					"minimum": 0,
+					"description": "The value of the desktop version."
+				},
+				"mobile": {
+					"type": "number",
+					"minimum": 0,
+					"description": "The value of the mobile version."
+				}
+			},
+			"required": [
+				"desktop",
+				"mobile"
+			],
+			"description": "The height in pixels."
+		}
+	}
+}

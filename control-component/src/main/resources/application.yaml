@@ -1,0 +1,60 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+
+server:
+  port: 8025
+
+spring:
+  flyway:
+    enabled: false
+
+  # HikariCP settings
+  datasource:
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+      poolName: HikariPoolControlComponent
+
+  # DB settings
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
+          batch_versioned_data: true
+  transaction:
+    default-timeout: 600 # 10 minutes
+    mixDecrypt-timeout: 10800 # 3 hours
+
+  # ActiveMQ Artemis
+  jms:
+    listener:
+      auto-startup: false
+jms:
+  listener:
+    concurrency: 4
+
+# Actuator
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+    jmx:
+      exposure:
+        exclude: "*"
+
+logging:
+  pattern:
+    correlation: "%clr([tenantId: %X{tenantId:---}]){faint} "
+
+heartbeat:
+  cron: 0 */30 * * * *

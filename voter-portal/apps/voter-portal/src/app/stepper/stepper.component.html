@@ -1,0 +1,39 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if (currentStep) {
+	<ol id="voting-progress-stepper" class="stepper">
+		@for (step of steps; track step; let i = $index) {
+			<li
+					[attr.aria-current]="step === currentStep ? 'step' : undefined"
+					[attr.aria-live]="step === currentStep ? 'polite' : undefined"
+					[attr.tabindex]="step === currentStep ? -1 : undefined"
+					class="stepper-item"
+			>
+
+				<div class="stepper-indicator">
+					<span class="visually-hidden">{{ 'stepper.stepindex' | translate: {index: i + 1} }}</span>
+					@if (currentStepIndex && i < currentStepIndex) {
+						<vp-icon name="check-lg" [label]="'stepper.completed' | translate"></vp-icon>
+					} @else {
+						<span aria-hidden="true">{{ i + 1 }}</span>
+					}
+				</div>
+
+				<div class="stepper-symbol">
+					@if (votingStepSymbol[step]; as symbol) {
+						<vp-icon [name]="symbol"/>
+					}
+				</div>
+
+				<div class="stepper-label">
+					@if (i === 0 && configuration.additionalLegalTerms) {
+						{{ configuration.additionalLegalTerms.mainTitle | translateText }}
+					} @else {
+						{{ 'stepper.' + step | translate }}
+					}
+				</div>
+			</li>
+		}
+	</ol>
+}

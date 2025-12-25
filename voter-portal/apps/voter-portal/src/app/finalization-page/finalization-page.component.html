@@ -1,0 +1,30 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<div class="container my-4">
+	<div class="row mb-4">
+		<div class="col-auto">
+			<div class="alert alert-success rounded-circle d-flex align-items-center justify-content-center">
+				<vp-icon name="check-lg" class="fs-2"></vp-icon>
+			</div>
+		</div>
+		@if (voteCastInPreviousSession$ | async) {
+			<div class="col">
+				<h1>{{ 'finalization.votealreadyregistered' | translate }}</h1>
+				<p class="lead mt-2" [innerHTML]="'finalization.checkcode' | translate"></p>
+			</div>
+		} @else {
+			<div class="col">
+				<h1>{{ 'finalization.thankyou' | translate }}</h1>
+				<p class="lead mt-2" [innerHTML]="'finalization.votingprocesssuccessful' | translate"></p>
+			</div>
+		}
+	</div>
+
+	@if (voteCastInPreviousSession$ | async) {
+		<vp-finalization-code/>
+	} @else {
+		<p id="clearCache" [innerHTML]="'finalization.clearbrowsercacherecommanded' | translate"></p>
+	}
+</div>

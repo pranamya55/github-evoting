@@ -1,0 +1,12 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<sdm-page-title
+		[instructions]="'goodbye.instruction' | translate: {appName}"
+		[title]="'goodbye.title' | translate: {appName}"
+>
+	<sdm-page-actions [forceComplete]="true">
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p onComplete>{{ 'goodbye.message' | translate: {appName} }}</p>
+	</sdm-page-actions>
+</sdm-page-title>

@@ -1,0 +1,11 @@
+/*
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+table {
+  border-collapse: separate;
+  border-spacing: 10px 0;
+}
+
+th, td {
+  padding: 1px 0;
+}

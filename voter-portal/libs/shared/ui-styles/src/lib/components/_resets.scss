@@ -1,0 +1,18 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../bootstrap-overrides" as app;
+
+body {
+  background-color: app.$gray-100;
+}
+
+svg,
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+figure {
+  margin-bottom: 0;
+}

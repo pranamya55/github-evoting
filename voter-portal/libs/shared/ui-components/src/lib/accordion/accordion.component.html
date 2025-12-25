@@ -1,0 +1,57 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<section ngbAccordion>
+	<div [collapsed]="collapsed" [ngClass]="containerClass" ngbAccordionItem>
+		@switch (headingLevel) {
+			@case (1) {
+				<h1 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h1>
+			}
+			@case (2) {
+				<h2 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h2>
+			}
+			@case (3) {
+				<h3 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h3>
+			}
+			@case (4) {
+				<h4 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h4>
+			}
+			@case (5) {
+				<h5 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h5>
+			}
+			@default {
+				<h6 ngbAccordionHeader>
+					<ng-container [ngTemplateOutlet]="title" />
+				</h6>
+			}
+		}
+		<ng-template #title>
+			<button
+				[attr.data-hide]="'common.hide' | translate"
+				[attr.data-show]="'common.show' | translate"
+				ngbAccordionButton
+			>
+				<ng-content select="[title]" />
+			</button>
+		</ng-template>
+
+		<div ngbAccordionCollapse>
+			<div [ngClass]="bodyClass" ngbAccordionBody>
+				<ng-template>
+					<ng-content select="[body]" />
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</section>

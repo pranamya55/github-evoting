@@ -1,0 +1,16 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+@if (exportInformation) {
+	<dl class="row mb-0">
+		<dt class="col-sm-3">
+			{{ 'dataExchange.exportInfo.targetFolder' | translate }}
+		</dt>
+		<dd class="col-sm-9">{{ exportInformation.outputFolder }}</dd>
+		<dt class="col-sm-3">
+			{{ 'dataExchange.exportInfo.filename' | translate }}
+		</dt>
+		<dd class="col-sm-9">{{ exportInformation.exportFilename }}</dd>
+	</dl>
+}

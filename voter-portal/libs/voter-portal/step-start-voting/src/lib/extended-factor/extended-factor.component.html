@@ -1,0 +1,109 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<!-- Date of birth -->
+@if (configuration.identification === ExtendedFactor.DateOfBirth) {
+	<h2>{{ 'startvoting.enterdob' | translate }}</h2>
+	<p>{{ 'startvoting.pressstart' | translate }}</p>
+
+	<h3 class="m-0">
+		<label class="section-title" for="dateOfBirth">
+			{{ 'startvoting.dob' | translate }}
+		</label>
+	</h3>
+	<div class="input-group input-group-lg">
+		<vp-clearable-input buttonLabel="startvoting.dob.clear">
+			<input
+				#dateOfBirthInput
+				[class.is-invalid]="
+					(formSubmitted && extendedFactor.invalid) ||
+					extendedFactorBackendError.error
+				"
+				[formControl]="extendedFactor"
+				aria-describedby="dateOfBirth-required extended-factor-invalid"
+				class="form-control form-control-monospace"
+				id="dateOfBirth"
+				inputmode="numeric"
+				[showMaskTyped]="true"
+				[shownMaskExpression]="dateMaskExpression"
+				[specialCharacters]="dateSpecialCharacters"
+				mask="00.00.0000"
+				required
+				type="text"
+			/>
+		</vp-clearable-input>
+		<input
+			#datepicker="ngbDatepicker"
+			(dateSelect)="datePickerSelectedDate = $event"
+			[maxDate]="datepickerMaxDate"
+			[minDate]="datepickerMinDate"
+			[ngModel]="extendedFactor.value"
+			[positionTarget]="datepickerButton"
+			[startDate]="datePickerSelectedDate || datepickerDefaultDate"
+			aria-hidden="true"
+			ngbDatepicker
+			type="hidden"
+		/>
+		<button
+			#datepickerButton
+			(click)="datepicker.toggle()"
+			class="btn btn-outline-dark"
+			type="button"
+		>
+			<vp-icon name="calendar"></vp-icon>
+			<span class="visually-hidden">{{ 'datepicker.open' | translate }}</span>
+		</button>
+	</div>
+	@if (
+		formSubmitted &&
+		extendedFactor?.invalid &&
+		!extendedFactorBackendError.error
+	) {
+		<p class="alert alert-warning mt-3" id="dateOfBirth-required">
+			{{ 'startvoting.validation.dob.required' | translate }}
+		</p>
+	}
+} @else if (configuration.identification === ExtendedFactor.YearOfBirth) {
+	<h2>{{ 'startvoting.enteryob' | translate }}</h2>
+	<p>{{ 'startvoting.pressstart' | translate }}</p>
+
+	<h3 class="m-0">
+		<label class="section-title" for="yearOfBirth">
+			{{ 'startvoting.yob' | translate }}
+		</label>
+	</h3>
+	<vp-clearable-input buttonLabel="startvoting.yob.clear">
+		<input
+			[class.is-invalid]="
+				(formSubmitted && extendedFactor?.invalid) ||
+				extendedFactorBackendError.error
+			"
+			[formControl]="extendedFactor"
+			aria-describedby="yearOfBirth-required extended-factor-invalid"
+			class="form-control form-control-monospace"
+			id="yearOfBirth"
+			inputmode="numeric"
+			mask="0000"
+			[showMaskTyped]="true"
+			required
+			type="text"
+		/>
+	</vp-clearable-input>
+	@if (
+		formSubmitted &&
+		extendedFactor?.invalid &&
+		!extendedFactorBackendError.error
+	) {
+		<p class="alert alert-warning mt-3" id="yearOfBirth-required">
+			{{ 'startvoting.validation.yob.required' | translate }}
+		</p>
+	}
+}
+
+<!-- ExtendedFactor error -->
+<vp-backenderror
+	#extendedFactorBackendError
+	[includeOnly]="ErrorMessage.ExtendedFactorInvalid"
+	alertId="extended-factor-invalid"
+	class="mt-3"
+></vp-backenderror>

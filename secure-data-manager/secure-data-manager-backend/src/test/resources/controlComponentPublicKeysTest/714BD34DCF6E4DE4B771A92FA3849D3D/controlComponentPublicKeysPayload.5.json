@@ -1,0 +1,52 @@
+{
+	"encryptionGroup": {
+		"p": "Ow==",
+		"q": "HQ==",
+		"g": "Aw=="
+	},
+	"electionEventId": "314BD34DCF6E4DE4B771A92FA3849D3D",
+	"controlComponentPublicKeys": {
+		"nodeId": 4,
+		"ccrjChoiceReturnCodesEncryptionPublicKey": [
+			"BQ==",
+			"Gw==",
+			"BA=="
+		],
+		"ccrjSchnorrProofs": [
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			},
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			},
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			}
+		],
+		"ccmjElectionPublicKey": [
+			"CQ==",
+			"Fg==",
+			"KQ=="
+		],
+		"ccmjSchnorrProofs": [
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			},
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			},
+			{
+				"_e": "Ag==",
+				"_z": "Ag=="
+			}
+		]
+	},
+	"signature": {
+		"signatureContents": "FQ=="
+	}
+}

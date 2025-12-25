@@ -1,0 +1,16 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<vp-accordion-vote [formGroup]="voteAnswer" [voteTexts]="voteTexts">
+	<ng-template
+		formArrayName="chosenAnswers"
+		let-ballotIdentification="ballotIdentification"
+		let-question="question"
+	>
+		<vp-choose-vote-question
+			[ballotIdentification]="ballotIdentification"
+			[question]="question"
+			[voteIdentification]="voteTexts.voteIdentification"
+		/>
+	</ng-template>
+</vp-accordion-vote>

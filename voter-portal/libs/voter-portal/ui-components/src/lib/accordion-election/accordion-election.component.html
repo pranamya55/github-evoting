@@ -1,0 +1,54 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+@if (candidateTemplate) {
+	<vp-accordion [headingLevel]="headingLevel">
+		<ng-container title>
+			<span data-test="title">
+				<span class="h6 mb-1">{{
+					electionInformation.election.electionDescription | translateText
+				}}</span>
+				@if (chosenCandidateCount !== undefined) {
+					{{
+						'choose.candidates.subtitle'
+							| translate: { chosenCandidateCount, numberOfMandates }
+					}}
+				}
+			</span>
+		</ng-container>
+
+		<ng-container body>
+			<ng-content />
+
+			<div class="election">
+				@if (listTemplate && electionInformation.lists.length > 0) {
+					<div class="list mb-3">
+						<vp-dynamic-heading [level]="headingLevel + 1" class="fw-bold mb-2">
+							{{ 'listandcandidates.list' | translate }}
+						</vp-dynamic-heading>
+						<ng-container [ngTemplateOutlet]="listTemplate" />
+					</div>
+				}
+
+				<vp-dynamic-heading [level]="headingLevel + 1" class="fw-bold mb-2">
+					{{ 'listandcandidates.candidates' | translate }}
+				</vp-dynamic-heading>
+				<ol class="candidates list-unstyled mb-0 d-flex flex-column gap-2">
+					@for (
+						emptyPosition of electionInformation.emptyList.emptyPositions
+							| sortBy: 'positionOnList';
+						track $index
+					) {
+						<li class="candidate">
+							<ng-container
+								[ngTemplateOutlet]="candidateTemplate"
+								[ngTemplateOutletContext]="{ emptyPosition }"
+							/>
+						</li>
+					}
+				</ol>
+			</div>
+		</ng-container>
+	</vp-accordion>
+}

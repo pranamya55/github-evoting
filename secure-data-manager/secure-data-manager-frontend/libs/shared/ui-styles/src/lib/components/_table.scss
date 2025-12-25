@@ -1,0 +1,29 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use 'sass:map';
+@use '../base';
+
+.ballot-boxes-table.table {
+  border-collapse: separate;
+  border-spacing: 0 map.get(base.$spacers, 2);
+
+  > thead > * > * {
+    padding-block-start: map.get(base.$spacers, 2);
+    padding-block-end: map.get(base.$spacers, 3);
+    border-bottom-width: map.get(base.$border-widths, 3);
+    border-bottom-color: var(--bs-primary);
+  }
+
+  > tbody > * > * {
+    border-top-width: var(--bs-border-width);
+
+    &:first-child {
+      border-left-width: var(--bs-border-width);
+    }
+
+    &:last-child {
+      border-right-width: var(--bs-border-width);
+    }
+  }
+}

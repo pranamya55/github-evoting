@@ -1,0 +1,56 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h4
+	[id]="'question-' + question.questionIdentification"
+	[innerHTML]="
+		question.ballotQuestion.question
+			| translateText
+			| markdown: { allowLinks: false, allowBlock: false }
+	"
+	class="d-inline fs-inherit"
+>
+	This content will be replaced.
+</h4>
+
+@if (chosenAnswerFormGroup) {
+	<div
+		[attr.aria-labelledby]="'question-' + question.questionIdentification"
+		[formGroup]="chosenAnswerFormGroup"
+		role="radiogroup"
+	>
+		@for (answer of nonEmptyAnswers | sortBy: 'answerPosition'; track answer) {
+			<vp-answer class="d-flex gap-2 my-2">
+				<input
+					[attr.name]="'answer-' + question.questionIdentification"
+					[id]="'answer-' + answer.answerIdentification"
+					[value]="answer.answerIdentification"
+					class="form-check-input"
+					formControlName="answerIdentification"
+					type="radio"
+				/>
+
+				<label [for]="'answer-' + answer.answerIdentification">
+					{{ answer.answerInformation | translateText }}
+				</label>
+			</vp-answer>
+		}
+	</div>
+
+	<button
+		(click)="resetRadioButtons()"
+		[disabled]="
+			chosenAnswerIdentification === emptyAnswer?.answerIdentification
+		"
+		aria-live="polite"
+		class="btn btn-link py-0 px-3 gap-2 justify-content-start"
+		id="btn_clear_{{ question.questionIdentification }}"
+		type="button"
+	>
+		<vp-icon name="x-lg"></vp-icon>
+		<span aria-hidden="true">{{ 'common.clear' | translate }}</span>
+		<span class="visually-hidden">{{
+			'choose.options.clearcurrent' | translate
+		}}</span>
+	</button>
+}

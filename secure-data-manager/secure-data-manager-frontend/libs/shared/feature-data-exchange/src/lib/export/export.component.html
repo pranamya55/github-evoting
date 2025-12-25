@@ -1,0 +1,66 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<sdm-page-title
+		[instructions]="'dataExchange.export.instruction' | translate"
+		[title]="'dataExchange.export.title.' + exchangeIndex | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-eye" onReady></i>
+		<p onError>
+			{{ 'dataExchange.export.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+		</p>
+		<p onReady>
+			{{ 'dataExchange.export.pageActions.instruction' | translate }}
+		</p>
+
+		<ng-container [ngTemplateOutlet]="exportButton" onReady></ng-container>
+		@if (pageActionsComponent.hasErrorFeedback) {
+			<ng-container [ngTemplateOutlet]="exportButton" onError></ng-container>
+		}
+		<ng-template #exportButton>
+			<button (click)="export()" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'dataExchange.export.pageActions.export' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">{{
+					'common.loading' | translate
+				}}</span>
+		</div>
+		<p onProgress>
+			{{ 'dataExchange.export.pageActions.inProgress' | translate }}
+		</p>
+
+		<i aria-hidden="true" class="bi bi-check-circle text-success" onComplete></i>
+		<p onComplete>
+			{{ 'dataExchange.export.pageActions.complete' | translate }}
+			{{ 'dataExchange.export.pageActions.goTo.' + exchangeIndex | translate }}
+		</p>
+		<button (click)="export()" class="btn btn-link" onComplete type="button">
+			{{ 'dataExchange.export.pageActions.export' | translate }}
+		</button>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+</sdm-page-title>
+
+@if (isComplete) {
+	<div class="my-5">
+		<img [src]="importToExportLaptop()" alt="Export and import" class="w-50 mx-auto d-block">
+	</div>
+}
+
+<div class="card mb-5">
+	<div class="card-header">
+		{{ 'dataExchange.exportInfo.title' | translate }}
+	</div>
+	<div class="card-body">
+		<sdm-export-information [exchangeIndex]="exchangeIndex"></sdm-export-information>
+	</div>
+</div>

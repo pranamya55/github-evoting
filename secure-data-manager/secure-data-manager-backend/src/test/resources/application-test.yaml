@@ -1,0 +1,17 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+role:
+  # Indicate if the SDM should enable config feature.
+  isSetup: true
+  # Indicate if the SDM should enable tally feature.
+  isTally: true
+
+direct-trust:
+  keystore:
+    location: NA
+  password:
+    location: NA
+
+sdm:
+  election-event-seed: NE_20231124_TT05

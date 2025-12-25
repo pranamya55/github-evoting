@@ -1,0 +1,135 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use "sass:map";
+@use "sass:color";
+@use "../bootstrap-overrides" as app;
+
+$breakpoint: lg;
+
+@mixin _stepper-bar {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: app.$border-color-translucent;
+}
+
+:root {
+  --stepper-row-gap: #{map.get(app.$spacers, 4)};
+  --stepper-indicator-size: 28px;
+  --stepper-indicator-bg: #{app.$blue-100};
+  --stepper-indicator-border: #{app.$black};
+}
+
+vp-stepper {
+  display: block;
+
+  @include app.media-breakpoint-down($breakpoint) {
+    max-width: 100vw;
+    margin-block: map.get(app.$spacers, 3);
+  }
+
+  @include app.media-breakpoint-up($breakpoint) {
+    margin-block: 2 * map.get(app.$spacers, 3);
+  }
+}
+
+.stepper {
+  @include app.list-unstyled;
+  position: relative;
+  display: grid;
+  margin: 0;
+  gap: var(--stepper-row-gap) 0;
+
+  @include app.media-breakpoint-up($breakpoint) {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  @include app.media-breakpoint-down($breakpoint) {
+    grid-auto-columns: var(--stepper-indicator-size);
+    grid-auto-flow: column;
+    justify-content: space-between;
+
+    &::before {
+      @include _stepper-bar;
+      inset-inline: 0;
+      inset-block-start: calc(0.5 * var(--stepper-indicator-size));
+      height: 1px;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.stepper-item {
+  @include app.media-breakpoint-up($breakpoint) {
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: subgrid;
+  }
+
+  position: relative;
+  color: app.$text-muted;
+
+  &:not([aria-current], [aria-current] ~ *) {
+    --stepper-indicator-bg: #{app.$green-100};
+    --stepper-indicator-border: #{app.$green-200};
+  }
+
+  &[aria-current] {
+    font-weight: bold;
+    color: app.$body-color;
+  }
+
+  &[aria-current] ~ & {
+    --stepper-indicator-bg: #{app.$white};
+    --stepper-indicator-border: #{app.$border-color};
+
+    color: app.$body-color;
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  @include app.media-breakpoint-up($breakpoint) {
+    &:not(:last-child)::before {
+      @include _stepper-bar;
+      inset-block: 0 calc(-1 * var(--stepper-row-gap));
+      inset-inline-start: calc(0.5 * var(--stepper-indicator-size));
+      width: 1px;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.stepper-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--stepper-indicator-size);
+  width: var(--stepper-indicator-size);
+  background-color: var(--stepper-indicator-bg);
+  border: 1px solid var(--stepper-indicator-border);
+  border-radius: 50rem;
+  margin-inline-end: map.get(app.$spacers, 2);
+}
+
+.stepper-symbol {
+  --stepper-symbol-size: 14px;
+
+  transform: translateY(3px);
+  margin-inline-end: map.get(app.$spacers, 2);
+  width: var(--stepper-symbol-size);
+  font-size: var(--stepper-symbol-size);
+
+  @include app.media-breakpoint-down($breakpoint) {
+    display: none;
+  }
+}
+
+.stepper-label {
+  @include app.media-breakpoint-down($breakpoint) {
+    @include app.visually-hidden;
+  }
+}

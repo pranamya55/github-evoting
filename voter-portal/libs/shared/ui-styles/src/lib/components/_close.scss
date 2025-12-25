@@ -1,0 +1,21 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+@use "../functions/forced-colors";
+
+.btn-close {
+  &:focus-visible {
+    @include outline.outer;
+  }
+
+  @media (forced-colors: active) {
+    background-image: forced-colors.button-text(app.$btn-close-bg, app.$btn-close-color);
+    opacity: 1;
+
+    &:hover {
+      background-image: forced-colors.highlight(app.$btn-close-bg, app.$btn-close-color);
+    }
+  }
+}

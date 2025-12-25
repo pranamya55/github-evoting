@@ -1,0 +1,7 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<button [routerLink]="linkToNextStep ?? ''" [disabled]="disabled" class="btn btn-primary" type="button">
+	<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+	{{ (linkToNextStep ? 'common.next' : 'common.finish') | translate }}
+</button>

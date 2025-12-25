@@ -1,0 +1,57 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="row column-gap-5 row-gap-2">
+	<div class="col">
+		@if (candidate.displayCandidateLine4; as displayCandidateLine4) {
+			<p class="text-black mb-0">
+				{{ displayCandidateLine4 | translateText }}
+			</p>
+		}
+
+		<h3 class="h6 mb-0">
+			{{ candidate.displayCandidateLine1 | translateText }}
+		</h3>
+
+		<div class="row text-dark text-opacity-75">
+			<p class="col mb-0 candidate--details">
+				{{ candidate.displayCandidateLine2 | translateText }}
+			</p>
+
+			@if (candidate.displayCandidateLine3; as displayCandidateLine3) {
+				<p class="col-auto mb-0">
+					{{ displayCandidateLine3 | translateText }}
+				</p>
+			}
+		</div>
+
+		@if (candidate.displayCandidateLine5; as displayCandidateLine5) {
+			<p class="text-dark text-opacity-75 mb-0">
+				{{ displayCandidateLine5 | translateText }}
+			</p>
+		}
+	</div>
+	<div class="col-sm-4 col-lg-3">
+		@if (
+			isEligible &&
+			!isSelectedOnCurrentPosition &&
+			!hasReachedMaximumAccumulation
+		) {
+			<vp-modal-candidate-selector-enabled
+				class="d-flex flex-column"
+				[candidate]="candidate"
+				[isAlreadySelected]="candidateAccumulation > 0"
+			/>
+		} @else {
+			<vp-modal-candidate-selector-disabled
+				class="d-flex flex-column"
+				[isEligible]="isEligible"
+				[isSelectedOnCurrentPosition]="isSelectedOnCurrentPosition"
+				[hasReachedMaximumAccumulation]="hasReachedMaximumAccumulation"
+				[maximumAccumulation]="
+					electionInformation.election.candidateAccumulation
+				"
+			/>
+		}
+	</div>
+</div>

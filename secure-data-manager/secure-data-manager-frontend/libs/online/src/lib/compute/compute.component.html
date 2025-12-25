@@ -1,0 +1,50 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<sdm-page-title
+		[instructions]="'compute.instruction' | translate"
+		[title]="'compute.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		@if (!pageActionsComponent.hasErrorFeedback) {
+			<p onError>
+				{{ 'compute.pageActions.error' | translate }}
+			</p>
+		}
+		@if (pageActionsComponent.hasErrorFeedback) {
+			<p onError>
+				{{ 'error.' + pageActionsComponent.errorFeedbackCode | translate }}
+			</p>
+		}
+		<p onReady>
+			{{ 'compute.pageActions.instruction' | translate }}
+		</p>
+		<ng-container [ngTemplateOutlet]="computeButton" onReady></ng-container>
+		<ng-container [ngTemplateOutlet]="computeButton" onError></ng-container>
+		<ng-template #computeButton>
+			<button (click)="compute()" class="btn btn-primary" type="button">
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'compute.pageActions.compute' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">
+        {{ 'common.loading' | translate }}
+      </span>
+		</div>
+		<p onProgress>
+			{{ 'compute.pageActions.inProgress' | translate }}
+		</p>
+
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p aria-live="polite" onComplete>
+			{{ 'compute.pageActions.processCompleted' | translate }}
+		</p>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+</sdm-page-title>

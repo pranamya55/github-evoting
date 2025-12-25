@@ -1,0 +1,6 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<vp-dynamic-heading [level]="element.level">
+	<span [innerHTML]="element.text | translateText | markdown: { allowLinks: true, allowBlock: false }"></span>
+</vp-dynamic-heading>

@@ -1,0 +1,26 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+.spinner-pulse {
+  width: 7rem;
+  height: 7rem;
+  animation: 1.5s ease-in infinite alternate pulse;
+  animation-delay: 300ms;
+  transform: scale(80%);
+
+  .spinner-border {
+    --ev-spinner-animation-speed: 2.5s;
+    --ev-spinner-border-width: 5px;
+    animation-timing-function: cubic-bezier(0.6, 0.4, 0.4, 0.6);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(80%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}

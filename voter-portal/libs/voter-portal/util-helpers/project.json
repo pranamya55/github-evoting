@@ -1,0 +1,26 @@
+{
+	"name": "voter-portal-util-helpers",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/voter-portal/util-helpers/src",
+	"projectType": "library",
+	"tags": ["scope:voter-portal","type:util"],
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/voter-portal/util-helpers",
+				"main": "libs/voter-portal/util-helpers/src/index.ts",
+				"tsConfig": "libs/voter-portal/util-helpers/tsconfig.lib.json",
+				"assets": ["libs/voter-portal/util-helpers/*.md"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "libs/voter-portal/util-helpers/jest.config.ts"
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+
+spring:
+  rsocket:
+    server:
+      mapping-path: /vs-ws-rest/rsocket
+      transport: websocket
+      fragment-size: 10MB
+  webflux:
+    base-path: /vs-ws-rest
+  codec:
+    max-in-memory-size: 10GB
+
+  flyway:
+    enabled: false
+
+  # HikariCP settings
+  datasource:
+    hikari:
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+      maxLifetime: 2000000
+      connectionTimeout: 30000
+      poolName: HikariPoolVotingServer
+      data-source-properties:
+        oracle.jdbc.implicitStatementCacheSize: 100
+
+  # JPA settings
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
+          batch_versioned_data: true
+
+# RSocket
+voting-server:
+  rsocket:
+    server:
+      # Redefined here because we have a RSocketServerCustomizer bean. Should match spring.rsocket.server.fragment-size to avoid potential incompatibilities.
+      fragment-size: 10485760
+
+# Actuator
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+    jmx:
+      exposure:
+        exclude: "*"
+
+logging:
+  pattern:
+    correlation: "%clr([tenantId: %X{tenantId:---}]){faint} "
+
+
+heartbeat:
+  cron: 0 0/30 * * * *

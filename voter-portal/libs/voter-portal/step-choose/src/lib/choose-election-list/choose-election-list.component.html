@@ -1,0 +1,74 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<vp-answer [isActive]="!!chosenList">
+	<div class="row g-3 align-items-center justify-content-between">
+		<div class="col-12 col-sm-5">
+			<p class="mb-0 fs-inherit">
+				<span class="visually-hidden">{{
+						'listandcandidates.selectedlist' | translate
+					}}</span>
+
+				@if (chosenList) {
+					{{ chosenList.displayListLine1 | translateText }}
+				} @else {
+					{{ electionInformation.emptyList.listDescription | translateText }}
+				}
+			</p>
+
+			@if (chosenList) {
+				<ul class="list--details list-unstyled mb-0 fs-small">
+					@if (chosenList.displayListLine2) {
+						<li>{{ chosenList.displayListLine2 | translateText }}<br/></li>
+					}
+					@if (chosenList.displayListLine3) {
+						<li>{{ chosenList.displayListLine3 | translateText }}<br/></li>
+					}
+					@if (chosenList.displayListLine4) {
+						<li>{{ chosenList.displayListLine4 | translateText }}<br/></li>
+					}
+					@if (chosenList.displayListLine5) {
+						<li>{{ chosenList.displayListLine5 | translateText }}</li>
+					}
+				</ul>
+			}
+		</div>
+
+		<div [ngClass]="chosenList ? 'col-sm-auto' : 'col-sm-6 col-md-5'"
+			 class="col-12 d-flex flex-wrap align-items-center justify-content-sm-end gap-1">
+			<button
+					(click)="openListSelectionModal()"
+					[ngClass]="chosenList ? 'btn-link my-n2' : 'btn-outline-dark w-100'"
+					class="btn"
+					type="button"
+			>
+				@if (chosenList) {
+					<vp-icon name="pencil-fill"/>
+					<span>{{ 'listandcandidates.change' | translate }}</span>
+					<span class="visually-hidden">
+						{{ 'listandcandidates.currentlistis' | translate }}
+						{{ chosenList.displayListLine1 | translateText }}
+					</span>
+				} @else {
+					<span aria-hidden="true">
+						{{ 'listandcandidates.choose' | translate }}
+					</span>
+					<span class="visually-hidden">
+						{{ 'listandcandidates.chooselist.screenreader' | translate }}
+					</span>
+				}
+			</button>
+			@if (chosenList) {
+				<button (click)="clearList()" class="btn btn-link my-n2" type="button">
+					<vp-icon name="x-lg"></vp-icon>
+					<span>{{ 'listandcandidates.list.clear' | translate }}</span>
+					<span class="visually-hidden">
+						{{ 'listandcandidates.currentlistis' | translate }}
+						{{ chosenList.displayListLine1 | translateText }}
+					</span>
+				</button>
+			}
+		</div>
+	</div>
+</vp-answer>

@@ -1,0 +1,42 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@import 'bootstrap/scss/functions';
+
+// Include options here
+// More information: https://getbootstrap.com/docs/5.3/customize/options/
+$enable-dark-mode: false;
+$enable-negative-margins: true;
+
+// Include default variable overrides here
+// More information: https://getbootstrap.com/docs/5.3/customize/sass/#variable-defaults
+$primary: #212529;
+$info: #0d6efd;
+$dark-bg-subtle: #adb5bd;
+$table-bg-scale: -90%;
+$paragraph-margin-bottom: 0;
+$dropdown-min-width: 0;
+$h6-font-size: 1.125rem;
+$hr-color: #dee2e6;
+$hr-opacity: 1;
+$alert-border-width: 0;
+$navbar-dark-color: #ffffff;
+$alert-margin-bottom: 0;
+
+// Theming variables specific to each sdm application
+@import 'theme';
+
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+
+// Include default map overrides here
+// More information: https://getbootstrap.com/docs/5.3/customize/sass/#maps-and-loops
+$grid-breakpoints: map-merge(
+                $grid-breakpoints,
+                (
+                        xxl: 1600px,
+                )
+);
+
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';

@@ -1,0 +1,6 @@
+{
+	"/vs-ws-rest": {
+		"target": "http://localhost",
+		"secure": false
+	}
+}

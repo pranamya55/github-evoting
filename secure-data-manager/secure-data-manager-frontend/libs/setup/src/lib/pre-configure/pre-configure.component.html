@@ -1,0 +1,137 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+<sdm-page-title
+		[instructions]="'preConfigure.instruction' | translate"
+		[title]="'preConfigure.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent [forceError]="loadingSummaryError" [forceInProgress]="loadingSummary">
+		<!-- Loading summary in progress -->
+		@if (!configurationSummary) {
+			<ng-container onProgress>
+				<div class="spinner">
+					<span aria-hidden="true" class="spinner-border"></span>
+					<span
+							class="visually-hidden"
+							role="status"
+					>{{ 'common.loading' | translate }}</span>
+				</div>
+				<p>
+					{{ 'preConfigure.pageActions.loadingSummary' | translate }}
+				</p>
+			</ng-container>
+		}
+
+		<!-- Validate contest summary and start pre-configuration -->
+		@if (configurationSummary) {
+			<ng-container onReady>
+				<i aria-hidden="true" class="bi bi-pen"></i>
+				<p>
+					{{ 'preConfigure.pageActions.instruction' | translate }}
+				</p>
+				<button
+						(click)="reload()"
+						[disabled]="isContestConfirmed"
+						class="btn btn-link"
+						type="button"
+				>
+					<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+					{{ 'preConfigure.pageActions.reload' | translate }}
+				</button>
+				<button
+						(click)="preConfigure()"
+						[disabled]="!isContestConfirmed"
+						class="btn btn-primary"
+						type="button"
+				>
+					<i aria-hidden="true" class="bi bi-check-circle"></i>
+					{{ 'preConfigure.pageActions.preConfigure' | translate }}
+				</button>
+			</ng-container>
+		}
+
+		<!-- Pre-configuration in progress -->
+		@if (configurationSummary) {
+			<ng-container onProgress>
+				<div class="spinner">
+					<span aria-hidden="true" class="spinner-border"></span>
+					<span
+							class="visually-hidden"
+							role="status"
+					>{{ 'common.loading' | translate }}</span>
+				</div>
+				<p>
+					{{ 'preConfigure.pageActions.inProgress' | translate }}
+				</p>
+			</ng-container>
+		}
+
+		<!-- Loading summary error -->
+		@if (!configurationSummary) {
+			<ng-container onError>
+				<p>
+					{{ 'preConfigure.pageActions.error.LOADING_SUMMARY_ERROR' | translate }}
+				</p>
+				<button
+						(click)="reload()"
+						class="btn btn-primary"
+						type="button"
+				>
+					<i aria-hidden="true" class="bi bi-arrow-clockwise"></i>
+					{{ 'preConfigure.pageActions.reload' | translate }}
+				</button>
+			</ng-container>
+		}
+
+		<!-- Pre-configuration error -->
+		@if (configurationSummary) {
+			<ng-container onError>
+				@if (!pageActionsComponent.hasErrorFeedback) {
+					<p>
+						{{ 'preConfigure.pageActions.error.DEFAULT' | translate }}
+					</p>
+				}
+				@if (pageActionsComponent.hasErrorFeedback) {
+					<p>
+						{{ 'preConfigure.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+					</p>
+				}
+			</ng-container>
+		}
+
+		<!-- Pre-configuration complete -->
+		<ng-container onComplete>
+			<i aria-hidden="true" class="bi bi-check-circle"></i>
+			<p>
+				{{ 'preConfigure.pageActions.complete' | translate }}
+			</p>
+			<sdm-next-button></sdm-next-button>
+		</ng-container>
+	</sdm-page-actions>
+
+	<sdm-progress/>
+</sdm-page-title>
+
+@if (configurationSummary) {
+	<ev-summary [headingLevel]="2" [summary]="configurationSummary"></ev-summary>
+}
+
+@if (configurationSummary && workflowStatus !== WorkflowStatus.Complete) {
+	<div class="list-group mt-2">
+		<div class="list-group-item list-group-item-info">
+			<div class="form-check">
+				<input
+						[(ngModel)]="isContestConfirmed"
+						class="form-check-input"
+						id="validateSummary"
+						type="checkbox"
+						value=""
+				/>
+				<label class="form-check-label" for="validateSummary">
+					{{ 'preConfigure.confirmation' | translate }}
+				</label>
+			</div>
+		</div>
+	</div>
+}

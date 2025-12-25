@@ -1,0 +1,22 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+
+app:
+  # Select between 	ALWAYS_ENABLED, ENABLED_AT_END and NEVER_ENABLED
+  resetMode: ENABLED_AT_END
+  # Pre-filter the available components for keystore generation.
+  # Available components: canton, sdm_config, sdm_tally, voting_server, control_component_1, control_component_2, control_component_3, control_component_4, verifier, printing_component, dispute_resolver
+  # See the class ch.post.it.evoting.evotinglibraries.domain.signature.Alias
+  # By default the available components are empty and the keystore generation is skipped.
+  component:
+    available:
+
+  # Pre-fill the certificate parameters.
+  certificate:
+    country: CH
+    locality: Neuchatel
+    organization: DT_CT_YYYYMMDD_XY01
+    # Supported states: AARGAU, APPENZELL_AUSSERRHODEN, APPENZELL_INNERRHODEN, BASEL_LANDSCHAFT, BASEL_STADT, BERN, FRIBOURG, GENEVE, GLARUS, GRISONS,
+    # JURA, LUZERN, NEUCHATEL, NIDWALDEN, OBWALDEN, ST_GALLEN, SCHAFFHAUSEN, SCHWYZ, SOLOTHURN, THURGAU, TICINO, URI, VALAIS, VAUD, ZUG, ZURICH
+    state: NEUCHATEL

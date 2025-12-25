@@ -1,0 +1,44 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<sdm-page-title
+		[instructions]="'generate.instruction' | translate"
+		[title]="'generate.title' | translate"
+>
+	<sdm-page-actions>
+		<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		<p onReady>
+			{{ 'generate.pageActions.instruction' | translate }}
+		</p>
+		<button (click)="generate()" class="btn btn-primary" onReady type="button">
+			{{ 'generate.pageActions.generate' | translate }}
+		</button>
+
+		<p class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">
+		{{ 'common.loading' | translate }}
+	  </span>
+		</p>
+		<p onProgress>
+			{{ 'generate.pageActions.inProgress' | translate }}
+		</p>
+
+		<p onError>
+			{{ 'generate.pageActions.error' | translate }}
+		</p>
+		<button (click)="generate()" class="btn btn-primary" onError type="button">
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'generate.pageActions.generate' | translate }}
+		</button>
+
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p onComplete>
+			{{ 'generate.pageActions.processCompleted' | translate }}
+		</p>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress/>
+</sdm-page-title>

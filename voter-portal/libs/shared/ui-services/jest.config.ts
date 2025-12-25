@@ -1,0 +1,30 @@
+/*
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+import type {Config} from 'jest';
+
+/* eslint-disable */
+const config: Config = {
+	displayName: 'shared-ui-services',
+	preset: '../../../jest.preset.js',
+	setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+	coverageDirectory: '../../../coverage/libs/shared/ui-services',
+	transform: {
+		'^.+\\.(ts|mjs|js|html)$': [
+			'jest-preset-angular',
+			{
+				tsconfig: '<rootDir>/tsconfig.spec.json',
+				stringifyContentPathRegex: '\\.(html|svg)$',
+			},
+		],
+	},
+	transformIgnorePatterns: ['node_modules/(?!.*\\.mjs|@angular/common)'],
+	snapshotSerializers: [
+		'jest-preset-angular/build/serializers/no-ng-attributes',
+		'jest-preset-angular/build/serializers/ng-snapshot',
+		'jest-preset-angular/build/serializers/html-comment',
+	],
+};
+
+export default config;

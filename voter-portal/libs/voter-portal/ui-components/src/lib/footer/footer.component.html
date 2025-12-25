@@ -1,0 +1,20 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div
+		class="footer-nav mt-5 d-flex flex-column flex-sm-row-reverse flex-wrap gap-2 justify-content-between"
+>
+	<ng-content></ng-content>
+
+	@if (cancelMode()) {
+		<button
+				(click)="confirmCancellation()"
+				class="btn btn-link flex-shrink-0 me-sm-auto"
+				id="cancel-process"
+				type="button"
+		>
+			<vp-icon name="box-arrow-in-right"></vp-icon>
+			<span>{{ 'common.cancelprocess' | translate }}</span>
+		</button>
+	}
+</div>

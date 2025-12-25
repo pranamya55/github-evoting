@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ch.post.it.evoting.securedatamanager</groupId>
+		<artifactId>secure-data-manager</artifactId>
+		<version>1.5.2.2</version>
+	</parent>
+
+	<artifactId>secure-data-manager-frontend</artifactId>
+	<packaging>pom</packaging>
+	<name>Secure Data Manager - Frontend</name>
+
+	<properties>
+		<skipTests>false</skipTests>
+		<sonar.sources>apps,libs</sonar.sources>
+		<sonar.exclusions>**/*.spec.ts,**/test-setup.ts,**/jest.config.js</sonar.exclusions>
+		<sonar.tests>apps,libs</sonar.tests>
+		<sonar.test.inclusions>**/*.spec.ts</sonar.test.inclusions>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>ch.post.it.evoting.evotinglibraries</groupId>
+			<artifactId>e-voting-libraries-ui</artifactId>
+			<version>${e-voting-libraries.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<!-- Skip JaCoCo -->
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Skip integration tests -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Cleaning directories -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>.angular</directory>
+						</fileset>
+						<fileset>
+							<directory>.nx</directory>
+						</fileset>
+						<fileset>
+							<directory>dist</directory>
+						</fileset>
+						<fileset>
+							<directory>vendor</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<!-- Unzip shared resources -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-e-voting-libraries-ui-kit</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<outputDirectory>${project.basedir}/vendor/e-voting-libraries-ui-kit</outputDirectory>
+							<includeGroupIds>ch.post.it.evoting.evotinglibraries</includeGroupIds>
+							<includeArtifactIds>e-voting-libraries-ui</includeArtifactIds>
+							<excludeTransitive>true</excludeTransitive>
+							<excludeTypes>pom</excludeTypes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Run npm commands -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm ci (generate-resources)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>ci</argument>
+								<argument>--fund=false</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm build (compile)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>compile</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>build:without-cache</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm package (package)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>package:electron</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>update-npm-vendors</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>npm ci</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>generate-sources</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>ci</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Npm run install vendor</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>generate-sources</phase>
+								<configuration>
+									<executable>npm</executable>
+									<arguments>
+										<argument>run</argument>
+										<argument>install:vendor</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Clean path</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>sed</executable>
+									<arguments>
+										<argument>-i</argument>
+										<argument>/\"resolved\": \"http.*/d</argument>
+										<argument>package-lock.json</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

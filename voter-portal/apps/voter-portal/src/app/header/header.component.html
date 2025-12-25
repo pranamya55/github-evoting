@@ -1,0 +1,99 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@let headerConfig = configuration.header;
+<nav [style.background]="headerConfig?.background" [class.bg-light]="!headerConfig?.background" class="navbar navbar-expand-md navbar-light border-bottom">
+	<!-- Skip link -->
+	<div class="position-absolute top-0 start-0">
+		<a [routerLink]="skipLink$ | async" class="btn btn-light rounded-0 visually-hidden-focusable"
+		   fragment="main">
+			<span>{{ 'common.skipLink' | translate }}</span>
+			<vp-icon name="chevron-right"></vp-icon>
+		</a>
+	</div>
+	<!-- Navigation -->
+	<div
+			[class.flex-row-reverse]="headerConfig?.reverse"
+			class="container-lg justify-content-between align-items-stretch flex-wrap"
+	>
+
+		<div class="navbar-brand m-0 p-0 flex-shrink-0">
+			@if (headerConfig?.logo) {
+				<img
+						[alt]="'common.logoTitle' | translate"
+						[height]="headerConfig?.logoHeight?.desktop"
+						src="data:image/*;base64,{{headerConfig?.logo}}"
+						class="d-none d-md-block"
+				/>
+				<img
+						[alt]="'common.logoTitle' | translate"
+						[height]="headerConfig?.logoHeight?.mobile"
+						src="data:image/*;base64,{{headerConfig?.logo}}"
+						class="d-md-none"
+				/>
+			}
+		</div>
+		<button
+				(click)="isCollapsed = !isCollapsed"
+				[attr.aria-expanded]="!isCollapsed"
+				[attr.aria-label]="(isCollapsed ? 'common.shownavigation' : 'common.hidenavigation') | translate"
+				aria-controls="navbarNav"
+				class="btn navbar-toggler rounded-0 border-0 my-2"
+				type="button"
+		>
+			<vp-icon [class.collapsed]="isCollapsed" name="chevron-up"></vp-icon>
+		</button>
+		<div [(ngbCollapse)]="isCollapsed" class="navbar-collapse flex-grow-0" id="navbarNav">
+			<div class="navbar-nav flex-row justify-content-between gap-3 py-2 py-md-0">
+				@if (currentLang$ | async; as currentLang) {
+					<ul
+							[attr.aria-label]="'common.appLanguage' | translate"
+							class="navbar-nav flex-row" id="languageSelector"
+					>
+						@for (lang of availableLanguages; track lang) {
+							<li class="nav-item">
+								<button
+										(click)="translateApp(lang.id)"
+										[attr.aria-current]="lang.id === currentLang ? true : undefined"
+										[class.active]="lang.id === currentLang"
+										[tabIndex]="lang.id === currentLang ? -1 : 0"
+										class="btn btn-link link-dark nav-link rounded-0"
+										type="button"
+								>
+									<span class="visually-hidden">{{ lang.label }}</span>
+									<span aria-hidden="true">{{ lang.id | uppercase }}</span>
+								</button>
+							</li>
+						}
+					</ul>
+				}
+				@if (configuration.electionEventId) {
+					<button
+							(click)="showFAQ()"
+							class="btn nav-link rounded-0"
+							id="mainHelpButton"
+							type="button"
+					>
+						<vp-icon name="question-circle"></vp-icon>
+						<span>{{ 'common.help' | translate }}</span>
+					</button>
+				}
+			</div>
+		</div>
+	</div>
+</nav>
+<div aria-hidden="true" class="header-bar">
+	@for (bar of headerConfig?.bars; track bar) {
+		<div
+				[style.background-color]="bar.color"
+				[style.height]="bar.height.desktop + 'px'"
+				class="d-none d-md-block"
+		></div>
+		<div
+				[style.background-color]="bar.color"
+				[style.height]="bar.height.mobile + 'px'"
+				class="d-md-none"
+		></div>
+	}
+</div>
+

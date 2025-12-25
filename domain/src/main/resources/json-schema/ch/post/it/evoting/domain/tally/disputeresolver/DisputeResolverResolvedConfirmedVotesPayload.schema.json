@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/tally/disputeresolver/DisputeResolverResolvedConfirmedVotesPayload.schema.json",
+	"title": "Dispute Resolver Confirmed Votes Payload",
+	"description": "A payload encompassing the election event id, the resolved confirmed votes and the digital signature.",
+	"type": "object",
+	"properties": {
+		"electionEventId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the election event. Corresponds to ee in the specification."
+		},
+		"resolvedConfirmedVotes": {
+			"type": "array",
+			"items": {
+				"$ref": "https://evoting.ch/domain/tally/disputeresolver/ResolvedConfirmedVote.schema.json",
+				"description": "The resolved confirmed vote. Corresponds to rcv in the specification."
+			},
+			"description": "The resolved confirmed votes. Corresponds to (rcv_0,...,rcv_N_C) in the specification."
+		},
+		"signature": {
+			"$ref": "https://evoting.ch/evotinglibraries/signature/CryptoPrimitivesSignature.schema.json",
+			"description": "The signature of the payload."
+		}
+	},
+	"required": [
+		"electionEventId",
+		"resolvedConfirmedVotes",
+		"signature"
+	],
+	"additionalProperties": false
+}

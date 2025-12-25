@@ -1,0 +1,93 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+@use "../mixins/outline";
+
+$breakpoint: md;
+
+.btn {
+  --ev-btn-gap: #{map.get(app.$spacers, 2)};
+  --ev-btn-hover-border-color: transparent;
+  --ev-btn-active-border-color: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ev-btn-gap);
+
+  &.btn-lg {
+    --ev-btn-gap: #{map.get(app.$spacers, 3)};
+  }
+
+  &:not(.btn-link) {
+    --ev-btn-padding-x: #{map.get(app.$spacers, 3)};
+
+    &.btn-lg {
+      --ev-btn-padding-x: #{map.get(app.$spacers, 4)};
+    }
+  }
+
+  &.btn-link {
+    --ev-btn-padding-x: var(--ev-btn-padding-y);
+  }
+
+  &.align-with-text {
+    margin-right: calc(-1 * var(--ev-btn-padding-x));
+    margin-left: calc(-1 * var(--ev-btn-padding-x));
+  }
+
+  &:focus-visible {
+    @include outline.outer;
+    border-color: var(--ev-btn-border-color);
+  }
+
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    text-decoration: none;
+  }
+
+  @include app.media-breakpoint-down($breakpoint) {
+    --ev-btn-line-height: 2.1;
+  }
+
+  &.btn-faq {
+    --ev-btn-line-height: 1.5;
+    text-align: start;
+    align-items: baseline;
+  }
+}
+
+.btn-check:focus + .btn:not(:hover),
+.btn:focus:not(:hover) {
+  color: var(--ev-btn-color);
+  background-color: var(--ev-btn-bg);
+}
+
+@media (forced-colors: active) {
+  .btn {
+    transition: none;
+    --ev-btn-border-color: ButtonText;
+    --ev-btn-hover-color: Highlight;
+    --ev-btn-hover-border-color: Highlight;
+    --ev-btn-active-color: Highlight;
+    --ev-btn-active-border-color: Highlight;
+    --ev-btn-disabled-border-color: GrayText;
+
+    &:focus:not(:focus-visible) {
+      color: var(--ev-btn-hover-color);
+      border-color: var(--ev-btn-hover-color);
+    }
+
+    &.btn-link,
+    &.btn-light {
+      --ev-btn-color: LinkText;
+      --ev-btn-border-color: Window;
+      --ev-btn-hover-border-color: Window;
+      --ev-btn-active-border-color: Window;
+    }
+  }
+}
+

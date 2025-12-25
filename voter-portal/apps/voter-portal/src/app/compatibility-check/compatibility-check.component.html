@@ -1,0 +1,10 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="container">
+	@if (!(isBrowserCompatible$ | async)) {
+		<div class="alert alert-warning mt-3 mb-5">
+			<span>{{ 'compatibilityCheck.browserNotCompatible' | translate }}</span>
+		</div>
+	}
+</div>

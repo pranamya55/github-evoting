@@ -1,0 +1,46 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if (this.phase.currentComponents?.length !== 0) {
+  <b>Download the public key for the components</b>
+  <ul>
+    @for (component of this.phase.currentComponents; track $index) {
+      <li>{{ component.label }}</li>
+    }
+  </ul>
+
+  <button (click)="downloadPublicKeys()" class="btn btn-dark  mt-2">Download</button>
+
+  <hr/>
+}
+<b>Share the public keys in the direct trust ceremony</b>
+
+<hr/>
+
+<b>Import the public keys of the other components</b>
+
+@if (!importInProgress) {
+  <form [formGroup]="importForm">
+    <input (change)="selectFiles($event)" [maxlength]="36" accept=".pem" class="form-control form-control-monospace me-sm-3"
+           formControlName="publicKeyLocation" id="publicKeyLocation" multiple type="file">
+
+    <button (click)="importPublicKeys()" [disabled]="selectedFiles?.length !== wantedNumberOfKey" class="btn btn-dark mt-3" type="submit">
+      Import
+    </button>
+  </form>
+} @else {
+  <div class="pt-4">
+    <p>Import in progress please wait...</p>
+    <output class="spinner-border"></output>
+  </div>
+}
+
+@if (error) {
+  <div class="alert alert-danger mt-2" role="alert">
+    <em class="bi bi-exclamation-circle-fill error-icon">
+      <div class="mt-2 ms-2 error-msg">
+        Error occurred during import. Please check logs.
+      </div>
+    </em>
+  </div>
+}

@@ -1,0 +1,246 @@
+{
+	"headerConfiguration": {
+		"logo": {
+			"title": {
+				"DE": "Die Post",
+				"FR": "La Poste",
+				"IT": "La Posta",
+				"RM": "La Posta",
+				"EN": "Swiss Post"
+			},
+			"height": {
+				"desktop": 86,
+				"mobile": 56
+			}
+		}
+	},
+	"contentConfiguration": [
+		{
+			"heading": {
+				"level": 1,
+				"text": {
+					"DE": "E-Voting ausprobieren",
+					"FR": "Essayez le vote électronique",
+					"IT": "Provate il voto elettronico",
+					"RM": "Emprovai il votar electronic",
+					"EN": "Try out E-Voting"
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Jetzt die elektronische Stimmabgabe testen",
+					"FR": "Testez dès maintenant le vote électronique",
+					"IT": "Testate ora la votazione elettronica",
+					"RM": "Emprovai ussa la votaziun electronica",
+					"EN": "Test electronic voting now"
+				}
+			}
+		},
+		{
+			"heading": {
+				"level": 2,
+				"text": {
+					"DE": "Wie funktioniert E-Voting?",
+					"FR": "Comment fonctionne le vote électronique?",
+					"IT": "Come funziona il voto elettronico?",
+					"RM": "Co funcziuna il votar electronic?",
+					"EN": "How does e-voting work?"
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Die Post stellt eine Testplattform zur Verfügung, auf der alle Interessierten ausprobieren können, wie die elektronische Stimmabgabe funktioniert. Dazu stehen auf der Testplattform fiktive Abstimmungsfragen und ein vereinfachter Musterstimmrechtsausweis bereit.",
+					"FR": "La Poste met à disposition une plateforme de test sur laquelle toutes les personnes intéressées peuvent essayer comment fonctionne le vote électronique. Des questions fictives de votation et un modèle simplifié de carte de vote sont disponibles sur cette plateforme.",
+					"IT": "La Posta mette a disposizione una piattaforma di prova sulla quale tutti gli interessati possono sperimentare il funzionamento del voto elettronico. A tale scopo, sulla piattaforma di prova sono disponibili domande di voto fittizie e una tessera elettorale semplificata.",
+					"RM": "La Posta metta a disposiziun musters d’attests da votar simplifitgads che persunas interessadas pon duvrar per ir tras il process da la votaziun.",
+					"EN": "Swiss Post provides a test platform where anyone interested can try out how electronic voting works. The platform includes fictitious voting questions and a simplified sample voting card."
+				}
+			}
+		},
+		{
+			"paragraph": {
+				"text": {
+					"DE": "Bitte folgen Sie den unten aufgeführten Schritten, um testweise die Stimme elektronisch abzugeben.",
+					"FR": "Veuillez suivre les étapes indiquées ci-dessous pour voter par voie électronique à titre de test.",
+					"IT": "Vi preghiamo di seguire i passaggi elencati di seguito per esprimere il voto elettronicamente a scopo di test.",
+					"RM": "P.pl. suandar ils pass enumerads sutvart per votar a moda electronica ad emprova. ",
+					"EN": "Please follow the steps listed below to cast your vote electronically for the test."
+				}
+			}
+		},
+		{
+			"steps": [
+				{
+					"title": {
+						"DE": "Stimmrechtsausweis (Muster) herunterladen",
+						"FR": "Télécharger la carte de vote (modèle)",
+						"IT": "Scaricare il certificato elettorale (modello)",
+						"RM": "Telechargiar l’attestat da votar (muster)",
+						"EN": "Download the voting card (sample)"
+					},
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Um E-Voting durchzuspielen, brauchen Sie einen Stimmrechtsausweis (Muster). Dieser enthält Codes, die Sie für die elektronische Stimmabgabe benötigen.",
+									"FR": "Pour tester le vote électronique, vous avez besoin d’une carte de vote (modèle). Celle-ci contient les codes dont vous avez besoin pour le vote électronique.",
+									"IT": "Per simulare il voto elettronico, è necessario un certificato elettorale (modello). Questo contiene i codici necessari per il voto elettronico.",
+									"RM": "Per ir tras l’e-voting duvrais Vus in attestat da votar (muster). Quel cuntegna codes che Vus duvrais per votar a moda electronica.",
+									"EN": "To run through e-voting, you need a voting card (sample). It contains codes that you need for electronic voting."
+								}
+							}
+						},
+						{
+							"alert": {
+								"level": "info",
+								"contentElements": [
+									{
+										"paragraph": {
+											"text": {
+												"DE": "Bei einer realen Wahl oder Abstimmung erhalten die Stimmberechtigten den Stimmrechtsausweis für E-Voting mit den übrigen Stimmrechtsunterlagen per Post. Die Stimmrechtsausweise sehen in jedem Kanton unterschiedlich aus. Auch können sich die Stimmberechtigten je nach Kanton mit ihrem Geburtsdatum oder Geburtsjahr und dem Initialisierungscode anmelden.",
+												"FR": "Lors d’une élection ou d’une votation réelle, les électeurs reçoivent la carte de vote pour le vote électronique avec les autres documents électoraux par courrier. Les cartes de vote diffèrent selon les cantons. Selon le canton, les électeurs peuvent se connecter avec leur date ou année de naissance et le code d’initialisation.",
+												"IT": "In caso di elezione o votazione reale, gli aventi diritto di voto ricevono il certificato elettorale per l’e-voting insieme agli altri documenti per la votazione per posta. I certificati elettorali di voto variano da cantone a cantone. A seconda del cantone, gli elettori possono accedere con la loro data o anno di nascita e il codice di inizializzazione. ",
+												"RM": "Tar ina elecziun u votaziun reala, survegnan ils votants l’attestat da votar per e-voting cun ils ulteriurs documents da votaziun tras posta. Ils attestats da votar èn differents en mintga chantun. Tenor chantun pon ils votants s’annunziar cun lur data u onn da naschientscha ed il code d’inizialisaziun.",
+												"EN": "In a real election or vote, eligible voters receive the voting cards for e-voting along with the other voting documents by mail. The design of the voting card differs from canton to canton. Depending on the canton, voters can log in using their date or year of birth and the initialization code.<br><br>The portal used for casting votes, as well as the voting cards, are available in Switzerland’s national languages: German, French, Italian, and Romansh."
+											}
+										}
+									}
+								]
+							}
+						},
+						{
+							"captcha": {
+								"url": "/download",
+								"captchaResponseParameterName": "captcha-response",
+								"instructions": {
+									"DE": "Captcha lösen, um den Stimmrechtsausweis (Muster) herunterzuladen",
+									"FR": "Valider le captcha pour télécharger la carte de vote (modèle)",
+									"IT": "Risolvi il captcha per scaricare il documento d’identità elettorale (modello)",
+									"RM": "Valida il captcha per scaricar la legitimaziun da dretg da votar (model)",
+									"EN": "Solve the captcha to download the voting card (sample)"
+								},
+								"button": {
+									"text": {
+										"DE": "Stimmrechtsausweis (Muster)",
+										"FR": "Carte de vote (modèle)",
+										"IT": "Certificato elettorale (modello)",
+										"RM": "Attestat da votar (muster)",
+										"EN": "Voting card (sample)"
+									},
+									"url": "",
+									"icon": "box-arrow-up-right"
+								}
+							}
+						}
+					]
+				},
+				{
+					"title": {
+						"DE": "Ihre Stimme abgeben",
+						"FR": "Soumettre son vote",
+						"IT": "Esprimere il proprio voto",
+						"RM": "Votar",
+						"EN": "Cast your vote"
+					},
+					"contentElements": [
+						{
+							"eventReference": {
+								"id": "DEMO-1"
+							}
+						}
+					]
+				},
+				{
+					"title": {
+						"DE": "Möchten Sie uns eine Rückmeldung geben?",
+						"FR": "Souhaitez-vous nous faire part de vos commentaires?",
+						"IT": "Desiderate inviarci un feedback?",
+						"RM": "Vulais Vus dar feedback?",
+						"EN": "Would you like to share a feedback?"
+					},
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Wir freuen uns über Ihre Hinweise und Verbesserungsvorschäge. Vielen Dank.",
+									"FR": "Nous nous réjouissons de vos remarques et suggestions d’amélioration. Merci beaucoup.",
+									"IT": "Saremo lieti di ricevere i vostri commenti e suggerimenti di miglioramento. Grazie mille.",
+									"RM": "Nus ans legrain da Vossas remartgas e propostas da meglieraments. Engraziel fitg.",
+									"EN": "We look forward to your comments and suggestions for improvement. Thank you very much."
+								}
+							}
+						},
+						{
+							"button": {
+								"text": {
+									"DE": "Feedback geben",
+									"FR": "Donner un retour",
+									"IT": "Fornire un feedback",
+									"RM": "Dunar feedback",
+									"EN": "Give feedback"
+								},
+								"url": "https://feedback.post.ch/vpawahyucc",
+								"languageParameter": "?l=",
+								"icon": "box-arrow-up-right"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"sharedReference": {
+				"id": "security-advices"
+			}
+		}
+	],
+	"footerConfiguration": {
+		"footerLinks": [
+			{
+				"url": "",
+				"text": {
+					"DE": "@ 2025 Post CH Kommunikation AG",
+					"FR": "@ 2025 Poste CH Communication SA",
+					"IT": "@ 2025 Posta CH Comunicazione SA",
+					"RM": "@ 2025 Posta CH Comunicazione SA",
+					"EN": "@ 2025 Post CH Communication Ltd"
+				},
+				"main": true
+			},
+			{
+				"url": "mailto:evoting@post.ch",
+				"text": {
+					"DE": "Kontakt",
+					"FR": "Contact",
+					"IT": "Contatto",
+					"RM": "Contact",
+					"EN": "Contact"
+				}
+			},
+			{
+				"url": "https://www.post.ch/impressum",
+				"text": {
+					"DE": "Impressum",
+					"FR": "Impressum",
+					"IT": "Colophon",
+					"RM": "Impressum",
+					"EN": "Publication details"
+				}
+			},
+			{
+				"url": "https://www.post.ch/disclaimer",
+				"text": {
+					"DE": "Datenschutz und Rechtliches",
+					"FR": "Protection des données et informations légales",
+					"IT": "Protezione dei dati e avvertenze legali",
+					"RM": "Declaraziun da protecziun da datas ed infurmaziuns giuridicas",
+					"EN": "Data protection and disclaimer"
+				}
+			}
+		]
+	}
+}

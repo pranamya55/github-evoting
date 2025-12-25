@@ -1,0 +1,144 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h1 class="mb-4 fs-inherit d-flex align-items-center">
+	<span aria-hidden="true" class="stepper-indicator">6</span>
+	{{ 'cast.main.enterverificationcode' | translate }}
+</h1>
+
+<vp-backenderror
+	[exclude]="[
+		ErrorMessage.ConfirmationKeyIncorrect,
+		ErrorMessage.ConfirmationKeyInvalid,
+		ErrorMessage.ConfirmationAttemptsExceeded,
+	]"
+	class="sticky-top pt-1"
+></vp-backenderror>
+
+<h2>
+	{{ 'cast.main.entercodeandcast' | translate }}
+</h2>
+
+<form
+	#keyForm="ngForm"
+	(ngSubmit)="cast()"
+	[formGroup]="confirmationKeyForm"
+	autocomplete="off"
+	novalidate
+	spellcheck="false"
+>
+	<div class="section-title">
+		<h3 class="m-0">
+			<label class="d-flex align-items-center gap-3" for="confirmationKey">
+				<vp-icon
+					class="voting-card-symbol"
+					name="voting-card-pentagon"
+				></vp-icon>
+				<span>{{ 'cast.confirmationkey.label' | translate }}</span>
+			</label>
+		</h3>
+		<button
+			(click)="showFAQ(FAQSection.WhatIsConfirmationKey)"
+			class="btn btn-link btn-faq"
+			id="show-faq-whatis-confirmationkey-link"
+			type="button"
+		>
+			<vp-icon name="question-circle"></vp-icon>
+			<span>{{ 'cast.confirmationkey.help' | translate }}</span>
+		</button>
+	</div>
+
+	<vp-clearable-input buttonLabel="cast.confirmationkey.clear">
+		<textarea
+			#confirmationKeyInput
+			[class.is-invalid]="
+				(keyForm.submitted && confirmationKey?.invalid) ||
+				confirmationKeyInvalidBackendError.error ||
+				confirmationKeyIncorrectBackendError.error
+			"
+			[formControl]="confirmationKey"
+			aria-describedby="confirmation-key-required confirmation-key-invalid confirmation-key-incorrect"
+			class="form-control form-control-monospace"
+			id="confirmationKey"
+			mask="0000 0000 0"
+			[showMaskTyped]="true"
+			[specialCharacters]="[' ']"
+			inputmode="numeric"
+			required
+			vpMultilineInput
+		></textarea>
+	</vp-clearable-input>
+
+	@if (
+		confirmationKey?.invalid &&
+		keyForm.submitted &&
+		!confirmationKeyInvalidBackendError.error &&
+		!confirmationKeyIncorrectBackendError.error
+	) {
+		<p class="alert alert-warning mt-3" id="confirmation-key-required">
+			{{ 'cast.confirmationkey.required' | translate }}
+		</p>
+	}
+
+	<vp-backenderror
+		#confirmationKeyInvalidBackendError
+		[includeOnly]="[
+			ErrorMessage.ConfirmationKeyInvalid,
+			ErrorMessage.ConfirmationAttemptsExceeded,
+		]"
+		alertId="confirmation-key-invalid"
+		class="mt-3"
+	></vp-backenderror>
+
+	<vp-backenderror
+		#confirmationKeyIncorrectBackendError
+		[includeOnly]="[ErrorMessage.ConfirmationKeyIncorrect]"
+		alertId="confirmation-key-incorrect"
+		class="mt-3"
+	></vp-backenderror>
+
+	<div
+		class="alert alert-primary d-flex align-items-start gap-3 my-4 my-sm-5"
+		id="cast-main-warning-voteiscast"
+	>
+		<vp-icon name="info-circle-fill"></vp-icon>
+		<div>
+			<p
+				*vpTranslationList="
+					'cast.main.warning.voteiscast';
+					key as infoParagraph
+				"
+				[innerHTML]="infoParagraph | translate | markdown"
+			></p>
+		</div>
+	</div>
+
+	<vp-footer [cancelMode]="CancelMode.LeaveProcess">
+		<section aria-live="polite" class="visually-hidden">
+			@if (isLoading()) {
+				<p>{{ 'common.loadingnextpage' | translate }}</p>
+			}
+		</section>
+
+		<button
+			[disabled]="isLoading()"
+			aria-describedby="cast-main-warning-voteiscast"
+			class="btn btn-dark"
+			id="btn_confirm_vote"
+			type="submit"
+		>
+			@if (isLoading()) {
+				<output
+					aria-hidden="true"
+					class="spinner-border spinner-border-sm"
+				></output>
+			}
+			{{ 'cast.main.castvote' | translate }}
+			<vp-icon name="download" />
+		</button>
+
+		<button [routerLink]="['/verify']" class="btn btn-link">
+			{{ 'common.back' | translate }}
+		</button>
+	</vp-footer>
+</form>

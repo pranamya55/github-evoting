@@ -1,0 +1,102 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="modal-header">
+	<h1 class="h4 modal-title">{{ 'listselection.title' | translate }}</h1>
+	<button
+		(click)="activeModal.dismiss()"
+		[attr.aria-label]="'common.close' | translate"
+		class="btn-close"
+		type="button"
+	></button>
+</div>
+
+<div class="modal-body">
+	<form
+		(submit)="displayListLine1.setValue(searchTermInput.value)"
+		aria-controls="resultCount"
+		class="mb-3"
+		spellcheck="false"
+	>
+		<h2 class="no-styling">
+			<label class="form-label" for="list-search--term">
+				{{ 'listselection.namefilter.label' | translate }}
+			</label>
+		</h2>
+
+		<div class="input-group">
+			<vp-clearable-input buttonLabel="listselection.namefilter.clear">
+				<input
+					#searchTermInput="ngModel"
+					[ngModelOptions]="{ standalone: true }"
+					class="form-control"
+					id="list-search--term"
+					ngModel
+					type="text"
+				/>
+			</vp-clearable-input>
+			<button
+				class="btn btn-outline-dark"
+				id="list-search--submit"
+				type="submit"
+			>
+				<vp-icon name="search"></vp-icon>
+				<span class="d-none d-sm-inline">{{
+					'listselection.namefilter.search' | translate
+				}}</span>
+				<span class="d-sm-none visually-hidden">{{
+					'listselection.namefilter.search' | translate
+				}}</span>
+			</button>
+		</div>
+	</form>
+
+	<p aria-live="polite" class="small fst-italic" id="resultCount">
+		<!-- no search -->
+		@if (!displayListLine1.value) {
+			{{
+				'listselection.searchresults.nosearch'
+					| translate: searchResultsProperties
+			}}
+		}
+
+		<!-- search and results -->
+		@if (displayListLine1.value && filteredLists?.length) {
+			{{
+				'listselection.searchresults.numberofresults'
+					| translate: searchResultsProperties
+			}}
+		}
+
+		<!-- search but no results -->
+		@if (displayListLine1.value && !filteredLists?.length) {
+			{{ 'listselection.searchresults.noresults' | translate }}
+		}
+	</p>
+
+	<h2 class="visually-hidden">
+		{{
+			(displayListLine1.value
+				? 'listselection.searchresults.title'
+				: 'listselection.searchresults.title.nosearch'
+			) | translate
+		}}
+	</h2>
+
+	<ul class="list-group list-group-flush">
+		@for (
+			list of filteredLists | sortBy: 'listOrderOfPrecedence';
+			track list.listIdentification
+		) {
+			<li class="list-group-item">
+				<vp-modal-list-selector
+					[candidates]="candidates"
+					[list]="list"
+					[isSelected]="
+						list.listIdentification === chosenList?.listIdentification
+					"
+				/>
+			</li>
+		}
+	</ul>
+</div>

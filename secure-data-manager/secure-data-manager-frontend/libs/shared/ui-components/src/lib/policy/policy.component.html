@@ -1,0 +1,17 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<i
+		[ngClass]="isMet ? 'bi-check2-circle text-success' : 'bi-circle'"
+		aria-hidden="true"
+		class="bi me-2 text-primary"
+		data-test="indicator"
+></i>
+
+<span aria-hidden="true" data-test="label">{{ label }}</span>
+
+<span
+		aria-live="polite"
+		class="visually-hidden"
+		data-test="aria-label"
+>{{isMet ? ('components.policy.met'  | translate) : ''}} {{ label }}</span>

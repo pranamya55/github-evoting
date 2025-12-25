@@ -1,0 +1,34 @@
+#
+# (c) Copyright 2025 Swiss Post Ltd.
+#
+sdm:
+  path:
+    workspace: ${sdm.base.path}/_EE_${sdm.election-event-seed}/SDM-workspace
+    export: ${dc.sticks.base.path}/_EE_${sdm.election-event-seed}/SDM-Output
+    voter-portal-configuration: ${sdm.base.path}/voter-portal-configuration
+
+  process:
+    data-exchange:
+      zip-password: ${sdm.password}
+    collect-data-verifier:
+      zip-password: ${sdm.password}
+
+database:
+  password: ${sdm.password}
+
+server:
+  port: 8092
+
+role:
+  isSetup: false
+  isTally: false
+
+voter-portal:
+  host: http://localhost:7000
+
+voting-server:
+  host: http://localhost:8016
+
+logging:
+  level:
+    root: info

@@ -1,0 +1,17 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<vp-accordion
+		[headingLevel]="element.level"
+		[containerClass]="'mb-2'"
+		[collapsed]="true"
+>
+	<ng-container title>
+		<vp-icon [name]="element.icon"/>
+		<div class="d-inline-block ms-3">{{ element.title | translateText }}</div>
+	</ng-container>
+
+	<ng-container body>
+		<ng-content />
+	</ng-container>
+</vp-accordion>

@@ -1,0 +1,220 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<vp-answer [isActive]="!isPositionEmpty">
+	@if (chosenWriteInPosition) {
+		<vp-choose-election-candidate-write-in
+				[electionInformation]="electionInformation"
+				[emptyPosition]="emptyPosition"
+				[writeInControl]="writeInControl"
+				[writeInsChosenInPrimaryElection]="writeInsChosenInPrimaryElection"
+		>
+			<ng-container [ngTemplateOutlet]="candidateButtons"/>
+		</vp-choose-election-candidate-write-in>
+	} @else {
+		<div class="row g-3 align-items-center justify-content-between">
+			<div class="col-12 col-sm-5">
+				@if (chosenCandidate?.displayCandidateLine4; as displayCandidateLine4) {
+					<p class="fs-small mb-0">
+						<small>{{ displayCandidateLine4 | translateText }}</small>
+					</p>
+				}
+
+				<h5 class="fs-inherit mb-0">
+					<span class="visually-hidden">
+						{{
+							'listandcandidates.candidatepositionof'
+								| translate: {positionOnList, numberOfMandates}
+						}}
+					</span>
+
+					@if (chosenCandidate?.displayCandidateLine1;
+						as displayCandidateLine1) {
+						{{ displayCandidateLine1 | translateText }}
+					} @else {
+						{{ emptyPosition.emptyPositionText | translateText }}
+					}
+				</h5>
+
+				@if (chosenCandidate?.displayCandidateLine2; as displayCandidateLine2) {
+					<p class="fs-small mb-0">
+						{{ displayCandidateLine2 | translateText }}
+					</p>
+				}
+
+				@if (chosenCandidate?.displayCandidateLine5; as displayCandidateLine5) {
+					<p class="fs-small mb-0">
+						<small>{{ displayCandidateLine5 | translateText }}</small>
+					</p>
+				}
+			</div>
+			<div class="col-12" [ngClass]="isPositionEmpty ? 'col-sm-6 col-md-5' : 'col-sm-auto'">
+				<ng-container [ngTemplateOutlet]="candidateButtons"/>
+			</div>
+		</div>
+	}
+</vp-answer>
+
+<ng-template #candidateButtons>
+	<div class="d-flex flex-wrap align-items-center justify-content-sm-end gap-1">
+		<!-- Candidate modal opening button -->
+		<button
+				(blur)="removeScreenReaderFeedbacks()"
+				(click)="openCandidateSelectionModal()"
+				[ngClass]="isPositionEmpty ? 'btn-outline-dark w-100' : 'btn-link my-n2'"
+				aria-describedby="feedback-{{
+				positionOnList
+			}}-candidateSelected feedback-{{ positionOnList }}-candidateDeleted"
+				class="btn"
+				id="candidate-{{ positionOnList }}-election-{{
+				electionIdentification
+			}}-selection"
+				type="button"
+		>
+			@if (isPositionEmpty) {
+				<span aria-hidden="true">
+					{{ 'listandcandidates.choose' | translate }}
+				</span>
+				<span class="visually-hidden">
+					{{
+						'listandcandidates.noteligibleinsecondary.screenreader'
+							| translate: {positionOnList}
+					}}
+				</span>
+			} @else {
+				<vp-icon name="pencil-fill"/>
+				{{ 'listandcandidates.change' | translate }}
+				@if (candidateDescription) {
+					<span class="visually-hidden">
+						{{ 'listandcandidates.currentcandidateis' | translate }}
+						{{ candidateDescription | translateText }}
+					</span>
+				}
+			}
+		</button>
+
+		<div aria-live="polite" class="visually-hidden">
+			@if (isFeedbackShown.selection) {
+				<p
+						id="feedback-{{ positionOnList }}-election-{{
+						electionIdentification
+					}}-candidateSelected"
+				>
+					{{ 'listandcandidates.choosecomplete.screenreader' | translate }}
+				</p>
+			}
+
+			@if (isFeedbackShown.deletion) {
+				<p
+						id="feedback-{{ positionOnList }}-election-{{
+						electionIdentification
+					}}-candidateDeleted"
+				>
+					{{ 'listandcandidates.clearcomplete.screenreader' | translate }}
+				</p>
+			}
+		</div>
+
+		@if (!isPositionEmpty) {
+			<!-- Accumulation button -->
+			@if (chosenCandidate &&
+			electionInformation.election.candidateAccumulation > 1) {
+				<button
+						(blur)="removeScreenReaderFeedbacks()"
+						(click)="accumulateCandidate()"
+						[disabled]="!isAccumulationPossible"
+						aria-describedby="feedback-{{
+						positionOnList
+					}}-candidateAccumulated feedback-{{
+						positionOnList
+					}}-notEligible feedback-{{ positionOnList }}-noMoreSeats feedback-{{
+						positionOnList
+					}}-maxAccumulationReached"
+						class="btn btn-link my-n2"
+						id="candidate-{{ positionOnList }}-election-{{
+						electionIdentification
+					}}-accumulation"
+						type="button"
+				>
+					<vp-icon name="plus-lg"></vp-icon>
+					{{ 'listandcandidates.cumulate' | translate }}
+					@if (candidateDescription) {
+						<span class="visually-hidden">
+							{{ 'listandcandidates.currentcandidateis' | translate }}
+							{{ candidateDescription | translateText }}
+						</span>
+					}
+				</button>
+
+				<div aria-live="polite" class="visually-hidden">
+					@if (isFeedbackShown.accumulation) {
+						<p
+								id="feedback-{{ positionOnList }}-election-{{
+								electionIdentification
+							}}-candidateAccumulated"
+						>
+							{{
+								'listandcandidates.cumulatecomplete.screenreader' | translate
+							}}
+						</p>
+					}
+
+					@if (!isCandidateEligible) {
+						<p
+								id="feedback-{{ positionOnList }}-election-{{
+								electionIdentification
+							}}-notEligible"
+						>
+							{{
+								'listandcandidates.noteligible.for.secondary.screenreader'
+									| translate
+							}}
+						</p>
+					}
+
+					@if (nextAvailablePosition < 0) {
+						<p
+								id="feedback-{{ positionOnList }}-election-{{
+								electionIdentification
+							}}-noMoreSeats"
+						>
+							{{
+								'listandcandidates.nomoreavailableseat.screenreader' | translate
+							}}
+						</p>
+					}
+
+					@if (isMaximumAccumulationReached) {
+						<p
+								id="feedback-{{ positionOnList }}-election-{{
+								electionIdentification
+							}}-maxAccumulationReached"
+						>
+							{{ 'listandcandidates.maxcumulreached.screenreader' | translate }}
+						</p>
+					}
+				</div>
+			}
+			<!-- Clear button -->
+			<button
+				#clearButton
+				(click)="unselectCandidate()"
+				class="btn btn-link my-n2"
+				id="candidate-{{ positionOnList }}-election-{{
+					electionIdentification
+				}}-deletion"
+				type="button"
+			>
+				<vp-icon name="x-lg"></vp-icon>
+				{{ 'listandcandidates.clear' | translate }}
+				@if (candidateDescription) {
+					<span class="visually-hidden">
+						{{ 'listandcandidates.currentcandidateis' | translate }}
+						{{ candidateDescription | translateText }}
+					</span>
+				}
+			</button>
+		}
+	</div>
+</ng-template>

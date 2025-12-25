@@ -1,0 +1,35 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/tally/disputeresolver/ResolvedConfirmedVote.schema.json",
+	"title": "Resolved Confirmed Vote",
+	"description": "A resolved confirmed vote.",
+	"type": "object",
+	"properties": {
+		"verificationCardId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card. Corresponds to vc_id in the specification."
+		},
+		"verificationCardSetId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the verification card set. Corresponds to vcs in the specification."
+		},
+		"hashedLongVoteCastReturnCodeShares": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"description": "Corresponds to hLVCC_id_j in the specification."
+			},
+			"minItems": 4,
+			"maxItems": 4,
+			"description": "The CCR's hashed long Vote Cast Return Code shares. Corresponds to (hlVCC_id_1, hlVCC_id_2, hlVCC_id_3, hlVCC_id_4) in the specification."
+		}
+	},
+	"required": [
+		"verificationCardId",
+		"verificationCardSetId",
+		"hashedLongVoteCastReturnCodeShares"
+	],
+	"additionalProperties": false
+}

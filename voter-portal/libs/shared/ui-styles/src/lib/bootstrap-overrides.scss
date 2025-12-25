@@ -1,0 +1,145 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "sass:list";
+@import "bootstrap/scss/functions";
+
+$prefix: 'ev-';
+$enable-cssgrid: true;
+$enable-smooth-scroll: false;
+
+// Color system variables
+$blue: #256188;
+$green: #3d614c;
+$accent: #ffcc00;
+$custom-colors: ("accent": $accent);
+
+$input-padding-y: 1rem;
+$input-padding-x: 1rem;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+/**
+ * Add bootstrap variable overrides here
+ *
+ */
+
+$spacers: map.merge($spacers, (5: $spacer * 2));
+
+// Typography
+$font-family-base: "Roboto", system-ui, sans-serif;
+$font-family-monospace: "Roboto Mono", ui-monospace, monospace;
+$h1-font-size: $font-size-base * 2;
+$h2-font-size: $font-size-base * 1.75;
+$h3-font-size: $font-size-base * 1.125;
+$h6-font-size: $font-size-base * 1.125;
+$font-sizes: map.merge($font-sizes, (
+        1: $h1-font-size,
+        2: $h2-font-size,
+        3: $h3-font-size,
+        6: $h6-font-size,
+));
+
+// Navbar
+$navbar-padding-y: 0;
+$navbar-nav-link-padding-x: map.get($spacers, 3);
+$navbar-light-color: $black;
+$navbar-light-hover-color: $navbar-light-color;
+$navbar-light-active-color: $white;
+
+// Dropdowns
+$dropdown-padding-y: 0;
+$dropdown-border-radius: 0;
+$dropdown-inner-border-radius: $dropdown-border-radius;
+$dropdown-link-color: $link-color;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: tint-color($dropdown-link-color, $link-shade-percentage);
+$dropdown-item-padding-y: map.get($spacers, 2);
+
+// Cards
+$card-cap-padding-y: $card-spacer-y;
+$card-cap-bg: map.get($grays, '200');
+
+// Accordion
+$accordion-button-active-color: shade-color($primary, 15%);
+
+// Color system maps
+$theme-colors: map.merge($theme-colors, $custom-colors);
+
+// Options
+$enable-negative-margins: true;
+
+// Forms
+$input-group-addon-border-color: $input-border-color;
+$form-check-input-border: $input-border-width solid $input-border-color;
+$form-switch-color: $input-border-color;
+$form-switch-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
+$form-select-border-color: $input-border-color;
+
+$input-focus-border-color: tint-color($component-active-bg, 30%);
+$form-check-input-focus-border: $input-focus-border-color;
+$form-switch-focus-color: $input-focus-border-color;
+$form-switch-focus-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+$form-select-focus-border-color: $input-focus-border-color;
+$accordion-button-focus-border-color: $input-focus-border-color;
+
+$form-check-margin-bottom: map.get($spacers, 1);
+
+// Modals
+$modal-header-border-color: transparent;
+$modal-footer-border-color: transparent;
+
+// Spinners
+$spinner-border-width: 0.75em;
+$spinner-border-width-sm: 0.125em;
+$spinner-animation-speed: 1.5s;
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$custom-utilities: (
+        "bg-opacity": (
+                css-var: true,
+                class: bg-opacity,
+                values: (
+                        5: .05,
+                        10: .1,
+                        25: .25,
+                        50: .5,
+                        75: .75,
+                        100: 1
+                )
+        ),
+        "display": map.merge(
+                        map.get($utilities, "display"),
+                        (
+                                values: list.join(
+                                                map.get(map.get($utilities, "display"), "values"),
+                                                contents,
+                                ),
+                        ),
+        ),
+        "font-size": map.merge(
+                        map.get($utilities, "font-size"),
+                        (
+                                values: map.merge(
+                                                map.get(map.get($utilities, "font-size"), "values"),
+                                                (inherit: inherit, small: $font-size-sm),
+                                ),
+                        ),
+        ),
+        "height": map.merge(
+                        map.get($utilities, "height"),
+                        (
+                                values: map.merge(
+                                                map.get(map.get($utilities, "height"), "values"),
+                                                (content: fit-content),
+                                ),
+                        ),
+        ),
+);
+
+$utilities: map.merge($utilities, $custom-utilities);

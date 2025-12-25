@@ -1,0 +1,59 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="row flex-column gap-2 flex-sm-row gap-sm-0">
+	<div class="col">
+		<h3 class="list--name h6 mb-1 fw-normal">
+			<span>{{ list.displayListLine1 | translateText }}</span>
+		</h3>
+
+		<button
+			(click)="collapse.toggle()"
+			[attr.aria-expanded]="!areDetailsCollapsed"
+			class="btn btn-sm btn-link align-with-text mt-1"
+			type="button"
+		>
+			<vp-icon
+				[name]="areDetailsCollapsed ? 'chevron-down' : 'chevron-up'"
+			></vp-icon>
+			<span>{{ 'listselection.listresult.details' | translate }}</span>
+		</button>
+	</div>
+
+	<div class="col-sm-3">
+		<button
+			(click)="selectList()"
+			class="btn btn-outline-dark w-100"
+			id="select-list"
+			type="button"
+		>
+			<vp-icon name="check2"></vp-icon>
+			<span aria-hidden="true">{{
+				'listselection.listresult.select' | translate
+			}}</span>
+			<span class="visually-hidden">
+				{{ 'listselection.listresult.select.screenreader' | translate }}
+				{{ list.displayListLine1 | translateText }}
+			</span>
+		</button>
+	</div>
+</div>
+
+<div #collapse="ngbCollapse" [(ngbCollapse)]="areDetailsCollapsed">
+	<div class="card card-body">
+		<ul class="list-unstyled m-0">
+			@for (
+				listCandidate of listCandidates | sortBy: 'positionOnList';
+				track $index
+			) {
+				<li>{{ listCandidate.displayCandidateLine1 | translateText }}</li>
+			}
+			@if (list.displayListLine2) {
+				<li>{{ list.displayListLine2 | translateText }}</li>
+			}
+			@if (list.displayListLine3) {
+				<li>{{ list.displayListLine3 | translateText }}</li>
+			}
+		</ul>
+	</div>
+</div>

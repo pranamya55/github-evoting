@@ -1,0 +1,13 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@for (
+	electionInformation of electionTexts.electionsInformation
+		| sortBy: 'election.electionPosition';
+	track $index
+) {
+	<vp-review-election
+		[electionGroupIdentification]="electionTexts.electionGroupIdentification"
+		[electionInformation]="electionInformation"
+	/>
+}

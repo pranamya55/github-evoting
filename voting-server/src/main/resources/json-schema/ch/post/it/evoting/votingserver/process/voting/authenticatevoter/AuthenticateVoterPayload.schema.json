@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/votingserver/authenticatevoter/AuthenticateVoterPayload.schema.json",
+	"title": "Authenticate Voter Payload",
+	"description": "Authenticate voter request payload sent by the voting-client.",
+	"type": "object",
+	"properties": {
+		"electionEventId": {
+			"type": "string",
+			"pattern": "^[0-9A-F]{32}$",
+			"description": "A random 32 characters hexadecimal string identifying the election event. Corresponds to ee in the specification."
+		},
+		"authenticationChallenge": {
+			"$ref": "https://evoting.ch/votingserver/AuthenticationChallenge.schema.json",
+			"description": "The authentication challenge."
+		}
+	},
+	"required": [
+		"electionEventId",
+		"authenticationChallenge"
+	],
+	"additionalProperties": false
+}

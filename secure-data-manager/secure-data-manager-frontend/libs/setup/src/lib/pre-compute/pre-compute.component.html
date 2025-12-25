@@ -1,0 +1,39 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<sdm-page-title
+		[instructions]="'preCompute.instruction' | translate"
+		[title]="'preCompute.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		<p onReady>
+			{{ 'preCompute.pageActions.instruction' | translate }}
+		</p>
+		<button (click)="preCompute()" class="btn btn-primary" onReady type="button">
+			<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+			{{ 'preCompute.pageActions.preCompute' | translate }}
+		</button>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">
+		{{ 'common.loading' | translate }}
+	  </span>
+		</div>
+		<p onProgress>
+			{{ 'preCompute.pageActions.inProgress' | translate }}
+		</p>
+		<p onError>
+			{{ 'preCompute.pageActions.error.' + pageActionsComponent.errorFeedbackCode | translate }}
+		</p>
+
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p aria-live="polite" onComplete>
+			{{ 'preCompute.pageActions.processCompleted' | translate }}
+		</p>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress/>
+</sdm-page-title>

@@ -1,0 +1,62 @@
+[
+	{
+		"id": "03BBC588D0B04D9BBFE60DF81B94943E",
+		"electoralBoard": {
+			"id": "331279FEBBB0423298D44EE58702D581"
+		},
+		"defaultTitle": "ABIDJAN",
+		"defaultDescription": "ABIDJAN",
+		"alias": "1",
+		"dateFrom": "2016-10-13T10:00:00Z",
+		"dateTo": "2026-11-05T09:00:00Z",
+		"electionEvent": {
+			"id": "101549C5A4A04C7B88A0CB9BE8AB3DF6"
+		},
+		"test": true,
+		"status": "LOCKED",
+		"gracePeriod": 600,
+		"details": "09/01/2017 15:45:11",
+		"synchronized": "true",
+		"ballotAlias": "351"
+	},
+	{
+		"id": "EB6ED778B44C463F8B54C95E846DFE49",
+		"electoralBoard": {
+			"id": "331279FEBBB0423298D44EE58702D581"
+		},
+		"defaultTitle": "ABOU DABI",
+		"defaultDescription": "ABOU DABI",
+		"alias": "2",
+		"dateFrom": "2016-10-13T10:00:00Z",
+		"dateTo": "2026-11-05T09:00:00Z",
+		"electionEvent": {
+			"id": "101549C5A4A04C7B88A0CB9BE8AB3DF6"
+		},
+		"test": true,
+		"status": "LOCKED",
+		"gracePeriod": 600,
+		"details": "09/01/2017 15:45:11",
+		"synchronized": "true",
+		"ballotAlias": "352"
+	},
+	{
+		"id": "116f8a5468e64b88aeb393a4cefee46c",
+		"electoralBoard": {
+			"id": "331279FEBBB0423298D44EE58702D582"
+		},
+		"defaultTitle": "ABUJA",
+		"defaultDescription": "ABUJA",
+		"alias": "3",
+		"dateFrom": "2016-10-13T10:00:00Z",
+		"dateTo": "2026-11-05T09:00:00Z",
+		"electionEvent": {
+			"id": "101549C5A4A04C7B88A0CB9BE8AB3DF7"
+		},
+		"test": true,
+		"status": "LOCKED",
+		"gracePeriod": 600,
+		"details": "09/01/2017 15:45:11",
+		"synchronized": "true",
+		"ballotAlias": "352"
+	}
+]

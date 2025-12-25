@@ -1,0 +1,35 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<h1 class="mb-4 fs-inherit d-flex align-items-center">
+	<span aria-hidden="true" class="stepper-indicator">7</span>
+	{{ 'confirm.main.votecast' | translate }}
+</h1>
+
+<h2>
+	{{ 'confirm.main.matchcodes' | translate }}
+</h2>
+
+<vp-finalization-code/>
+
+<vp-footer>
+	<button
+		(click)="quit()"
+		class="btn btn-dark flex-grow-1"
+		id="quit-button"
+		type="submit"
+	>
+		<vp-icon name="check-circle"></vp-icon>
+		<span>{{ 'confirm.main.codesmatch' | translate }}</span>
+	</button>
+
+	<button
+		(click)="openInvalidCodesModal()"
+		class="btn btn-outline-danger flex-grow-1"
+		id="invalid-code"
+		type="button"
+	>
+		<vp-icon name="dash-circle"></vp-icon>
+		<span>{{ 'confirm.main.codesdonotmatch' | translate }}</span>
+	</button>
+</vp-footer>

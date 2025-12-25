@@ -1,0 +1,21 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if ((loading$ | async) !== true && error) {
+	<div [id]="alertId" class="alert alert-danger" role="alert">
+		<p
+			*vpTranslationList="getErrorMessageKey(error); key as errorParagraph"
+			[innerHTML]="
+				errorParagraph
+					| translate
+						: {
+								retries: error.numberOfRemainingAttempts,
+								httpStatus:
+									error.httpStatus ||
+									('backenderror.unknownhttpstatus' | translate),
+						  }
+					| markdown
+			"
+		></p>
+	</div>
+}

@@ -1,0 +1,12 @@
+{
+	"name": "@sdm/shared-util-types",
+	"version": "0.0.1",
+	"dependencies": {
+		"@angular/core": "20.3.7",
+		"@angular/router": "20.3.7",
+		"tslib": "^2.6.2"
+	},
+	"type": "commonjs",
+	"main": "./src/index.js",
+	"typings": "./src/index.d.ts"
+}

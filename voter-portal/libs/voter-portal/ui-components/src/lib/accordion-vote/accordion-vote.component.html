@@ -1,0 +1,56 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+@if (questionTemplate) {
+	<vp-accordion [headingLevel]="headingLevel" bodyClass="p-0">
+		<ng-container title>
+			<span class="h6 mb-0">{{
+				voteTexts.voteDescription | translateText
+			}}</span>
+		</ng-container>
+
+		<ng-container body>
+			<ol class="vote">
+				@for (
+					ballot of voteTexts.ballots | sortBy: 'ballotPosition';
+					track $index
+				) {
+					@if (isVariantBallot(ballot)) {
+						<li>
+							<ol class="variant-ballot">
+								@for (
+									question of ballot.standardQuestions
+										| concat: ballot.tieBreakQuestions
+										| sortBy: 'questionPosition';
+									track $index
+								) {
+									<li>
+										<strong>{{ question.questionNumber }}.</strong>
+										<ng-container
+											[ngTemplateOutlet]="questionTemplate"
+											[ngTemplateOutletContext]="{
+												ballotIdentification: ballot.ballotIdentification,
+												question,
+											}"
+										/>
+									</li>
+								}
+							</ol>
+						</li>
+					} @else {
+						<li class="standard-ballot">
+							<strong>{{ ballot.questionNumber }}.</strong>
+							<ng-container
+								[ngTemplateOutlet]="questionTemplate"
+								[ngTemplateOutletContext]="{
+									ballotIdentification: ballot.ballotIdentification,
+									question: ballot,
+								}"
+							/>
+						</li>
+					}
+				}
+			</ol>
+		</ng-container>
+	</vp-accordion>
+}

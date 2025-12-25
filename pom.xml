@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ch.post.it.evoting</groupId>
+	<artifactId>evoting</artifactId>
+	<version>1.5.2.2</version>
+	<packaging>pom</packaging>
+	<name>evoting</name>
+
+	<modules>
+		<module>evoting-dependencies</module>
+		<module>domain</module>
+		<module>voting-server</module>
+		<module>control-component</module>
+		<module>secure-data-manager</module>
+		<module>voting-client</module>
+		<module>voter-portal</module>
+		<module>tools/direct-trust-tool</module>
+		<module>tools/xml-signature</module>
+		<module>tools/file-cryptor</module>
+		<module>tools/dispute-resolver</module>
+		<module>architecture-rules</module>
+		<module>reproducible-build</module>
+	</modules>
+
+	<properties>
+		<jacoco.version>0.8.14</jacoco.version>
+
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.release>21</maven.compiler.release>
+
+		<maven-dependency-check.version>12.1.8</maven-dependency-check.version>
+		<maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
+
+		<maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
+		<maven-enforcer-plugin.requiredJavaVersion>[21.0.9]</maven-enforcer-plugin.requiredJavaVersion>
+		<maven-enforcer-plugin.requiredMavenVersion>[3.9.11]</maven-enforcer-plugin.requiredMavenVersion>
+		<maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
+		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+		<maven-release-plugin.version>3.1.1</maven-release-plugin.version>
+		<versions-maven-plugin.version>2.19.1</versions-maven-plugin.version>
+		<spring-boot-maven-plugin.version>3.5.7</spring-boot-maven-plugin.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.outputTimestamp>2025-12-08T16:49:00+02:00</project.build.outputTimestamp>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Sonar -->
+		<sonar.scm.disabled>true</sonar.scm.disabled>
+		<sonar.skipDesign>true</sonar.skipDesign>
+		<sonar.scanner.skipJreProvisioning>true</sonar.scanner.skipJreProvisioning>
+		<sonar.scanner.skipNodeProvisioning>true</sonar.scanner.skipNodeProvisioning>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.junit.reportPaths>${project.basedir}/target/surefire-reports/,${project.basedir}/target/failsafe-reports/</sonar.junit.reportPaths>
+		<sonar.javascript.lcov.reportPaths>${project.basedir}/coverage/lcov.info</sonar.javascript.lcov.reportPaths>
+		<sonar.java.source>${maven.compiler.release}</sonar.java.source>
+		<sonar.java.target>${maven.compiler.release}</sonar.java.target>
+		<skip.it>false</skip.it>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>${maven-dependency-check.version}</version>
+					<configuration>
+						<nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+						<assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+						<archiveAnalyzerEnabled>false</archiveAnalyzerEnabled>
+						<nvdApiServerId>owasp-nvd-server</nvdApiServerId>
+						<failBuildOnCVSS>9</failBuildOnCVSS>
+						<suppressionFile>${maven-dependency-check.suppressionFile}</suppressionFile>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${maven-deploy-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugin.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<preparationGoals>clean install</preparationGoals>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+				<configuration>
+					<doclint>none</doclint>
+					<failOnError>false</failOnError>
+					<notimestamp>true</notimestamp>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>${maven-enforcer-plugin.requiredJavaVersion}</version>
+								</requireJavaVersion>
+								<requireMavenVersion>
+									<version>${maven-enforcer-plugin.requiredMavenVersion}</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-maven-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${maven-failsafe-plugin.version}</version>
+				<configuration>
+					<skip>${skip.it}</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>${versions-maven-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dependency-check</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>aggregate</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

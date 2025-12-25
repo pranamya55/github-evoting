@@ -1,0 +1,35 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="modal-header">
+	<h4 class="modal-title" id="invalid-codes-modal-title">
+		{{ title | translate }}
+	</h4>
+</div>
+<div class="modal-body">
+	<p
+			*vpTranslationList="message; key as paragraph"
+			[innerHTML]="paragraph | translate | markdown"
+	></p>
+</div>
+<div
+	class="modal-footer flex-column flex-sm-row-reverse align-items-stretch justify-content-start gap-3"
+>
+	<button
+			ngbAutofocus
+			(click)="quit()"
+			class="btn btn-dark"
+			type="button"
+	>
+		<vp-icon name="box-arrow-in-right"></vp-icon>
+		<span>{{ 'common.cancelprocess' | translate }}</span>
+	</button>
+
+	<button
+		(click)="checkAgain()"
+		class="btn btn-link"
+		type="button"
+	>
+		{{ 'modalinvalidcodes.checkagain' | translate }}
+	</button>
+</div>

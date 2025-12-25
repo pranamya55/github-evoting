@@ -1,0 +1,49 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<vp-answer [isActive]="!isPositionEmpty">
+	@if (candidate && candidate.displayCandidateLine4; as displayCandidateLine4 ) {
+		<p class="mb-0 fs-small">
+			{{ displayCandidateLine4 | translateText }}
+		</p>
+	}
+
+	<vp-dynamic-heading [level]="headingLevel" class="candidate--title">
+		<span class="visually-hidden">{{
+			'listandcandidates.candidatepositionof'
+				| translate: { positionOnList, numberOfMandates }
+		}}</span>
+
+		@if (isAnswerUnknown) {
+			{{ 'listandcandidates.selection' | translate: { positionOnList } }}
+		} @else if (writeIn) {
+			{{ writeIn }}
+		} @else if (candidate) {
+			{{ candidate.displayCandidateLine1 | translateText }}
+		} @else {
+			{{ emptyPosition.emptyPositionText | translateText }}
+		}
+	</vp-dynamic-heading>
+
+	@if (candidate && candidate.displayCandidateLine5; as displayCandidateLine5 ) {
+		<p class="mb-0 fs-small">
+			{{ displayCandidateLine5 | translateText }}
+		</p>
+	}
+
+	@if (
+		candidateShortChoiceReturnCode &&
+			candidateShortChoiceReturnCode()?.shortChoiceReturnCode;
+		as shortChoiceReturnCode
+	) {
+		<p
+			class="shortChoiceReturnCode word-break mb-0 fw-bold d-flex align-items-center gap-2 mt-2"
+		>
+			<vp-icon name="voting-card-diamond" />
+			<span class="visually-hidden">{{
+				'verify.main.yourchoicecode' | translate
+			}}</span>
+			{{ shortChoiceReturnCode }}
+		</p>
+	}
+</vp-answer>

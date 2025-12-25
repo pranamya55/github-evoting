@@ -1,0 +1,20 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<section
+	aria-live="polite"
+	class="modal-body my-4 d-flex flex-column align-items-center justify-content-center"
+>
+	<div
+		class="spinner-pulse mb-5 d-flex align-items-center justify-content-center"
+	>
+		<output class="spinner-border h-100 w-100">
+			<span class="visually-hidden">{{
+				'common.screenreader.loading' | translate
+			}}</span>
+		</output>
+	</div>
+
+	<p class="fs-3 fw-bold mb-2">{{ 'review.progress.title' | translate }}</p>
+	<p class="text-muted mb-0">{{ 'review.progress.subtitle' | translate }}</p>
+</section>

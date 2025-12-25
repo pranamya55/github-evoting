@@ -1,0 +1,39 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="modal-header">
+	<h1 class="h4 modal-title">{{ title | translate }}</h1>
+	<button
+		(click)="activeModal.dismiss()"
+		[attr.aria-label]="'common.close' | translate"
+		class="btn-close"
+		type="button"
+	></button>
+</div>
+
+<div class="modal-body">
+	@for (text of content; track text) {
+		<p
+				*vpTranslationList="text; key as paragraph"
+				[innerHTML]="paragraph | translate | markdown"
+		></p>
+	}
+</div>
+
+<div
+	class="modal-footer flex-column flex-sm-row-reverse align-items-stretch justify-content-start gap-3"
+>
+	<button
+		(click)="activeModal.close(true)"
+		class="btn btn-dark"
+		ngbAutofocus
+		type="button"
+	>
+		@if (confirmIcon) {
+			<vp-icon [name]="confirmIcon"/>
+		}
+		{{ confirmLabel | translate }}
+	</button>
+
+	<button (click)="activeModal.close(false)" class="btn btn-link">{{ cancelLabel | translate }}</button>
+</div>

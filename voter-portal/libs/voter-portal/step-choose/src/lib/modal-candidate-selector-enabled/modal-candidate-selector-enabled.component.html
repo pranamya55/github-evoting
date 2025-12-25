@@ -1,0 +1,28 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<button (click)="selectCandidate()" class="btn btn-outline-dark" type="button">
+	@if (isAlreadySelected) {
+		<!-- Accumulate -->
+		<vp-icon name="plus-lg"></vp-icon>
+		<span aria-hidden="true">{{
+			'candidateselection.candidateresult.accumulate' | translate
+		}}</span>
+		<span class="visually-hidden">
+			{{
+				'candidateselection.candidateresult.accumulate.screenreader' | translate
+			}}
+			{{ candidate.displayCandidateLine1 | translateText }}
+		</span>
+	} @else {
+		<!-- Select -->
+		<vp-icon name="check2"></vp-icon>
+		<span aria-hidden="true">{{
+			'candidateselection.candidateresult.select' | translate
+		}}</span>
+		<span class="visually-hidden">
+			{{ 'candidateselection.candidateresult.select.screenreader' | translate }}
+			{{ candidate.displayCandidateLine1 | translateText }}
+		</span>
+	}
+</button>

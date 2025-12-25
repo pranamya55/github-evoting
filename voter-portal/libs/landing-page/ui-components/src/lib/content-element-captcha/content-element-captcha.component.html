@@ -1,0 +1,23 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<div class="alert alert-primary gap-3 mt-3 d-flex align-items-start">
+	<vp-icon name="info-circle-fill"></vp-icon>
+	<div>
+		<p>{{ element.instructions | translateText }}</p>
+		<ng-hcaptcha (verify)="onVerify($event)"
+					 (expired)="onExpired($event)"
+					 (error)="onError($event)">
+		</ng-hcaptcha>
+	</div>
+</div>
+
+<div class="d-grid justify-content-sm-end mt-2">
+	<button class="btn btn-dark w-100" [disabled]="!this.captchaToken" (click)="download()">
+		{{ element.button.text | translateText }}
+		@if (element.button.icon; as icon) {
+			<vp-icon [name]="icon"/>
+		}
+	</button>
+</div>

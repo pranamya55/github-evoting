@@ -1,0 +1,96 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<h1 class="mb-4 fs-inherit d-flex align-items-center">
+	<span aria-hidden="true" class="stepper-indicator">1</span>
+	@if (configuration.additionalLegalTerms) {
+		{{ configuration.additionalLegalTerms.mainTitle | translateText }}
+	} @else {
+		{{ 'legalterms.title' | translate }}
+	}
+</h1>
+
+<form #agreementForm="ngForm" (ngSubmit)="agree()" novalidate>
+	@if (configuration.additionalLegalTerms; as additionalLegalTerms) {
+		@for (
+			legalTermSection of additionalLegalTerms.sections;
+			track legalTermSection;
+			let i = $index
+		) {
+			<h2>{{ legalTermSection.sectionTitle | translateText }}</h2>
+
+			@for (term of legalTermSection.terms; track term) {
+				<p
+					[innerHTML]="
+						term
+							| translateText
+							| markdown: { allowLinks: true, allowBlock: true }
+					"
+				></p>
+			}
+
+			<vp-answer class="my-4 my-sm-5">
+				<div class="form-check form-check-lg m-0">
+					<input
+						#additionalAgreement="ngModel"
+						[class.is-invalid]="agreementForm.submitted && additionalAgreement.invalid"
+						[id]="'additional-agreement-' + i"
+						[name]="'additionalAgreement-' + i"
+						[ngModel]="agreed"
+						class="form-check-input"
+						required
+						type="checkbox"
+					/>
+
+					<label class="form-check-label" [for]="'additional-agreement-' + i">
+						{{ legalTermSection.confirm | translateText }}
+					</label>
+				</div>
+			</vp-answer>
+		}
+
+		<h2>{{ 'legalterms.title' | translate }}</h2>
+	}
+
+	<p [innerHTML]="'legalterms.legalwarning' | translate" class="mt-4"></p>
+
+	<ul class="mt-3">
+		<li [innerHTML]="'legalterms.law.bullet1' | translate"></li>
+		<li [innerHTML]="'legalterms.law.bullet2' | translate"></li>
+		<li [innerHTML]="'legalterms.law.bullet3' | translate"></li>
+		<li [innerHTML]="'legalterms.law.bullet4' | translate"></li>
+		<li [innerHTML]="'legalterms.law.bullet5' | translate"></li>
+	</ul>
+
+	<vp-answer class="my-4 my-sm-5">
+		<div class="form-check form-check-lg m-0">
+			<input
+				#defaultAgreement="ngModel"
+				[class.is-invalid]="agreementForm.submitted && defaultAgreement.invalid"
+				[ngModel]="agreed"
+				class="form-check-input"
+				id="default-agreement"
+				name="defaultAgreement"
+				required
+				type="checkbox"
+			/>
+			<label class="form-check-label" for="default-agreement">
+				{{ 'legalterms.confirmcheck' | translate }}
+			</label>
+		</div>
+	</vp-answer>
+
+	@if (agreementForm.submitted && agreementForm.invalid) {
+		<p class="alert alert-warning mt-3" id="agreementrequired">
+			{{ 'legalterms.agreementrequired' | translate }}
+		</p>
+	}
+
+	<vp-footer>
+		<button class="btn btn-dark" type="submit">
+			{{ 'legalterms.agree' | translate }}
+			<vp-icon name="arrow-right" />
+		</button>
+	</vp-footer>
+</form>

@@ -1,0 +1,36 @@
+{
+  "asar": false,
+  "buildVersion": "1",
+  "copyright": "(c) Copyright 2025 Swiss Post Ltd.",
+  "directories": {
+    "output": "target/electron"
+  },
+  "files": [
+    "main.js",
+    "!node_modules",
+    "!**/*.ts",
+    "!**/package.json",
+    "!package-lock.json"
+  ],
+  "extraResources": [
+    {
+      "from": "dist/direct-trust-tool-frontend",
+      "to": "app",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "productName": "DirectTrustTool",
+  "win": {
+    "icon": "src/assets/direct-trust-tool-logo.ico",
+    "target": [
+      {
+        "target": "dir",
+        "arch": [
+          "x64"
+        ]
+      }
+    ]
+  }
+}

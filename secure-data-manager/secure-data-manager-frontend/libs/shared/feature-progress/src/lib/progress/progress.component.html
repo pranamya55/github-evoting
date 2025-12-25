@@ -1,0 +1,50 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+@if (workflowState$ && (workflowState$ | async); as workflowState) {
+	@if (workflowState.startTimestamp) {
+		<div class="alert alert-light mt-2">
+			<div class="row">
+				<div class="col-3 d-flex align-items-center gap-2 text-nowrap">
+					<i aria-hidden="true" class="bi bi-stopwatch fs-5"></i>
+					{{ runTime | date:"H'h' mm'm' ss's'" }}
+				</div>
+				<div class="col-9">
+					@if (workflowState.startTimestamp; ) {
+						<span>{{ workflowState.startTimestamp | date:'medium' }}</span>
+					}
+					@if (workflowState.endTimestamp; ) {
+						<span> - {{ workflowState.endTimestamp | date:'medium' }}</span>
+					}
+				</div>
+			</div>
+			@if (displayMetrics && workflowState.startTimestamp && !workflowState.endTimestamp) {
+				<div class="row mt-1">
+					<div class="col-3 d-flex align-items-center gap-2">
+						<i aria-hidden="true" class="bi bi-cpu fs-5"></i>
+						@if (usedCpuPercentage > 0) {
+							<span> {{ usedCpuPercentage }}%</span>
+						}
+						@if (processorName$ | async; as processorName) {
+							<span> ({{ processorName }})</span>
+						}
+					</div>
+					<div class="col-9">
+						<ngb-progressbar [value]="usedCpuPercentage"/>
+					</div>
+				</div>
+				<div class="row mt-1">
+					<div class="col-3 d-flex align-items-center gap-2">
+						<i aria-hidden="true" class="bi bi-memory fs-5"></i>
+						@if (usedMemoryPercentage > 0) {
+							<span> {{ usedMemoryPercentage }}%</span>
+						}
+					</div>
+					<div class="col-9">
+						<ngb-progressbar [value]="usedMemoryPercentage"/>
+					</div>
+				</div>
+			}
+		</div>
+	}
+}

@@ -1,0 +1,101 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": ".",
+		"outDir": "./dist/out-tsc",
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "ES2022",
+		"module": "ES2022",
+		"useDefineForClassFields": false,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"lib": [
+			"ES2022",
+			"dom"
+		],
+		"paths": {
+			"@sdm/launcher": [
+				"libs/launcher/src/index.ts"
+			],
+			"@sdm/online": [
+				"libs/online/src/index.ts"
+			],
+			"@sdm/setup": [
+				"libs/setup/src/index.ts"
+			],
+			"@sdm/shared-feature-ballot-box-list": [
+				"libs/shared/feature-ballot-box-list/src/index.ts"
+			],
+			"@sdm/shared-feature-data-collection": [
+				"libs/shared/feature-data-collection/src/index.ts"
+			],
+			"@sdm/shared-feature-data-exchange": [
+				"libs/shared/feature-data-exchange/src/index.ts"
+			],
+			"@sdm/shared-feature-passwords": [
+				"libs/shared/feature-passwords/src/index.ts"
+			],
+			"@sdm/shared-feature-progress": [
+				"libs/shared/feature-progress/src/index.ts"
+			],
+			"@sdm/shared-feature-results": [
+				"libs/shared/feature-results/src/index.ts"
+			],
+			"@sdm/shared-feature-shell": [
+				"libs/shared/feature-shell/src/index.ts"
+			],
+			"@sdm/shared-ui-assets": [
+				"libs/shared/ui-assets/src/index.ts"
+			],
+			"@sdm/shared-ui-components": [
+				"libs/shared/ui-components/src/index.ts"
+			],
+			"@sdm/shared-ui-config": [
+				"libs/shared/ui-config/src/index.ts"
+			],
+			"@sdm/shared-ui-directives": [
+				"libs/shared/ui-directives/src/index.ts"
+			],
+			"@sdm/shared-ui-services": [
+				"libs/shared/ui-services/src/index.ts"
+			],
+			"@sdm/shared-ui-styles": [
+				"libs/shared/ui-styles/src/index.ts"
+			],
+			"@sdm/shared-util-helpers": [
+				"libs/shared/util-helpers/src/index.ts"
+			],
+			"@sdm/shared-util-testing": [
+				"libs/shared/util-testing/src/index.ts"
+			],
+			"@sdm/shared-util-types": [
+				"libs/shared/util-types/src/index.ts"
+			],
+			"@sdm/tally": [
+				"libs/tally/src/index.ts"
+			]
+		},
+		"rootDir": "."
+	},
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	},
+	"exclude": [
+		"node_modules",
+		"tmp"
+	]
+}

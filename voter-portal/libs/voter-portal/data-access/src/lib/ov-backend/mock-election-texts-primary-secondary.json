@@ -1,0 +1,496 @@
+[
+	{
+		"electionGroupIdentification": "1d75a359-70ec-4487-ba93-e52d31ce1b25",
+		"domainOfInfluence": "doid-ct1-mu",
+		"electionGroupPosition": 1,
+		"electionsInformation": [
+			{
+				"election": {
+					"electionIdentification": "833341d6-26cb-46e7-9367-2c8353762cc0",
+					"electionDescription": {
+						"DE": "Beispiel einer Hauptwahl",
+						"FR": "Exemple d'une élection principale",
+						"IT": "Esempio di elezione principale",
+						"RM": "Exempel d'elecziun principala"
+					},
+					"electionPosition": 1,
+					"numberOfMandates": 5,
+					"writeInsAllowed": true,
+					"candidateAccumulation": 1,
+					"minimalCandidateSelectionInList": 1,
+					"referencedElectionsInformation": [
+						{
+							"referencedElection": "833341d6-26cb-46e7-9367-2c8353762cc1",
+							"electionRelation": 2
+						}
+					]
+				},
+				"candidates": [
+					{
+						"candidateIdentification": "d7a1753f-de89-4aaf-a6a8-6fee3b21dc8a",
+						"position": 1,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "3 III Celina",
+							"FR": "3 III Celina",
+							"IT": "3 III Celina",
+							"RM": "3 III Celina"
+						},
+						"displayCandidateLine2": {
+							"DE": "03.03.1992, Wil",
+							"FR": "03.03.1992, Wil",
+							"IT": "03.03.1992, Wil",
+							"RM": "03.03.1992, Wil"
+						},
+						"displayCandidateLine3": {
+							"DE": "bisher",
+							"FR": "sortant/e",
+							"IT": "uscente",
+							"RM": "uscant"
+						},
+						"displayCandidateLine4": {
+							"DE": "Grüne Partei",
+							"FR": "Grüne Partei",
+							"IT": "Grüne Partei",
+							"RM": "Grüne Partei"
+						}
+					},
+					{
+						"candidateIdentification": "b0531159-eb8a-4a11-81a4-9abcc68a1c5d",
+						"position": 2,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "4 IV Christos",
+							"FR": "4 IV Christos",
+							"IT": "4 IV Christos",
+							"RM": "4 IV Christos"
+						},
+						"displayCandidateLine2": {
+							"DE": "04.04.1993, Wil",
+							"FR": "04.04.1993, Wil",
+							"IT": "04.04.1993, Wil",
+							"RM": "04.04.1993, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Rote Partei",
+							"FR": "Rote Partei",
+							"IT": "Rote Partei",
+							"RM": "Rote Partei"
+						}
+					},
+					{
+						"candidateIdentification": "2bb034f8-3851-4522-b639-f15a8a29f5bd",
+						"position": 3,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "5 V David",
+							"FR": "5 V David",
+							"IT": "5 V David",
+							"RM": "5 V David"
+						},
+						"displayCandidateLine2": {
+							"DE": "05.05.1994, Wil",
+							"FR": "05.05.1994, Wil",
+							"IT": "05.05.1994, Wil",
+							"RM": "05.05.1994, Wil"
+						},
+						"displayCandidateLine3": {
+							"DE": "bisher",
+							"FR": "sortant/e",
+							"IT": "uscente",
+							"RM": "uscant"
+						},
+						"displayCandidateLine4": {
+							"DE": "Gelbe Partei",
+							"FR": "Gelbe Partei",
+							"IT": "Gelbe Partei",
+							"RM": "Gelbe Partei"
+						}
+					},
+					{
+						"candidateIdentification": "02f27af0-1681-452e-9bb5-78e2475570ec",
+						"position": 4,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "6 VI Hadrian",
+							"FR": "6 VI Hadrian",
+							"IT": "6 VI Hadrian",
+							"RM": "6 VI Hadrian"
+						},
+						"displayCandidateLine2": {
+							"DE": "06.06.1995, Wil",
+							"FR": "06.06.1995, Wil",
+							"IT": "06.06.1995, Wil",
+							"RM": "06.06.1995, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Grüne Partei",
+							"FR": "Grüne Partei",
+							"IT": "Grüne Partei",
+							"RM": "Grüne Partei"
+						}
+					},
+					{
+						"candidateIdentification": "40185f98-27ff-459e-b73f-80486283eaef",
+						"position": 5,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "7 VII Mattheus",
+							"FR": "7 VII Mattheus",
+							"IT": "7 VII Mattheus",
+							"RM": "7 VII Mattheus"
+						},
+						"displayCandidateLine2": {
+							"DE": "07.07.1996, Wil",
+							"FR": "07.07.1996, Wil",
+							"IT": "07.07.1996, Wil",
+							"RM": "07.07.1996, Wil"
+						},
+						"displayCandidateLine3": {
+							"DE": "bisher",
+							"FR": "sortant/e",
+							"IT": "uscente",
+							"RM": "uscant"
+						},
+						"displayCandidateLine4": {
+							"DE": "Rote Partei",
+							"FR": "Rote Partei",
+							"IT": "Rote Partei",
+							"RM": "Rote Partei"
+						}
+					},
+					{
+						"candidateIdentification": "a6039f71-5f06-4ba8-8bf4-7158109b38cd",
+						"position": 6,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "8 VIII Niklaus",
+							"FR": "8 VIII Niklaus",
+							"IT": "8 VIII Niklaus",
+							"RM": "8 VIII Niklaus"
+						},
+						"displayCandidateLine2": {
+							"DE": "08.08.1997, Wil",
+							"FR": "08.08.1997, Wil",
+							"IT": "08.08.1997, Wil",
+							"RM": "08.08.1997, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Gelbe Partei",
+							"FR": "Gelbe Partei",
+							"IT": "Gelbe Partei",
+							"RM": "Gelbe Partei"
+						}
+					},
+					{
+						"candidateIdentification": "d6bbed74-17dc-43c6-85f3-b09354138a90",
+						"position": 7,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "7 XI Paul",
+							"FR": "7 XI Paul",
+							"IT": "7 XI Paul",
+							"RM": "7 XI Paul"
+						},
+						"displayCandidateLine2": {
+							"DE": "11.11.2000, Wil",
+							"FR": "11.11.2000, Wil",
+							"IT": "11.11.2000, Wil",
+							"RM": "11.11.2000, Wil"
+						},
+						"displayCandidateLine3": {
+							"DE": "bisher",
+							"FR": "sortant/e",
+							"IT": "uscente",
+							"RM": "uscant"
+						},
+						"displayCandidateLine4": {
+							"DE": "Rote Partei",
+							"FR": "Rote Partei",
+							"IT": "Rote Partei",
+							"RM": "Rote Partei"
+						}
+					},
+					{
+						"candidateIdentification": "60f0c27e-a94d-45c2-88a6-dce02d534fe0",
+						"position": 8,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "8 XII Jeremias",
+							"FR": "8 XII Jeremias",
+							"IT": "8 XII Jeremias",
+							"RM": "8 XII Jeremias"
+						},
+						"displayCandidateLine2": {
+							"DE": "12.12.2001, Wil",
+							"FR": "12.12.2001, Wil",
+							"IT": "12.12.2001, Wil",
+							"RM": "12.12.2001, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Gelbe Partei",
+							"FR": "Gelbe Partei",
+							"IT": "Gelbe Partei",
+							"RM": "Gelbe Partei"
+						}
+					}
+				],
+				"lists": [],
+				"emptyList": {
+					"listIdentification": "641f8d10-9c47-3ac4-b076-ed4f3fe500eb",
+					"listDescription": {
+						"DE": "Leere Liste",
+						"FR": "Leere Liste",
+						"IT": "Leere Liste",
+						"RM": "Leere Liste"
+					},
+					"emptyPositions": [
+						{
+							"emptyPositionIdentification": "37455c5c-a518-394c-a95a-bab90e424d15",
+							"positionOnList": 1,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						},
+						{
+							"emptyPositionIdentification": "189c0832-0cc2-32ff-9313-c938d39ce766",
+							"positionOnList": 2,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						},
+						{
+							"emptyPositionIdentification": "011548ff-7dbd-3b31-a4f8-c9b45d3cdfbf",
+							"positionOnList": 3,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						},
+						{
+							"emptyPositionIdentification": "56856bae-6227-350d-b4d4-e3c423d75bd1",
+							"positionOnList": 4,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						},
+						{
+							"emptyPositionIdentification": "a8b77f79-d43d-3cda-9ef8-353c7082aa40",
+							"positionOnList": 5,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						}
+					]
+				},
+				"writeInPositions": [
+					{
+						"writeInPositionIdentification": "ce7f57f0-b888-3ed0-9bd6-698217cdfa88",
+						"position": 1,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					},
+					{
+						"writeInPositionIdentification": "6b008d02-115a-361b-a8df-de507956729b",
+						"position": 2,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					},
+					{
+						"writeInPositionIdentification": "e4af76cb-5c85-3a07-a1cb-c89eec0a3af7",
+						"position": 3,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					},
+					{
+						"writeInPositionIdentification": "3c1d73c1-6503-3e01-bbe3-644ff10b9160",
+						"position": 4,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					},
+					{
+						"writeInPositionIdentification": "015b48e3-2a90-398a-94a2-8fd6a0ed7cb1",
+						"position": 5,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					}
+				],
+				"implicitWriteInCandidates": []
+			},
+			{
+				"election": {
+					"electionIdentification": "833341d6-26cb-46e7-9367-2c8353762cc1",
+					"electionDescription": {
+						"DE": "Beispiel einer Nebenwahl",
+						"FR": "Exemple d'une élection secondaire",
+						"IT": "Esempio di elezione secondaria",
+						"RM": "Exempel d'elecziun accessorica"
+					},
+					"electionRulesExplanation": {
+						"DE": "Wählen Sie eine(n) der Kandidat(inn)en aus der Hauptwahl",
+						"FR": "Choisissez un(e) des candidat(e)s de l'élection principale",
+						"IT": "Scegliere uno dei candidati delle elezioni principali",
+						"RM": "Elegiai ina persuna u in candidat da l'elecziun principala"
+					},
+					"electionPosition": 2,
+					"numberOfMandates": 1,
+					"writeInsAllowed": true,
+					"candidateAccumulation": 1,
+					"minimalCandidateSelectionInList": 1,
+					"referencedElectionsInformation": [
+						{
+							"referencedElection": "833341d6-26cb-46e7-9367-2c8353762cc0",
+							"electionRelation": 1
+						}
+					]
+				},
+				"candidates": [
+					{
+						"candidateIdentification": "e4be5aac-c058-4b45-a248-09a8d3945c72",
+						"position": 1,
+						"eligibility": "IMPLICIT",
+						"displayCandidateLine1": {
+							"DE": "1 I Alice",
+							"FR": "1 I Alice",
+							"IT": "1 I Alice",
+							"RM": "1 I Alice"
+						},
+						"displayCandidateLine2": {
+							"DE": "01.01.1990, Wil",
+							"FR": "01.01.1990, Wil",
+							"IT": "01.01.1990, Wil",
+							"RM": "01.01.1990, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Rote Partei",
+							"FR": "Rote Partei",
+							"IT": "Rote Partei",
+							"RM": "Rote Partei"
+						}
+					},
+					{
+						"candidateIdentification": "d7a1753f-de89-4aaf-a6a8-6fee3b21dc8a",
+						"position": 3,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "3 III Celina",
+							"FR": "3 III Celina",
+							"IT": "3 III Celina",
+							"RM": "3 III Celina"
+						},
+						"displayCandidateLine2": {
+							"DE": "03.03.1992, Wil",
+							"FR": "03.03.1992, Wil",
+							"IT": "03.03.1992, Wil",
+							"RM": "03.03.1992, Wil"
+						},
+						"displayCandidateLine3": {
+							"DE": "bisher",
+							"FR": "sortant/e",
+							"IT": "uscente",
+							"RM": "uscant"
+						},
+						"displayCandidateLine4": {
+							"DE": "Grüne Partei",
+							"FR": "Grüne Partei",
+							"IT": "Grüne Partei",
+							"RM": "Grüne Partei"
+						}
+					},
+					{
+						"candidateIdentification": "b0531159-eb8a-4a11-81a4-9abcc68a1c5d",
+						"position": 4,
+						"eligibility": "EXPLICIT",
+						"displayCandidateLine1": {
+							"DE": "4 IV Christos",
+							"FR": "4 IV Christos",
+							"IT": "4 IV Christos",
+							"RM": "4 IV Christos"
+						},
+						"displayCandidateLine2": {
+							"DE": "04.04.1993, Wil",
+							"FR": "04.04.1993, Wil",
+							"IT": "04.04.1993, Wil",
+							"RM": "04.04.1993, Wil"
+						},
+						"displayCandidateLine4": {
+							"DE": "Rote Partei",
+							"FR": "Rote Partei",
+							"IT": "Rote Partei",
+							"RM": "Rote Partei"
+						}
+					}
+				],
+				"lists": [],
+				"emptyList": {
+					"listIdentification": "599ae7c2-9c46-3fa5-8fbb-372d5f279df9",
+					"listDescription": {
+						"DE": "Leere Liste",
+						"FR": "Leere Liste",
+						"IT": "Leere Liste",
+						"RM": "Leere Liste"
+					},
+					"emptyPositions": [
+						{
+							"emptyPositionIdentification": "9c86dab1-6a2d-31a8-8084-18fd7ec012cc",
+							"positionOnList": 1,
+							"emptyPositionText": {
+								"DE": "Kein Name ausgewählt",
+								"FR": "Aucun nom sélectionné",
+								"IT": "Nessun nominativo selezionato",
+								"RM": "Nagin num selecziunà"
+							}
+						}
+					]
+				},
+				"writeInPositions": [
+					{
+						"writeInPositionIdentification": "f97317bc-ba1c-37d0-8ddd-59755e1dd4da",
+						"position": 1,
+						"returnCodeWriteInDescription": {
+							"DE": "Return Code Write-In description",
+							"FR": "Return Code Write-In description",
+							"IT": "Return Code Write-In description",
+							"RM": "Return Code Write-In description"
+						}
+					}
+				],
+				"implicitWriteInCandidates": ["Baptist II", "Valentin X"]
+			}
+		]
+	}
+]

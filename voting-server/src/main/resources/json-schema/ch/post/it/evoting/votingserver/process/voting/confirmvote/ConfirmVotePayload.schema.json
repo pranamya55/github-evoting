@@ -1,0 +1,33 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/votingserver/confirmvote/ConfirmVotePayload.schema.json",
+	"title": "Confirm Vote Payload",
+	"description": "Confirm vote payload sent by the voting-client.",
+	"type": "object",
+	"properties": {
+		"contextIds": {
+			"$ref": "https://evoting.ch/evotinglibraries/common/ContextIds.schema.json",
+			"description": "The identifiers of the verification card's election event context."
+		},
+		"encryptionGroup": {
+			"$ref": "https://evoting.ch/evotinglibraries/mixnet/GqGroup.schema.json",
+			"description": "The encryption group of the election event."
+		},
+		"confirmationKey": {
+			"type": "string",
+			"pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}={2})$",
+			"description": "The confirmation key, base64 encoded. Corresponds to CK_id in the specification."
+		},
+		"authenticationChallenge": {
+			"$ref": "https://evoting.ch/votingserver/AuthenticationChallenge.schema.json",
+			"description": "The authentication challenge."
+		}
+	},
+	"required": [
+		"contextIds",
+		"encryptionGroup",
+		"confirmationKey",
+		"authenticationChallenge"
+	],
+	"additionalProperties": false
+}

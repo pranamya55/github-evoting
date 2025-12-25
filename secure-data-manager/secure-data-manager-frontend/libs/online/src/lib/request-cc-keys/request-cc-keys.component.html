@@ -1,0 +1,58 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+<sdm-page-title
+		[instructions]="'requestCcKeys.instruction' | translate"
+		[title]="'requestCcKeys.title' | translate"
+>
+	<sdm-page-actions #pageActionsComponent>
+		<i aria-hidden="true" class="bi bi-arrow-right-circle" onReady></i>
+		@if (!pageActionsComponent.hasErrorFeedback) {
+			<p onError>
+				{{ 'requestCcKeys.pageActions.error' | translate }}
+			</p>
+		}
+		@if (pageActionsComponent.hasErrorFeedback) {
+			<p onError>
+				{{ 'error.' + pageActionsComponent.errorFeedbackCode | translate }}
+			</p>
+		}
+		<p onReady>
+			{{ 'requestCcKeys.pageActions.instruction' | translate }}
+		</p>
+		<ng-container [ngTemplateOutlet]="requestCcKeysButton" onReady></ng-container>
+		@if (pageActionsComponent.hasErrorFeedback) {
+			<ng-container [ngTemplateOutlet]="requestCcKeysButton" onError></ng-container>
+		}
+		<ng-template #requestCcKeysButton>
+			<button
+					(click)="requestCcKeys()"
+					class="btn btn-primary"
+					data-test="request"
+					type="button"
+			>
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'requestCcKeys.pageActions.request' | translate }}
+			</button>
+		</ng-template>
+
+		<div class="spinner" onProgress>
+			<span aria-hidden="true" class="spinner-border"></span>
+			<span class="visually-hidden" role="status">
+        {{ 'common.loading' | translate }}
+      </span>
+		</div>
+		<p onProgress>
+			{{ 'requestCcKeys.pageActions.inProgress' | translate }}
+		</p>
+
+
+		<i aria-hidden="true" class="bi bi-check-circle" onComplete></i>
+		<p aria-live="polite" onComplete>
+			{{ 'requestCcKeys.pageActions.processCompleted' | translate }}
+		</p>
+		<sdm-next-button onComplete></sdm-next-button>
+	</sdm-page-actions>
+
+	<sdm-progress [displayMetrics]="false"/>
+</sdm-page-title>

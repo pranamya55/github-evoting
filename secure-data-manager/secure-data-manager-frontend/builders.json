@@ -1,0 +1,10 @@
+{
+	"$schema": "./node_modules/@angular-devkit/architect/src/builders-schema.json",
+	"builders": {
+		"browser": {
+			"implementation": "./reproducible-builder.js",
+			"schema": "./node_modules/@angular-devkit/build-angular/src/builders/browser/schema.json",
+			"description": "Replaces closure translation and local path import variables before obfuscation to ensure a reproducible build."
+		}
+	}
+}

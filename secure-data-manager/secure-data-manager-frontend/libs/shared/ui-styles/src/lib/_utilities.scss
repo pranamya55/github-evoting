@@ -1,0 +1,48 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@import 'bootstrap/scss/utilities';
+
+$utilities: map-merge(
+                $utilities,
+                (
+                        "cursor": (
+                                property: cursor,
+                                values: pointer,
+                        )
+                )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": map-merge(
+      map-get($utilities, "width"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "width"), "values"),
+          (0: 0, 15: 15%),
+        ),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+                $utilities,
+                (
+                        "min-viewport-width": map-merge(
+                                        map-get($utilities, "min-viewport-width"),
+                                        (
+                                                values: map-merge(
+                                                                map-get(map-get($utilities, "min-viewport-width"), "values"),
+                                                                (15: 15vw, 25: 25vw, 50: 50vw, 75: 75vw),
+                                                ),
+                                        ),
+                        ),
+                )
+);
+
+
+
+@import 'bootstrap/scss/utilities/api';

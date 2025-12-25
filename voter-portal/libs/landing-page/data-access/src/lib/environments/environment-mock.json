@@ -1,0 +1,8 @@
+{
+	"production": false,
+	"captcha": {
+		"url": "/download",
+		"responseParameterName": "captcha-response",
+		"siteKey": ""
+	}
+}

@@ -1,0 +1,12 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use 'sass:map';
+@use '../base';
+
+.btn {
+  display: inline-flex;
+  gap: map.get(base.$spacers, 2);
+  align-items: center;
+}

@@ -1,0 +1,296 @@
+[
+	{
+		"id": "security-advices",
+		"contentElements": [
+			{
+				"heading": {
+					"level": 3,
+					"text": {
+						"DE": "Sicherheitshinweise",
+						"FR": "Conseils de sécurité",
+						"IT": "Avvertenze di sicurezza",
+						"RM": "Cunsegls da segirezza",
+						"EN": "Security advices"
+					}
+				}
+			},
+			{
+				"accordion": {
+					"level": 4,
+					"title": {
+						"DE": "Unterstütze Browser",
+						"FR": "Navigateurs supportés",
+						"IT": "Browser supportati",
+						"RM": "Browsers sustegnids",
+						"EN": "Supported browsers"
+					},
+					"icon": "globe2",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Folgende Browser werden unterstützt (andere Versionen funktionieren möglicherweise auch, jedoch gibt es für diese keinen garantierten Support).",
+									"FR": "Les navigateurs suivants sont supportés (d’autres versions peuvent fonctionner correctement, mais le support n’est pas garanti).",
+									"IT": "I browser seguenti sono supportati (è possibile che funzionino anche altre versioni, ma il supporto non è garantito).",
+									"RM": "Ils suandants browsers vegnan sustegnids (autras versiuns funcziunan eventualmain er, ma per quellas na datti nagin support garantì).",
+									"EN": "The following browsers are supported (other versions may also work, but there is no guaranteed support for them)."
+								}
+							}
+						},
+						{
+							"heading": {
+								"level": 5,
+								"text": {
+									"DE": "PC / Mac",
+									"FR": "PC / Mac",
+									"IT": "PC / Mac",
+									"RM": "PC / Mac",
+									"EN": "PC / Mac"
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "- Chrome (Aktuelle Version) / Windows 10, Windows 11 \n- Firefox (Aktuelle Version) / Windows 10, Windows 11 \n- Microsoft Edge (Aktuelle Version) / Windows 10, Windows 11 \n- Chrome (Aktuelle Version) / Mac OS \n- Firefox (Aktuelle Version) / Mac OS",
+									"FR": "- Chrome (Version actuelle) / Windows 10, Windows 11 \n- Firefox (Version actuelle) / Windows 10, Windows 11 \n- Microsoft Edge (Version actuelle) / Windows 10, Windows 11 \n- Chrome (Version actuelle) / Mac OS \n- Firefox (Version actuelle) / Mac OS",
+									"IT": "- Chrome (Versione attuale) / Windows 10, Windows 11 \n- Firefox (Versione attuale) / Windows 10, Windows 11 \n- Microsoft Edge (Versione attuale) / Windows 10, Windows 11 \n- Chrome (Versione attuale) / Mac OS \n- Firefox (Versione attuale) / Mac OS",
+									"RM": "- Chrome (versiun actuala) / Windows 10, Windows 11 \n- Firefox (versiun actuala) / Windows 10, Windows 11 \n- Microsoft Edge (versiun actuala) / Windows 10, Windows 11 \n- Chrome (versiun actuala) / Mac OS \n- Firefox (versiun actuala) / Mac OS",
+									"EN": "- Chrome (Current version) / Windows 10, Windows 11 \n- Firefox (Current version) / Windows 10, Windows 11 \n- Microsoft Edge (Current version) / Windows 10, Windows 11 \n- Chrome (Current version) / Mac OS \n- Firefox (Current version) / Mac OS"
+								}
+							}
+						},
+						{
+							"heading": {
+								"level": 5,
+								"text": {
+									"DE": "Mobile / Tablets",
+									"FR": "Mobiles / Tablettes",
+									"IT": "Smartphone / Tablet",
+									"RM": "Telefonins / Tablets",
+									"EN": "Mobile / Tablets"
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "- Safari (Aktuelle Version) / iOS \n- Chrome (Aktuelle Version) / Android",
+									"FR": "- Safari (Version actuelle) / iOS \n- Chrome (Version actuelle) / Android",
+									"IT": "- Safari (Versione attuale) / iOS \n- Chrome (Versione attuale) / Android",
+									"RM": "- Safari (versiun actuala) / iOS \n- Chrome (versiun actuala) / Android",
+									"EN": "- Safari (Current version) / iOS \n- Chrome (Current version) / Android"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"accordion": {
+					"level": 4,
+					"title": {
+						"DE": "Überprüfung des Fingerabdrucks des Zertifikats",
+						"FR": "Vérification de l´empreinte numérique du certificat",
+						"IT": "Verificare il fingerprint del certificato",
+						"RM": "Examinar l’impronta dal certificat",
+						"EN": "Verification of the fingerprint of the certificate"
+					},
+					"icon": "fingerprint",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Wenn Sie überprüfen möchten, ob Sie auf dem korrekten, offiziellen E-Voting-Portal sind, können Sie den Fingerabdruck des Zertifikats überprüfen. Auf diese Weise können Sie ausschliessen, dass Sie sich auf einer manipulierten oder gefälschten Seite befinden.",
+									"FR": "Si vous souhaitez vous assurer que vous vous trouvez sur le portail de vote électronique correct et officiel, vous pouvez vérifier l´empreinte numérique du certificat. De cette manière, vous pouvez exclure que vous vous trouvez sur un site manipulé ou falsifié.",
+									"IT": "Per assicurarvi che il portale su cui vi trovate sia quello corretto e ufficiale per il voto elettronico, potete verificare il fingerprint del certificato. In tal modo potrete escludere di trovarvi su un sito manipolato o contraffatto.",
+									"RM": "Sche Vus vulais controllar che Vus sajas sin il portal dad e-voting correct ed uffizial, pudais Vus examinar l’impronta dal certificat. Uschia pudais Vus excluder dad esser sin ina pagina manipulada u falsifitgada.",
+									"EN": "If you want to check that you are on the correct, official e-voting portal, you can verify the fingerprint of the certificate. This way you can rule out that you are on a manipulated or counterfeit page."
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Gleichen Sie dazu den Fingerabdruck (SHA-256) auf Ihrem Stimmrechtsausweis mit dem im Browser angezeigten Fingerabdruck ab. Eine Anleitung dafür finden Sie [hier](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/de/readme.md#%C3%BCberpr%C3%BCfung-des-fingerabdruck-des-zertifikats).",
+									"FR": "Il vous suffit de comparer l’empreinte numérique (SHA-256) figurant sur votre carte de légitimation avec celle qui s’affiche dans le navigateur. Vous trouverez des instructions détaillées [ici](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/fr#v%C3%A9rification-de-lempreinte-num%C3%A9rique-du-certificat).",
+									"IT": "Confrontate a tale scopo il fingerprint (SHA-256) sul vostro certificato elettorale con il fingerprint visualizzato nel browser. Le istruzioni sono disponibili [qui](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/it#verificare-il-fingerprint-del-certificato).",
+									"RM": "Cumparegliai l’impronta (SHA-256) sin Voss attest da votar cun l’impronta visualisada en il navigatur. In’instrucziun chattais Vus [qua](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/rm#examinar-limpronta-dal-certificat).",
+									"EN": "To do this, compare the fingerprint (SHA-256) on your voting card with the fingerprint displayed in your browser. Instructions can be found [here](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/en/readme.md#checking-the-certificates-fingerprint)."
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"accordion": {
+					"level": 4,
+					"title": {
+						"DE": "Browserverlauf löschen",
+						"FR": "Effacer l’historique du navigateur",
+						"IT": "Cancellare la cronologia delle esplorazioni",
+						"RM": "Stizzar la cronologia dal navigatur",
+						"EN": "Clear browser history"
+					},
+					"icon": "incognito",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Wenn Sie sicher sein wollen, dass auf Ihrem Gerät (Computer, Tablet, Smartphone) keine Rückschlüsse auf Ihre Stimmabgabe getätigt werden können, empfehlen wir Ihnen, nach jeder Stimmabgabe den Browsercache zu leeren. Eine Anleitung dafür finden Sie [hier](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/de/readme.md#browserverlauf-l%C3%B6schen).",
+									"FR": "Si vous souhaitez vous assurer qu’aucune reconstitution de votre bulletin de vote et de son contenu ne puisse être faite sur votre appareil (ordinateur, tablette, smartphone), nous vous recommandons de vider le cache du navigateur après chaque vote. Vous trouverez des instructions détaillées [ici](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/fr#effacer-lhistorique-de-votre-navigateur).",
+									"IT": "Per essere sicuri che dal vostro dispositivo (computer, tablet, smartphone) non sia possibile risalire al voto da voi espresso, vi consigliamo di vuotare la cache del browser dopo ogni procedura di voto. Le istruzioni sono disponibili [qui](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/it#cancellare-la-cronologia-delle-esplorazioni).",
+									"RM": "Sche Vus vulais far la segira ch’i n’è betg pussaivel da trair eventualas conclusiuns davart Vossas votaziuns ed elecziuns sin l’apparat che Vus avais utilisà (computer, tablet, smartphone), cussegliain nus a Vus da svidar il cache dal navigatur suenter mintga votaziun/elecziun. In’instrucziun chattais Vus [qua](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/rm#stizzar-la-cronologia-dal-navigatur).",
+									"EN": "If you want to ensure that no conclusions can be drawn about your vote on your device (computer, tablet, smartphone), we recommend clearing the browser cache after each vote. Instructions can be found [here](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Security-advices/en#deleting-browsing-history)."
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"accordion": {
+					"level": 4,
+					"title": {
+						"DE": "Trusted Build",
+						"FR": "Trusted Build",
+						"IT": "Trusted Build",
+						"RM": "Trusted Build",
+						"EN": "Trusted Build"
+					},
+					"icon": "shield-check",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Die Kantone und externe Expertinnen und Experten prüfen, ob die eingesetzte Software dem publizierten Quellcode entspricht. Die Protokolle sind [hier](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Trusted-Build/E-Voting/Release-1.5.2.0/Protocols) nachzulesen.",
+									"FR": "Les cantons ainsi que des expertes et experts externes vérifient si le logiciel utilisé correspond au code source publié. Les protocoles peuvent être consultés [ici](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Trusted-Build/E-Voting/Release-1.5.2.0/Protocols).",
+									"IT": "I Cantoni, le esperte e gli esperti esterni verificano che il software impiegato corrisponda al codice sorgente pubblicato. I protocolli sono consultabili [qui](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Trusted-Build/E-Voting/Release-1.5.2.0/Protocols).",
+									"RM": "Ils chantuns ed expertas ed experts externs examineschan, sche la software utilisada correspunda al code da funtauna publitgà. Ils protocols pon ins leger [qua](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Trusted-Build/E-Voting/Release-1.5.2.0/Protocols).",
+									"EN": "The cantons and external experts check whether the software used corresponds to the published source code. The protocols can be read [here](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/tree/master/Trusted-Build/E-Voting/Release-1.5.2.0/Protocols)."
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Sie können die Hashwerte ebenfalls [überprüfen](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/de/readme.md#hashwerte-%C3%BCberpr%C3%BCfen-erweiterte-pr%C3%BCfung). Vergleichen Sie dazu die Hashwerte der Javascript und HTML Dateien im Wahl- und Abstimmungsportal mit den Werten aus den Protokollen. Zur besseren Übersicht finden Sie untenstehend zusätzlich die Hashwerte der Javascript und HTML Dateien.",
+									"FR": "Vous pouvez également [vérifier](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/fr/readme.md#contr%C3%B4le-des-valeurs-hash-contr%C3%B4le-%C3%A9largi) les valeurs hash. Pour cela, comparez les valeurs hash des fichiers Javascript et HTML dans le portail de vote avec celles des protocoles. Pour une meilleure vue d’ensemble, vous trouverez également ci-dessous les valeurs hash des fichiers Javascript et HTML.",
+									"IT": "Possono essere [verificati](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/it/readme.md#verificare-i-valori-hash-verifica-avanzata) anche i valori hash. Confrontate a tale scopo i valori hash dei file JavaScript e HTML nel portale di voto con i valori indicati nei protocolli. Di seguito troverete anche i valori hash dei file JavaScript e HTML per ottenere una panoramica migliore.",
+									"RM": "Vus pudais medemamain [examinar](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/rm/readme.md#controllar-las-valurs-hash-verificaziun-extendida) las valurs hash. Cumparegliai las valurs hash da las datotecas da Javascript e HTML en il portal d’elecziun e da votaziun cun las valurs dals protocols. Per Vossa survista chattais Vus sutvart las valurs hash da las datotecas da Javascript e HTML.",
+									"EN": "You can also [check](https://gitlab.com/swisspost-evoting/e-voting/e-voting-documentation/-/blob/master/Security-advices/en/readme.md#verify-hash-values-extended-check) the hash values. To do this, compare the hash values of the JavaScript and HTML files in the voting portal with the values from the protocols. For better clarity, you will also find the hash values of the JavaScript and HTML files below."
+								}
+							}
+						},
+						{
+							"heading": {
+								"level": 5,
+								"text": {
+									"DE": "SHA-384 Base64 (kann mit sha384- beginnen)",
+									"FR": "SHA-384 Base64 (peut commencer par sha384-)",
+									"IT": "SHA-384 Base64 (può iniziare con sha384-)",
+									"RM": "SHA-384 Base64 (po cumenzar cun sha384-)",
+									"EN": "SHA-384 Base64 (can start with sha384-)"
+								}
+							}
+						},
+						{
+							"hashes": [
+								{
+									"file": "crypto.ov-api.js",
+									"hash": "uguj2B36NOBzaCI26uMUhZAUEOful2xyC6hXT8HWkUgrtX0rdrkek884rneGEg8Y"
+								},
+								{
+									"file": "crypto.ov-worker.js",
+									"hash": "mKrT8AcUZrBRfHphNwDd4gafrPOeG/ItlgMl0F03G7/qVmFFzSp2FTahOeYZsIwL"
+								},
+								{
+									"file": "main.js",
+									"hash": "suzXmaR0QGePkpaxmWwt7S0bzjf6UQURCsrkHbAW4GMkApWSljgk37ikL9WRGTQq"
+								},
+								{
+									"file": "polyfills.js",
+									"hash": "zQ6L1uitBAMd4TxPTORkVusd21oAAkfMuhEXnHl0V5VOdMpOaaLfkwF28aNNSbkq"
+								},
+								{
+									"file": "runtime.js",
+									"hash": "GxbJFKoYo2EY3CBEWTvRoxxGZ6ghQCZVSslh8licGldxrLuoL4sC9WGYqlAf26VE"
+								}
+							]
+						},
+						{
+							"heading": {
+								"level": 5,
+								"text": {
+									"DE": "SHA-256",
+									"FR": "SHA-256",
+									"IT": "SHA-256",
+									"RM": "SHA-256",
+									"EN": "SHA-256"
+								}
+							}
+						},
+						{
+							"hashes": [
+								{
+									"file": "index.html",
+									"hash": "41b26bbb5d2511e48bdbbcc4eabc65e819078382677ad12355266286098dfe2f"
+								},
+								{
+									"file": "crypto.ov-api.js",
+									"hash": "d275cc543549f9dcbb8f95c814344d090193b72dc105c37c5fe6398e8f22a264"
+								},
+								{
+									"file": "crypto.ov-worker.js",
+									"hash": "2dbde161282215c586c753584309777ca7f854f8710571ab42d6a3695c41a574"
+								},
+								{
+									"file": "main.js",
+									"hash": "6b8df3f8ac109e43b49b0cff43b1e58c936a2955008f758a2728b0ad3e565811"
+								},
+								{
+									"file": "polyfills.js",
+									"hash": "5fde1c2eb5607a6a1d4c6cd69802ce90aa417a55582f42c6104d71b66650799b"
+								},
+								{
+									"file": "runtime.js",
+									"hash": "227c888186c9b3d16852c61fffad3d1cfbb683322ca211e2cb4907816183db7b"
+								}
+							]
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"id": "event-upcoming",
+		"contentElements": [
+			{
+				"heading": {
+					"level": 4,
+					"text": {
+						"DE": "Urnengang vom **26 November 2025**",
+						"FR": "Urnengang vom **26 November 2025**",
+						"IT": "Urnengang vom **26 November 2025**",
+						"RM": "Urnengang vom **26 November 2025**",
+						"EN": "Urnengang vom **26 November 2025**"
+					}
+				}
+			},
+			{
+				"eventState": {
+					"phaseLevel": "UPCOMING",
+					"text": {
+						"DE": "**Öffnet am:** Montag 28. Juli 2025, 12:00 Uhr, Schweizer Lokalzeit",
+						"FR": "**Ouvre le:** lundi 28 juillet 2025, 12h00, heure locale suisse [1]",
+						"IT": "**Apertura il:** lunedì 28 luglio 2025, 12:00, ora locale della Svizzera",
+						"RM": "**Apertura il:** glindesdi 28 da fanadur 2025, 12:00, uras locala da la Svizra",
+						"EN": "**Opens on:** Monday, July 28 2025, 12:00 noon, Swiss local time"
+					}
+				}
+			}
+		]
+	}
+]

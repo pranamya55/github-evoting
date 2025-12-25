@@ -1,0 +1,19 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "../bootstrap-overrides" as app;
+
+@each $breakpoint in map-keys(app.$grid-breakpoints) {
+  $infix: app.breakpoint-infix($breakpoint, app.$grid-breakpoints);
+  $postfix: if($infix != "", $infix + "-down", "");
+
+  @include app.media-breakpoint-down($breakpoint) {
+    .modal-fullscreen#{$postfix} {
+      .modal-content > *:only-child:not(.modal-body) {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+    }
+  }
+}

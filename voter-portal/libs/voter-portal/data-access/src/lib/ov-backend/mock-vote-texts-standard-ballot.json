@@ -1,0 +1,135 @@
+[
+	{
+		"voteIdentification": "ch_test",
+		"domainOfInfluence": "doid-ch1-mu",
+		"votePosition": 1,
+		"voteDescription": {
+			"DE": "Beispielabstimmung",
+			"FR": "Votation d'exemple",
+			"IT": "Votazione d'esempio",
+			"RM": "votaziun d'exempel"
+		},
+		"ballots": [
+			{
+				"ballotIdentification": "1cbcbd59-94ad-4f48-bc7d-4bc38e5c0c51",
+				"ballotPosition": 1,
+				"questionIdentification": "106f52e6-9d49-4906-b2a8-7c89dfdf53e2",
+				"questionNumber": "1",
+				"ballotQuestion": {
+					"question": {
+						"DE": "Wollen Sie den ersten «**Vorschlag**» annehmen?",
+						"FR": "Acceptez-vous la première «**proposition**» ?",
+						"IT": "accettate la prima «**proposta**» ?",
+						"RM": "acceptar l’emprima «**proposta**» ?"
+					}
+				},
+				"answers": [
+					{
+						"answerIdentification": "1aa38c9e-6e93-3159-91e1-c3da90681572",
+						"answerPosition": 1,
+						"answerType": "YES",
+						"answerInformation": {
+							"DE": "Ja",
+							"FR": "Oui",
+							"IT": "Si",
+							"RM": "Gea"
+						}
+					},
+					{
+						"answerIdentification": "26ac94e3-0c72-3570-9df9-050ebb18a9cc",
+						"answerPosition": 2,
+						"answerType": "NO",
+						"answerInformation": {
+							"DE": "Nein",
+							"FR": "Non",
+							"IT": "No",
+							"RM": "Na"
+						}
+					},
+					{
+						"answerIdentification": "1bed7bf6-a7ed-3812-bb0c-22e449aa4f96",
+						"answerPosition": 3,
+						"answerType": "EMPTY",
+						"answerInformation": {
+							"DE": "Leer",
+							"FR": "Blanc",
+							"IT": "Bianco",
+							"RM": "Vid"
+						}
+					}
+				]
+			},
+			{
+				"ballotIdentification": "9cbcbd59-94ad-4f48-bc7d-4bc38e5c0c51",
+				"ballotPosition": 2,
+				"questionIdentification": "806f52e6-9d49-4906-b2a8-7c89dfdf53e2",
+				"questionNumber": "1",
+				"ballotQuestion": {
+					"question": {
+						"DE": "Wollen Sie den ersten «**Vorschlag**» annehmen?",
+						"FR": "Acceptez-vous la première «**proposition**» ?",
+						"IT": "accettate la prima «**proposta**» ?",
+						"RM": "acceptar l’emprima «**proposta**» ?"
+					}
+				},
+				"answers": [
+					{
+						"answerIdentification": "2bb28c9e-1b34-9873-43a3-c3da90751572",
+						"answerPosition": 1,
+						"answerType": "UNDEFINED",
+						"answerInformation": {
+							"DE": "Ja, umfassend unterstützen",
+							"FR": "Oui, soutenir largement",
+							"IT": "Sì, sostenere ampiamente",
+							"RM": "Gea, sustegnair cumplessivamai"
+						}
+					},
+					{
+						"answerIdentification": "3aa38c9e-6e93-3159-91e1-c3da90681572",
+						"answerPosition": 2,
+						"answerType": "UNDEFINED",
+						"answerInformation": {
+							"DE": "Ja, teilweise unterstützen",
+							"FR": "Oui, soutenir partiellement",
+							"IT": "Sì, sostenere in parte",
+							"RM": "Neutral, nagina midada"
+						}
+					},
+					{
+						"answerIdentification": "16ac94e3-0c72-3570-9df9-050ebb18a9cc",
+						"answerPosition": 3,
+						"answerType": "UNDEFINED",
+						"answerInformation": {
+							"DE": "Neutral, keine Änderung",
+							"FR": "Neutre, aucune modification",
+							"IT": "Neutrale, nessuna modifica",
+							"RM": "Neutral, nagina midada"
+						}
+					},
+					{
+						"answerIdentification": "45fa12c4-1e95-9264-5fd5-843acc43b1bb",
+						"answerPosition": 4,
+						"answerType": "UNDEFINED",
+						"answerInformation": {
+							"DE": "Nein, dagegen",
+							"FR": "Non, contre",
+							"IT": "No, contrario",
+							"RM": "Na, cunter"
+						}
+					},
+					{
+						"answerIdentification": "fbed7bf6-a7ed-3812-bb0c-22e449aa4f96",
+						"answerPosition": 5,
+						"answerType": "EMPTY",
+						"answerInformation": {
+							"DE": "Leer",
+							"FR": "Blanc",
+							"IT": "Bianco",
+							"RM": "Vid"
+						}
+					}
+				]
+			}
+		]
+	}
+]

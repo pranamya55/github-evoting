@@ -1,0 +1,92 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<input
+	#writeIn
+	(keydown.enter)="preventFormSubmission()"
+	(ngModelChange)="setWriteIn(writeIn.value)"
+	[attr.aria-label]="
+		'listandcandidates.writein.label.screenreader'
+			| translate: { position: positionOnList }
+	"
+	[ngModel]="initialWriteIn"
+	[placeholder]="'listandcandidates.writein.placeholder' | translate"
+	aria-labelledby="writeIn--invalid-characters writeIn--invalid-format"
+	class="form-control"
+	[class.is-invalid]="shouldShowErrors() && writeInControl.invalid"
+	id="candidate-{{ positionOnList }}-election-{{
+		electionIdentification
+	}}-write-in"
+	required
+	type="text"
+/>
+
+@if (shouldShowErrors() && writeInControl.errors; as errors) {
+	@if (errors['incorrectCharacters']) {
+		<ng-container
+			[ngTemplateOutlet]="errorMessage"
+			[ngTemplateOutletContext]="{
+				id: 'writeIn--invalid-characters',
+				messageKey: 'listandcandidates.writein.invalidcharacters',
+				buttonKey: 'listandcandidates.writein.invalidcharacters.seevalidones',
+			}"
+		/>
+	} @else if (errors['incorrectFormat']) {
+		<ng-container
+			[ngTemplateOutlet]="errorMessage"
+			[ngTemplateOutletContext]="{
+				id: 'writeIn--invalid-format',
+				messageKey: 'listandcandidates.writein.invalidformat',
+				buttonKey: 'listandcandidates.instructions.howtousewriteins',
+			}"
+		/>
+	} @else if (errors['notSelectedInPrimary']) {
+		<ng-container
+			[ngTemplateOutlet]="errorMessage"
+			[ngTemplateOutletContext]="{
+				id: 'writeIn--not-selected-in-primary',
+				messageTemplate: notSelectedInPrimary,
+				buttonKey: 'listandcandidates.instructions.howtousewriteins',
+			}"
+		/>
+
+		<ng-template #notSelectedInPrimary>
+			@if (electionInformation.implicitWriteInCandidates?.length === 0) {
+				{{ 'listandcandidates.writein.notinprimary' | translate }}
+			} @else {
+				{{ 'listandcandidates.writein.notinprimaryandnotimplicit' | translate }}
+				{{ electionInformation.implicitWriteInCandidates?.join(', ') }}
+			}
+		</ng-template>
+	}
+}
+
+<ng-template
+	#errorMessage
+	let-buttonKey="buttonKey"
+	let-id="id"
+	let-messageKey="messageKey"
+	let-messageTemplate="messageTemplate"
+>
+	<div [id]="id" class="alert alert-warning mt-3 mb-0">
+		<p class="mb-0">
+			@if (messageKey) {
+				{{ messageKey | translate }}
+			} @else if (messageTemplate) {
+				<ng-container [ngTemplateOutlet]="messageTemplate" />
+			}
+		</p>
+		<button
+			(click)="showWriteInsFAQ()"
+			class="btn btn-link btn-faq align-with-text"
+			type="button"
+		>
+			<vp-icon name="question-circle"></vp-icon>
+			{{ buttonKey | translate }}
+		</button>
+	</div>
+</ng-template>
+
+<div class="pt-3">
+	<ng-content />
+</div>

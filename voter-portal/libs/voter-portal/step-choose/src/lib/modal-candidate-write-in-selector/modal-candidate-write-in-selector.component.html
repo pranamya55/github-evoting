@@ -1,0 +1,25 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<div class="row flex-column gap-2 flex-sm-row gap-sm-0">
+	<div class="col">
+		<h3 class="h6">
+			{{ 'candidateselection.candidateresult.writeInPosition' | translate }}
+		</h3>
+	</div>
+	<div class="col-sm-3">
+		<button
+			(click)="selectWriteIn()"
+			class="btn btn-outline-dark w-100"
+			type="button"
+		>
+			<vp-icon name="check2"></vp-icon>
+			<span aria-hidden="true">{{
+				'candidateselection.candidateresult.select' | translate
+			}}</span>
+			<span class="visually-hidden">{{
+				'candidateselection.candidateresult.select.screenreader' | translate
+			}}</span>
+		</button>
+	</div>
+</div>

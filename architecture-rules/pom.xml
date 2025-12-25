@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ch.post.it.evoting</groupId>
+		<artifactId>evoting-dependencies</artifactId>
+		<version>1.5.2.2</version>
+		<relativePath>../evoting-dependencies/pom.xml</relativePath>
+	</parent>
+
+	<groupId>ch.post.it.evoting.architecture</groupId>
+	<artifactId>architecture-rules</artifactId>
+	<name>Architecture rules</name>
+
+	<dependencies>
+		<!-- ch.post.it.evoting -->
+		<dependency>
+			<groupId>ch.post.it.evoting.controlcomponent</groupId>
+			<artifactId>control-component</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.controlcomponent</groupId>
+			<artifactId>control-component</artifactId>
+			<type>test-jar</type>
+			<version>${control-component.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.cryptoprimitives</groupId>
+			<artifactId>crypto-primitives</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.direct-trust-tool</groupId>
+			<artifactId>direct-trust-tool-backend</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.domain</groupId>
+			<artifactId>domain</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.evotinglibraries</groupId>
+			<artifactId>e-voting-libraries-domain</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.securedatamanager</groupId>
+			<artifactId>secure-data-manager-backend</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.securedatamanager</groupId>
+			<artifactId>secure-data-manager-backend</artifactId>
+			<type>test-jar</type>
+			<version>${secure-data-manager.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.tools</groupId>
+			<artifactId>xml-signature</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.votingserver</groupId>
+			<artifactId>voting-server</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.post.it.evoting.votingserver</groupId>
+			<artifactId>voting-server</artifactId>
+			<type>test-jar</type>
+			<version>${voting-server.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- There is no jar to build nor install -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<skipIfEmpty>true</skipIfEmpty>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<usedDependencies>
+						<!-- Tests runtime -->
+						<dependency>ch.post.it.evoting.controlcomponent:control-component</dependency>
+						<dependency>ch.post.it.evoting.cryptoprimitives:crypto-primitives</dependency>
+						<dependency>ch.post.it.evoting.domain:domain</dependency>
+						<dependency>ch.post.it.evoting.evotinglibraries:e-voting-libraries-domain</dependency>
+						<dependency>ch.post.it.evoting.securedatamanager:secure-data-manager-backend</dependency>
+						<dependency>ch.post.it.evoting.tools:xml-signature</dependency>
+						<dependency>ch.post.it.evoting.votingserver:voting-server</dependency>
+					</usedDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

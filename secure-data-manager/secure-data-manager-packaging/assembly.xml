@@ -1,0 +1,55 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xmlns="http://maven.apache.org/ASSEMBLY/2.1.1"
+					xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.1 https://maven.apache.org/xsd/assembly-2.1.1.xsd">
+	<id>files</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<fileSets>
+		<!-- Electron executable & resources -->
+		<fileSet>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+			<directory>${project.basedir}/../secure-data-manager-frontend/target/electron/win-unpacked</directory>
+			<outputDirectory/>
+		</fileSet>
+		<!-- OpenJDK jre -->
+		<fileSet>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+			<directory>${project.build.directory}/install/OpenJDK-win64/${openjdk-jre.version}</directory>
+			<excludes>
+				<exclude>resources/${openjdk-jre.version}/conf/security/java.security</exclude>
+			</excludes>
+			<outputDirectory>resources/embedded-jre</outputDirectory>
+		</fileSet>
+	</fileSets>
+
+	<files>
+		<!-- SDM jar -->
+		<file>
+			<fileMode>0644</fileMode>
+			<source>${project.basedir}/../secure-data-manager-backend/target/secure-data-manager-backend-${project.version}-runnable.jar</source>
+			<outputDirectory>resources</outputDirectory>
+			<destName>secure-data-manager-backend-runnable.jar</destName>
+		</file>
+		<!-- Backend-server.bat -->
+		<file>
+			<fileMode>0744</fileMode>
+			<source>${project.basedir}/resources/backend-server.bat</source>
+			<outputDirectory>resources</outputDirectory>
+		</file>
+		<!-- Java security -->
+		<file>
+			<fileMode>0644</fileMode>
+			<source>${project.basedir}/../../security/windows/java.security</source>
+			<outputDirectory>resources/embedded-jre/conf/security</outputDirectory>
+		</file>
+	</files>
+
+</assembly>

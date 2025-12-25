@@ -1,0 +1,38 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+@use 'sass:map';
+@use '../base';
+
+sdm-scrollbar {
+  display: block;
+  overflow: hidden;
+  flex: 0 1 auto;
+}
+
+.scrollable-content {
+  height: 100%;
+  overflow-y: auto;
+  padding-inline-end: map.get(base.$spacers, 3);
+  padding-block-end: map.get(base.$spacers, 4);
+}
+
+
+.simplebar-scrollbar::before {
+  background-color: black;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 10px;
+  background-color: #ebebf2;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar::before {
+  height: 6px;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
+  width: 6px;
+  background-color: black;
+}

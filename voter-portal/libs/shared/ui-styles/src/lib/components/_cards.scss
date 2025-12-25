@@ -1,0 +1,25 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+@use "sass:map";
+@use "../bootstrap-overrides" as app;
+
+.card {
+  &-header {
+    border: none;
+  }
+
+  &-header,
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: map.get(app.$spacers, 2);
+  }
+
+  &-header > &-title {
+    margin: 0;
+    font-weight: app.$font-weight-bold;
+  }
+}

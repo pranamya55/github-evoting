@@ -1,0 +1,66 @@
+<!--
+  ~ (c) Copyright 2025 Swiss Post Ltd.
+  -->
+
+<vp-accordion-election
+	[formGroup]="electionInformationAnswerFormGroup"
+	[chosenCandidateCount]="chosenCandidateCount"
+	[electionInformation]="electionInformation"
+>
+	@if (electionInformation.election.electionRulesExplanation) {
+		<p>
+			{{
+				electionInformation.election.electionRulesExplanation | translateText
+			}}
+		</p>
+	}
+
+	<p>
+		{{ 'listandcandidates.instructions' | translate }}
+		@if (electionInformation.election.candidateAccumulation > 1) {
+			<span data-test="accumulation-instruction">
+				{{ 'listandcandidates.instructions.accumulation' | translate }}
+			</span>
+		}
+	</p>
+
+	@if (electionInformation.election.writeInsAllowed) {
+		<button
+			(click)="showWriteInsFAQ()"
+			class="btn btn-link btn-faq align-with-text mt-n3 mb-3"
+			data-test="writeins-faq-button"
+			type="button"
+		>
+			<vp-icon name="question-circle"></vp-icon>
+			{{ 'listandcandidates.instructions.howtousewriteins' | translate }}
+		</button>
+	}
+
+	@if (electionInformation.election.minimalCandidateSelectionInList > 0) {
+		<p class="visually-hidden">
+			{{
+				'listandcandidates.instructions.mandatorytochooseanoption' | translate
+			}}
+		</p>
+	}
+
+	<ng-template #listTemplate>
+		<vp-choose-election-list
+			(listSelected)="chooseListCandidatePositions($event)"
+			[electionInformation]="electionInformation"
+			[chosenCandidateCount]="chosenCandidateCount"
+		/>
+	</ng-template>
+
+	<ng-template #candidateTemplate let-emptyPosition="emptyPosition">
+		<vp-choose-election-candidate
+			(candidateAccumulated)="accumulateCandidate($event)"
+			[electionInformation]="electionInformation"
+			[emptyPosition]="emptyPosition"
+			[candidatesChosenInCurrentElection]="candidatesChosenInCurrentElection"
+			[candidatesChosenInPrimaryElection]="candidatesChosenInPrimaryElection"
+			[writeInsChosenInPrimaryElection]="writeInsChosenInPrimaryElection"
+			[nextAvailablePosition]="nextAvailablePosition"
+		/>
+	</ng-template>
+</vp-accordion-election>

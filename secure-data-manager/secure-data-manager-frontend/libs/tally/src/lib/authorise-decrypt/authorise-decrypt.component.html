@@ -1,0 +1,74 @@
+<!--
+~ (c) Copyright 2025 Swiss Post Ltd.
+-->
+
+@if (boardMembers$ | async; as boardMembers) {
+	<sdm-page-title
+			[instructions]="'authoriseDecrypt.instruction' | translate"
+			[title]="'authoriseDecrypt.title' | translate"
+	>
+		<sdm-page-actions [forceComplete]="areAllPasswordsSet"
+						  [forceError]="cannotValidatePassword">
+			@if (!areAllPasswordsSet) {
+				<i aria-hidden="true" class="bi bi-pen" onReady></i>
+			}
+			@if (!areAllPasswordsSet) {
+				<p onReady>
+					{{ 'authoriseDecrypt.pageActions.setAllPasswords' | translate }}
+				</p>
+			}
+			<button
+					(click)="decrypt()"
+					[disabled]="!areAllPasswordsSet"
+					[sdmRouterLinkTo]="WorkflowStep.Decrypt"
+					class="btn btn-primary"
+					onReady
+					type="button"
+			>
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'authoriseDecrypt.pageActions.decrypt' | translate }}
+			</button>
+			@if (areAllPasswordsSet) {
+				<i aria-hidden="true" class="bi bi-arrow-right-circle" onComplete></i>
+			}
+			@if (areAllPasswordsSet) {
+				<p onComplete>
+					{{ 'authoriseDecrypt.pageActions.allPasswordsSet' | translate }}
+				</p>
+			}
+			<button
+					(click)="decrypt()"
+					[disabled]="!areAllPasswordsSet"
+					[sdmRouterLinkTo]="WorkflowStep.Decrypt"
+					class="btn btn-primary"
+					onComplete
+					type="button"
+			>
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'authoriseDecrypt.pageActions.decrypt' | translate }}
+			</button>
+			@if (!areAllPasswordsSet) {
+				<i aria-hidden="true" class="bi bi-x-circle fs-2" onError></i>
+			}
+			<p onError>
+				{{ 'authoriseDecrypt.error.INVALID_SIGNATURE' | translate }}
+			</p>
+			<button
+					(click)="back()"
+					class="btn btn-primary"
+					onError
+					type="button"
+			>
+				<i aria-hidden="true" class="bi bi-arrow-right-circle"></i>
+				{{ 'authoriseDecrypt.pageActions.back' | translate }}
+			</button>
+		</sdm-page-actions>
+	</sdm-page-title>
+	<sdm-password-validation
+			(allPasswordsSet)="areAllPasswordsSet = true"
+			(passwordSet)="validatePassword($event)"
+			[boardMembers]="boardMembers"
+			[isPasswordValid]="isPasswordValid"
+			[enabled]="!cannotValidatePassword"
+	></sdm-password-validation>
+}

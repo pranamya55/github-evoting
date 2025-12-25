@@ -1,0 +1,62 @@
+[
+	{
+		"description": "get-authentication-challenge-authenticateVoter",
+		"context": {
+			"ee": "215BD9B6939A61883281DCB3068C586F",
+			"authStep": "authenticateVoter"
+		},
+		"input": {
+			"SVK_id": "b2mhksk7aycvce6gnzjmedqw",
+			"EA_id": "01012001"
+		},
+		"mocked": {
+			"t": "1692083790000",
+			"nonce": "14850065438556234868016246949727489919789018752867679449037480607119289283621"
+		},
+		"output": {
+			"credentialID_id": "22E6BFAC9CC3C33A4892A45BF2F2546C",
+			"hhAuth_id": "yDteGDQfoMmFNCJMI0t8XAahID6verYzD0B4atS77zw=",
+			"nonce": "14850065438556234868016246949727489919789018752867679449037480607119289283621"
+		}
+	},
+	{
+		"description": "get-authentication-challenge-sendVote",
+		"context": {
+			"ee": "CD887CBDE3618481B3ED77568DA946F8",
+			"authStep": "sendVote"
+		},
+		"input": {
+			"SVK_id": "cvmzvpczhbqffewckcsr6wgm",
+			"EA_id": "01012001"
+		},
+		"mocked": {
+			"t": "1692083790000",
+			"nonce": "100089544686531400112997774043744487996103949507300229448272963247138472404220"
+		},
+		"output": {
+			"credentialID_id": "3C0CCF3E327E882D27B899BC5791A1EA",
+			"hhAuth_id": "/PuivrqtrYbk4YxeqhRlQIV7q1v9NDwWMLyteYLgKf0=",
+			"nonce": "100089544686531400112997774043744487996103949507300229448272963247138472404220"
+		}
+	},
+	{
+		"description": "get-authentication-challenge-confirmVote",
+		"context": {
+			"ee": "449E604F5E39CF74907D6D3D387F6A14",
+			"authStep": "confirmVote"
+		},
+		"input": {
+			"SVK_id": "c62tphk4us7ykhbkmgbvczkw",
+			"EA_id": "01012001"
+		},
+		"mocked": {
+			"t": "1692083790000",
+			"nonce": "115680098706297259459974029855943826539769961795845484510845304669276503283035"
+		},
+		"output": {
+			"credentialID_id": "BE265BB9E2C5E49363E8226A55D955B5",
+			"hhAuth_id": "TNQeBUblh+jtjJTB9rLbkIh7M6rMX8b6sqad5P2PIAU=",
+			"nonce": "115680098706297259459974029855943826539769961795845484510845304669276503283035"
+		}
+	}
+]

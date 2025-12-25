@@ -1,0 +1,31 @@
+{
+	"name": "voting-client",
+	"author": "Swiss Post Ltd.",
+	"license": "(c) Copyright 2025 Swiss Post Ltd.",
+	"private": true,
+	"version": "1.5.2-2",
+	"scripts": {
+		"build": "npx webpack --config webpack.config.js",
+		"test": "jest --runInBand --coverage --colors --logHeapUsage",
+		"install:vendor": "npm install crypto-primitives-ts e-voting-libraries-ui-kit"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"dependencies": {
+		"crypto-primitives-ts": "file:vendor/crypto-primitives-ts",
+		"e-voting-libraries-ui-kit": "file:vendor/e-voting-libraries-ui-kit"
+	},
+	"devDependencies": {
+		"@types/jest": "30.0.0",
+		"ts-jest": "29.4.5",
+		"ts-loader": "9.5.4",
+		"typescript": "5.9.3",
+		"webpack": "5.102.1",
+		"webpack-cli": "6.0.1"
+	},
+	"browser": {
+		"crypto": false
+	}
+}

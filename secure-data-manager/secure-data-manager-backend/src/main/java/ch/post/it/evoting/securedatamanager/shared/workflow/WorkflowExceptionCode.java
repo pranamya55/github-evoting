@@ -1,0 +1,34 @@
+/*
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+package ch.post.it.evoting.securedatamanager.shared.workflow;
+
+public enum WorkflowExceptionCode {
+	// Pre-configure
+	// Pre-compute
+	NEGATIVE_CHUNK_SIZE,
+	// Export
+	BAD_SDM_OUTPUT_FOLDER_PATH,
+	OUTPUT_FOLDER_MISSING,
+	// Import
+	CHECK_ZIP_PASSWORD,
+	USB_DIRECTORY_NOT_EXIST,
+	IMPORT_STEP_NOT_EXIST,
+	IMPORT_CONTENT_NOT_MATCH_CURRENT_IMPORT_STEP,
+	IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT,
+	IMPORT_CONTENT_NOT_MATCH_CURRENT_ELECTION_EVENT_SEED,
+	// Request CC keys
+	TIME_OUT,
+	// Generate print file
+	CONFIGURATION_ANONYMIZED_MISSING,
+	CONFIGURE_VOTER_PORTAL_INVALID,
+	// Mix download
+	VOTER_PORTAL_NOT_ENABLED,
+	// Decrypt
+	BALLOT_BOX_NOT_CLOSED,
+	INVALID_SIGNATURE,
+	// General
+	CONNECTION_ERROR,
+	DEFAULT,
+	NONE
+}

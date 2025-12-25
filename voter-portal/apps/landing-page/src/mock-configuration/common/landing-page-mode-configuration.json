@@ -1,0 +1,101 @@
+[
+	{
+		"id": "maintenance-work",
+		"hideLandingPageContent": true,
+		"contentElements": [
+			{
+				"alert": {
+					"level": "warning",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Momentan finden Wartungsarbeiten statt. Daher steht die Plattform momentan nicht zur Verfügung. Wir danken Ihnen für Ihr Verständnis.",
+									"FR": "Des travaux de maintenance sont en cours. La plateforme n’est donc pas disponible pour le moment. Nous vous remercions de votre compréhension.",
+									"IT": "Sono in corso lavori di manutenzione. La piattaforma non è quindi al momento disponibile. Vi ringraziamo per la vostra comprensione.",
+									"RM": "I vegn fatg lavurs da mantegniment. Questa plattafurma n’è pia betg disponibla mumentanamain. Nus engraziain per Vossa chapientscha."
+								}
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"id": "not-available",
+		"hideLandingPageContent": true,
+		"contentElements": [
+			{
+				"alert": {
+					"level": "error",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Leider ist die E-Voting-Plattform zur Zeit nicht verfügbar.",
+									"FR": "La plateforme de vote électronique n’est malheureusement pas disponible pour le moment.",
+									"IT": "Purtroppo la piattaforma di voto elettronico non è momentaneamente disponibile.",
+									"RM": "Deplorablamain n’è la plattafurma per la votaziun electronica betg accessibla per il mument."
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Unsere Systemanbieterin, die Schweizerische Post, arbeitet intensiv daran, E-Voting so bald wie möglich wieder bereitzustellen.",
+									"FR": "Notre fournisseur de système, la Poste, met tout en œuvre pour rétablir le vote électronique dans les meilleurs délais.",
+									"IT": "La Posta, nostro fornitore di sistema, sta facendo tutto il possibile per risolvere il problema quanto prima.",
+									"RM": "Nossa purschidra dal sistem, la Posta svizra, lavura intensivamain per che l’e-voting saja puspè disponibel uschè spert sco pussaivel."
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Wir entschuldigen uns für die Unannehmlichkeiten, die durch den Unterbruch entstehen.",
+									"FR": "Nous vous prions de nous excuser pour les désagréments causés par cette interruption.",
+									"IT": "Ci scusiamo per i disagi arrecati dall’interruzione.",
+									"RM": "Nus ans perstgisain per las malempernaivladads ch’igl ha dà pervia da l’interrupziun."
+								}
+							}
+						},
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.",
+									"FR": "Veuillez réessayer ultérieurement.",
+									"IT": "La preghiamo di riprovare più tardi.",
+									"RM": "Empruvai per plaschair pli tard anc ina giada."
+								}
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"id": "slow-network",
+		"hideLandingPageContent": false,
+		"contentElements": [
+			{
+				"alert": {
+					"level": "info",
+					"contentElements": [
+						{
+							"paragraph": {
+								"text": {
+									"DE": "Netzwerkverzögerungen können den Abstimmungsprozess beeinträchtigen. Wir danken Ihnen für Ihr Verständnis.",
+									"FR": "Des lenteurs réseaux peuvent altérer la procédure de vote. Nous vous remercions de votre compréhension.",
+									"IT": "Dei ritardi di rete pon compromettere il processo di votazione. Vi ringraziamo per la vostra comprensione.",
+									"RM": "Ritards da rait pon influenzar il process da votaziun. Nus engraziain per Vossa chapientscha."
+								}
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+]

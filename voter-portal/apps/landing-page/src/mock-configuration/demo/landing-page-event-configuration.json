@@ -1,0 +1,91 @@
+[
+	{
+		"id": "DEMO-1",
+		"phases": [
+			{
+				"phaseLevel": "UPCOMING",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "UPCOMING",
+							"text": {
+								"DE": "**Wird bald geöffnet**",
+								"FR": "**Ouvrira bientôt**",
+								"IT": "**Aprirà presto:**",
+								"RM": "**egn a s’avrir spert:**",
+								"EN": "**Will Open soon :** "
+							}
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "OPEN",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "OPEN",
+							"text": {
+								"DE": "**Geöffnet zum Abstimmen**",
+								"FR": "**Ouvert au vote**",
+								"IT": "**Aperto al voto**",
+								"RM": "**Avert per votar**",
+								"EN": "**Open for voting**"
+							}
+						}
+					},
+					{
+						"alert": {
+							"level": "warning",
+							"contentElements": [
+								{
+									"paragraph": {
+										"text": {
+											"DE": "Für die Test-Stimmabgabe auf der Plattform verwenden Sie zur Anmeldung das fiktive **Geburtsjahr 1980**.",
+											"FR": "Pour le vote d’essai sur la plateforme de test, utilisez **l’année de naissance fictive 1980** pour vous connecter.",
+											"IT": "Per la votazione di prova sulla piattaforma di test, utilizzare **l’anno di nascita fittizio 1980** per accedere.",
+											"RM": "Per la votaziun da prova sin la plattafurma da test, duvrai **l’onn da naschientscha fictiv 1980**  per s’annunziar.",
+											"EN": "For trial voting on the test platform, use the **fictitious birth year 1980** to log in."
+										}
+									}
+								}
+							]
+						}
+					},
+					{
+						"button": {
+							"text": {
+								"DE": "Zum Abstimmungsportal",
+								"FR": "Accès au portail de vote",
+								"IT": "Accesso al portale di voto",
+								"RM": "Access al portal da votar",
+								"EN": "Access to the voting portal"
+							},
+							"link": "https://demo.evoting.ch/vote/#/init/A7C1901CC561ED5E97364F15455CFDAF",
+							"addLanguageParameter": true,
+							"languageParameter": "?lang=",
+							"icon": "arrow-right"
+						}
+					}
+				]
+			},
+			{
+				"phaseLevel": "EVOTING-CLOSED",
+				"contentElements": [
+					{
+						"eventState": {
+							"phaseLevel": "EVOTING-CLOSED",
+							"text": {
+								"DE": "**Geschlossen**",
+								"FR": "**Fermé**",
+								"IT": "**Chiuso**",
+								"RM": "**Terminà**",
+								"EN": "**Closed**"
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+]

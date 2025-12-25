@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1D9BF23FECD24F899C30B11FE1A6CB5F",
+    "electionEvent": {
+      "id": "101549C5A4A04C7B88A0CB9BE8AB3DF6"
+    },
+    "status": "SIGNED",
+    "synchronized": "true",
+    "defaultTitle": "vcs_133",
+    "defaultDescription": "vcs_133",
+    "alias": "vcs_133",
+    "numberOfEligibleVoters": 3,
+    "ballotBox": {
+      "id": "268872255B9B44F39C5404F3EBD85C07"
+    },
+    "details": "Synchronized",
+    "ballotAlias": "343",
+    "ballotBoxAlias": "133"
+  },
+  {
+    "id": "478079602B3d4EA8A07129146A8F15F2",
+    "electionEvent": {
+      "id": "101549C5A4A04C7B88A0CB9BE8AB3DF7"
+    },
+    "status": "SIGNED",
+    "synchronized": "true",
+    "defaultTitle": "vcs_139",
+    "defaultDescription": "vcs_139",
+    "alias": "vcs_139",
+    "numberOfEligibleVoters": 13,
+    "ballotBox": {
+      "id": "FD3517D051AD469EAB7920FCC4A68EC3"
+    },
+    "details": "Synchronized",
+    "ballotAlias": "343",
+    "ballotBoxAlias": "139"
+  }
+]

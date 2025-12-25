@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://evoting.ch/domain/tally/disputeresolver/ControlComponentExtractedElectionEventPayload.schema.json",
+	"title": "Control Component Extracted Election Event Payload",
+	"description": "A payload encompassing the control component's node id, the extracted election event needed by the Dispute Resolver tool and the digital signature.",
+	"type": "object",
+	"properties": {
+		"nodeId": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 4,
+			"description": "The node identifying the control component. Corresponds to the CC's index j in the specification."
+		},
+		"extractedElectionEvent": {
+			"$ref": "https://evoting.ch/evotinglibraries/extractedelectionevent/ExtractedElectionEvent.schema.json",
+			"description": "The extracted election event from the control component. Corresponds to eee in the specification."
+		},
+		"signature": {
+			"$ref": "https://evoting.ch/evotinglibraries/signature/CryptoPrimitivesSignature.schema.json",
+			"description": "The signature of the payload."
+		}
+	},
+	"required": [
+		"nodeId",
+		"extractedElectionEvent",
+		"signature"
+	],
+	"additionalProperties": false
+}

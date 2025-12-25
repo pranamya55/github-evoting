@@ -1,0 +1,39 @@
+/*!
+ * (c) Copyright 2025 Swiss Post Ltd.
+ */
+
+vp-clearable-input {
+  display: block;
+  position: relative;
+
+  .btn-clear {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+
+  .input-group > & {
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+
+    > .form-control:focus {
+      z-index: 3;
+    }
+  }
+
+  .input-group.has-validation > &:nth-last-child(n + 3) {
+    > .form-control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .input-group:not(.has-validation) > &:not(:last-child) {
+    > .form-control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
